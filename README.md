@@ -9,9 +9,21 @@ It's supported by MonoGame, also an open source project.
 
 ## Features
 
-* Official: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/features)
+* C# Scripting
+* Tileset Editor (Map Editor)
+* Farseer Integrated Physics
+* Object Editor (Inspector)
+* Bitmap Text Render Engine
+* Particle System
+* Scene Hieararchy
+* Free Mapping
+* More...
 
-## Tutorials
+* More Details: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/features)
 
-* Official: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/documentation)
+
+## Information
+
+* Documentation: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/documentation)
+* Tutorials: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/documentation?sh=tutorials_beginner)
 
