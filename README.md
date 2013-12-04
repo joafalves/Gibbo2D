@@ -24,3 +24,6 @@ It's supported by MonoGame, also an open source project.
 * Documentation: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/documentation)
 * Tutorials: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/documentation?sh=tutorials_beginner)
 
+## License
+
+Gibbo2D is released under the Microsoft Public License (Ms-PL)
