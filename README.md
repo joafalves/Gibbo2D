@@ -17,10 +17,8 @@ It's supported by MonoGame, also an open source project.
 * Particle System
 * Scene Hieararchy
 * Free Mapping
-* More...
 
 * More Details: [Click Here](http://dragon-scale-studios.com/gibbo/index.php/main/display/features)
-
 
 ## Information
 
