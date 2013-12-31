@@ -1,6 +1,0 @@
-C:\Users\John\Dropbox\Gibbo 2D\TESTS\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
-C:\Users\John\Dropbox\Gibbo 2D\TESTS\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
-C:\Users\John\Dropbox\Gibbo 2D\TESTS\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
-C:\Users\John\Dropbox\Gibbo 2D\TESTS\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\John\Dropbox\Gibbo 2D\TESTS\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
-C:\Users\John\Dropbox\Gibbo 2D\TESTS\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
