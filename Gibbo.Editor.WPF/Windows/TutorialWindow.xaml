@@ -1,0 +1,76 @@
+﻿<Window x:Class="Gibbo.Editor.WPF.TutorialWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Gibbo.Editor.WPF"
+        Title="Tutorial Window" Height="480" Width="640" Background="#282828" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Gibbo.Editor.WPF;component/Gibbo.Content/logo_modern.png"
+        >
+    <Window.Resources>
+        <Style x:Key="MiniToolbarMenuItem" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="1,0,1,0"/>
+            <Setter Property="BorderBrush" Value="#2e2e2e"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF616161"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TabTopBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="0, 1, 0, 0"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderDark}"/>
+            <Setter Property="Background" Value="{DynamicResource GradientBrush1}"/>
+            <Setter Property="CornerRadius" Value="0"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="340"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Image HorizontalAlignment="Center" x:Name="PagePicture" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Stretch="Fill" Margin="4"/>
+        <Border Grid.Row="1" Grid.ColumnSpan="3" Margin="0" Style="{DynamicResource TabTopBorder}">
+            <Border BorderThickness="0" Grid.ColumnSpan="4" BorderBrush="{DynamicResource Border}">
+                <DockPanel>
+                    <Button x:Name="PreviousBtn" DockPanel.Dock="Left" HorizontalAlignment="Left" Width="80" Height="30" Style="{DynamicResource MiniToolbarMenuItem}" Margin="0" Click="PreviousBtn_Click_1">
+                        <StackPanel  Orientation="Horizontal">
+                            <!--<Image Source="/Gibbo.Editor.WPF;component/Gibbo.Content/_plus.png" Height="9" Width="9"/>-->
+                            <TextBlock Text="◄ Previous" Foreground="{DynamicResource ForegroundGray}" Margin="4,0,0,0" FontFamily="Arial"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="NextBtn" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="80" Height="30" Style="{DynamicResource MiniToolbarMenuItem}" Margin="0" Click="NextBtn_Click_1"  >
+                        <StackPanel  Orientation="Horizontal">
+                            <TextBlock Text="Next ►" Foreground="{DynamicResource ForegroundGray}" Margin="4,0,0,0" FontFamily="Arial"/>
+                            <!--<Image Source="/Gibbo.Editor.WPF;component/Gibbo.Content/_refresh.png" Height="12" Width="12"/>-->
+                        </StackPanel>
+                    </Button>
+                    
+                    <TextBlock x:Name="TutorialTitle" Text="First Steps (1/10): Create a New Scene" FontSize="15" Foreground="{DynamicResource ForegroundGray}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    
+                </DockPanel>
+            </Border>
+        </Border>
+        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderDark}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" >
+                <TextBlock x:Name="txtDescription" TextWrapping="Wrap" Margin="4" Foreground="{DynamicResource ForegroundGray}">
+                    Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"Width=" {Binding RelativeSource=something  {RelativeSource Self}, Path=Width}"Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"Width="{Binding RelativeSource={RelativeSource Self}, Path=Width}"
+                </TextBlock>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

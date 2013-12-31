@@ -1,0 +1,4 @@
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.Framework\bin\Debug\Gibbo.Framework.dll
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.Framework\bin\Debug\Gibbo.Framework.pdb
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.Framework\obj\Debug\Gibbo.Framework.dll
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.Framework\obj\Debug\Gibbo.Framework.pdb

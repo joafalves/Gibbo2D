@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>TCD.Serialization</id>
+    <version>1.1.0</version>
+    <title />
+    <authors>Michael Osthege</authors>
+    <owners>Michael Osthege</owners>
+    <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Serialize and deserialize XML and JSON to/from Stream or string.
+
+Platforms
+* .NET4.0 and higher
+* Silverlight 4 and higher
+* Windows Phone 7.0 and higher
+* WinRT</description>
+    <summary>Serialize and deserialize XML and JSON
+(WinRT, Windows Phone, Silverlight 4+, .NET4+)</summary>
+    <releaseNotes>1.0.3 WinRT: bugfix of new-line-handling in XmlDeSerialzier - bug is still present on WP7!!
+
+1.0.4 build in release mode
+
+1.1.0 As Portable Class Library</releaseNotes>
+    <tags>XML JSON WinRT win8 TCD Windows Phone wp7</tags>
+    <references>
+      <reference file="TCD.Serialization.dll" />
+    </references>
+  </metadata>
+</package>

@@ -1,0 +1,180 @@
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\settings.ini
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\audio.png
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\bgvs.png
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\editorBMFont_0.png
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\Gibbo.Engine.Windows.exe
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\Lidgren.Network.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\MonoGame.Framework.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\NAudio.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenTK.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\Tao.Sdl.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenTK.GLControl.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\samples\SampleController.cs
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\HudFont.xnb
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\documentation.chm
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\editorBMFont.fnt
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\GameProject.csproj
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\GameProject.sln
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenAL32.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\SDL.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\SDL.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe.config
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe.manifest
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.application
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.pdb
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Aga.Controls.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\FlatTabControl.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Library.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Lidgren.Network.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\MonoGame.Framework.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\OpenTK.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Tao.Sdl.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\NAudio.dll
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Library.pdb
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\OpenTK.xml
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.csprojResolveAssemblyReference.cache
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.BrushControl.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.NumericScale.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ProjectSettings.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.VisualScriptingWindow.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\OpenTK.GLControl.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.FolderTreeViewControl.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.SceneTreeViewControl.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.AboutBox.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.CompilerForm.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ComponentEditor.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Editor.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.NewProject.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.OutputWindow.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ProjectDeploy.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Forms.ProjectStartup.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Properties.Resources.resources
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.csproj.GenerateResource.Cache
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.TrustInfo.xml
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.exe.manifest
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.application
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.exe
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.pdb
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\settings.ini
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\audio.png
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\bgvs.png
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\editorBMFont_0.png
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\Gibbo.Engine.Windows.exe
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\Lidgren.Network.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\MonoGame.Framework.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\NAudio.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenTK.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\Tao.Sdl.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenTK.GLControl.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\samples\SampleController.cs
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\HudFont.xnb
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\documentation.chm
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\editorBMFont.fnt
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\GameProject.csproj
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\GameProject.sln
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenAL32.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\SDL.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\SDL.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe.config
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe.manifest
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.application
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.pdb
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Aga.Controls.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\FlatTabControl.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Library.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Lidgren.Network.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\MonoGame.Framework.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\OpenTK.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Tao.Sdl.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\NAudio.dll
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Library.pdb
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\OpenTK.xml
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.csprojResolveAssemblyReference.cache
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.BrushControl.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.NumericScale.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ProjectSettings.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.VisualScriptingWindow.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\OpenTK.GLControl.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.FolderTreeViewControl.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.SceneTreeViewControl.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.AboutBox.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.CompilerForm.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ComponentEditor.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Editor.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.NewProject.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.OutputWindow.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ProjectDeploy.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Forms.ProjectStartup.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Properties.Resources.resources
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.csproj.GenerateResource.Cache
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.TrustInfo.xml
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.exe.manifest
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.application
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.exe
+C:\Users\Bullock86\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.pdb
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\settings.ini
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\audio.png
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\bgvs.png
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\editorBMFont_0.png
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\Gibbo.Engine.Windows.exe
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\Lidgren.Network.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\MonoGame.Framework.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\NAudio.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenTK.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\Tao.Sdl.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenTK.GLControl.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\samples\SampleController.cs
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\HudFont.xnb
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\documentation.chm
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Content\editorBMFont.fnt
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\GameProject.csproj
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\GameProject.sln
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\OpenAL32.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Project Templates\libs\SDL.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\SDL.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe.config
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe.manifest
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.application
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.exe
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Editor.Winforms.pdb
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Aga.Controls.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\FlatTabControl.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Library.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Lidgren.Network.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\MonoGame.Framework.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\OpenTK.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Tao.Sdl.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\NAudio.dll
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\Gibbo.Library.pdb
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\bin\Debug\OpenTK.xml
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.csprojResolveAssemblyReference.cache
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.BrushControl.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.NumericScale.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ProjectSettings.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.VisualScriptingWindow.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\OpenTK.GLControl.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.FolderTreeViewControl.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.SceneTreeViewControl.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.AboutBox.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.CompilerForm.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ComponentEditor.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Editor.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.NewProject.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.OutputWindow.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.ProjectDeploy.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Forms.ProjectStartup.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Properties.Resources.resources
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.csproj.GenerateResource.Cache
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.TrustInfo.xml
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.exe.manifest
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.application
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.exe
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\Gibbo.Editor.Winforms.pdb
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\João\Dropbox\Gibbo 2D\Gibbo.Editor.Winforms\obj\x86\Debug\GenerateResource.write.1.tlog

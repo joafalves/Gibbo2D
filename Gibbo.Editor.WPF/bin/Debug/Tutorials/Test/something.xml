@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Gibbo Tutorial-->
+<Tutorial>
+  <Info>
+    <Title>Double Steps</Title>
+    <Author>Gibbo2D Team</Author>
+    <Description>ADD HERE</Description>
+    <Category>Medium</Category>
+    <Image>image.png</Image>
+  </Info>
+  <Pages>
+    <Page Title="x122345">
+      <Image>image.png</Image>
+      <Description>Descrição here11232</Description>
+    </Page>
+    <Page Title="x2324324">
+      <Image>img1.png</Image>
+      <Description>Descrição here21232</Description>
+    </Page>
+  </Pages>
+</Tutorial>

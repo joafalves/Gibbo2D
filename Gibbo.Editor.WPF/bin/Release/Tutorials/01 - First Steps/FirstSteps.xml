@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Gibbo Tutorial-->
+<Tutorial>
+  <Info>
+    <Title>01 - First Steps</Title>
+    <Author>Gibbo2D Team</Author>
+    <Description>This tutorial will give you the necessary information in order to start working with Gibbo2D</Description>
+    <Category>Easy</Category>
+    <Image>image.png</Image>
+  </Info>
+  <Pages>
+    <Page Title="Add a Game Object">
+      <Image>image.png</Image>
+      <Description>There are several and distinct Game Objects you can use in the scene. 
+The Empty object can be used as a container - it's not the only function. 
+Think of it like an invisible layer, whose children are grouped inside and move along with it. 
+Start by adding one of those in the Scene - name it Container. In order to do that, either right mouse click in a Scene’s Hierarchy Object or press the Add New button at its top. </Description>
+    </Page>
+    <Page Title="Add to Selected Object">
+      <Image>image_selected.png</Image>
+      <Description>Descrição here2</Description>
+    </Page>
+  </Pages>
+</Tutorial>

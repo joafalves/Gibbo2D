@@ -1,0 +1,13 @@
+﻿<Window x:Class="Gibbo.Editor.WPF.StartupForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Startup" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Icon="/Gibbo.Editor.WPF;component/Gibbo.Content/logo_modern.png" >
+        <Grid Background="{DynamicResource BackgroundBrush}" Height="270" Width="466">
+        <Label Content="Last Loaded Projects:" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundGray}"/>
+        <ListBox x:Name="ProjectsListBox"  HorizontalAlignment="Left" Height="191" Margin="17,36,0,0" VerticalAlignment="Top" Width="433" Style="{DynamicResource ListBoxStyle}" MouseDoubleClick="ProjectsListBox_MouseDoubleClick" BorderBrush="Black" />
+        <Button x:Name="newProjectBtn" Content="New Project.." HorizontalAlignment="Left" Margin="17,234,0,0" VerticalAlignment="Top" Width="89" Style="{DynamicResource ButtonStyle}" Click="newProjectBtn_Click"/>
+        <Button x:Name="browseBtn" Content="Browse.." HorizontalAlignment="Left" Margin="111,234,0,0" VerticalAlignment="Top" Width="89" Style="{DynamicResource ButtonStyle}" Click="browseBtn_Click"/>
+        <Button x:Name="loadBtn" Content="Load" HorizontalAlignment="Left" Margin="267,234,0,0" VerticalAlignment="Top" Width="89" Style="{DynamicResource ButtonStyle}" RenderTransformOrigin="1.685,0.536" Click="loadBtn_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="361,234,0,0" VerticalAlignment="Top" Width="89" Style="{DynamicResource ButtonStyle}" RenderTransformOrigin="1.685,0.536" Click="Button_Click"/>
+    </Grid>
+</Window>

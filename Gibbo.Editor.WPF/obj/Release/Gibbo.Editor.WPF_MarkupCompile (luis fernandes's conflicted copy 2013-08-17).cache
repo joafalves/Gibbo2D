@@ -1,0 +1,20 @@
+﻿Gibbo.Editor.WPF
+
+
+winexe
+C#
+.cs
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\obj\Release\
+Gibbo.Editor.WPF
+none
+false
+TRACE
+C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\App.xaml
+20152443215
+26-1866275823
+57-300315499
+381745280855
+Controls\TilesetBrushControl.xaml;Themes\CheckBoxStyle.xaml;Themes\ComboBoxStyle.xaml;Themes\PropertyGridStyle.xaml;Windows\FirstLoginWindow.xaml;Windows\PicturePreview.xaml;Windows\ScriptingEditorWindow.xaml;Windows\SettingsWindow.xaml;Windows\WindowsFormsHostOverlay.xaml;Windows\AddNewItemWindow.xaml;Controls\CustomCheckBox.xaml;Controls\ProjectExplorerTreeView.xaml;Controls\PropertyBox.xaml;Windows\TestsWindow.xaml;Windows\CompilerWindow.xaml;Windows\MainWindow.xaml;Controls\SceneHierarchyTreeView.xaml;Windows\StartupWindow.xaml;Windows\NewProjectWindow.xaml;Themes\IgniteDark.xaml;
+
+False
+

@@ -1,0 +1,7 @@
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.RuntimeConsole\bin\Debug\Gibbo.RuntimeConsole.exe
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.RuntimeConsole\bin\Debug\Gibbo.RuntimeConsole.pdb
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.RuntimeConsole\bin\Debug\Gibbo.Framework.dll
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.RuntimeConsole\bin\Debug\Gibbo.Framework.pdb
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.RuntimeConsole\obj\x86\Debug\Gibbo.RuntimeConsole.csprojResolveAssemblyReference.cache
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.RuntimeConsole\obj\x86\Debug\Gibbo.RuntimeConsole.exe
+C:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.RuntimeConsole\obj\x86\Debug\Gibbo.RuntimeConsole.pdb

@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>98E2B4CCA902834BC85F1CBB137090FBEA3288BA</ManifestCertificateThumbprint>
+    <PublishUrl>http://www.dragon-scale-studios.com/downloads/gibbo/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://dragon-scale-studios.com/gibbo/forum/</SupportUrl>
+    <ErrorReportUrl>http://dragon-scale-studios.com/gibbo/forum/</ErrorReportUrl>
+    <ProductName>Gibbo 2D</ProductName>
+    <PublisherName>Dragon Scale Studios</PublisherName>
+    <SuiteName>Gibbo Suite</SuiteName>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Gibbo.Editor.WPF_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gibbo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5880ABEC-A5CC-45A4-A96A-EBE83576A460}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gibbo.Editor.WPF</RootNamespace>
+    <AssemblyName>Gibbo.Editor.WPF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <!--<ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>-->
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\References\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="MonoGame.Framework, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\WPFToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFToolkit.Design, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\WPFToolkit.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Classes\BraceFoldingStrategy.cs" />
+    <Compile Include="Classes\CommandBindings.cs" />
+    <Compile Include="Classes\DragDropHelper.cs" />
+    <Compile Include="Classes\InsertionAdorner.cs" />
+    <Compile Include="Classes\LeftMarginMultiplierConverter.cs" />
+    <Compile Include="Classes\LimeScriptEditor.cs" />
+    <Compile Include="Classes\OutputMessage.cs" />
+    <Compile Include="Classes\Page.cs" />
+    <Compile Include="Commands\CommandReference.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Controls\TilesetBrushControl.xaml.cs">
+      <DependentUpon>TilesetBrushControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TilesetCanvas.cs" />
+    <Compile Include="Controls\TutorialContainer.xaml.cs">
+      <DependentUpon>TutorialContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TutorialsCategoryContainer.xaml.cs">
+      <DependentUpon>TutorialsCategoryContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicsDevice\GameViewGameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModel\ButtonVisibilityViewModel.cs" />
+    <Compile Include="Model\ResizeBasedVisibility.cs" />
+    <Compile Include="Controls\VisualScripting\VisualNode.xaml.cs">
+      <DependentUpon>VisualNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DeploymentWindow.xaml.cs">
+      <DependentUpon>DeploymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FirstLoginWindow.xaml.cs">
+      <DependentUpon>FirstLoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PicturePreview.xaml.cs">
+      <DependentUpon>PicturePreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ScriptingEditorWindow.xaml.cs">
+      <DependentUpon>ScriptingEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SplashWindow.xaml.cs">
+      <DependentUpon>SplashWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TutorialsListWindow.xaml.cs">
+      <DependentUpon>TutorialsListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TutorialWindow.xaml.cs">
+      <DependentUpon>TutorialWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VisualNodesWindow.xaml.cs">
+      <DependentUpon>VisualNodesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowsFormsHostOverlay.xaml.cs">
+      <DependentUpon>WindowsFormsHostOverlay.xaml</DependentUpon>
+    </Compile>
+    <Resource Include="Content\android.png" />
+    <Resource Include="Content\ios.png" />
+    <Resource Include="Content\linux.png" />
+    <Resource Include="Content\macos.png" />
+    <Resource Include="Content\windows.png" />
+    <Resource Include="Content\windows_phone.png" />
+    <Resource Include="Content\windows_store.png" />
+    <Resource Include="Gibbo.Content\_debug_view.png" />
+    <Resource Include="Gibbo.Content\splashscreen.png" />
+    <Content Include="Tutorials\FirstSteps\FirstSteps.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Tutorials\FirstSteps\Pictures\image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\FirstSteps\Pictures\img1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Gibbo.Content\_pencil.png" />
+    <Resource Include="Gibbo.Content\add_column.png" />
+    <Resource Include="Gibbo.Content\grid_icon.png" />
+    <Resource Include="Gibbo.Content\grid_remove_icon.png" />
+    <Resource Include="Gibbo.Content\add_row.png" />
+    <Resource Include="Gibbo.Content\remove_column.png" />
+    <Resource Include="Gibbo.Content\remove_row.png" />
+    <Resource Include="Gibbo.Content\grid_shift_down.png" />
+    <Resource Include="Gibbo.Content\grid_shift_left.png" />
+    <Resource Include="Gibbo.Content\grid_shift_right.png" />
+    <Resource Include="Gibbo.Content\grid_shift_up.png" />
+    <Resource Include="gibbo.ico" />
+    <Resource Include="Gibbo.Content\_game_object_particle.png" />
+    <Content Include="Project Templates\Gibbo.Library.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\Xceed.Wpf.Toolkit.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Controls\TilesetBrushControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TutorialContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TutorialsCategoryContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VisualScripting\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CheckBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ComboBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\PropertyGridStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VisualScripting\VisualNode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DeploymentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FirstLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PicturePreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ScriptingEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SplashWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TutorialsListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TutorialWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\VisualNodesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowsFormsHostOverlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Gibbo.Content\_component_item.png" />
+    <Resource Include="Gibbo.Content\_component.png" />
+    <Resource Include="Gibbo.Content\_save.png" />
+    <Resource Include="Gibbo.Content\_copy.png" />
+    <Resource Include="Gibbo.Content\_cut.png" />
+    <Resource Include="Gibbo.Content\_paste.png" />
+    <Resource Include="Gibbo.Content\_move_down.png" />
+    <Resource Include="Gibbo.Content\_move_up.png" />
+    <Resource Include="Gibbo.Content\_rename.png" />
+    <Resource Include="Gibbo.Content\_folder_add.png" />
+    <Resource Include="Gibbo.Content\_logo_a.png" />
+    <Resource Include="Gibbo.Content\_maximize_btn.png" />
+    <Resource Include="Gibbo.Content\_minimize.png" />
+    <Resource Include="Gibbo.Content\_x.png" />
+    <Resource Include="Gibbo.Content\Gibbo2D-Black.png" />
+    <Resource Include="Gibbo.Content\_gibbo_icon_black.png" />
+    <Resource Include="Gibbo.Content\Categorize16.png" />
+    <Resource Include="Gibbo.Content\ClearFilter16.png" />
+    <Resource Include="Gibbo.Content\SortAscending16.png" />
+    <Resource Include="Gibbo.Content\_settings.png" />
+    <Resource Include="Gibbo.Content\_trash.png" />
+    <Resource Include="Gibbo.Content\logo_modern.png" />
+    <Content Include="Project Templates\samples\DefaultComponent.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Controls\GibboMenuItem.cs" />
+    <Compile Include="Themes\DarkThemeResourseDictionary.cs" />
+    <Compile Include="Windows\AddNewItemWindow.xaml.cs">
+      <DependentUpon>AddNewItemWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\EditorCommands.cs" />
+    <Compile Include="Classes\EditorHandler.cs" />
+    <Compile Include="Classes\EditorUtils.cs" />
+    <Compile Include="Classes\KeyboardUtil.cs" />
+    <Compile Include="Controls\CustomCheckBox.xaml.cs">
+      <DependentUpon>CustomCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DragDropTreeView.cs" />
+    <Compile Include="Controls\DragDropTreeViewItem.cs" />
+    <Compile Include="Controls\ProjectExplorerTreeView.xaml.cs">
+      <DependentUpon>ProjectExplorerTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExplorerTreeViewItem.cs" />
+    <Compile Include="Controls\PropertyBox.xaml.cs">
+      <DependentUpon>PropertyBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RoundedButton.cs" />
+    <Compile Include="Controls\RoundedButtonToggle.cs" />
+    <Compile Include="Windows\TestsWindow.xaml.cs">
+      <DependentUpon>TestsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CompilerWindow.xaml.cs">
+      <DependentUpon>CompilerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SceneHierarchyTreeView.xaml.cs">
+      <DependentUpon>SceneHierarchyTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicsDevice\GameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphicsDevice\GraphicsDeviceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphicsDevice\GraphicsDeviceService.cs" />
+    <Compile Include="GraphicsDevice\SceneViewGameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphicsDevice\ServiceContainer.cs" />
+    <Compile Include="GraphicsDevice\SimpleGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphicsDevice\SimpleMonogameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Content Include="Gibbo.Content\audio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gibbo.Content\bgvs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gibbo.Content\editorBMFont_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Gibbo.Content\_grid.png" />
+    <Resource Include="Gibbo.Content\_grid_collisions.png" />
+    <Resource Include="Gibbo.Content\_grid_snap.png" />
+    <Resource Include="Gibbo.Content\_camera.png" />
+    <Resource Include="Gibbo.Content\_camera_object.png" />
+    <Resource Include="Gibbo.Content\eye_close.png" />
+    <Resource Include="Gibbo.Content\eye_open.png" />
+    <Content Include="Gibbo.Content\_arrow_down.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gibbo.Content\_arrow_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Gibbo.Content\_game_object_sprite.png" />
+    <Resource Include="Gibbo.Content\_game_object_empty.png" />
+    <Resource Include="Gibbo.Content\_layer.png" />
+    <Resource Include="Gibbo.Content\_plus.png" />
+    <Resource Include="Gibbo.Content\_btn_toggle_off.png" />
+    <Resource Include="Gibbo.Content\_btn_toggle_on.png" />
+    <Resource Include="Gibbo.Content\_game_object_audio.png" />
+    <Resource Include="Gibbo.Content\_game_object_text.png" />
+    <Resource Include="Gibbo.Content\_game_object_tileset.png" />
+    <Resource Include="Gibbo.Content\_refresh.png" />
+    <Resource Include="Gibbo.Content\_cs_file.png" />
+    <Resource Include="Gibbo.Content\_file.png" />
+    <Resource Include="Gibbo.Content\_folder.png" />
+    <Resource Include="Gibbo.Content\_text_file.png" />
+    <Resource Include="Gibbo.Content\_scene_file.png" />
+    <Resource Include="Gibbo.Content\_image.png" />
+    <Resource Include="Gibbo.Content\_sln.png" />
+    <Content Include="Project Templates\samples\SampleController.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Windows\StartupWindow.xaml.cs">
+      <DependentUpon>StartupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NewProjectWindow.xaml.cs">
+      <DependentUpon>NewProjectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdParty\GLControl\CarbonGLControl.cs" />
+    <Compile Include="ThirdParty\GLControl\DummyGLControl.cs" />
+    <Compile Include="ThirdParty\GLControl\GLControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThirdParty\GLControl\GLControl.designer.cs" />
+    <Compile Include="ThirdParty\GLControl\GLControlFactory.cs" />
+    <Compile Include="ThirdParty\GLControl\IGLControl.cs" />
+    <Compile Include="ThirdParty\GLControl\WinGLControl.cs" />
+    <Compile Include="ThirdParty\GLControl\X11GLControl.cs" />
+    <Content Include="Gibbo.Content\gibbo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Windows\AddNewItemWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CustomCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ProjectExplorerTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PropertyBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TestsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CompilerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Controls\SceneHierarchyTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\StartupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NewProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\IgniteDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="ThirdParty\GLControl\GLControl.resx" />
+    <Content Include="Project Templates\settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <Content Include="Gibbo.Content\editorBMFont.fnt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentation.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Gibbo.Content\font.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\debugfont.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Gibbo.Editor.WPF_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <!--<AppDesigner Include="Properties\" />-->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gibbo.Editor.Model\Gibbo.Editor.Model.csproj">
+      <Project>{7f87f0fe-019d-4e0a-afa4-48baba1a5b42}</Project>
+      <Name>Gibbo.Editor.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gibbo.Library\Gibbo.Library.csproj">
+      <Project>{83a66501-726c-4783-97bf-8c2b88bd0544}</Project>
+      <Name>Gibbo.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoGame-develop\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
+      <Project>{7de47032-a904-4c29-bd22-2d235e8d91ba}</Project>
+      <Name>MonoGame.Framework.WindowsGL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Project Templates\GameProject.csproj">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\GameProject.sln">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\Gibbo.Engine.Windows.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\Lidgren.Network.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\MonoGame.Framework.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\NAudio.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\OpenAL32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\OpenTK.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\OpenTK.GLControl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\SDL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\libs\Tao.Sdl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Demos\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="EnvDTE">
+      <Guid>{80CC9F66-E7D8-4DDD-85B6-D9E6CD0E93E2}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE100">
+      <Guid>{26AD1324-4B7C-44BC-84F8-B86AED45729F}</Guid>
+      <VersionMajor>10</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE80">
+      <Guid>{1A31287A-4D7D-413E-8E32-3B374931BD89}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="EnvDTE90">
+      <Guid>{2CE2370E-D744-4936-A090-3FFFE667B0E1}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <FileAssociation Include=".gibbo">
+      <Visible>False</Visible>
+      <Description>gibbo</Description>
+      <Progid>gibbo_id_m70</Progid>
+      <DefaultIcon>gibbo.ico</DefaultIcon>
+    </FileAssociation>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Project Templates\Gibbo.Library.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

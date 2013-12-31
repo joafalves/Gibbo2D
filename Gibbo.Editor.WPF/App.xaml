@@ -1,0 +1,23 @@
+﻿<Application x:Class="Gibbo.Editor.WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 StartupUri="Windows\StartupWindow.xaml">
+    
+    <Application.Resources>
+         
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/IgniteDark.xaml"/>
+                <ResourceDictionary Source="Themes/PropertyGridStyle.xaml"/>
+                <ResourceDictionary Source="Themes/ComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="Themes/CheckBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Controls/VisualScripting/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+    	</ResourceDictionary>
+         
+    </Application.Resources>
+
+    <JumpList.JumpList>
+        <JumpList ShowRecentCategory="True"/>
+    </JumpList.JumpList>
+</Application>

@@ -1,0 +1,6 @@
+﻿<Window x:Class="Gibbo.Editor.WPF.WindowsFormsHostOverlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowsFormsHostOverlay"  WindowStyle="None" ShowInTaskbar="False" ResizeMode="NoResize" SizeToContent="WidthAndHeight" >
+    <WindowsFormsHost Name="wfh" Height="300" Width="300"/>
+</Window>

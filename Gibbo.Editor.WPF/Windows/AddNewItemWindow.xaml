@@ -1,0 +1,83 @@
+﻿<Window x:Class="Gibbo.Editor.WPF.AddNewItemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add New Item" Height="359.774" Width="588.722" Background="{DynamicResource PanelBackground}" Padding="5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="{DynamicResource Border}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="itemListBox" Background="{DynamicResource PanelBackground}" BorderBrush="{x:Null}" Margin="4" SelectionChanged="itemListBox_SelectionChanged">
+            <ListBoxItem Tag="empty">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource GameObjectIcon_Empty}"/>
+                    <TextBlock Margin="4,0,0,0">Empty</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem Tag="sprite">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource GameObjectIcon_Sprite}"/>
+                    <TextBlock Margin="4,0,0,0">Sprite</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource GameObjectIcon_Sprite}"/>
+                    <TextBlock Margin="4,0,0,0">Animated Sprite</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource GameObjectIcon_Tileset}"/>
+                    <TextBlock Margin="4,0,0,0">Tileset</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource GameObjectIcon_Audio}"/>
+                    <TextBlock Margin="4,0,0,0">Audio</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource GameObjectIcon_Text}"/>
+                    <TextBlock Margin="4,0,0,0">Bitmap Font</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{DynamicResource GameObjectIcon_Particle}"/>
+                    <TextBlock Margin="4,0,0,0">Particle Emitter</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+
+        <TextBlock x:Name="itemInfoTextBlock" Grid.Column="2" Foreground="{DynamicResource ForegroundGray}" Margin="4" TextWrapping="Wrap" >
+
+        </TextBlock>
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="28"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel  Orientation="Horizontal" Height="26" VerticalAlignment="Center" Margin="8,7,4,7">
+                <Label Foreground="{DynamicResource ForegroundGray}" Width="53">Name:</Label>
+                <TextBox x:Name="nameTextBox" Width="226" Foreground="{DynamicResource ForegroundGray}" Template="{DynamicResource TextBoxBaseControlTemplate}" KeyUp="nameTextBox_KeyUp"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Height="16" VerticalAlignment="Center" Margin="60,0,4,12">
+                <CheckBox x:Name="addToSelectedCheckBox" Content="Add to selected" Margin="0,0,18,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource ForegroundGray}" IsChecked="True"></CheckBox>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Height="26" HorizontalAlignment="Right" Margin="0,34,10,10">
+            <Button x:Name="cancelBtn" Content="Cancel" Width="80" Style="{DynamicResource ButtonStyle}" Click="cancelBtn_Click" />
+            <Button x:Name="addBtn" Content="Add" Width="80" Margin="10,0,0,0" Style="{DynamicResource ButtonStyle}" Click="addBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

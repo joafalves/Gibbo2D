@@ -1,0 +1,36 @@
+﻿<Window x:Class="Gibbo.Editor.WPF.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="Settings" Height="459" Width="543" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+    <Window.Resources>
+        <SolidColorBrush x:Key="PanelBackground" Color="#00000000"/> <!-- override -->
+    </Window.Resources>
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <ListBox x:Name="ProjectsListBox" Style="{DynamicResource ListBoxStyle}" BorderBrush="Black" BorderThickness="0,0,1,0" SelectionChanged="ProjectsListBox_SelectionChanged">
+                <ListBoxItem IsEnabled="False" Foreground="#777">Gibbo Settings</ListBoxItem>
+                <ListBoxItem IsSelected="True" Tag="gibbo_general">General</ListBoxItem>
+                <ListBoxItem Tag="gibbo_tileset">Tileset</ListBoxItem>
+                <ListBoxItem IsEnabled="False" Foreground="#777" Margin="0,20,0,0">Game Settings</ListBoxItem>
+                <ListBoxItem Tag="game_general">General</ListBoxItem>
+                <ListBoxItem Tag="game_grid">Grid</ListBoxItem>
+                <ListBoxItem Tag="game_debug">Debug</ListBoxItem>
+                <ListBoxItem Tag="game_screen">Screen</ListBoxItem>
+            </ListBox>
+        </Grid>
+        <DockPanel Grid.Column="1">
+            <xceed:PropertyGrid x:Name="propertyGrid" FontSize="11" Background="#00000000">
+                <xceed:PropertyGrid.Resources>
+                    <Style TargetType="{x:Type xceed:PropertyItemsControl}">
+                        <Setter Property="Foreground" Value="{DynamicResource ForegroundGray}"/>
+                    </Style>
+                </xceed:PropertyGrid.Resources>
+            </xceed:PropertyGrid>
+        </DockPanel>
+    </Grid>
+</Window>

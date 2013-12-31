@@ -1,0 +1,8 @@
+﻿<Window x:Class="Gibbo.Editor.WPF.PicturePreview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PicturePreview" SizeToContent="WidthAndHeight" Background="#222" BorderBrush="#111" BorderThickness="1" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Image x:Name="PreviewImage" Margin="4" Stretch="Fill"></Image>
+    </Grid>
+</Window>

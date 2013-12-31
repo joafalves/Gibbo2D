@@ -1,0 +1,24 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Gibbo.Editor.WPF" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="Gibbo.Editor.WPF.TestsWindow"
+        Title="TestsWindow" Height="500" Width="586" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <Grid Background="{DynamicResource PanelBackground}" Margin="0,0,0,50">
+
+        <xceed:PropertyGrid x:Name="PropertyGrid" FontSize="11" SelectedObject="{DynamicResource Border}">
+            <xceed:PropertyGrid.Resources>
+                <Style TargetType="{x:Type xceed:PropertyItemsControl}">
+                    <Setter Property="Foreground" Value="{DynamicResource ForegroundGray}"/>
+                </Style>
+            </xceed:PropertyGrid.Resources>
+
+            <!--<xceed:PropertyGrid.PropertyContainerStyle>
+                
+            </xceed:PropertyGrid.PropertyContainerStyle>-->
+        </xceed:PropertyGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Height="26" Margin="486,433,0,-40" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="26" Margin="406,433,0,-40" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+    </Grid>
+</Window>

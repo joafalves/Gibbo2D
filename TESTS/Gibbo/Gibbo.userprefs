@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Gibbo.RuntimeConsole\Game1.cs">
+    <Files>
+      <File FileName="Gibbo.RuntimeConsole\Game1.cs" Line="18" Column="10" />
+      <File FileName="Gibbo.Framework\GameTime.cs" Line="1" Column="1" />
+      <File FileName="Gibbo.Framework\GameWindow.cs" Line="20" Column="42" />
+      <File FileName="c:\Users\John\Dropbox\Gibbo 2D\TESTS\Gibbo\Gibbo.Framework\SFML\Graphics\Texture.cs" Line="57" Column="1" />
+      <File FileName="Gibbo.Framework\SFML\Graphics\Sprite.cs" Line="13" Column="30" />
+      <File FileName="Gibbo.Framework\SFML\Graphics\Drawable.cs" Line="10" Column="5" />
+      <File FileName="Gibbo.Framework\SFML\Graphics\Transformable.cs" Line="10" Column="41" />
+      <File FileName="Gibbo.Framework\SFML\Window\ObjectBase.cs" Line="31" Column="10" />
+      <File FileName="Gibbo.Framework\SFML\Graphics\Text.cs" Line="34" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
