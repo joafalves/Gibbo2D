@@ -34,7 +34,7 @@
                             <StackPanel.OpacityMask>
                                 <VisualBrush Visual="{Binding ElementName=mask}"/>
                             </StackPanel.OpacityMask>
-                            <Image x:Name="containerPicture" Width="200" Height="180" Source="{DynamicResource FolderIcon}"/>
+                            <Image x:Name="containerPicture" Width="200" Height="180" Source="{DynamicResource FolderIcon}" Stretch="UniformToFill" />
                         </StackPanel>
                     </Grid>
                 </Border>

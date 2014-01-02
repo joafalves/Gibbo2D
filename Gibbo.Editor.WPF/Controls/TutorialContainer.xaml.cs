@@ -57,6 +57,9 @@ namespace Gibbo.Editor.WPF
             if (containerPicture.Source == null)
                 return false;
 
+            containerPicture.Width = 200;
+            containerPicture.Height = 180;
+
             this.title = doc.Element("Tutorial").Element("Info").Element("Title").Value;
             
             TitleTextBlock.Text = this.title;

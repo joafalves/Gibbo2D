@@ -43,11 +43,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="PresentationUI" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16384">
       <assemblyIdentity name="Gibbo.Editor.Model" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
@@ -55,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>bAZ5mey0wiCRhmDHOxnh/3jYESU=</dsig:DigestValue>
+        <dsig:DigestValue>3IFYX+mciMzrUWOfLjg4NfEzg/E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LMAMvxOac/1qXH2qeW+gCWvZ7m0=</dsig:DigestValue>
+        <dsig:DigestValue>8EiAhKaUqoS1neR7Kdxv9n093+o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -79,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8Gc0QaiBO/Tw91+MmZ3Hrgk6NzQ=</dsig:DigestValue>
+        <dsig:DigestValue>rz+uVGS+mvqMRSzp9TuT+gCD9yU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

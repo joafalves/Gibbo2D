@@ -232,6 +232,7 @@ namespace Gibbo.Editor.WPF
             }
 
             picture.Source = image;
+
         }
 
     }
