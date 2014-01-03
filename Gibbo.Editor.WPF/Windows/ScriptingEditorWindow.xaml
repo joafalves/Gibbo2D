@@ -23,7 +23,7 @@
             <local:RoundedButton x:Name="pasteBtn" Click="pasteBtn_Click" Style="{DynamicResource RoundedButtonStyle}" Height="24" Content="Paste" BorderThickness="0,1,1,1" Foreground="{DynamicResource ForegroundGray}" Width="50" Cursor="Hand" FontSize="11" CornerRadius="0,4,4,0" />
             <local:RoundedButton x:Name="undoBtn" Click="undoBtn_Click" Margin="4,0,0,0" Style="{DynamicResource RoundedButtonStyle}" Height="24" Content="Undo" BorderThickness="1,1,1,1" Foreground="{DynamicResource ForegroundGray}" Width="50" Cursor="Hand" FontSize="11"  CornerRadius="4,0,0,4" />
             <local:RoundedButton x:Name="redoBtn" Click="redoBtn_Click" Style="{DynamicResource RoundedButtonStyle}" Height="24" Content="Redo" BorderThickness="0,1,1,1" Foreground="{DynamicResource ForegroundGray}" Width="50" Cursor="Hand" FontSize="11" CornerRadius="0,4,4,0" />
-            <local:RoundedButton x:Name="closeBtn" Click="closeBtn_Click" Margin="4,0,0,0" Style="{DynamicResource RoundedButtonStyle}" Height="24" Content="Close" BorderThickness="1,1,1,1" Foreground="{DynamicResource ForegroundGray}" Width="50" Cursor="Hand" FontSize="11" CornerRadius="4" />
+            <local:RoundedButton x:Name="closeBtn" Click="closeBtn_Click" Margin="4,0,0,0" Style="{DynamicResource RoundedButtonStyle}" Height="24" Content="Close Tab" BorderThickness="1,1,1,1" Foreground="{DynamicResource ForegroundGray}" Width="64" Cursor="Hand" FontSize="11" CornerRadius="4" />
         </DockPanel>
         <DockPanel Grid.Row="1" LastChildFill="True" Margin="0,4,0,0">
             <TabControl Name="tabControl" Margin="2" Background="{DynamicResource PanelBackground}" BorderBrush="{DynamicResource BorderDark}">
