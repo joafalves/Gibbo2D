@@ -67,6 +67,7 @@ namespace Gibbo.Editor.WPF
         /// </summary>
         public static void ChangeSelectedObjects()
         {
+            EditorHandler.TilesetMenuItems.IsEnabled = false;
             if (SelectedGameObjects != null)
             {
                 if (SelectedGameObjects.Count == 1)
@@ -79,6 +80,7 @@ namespace Gibbo.Editor.WPF
                         EditorHandler.TilesetBrushControl.ChangeImageSource((SelectedGameObjects[0] as Tileset).ImagePath);
 
                         SceneManager.ActiveTileset = (Tileset)SelectedGameObjects[0];
+                        EditorHandler.TilesetMenuItems.IsEnabled = true;
                     }
                     else
                     {
@@ -111,6 +113,8 @@ namespace Gibbo.Editor.WPF
         internal static ProjectExplorerTreeView ProjectTreeView { get; set; }
 
         internal static StackPanel PropertyGridContainer { get; set; }
+
+        internal static StackPanel TilesetMenuItems { get; set; }
 
         /// <summary>
         /// 
