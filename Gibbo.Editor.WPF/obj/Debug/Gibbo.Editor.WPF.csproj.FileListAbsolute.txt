@@ -396,3 +396,122 @@ C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\obj\Debug\Controls\ProjectExplo
 C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\obj\Debug\Controls\PropertyBox.g.cs
 C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\obj\Debug\Windows\TestsWindow.g.cs
 C:\Users\Luís\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\obj\Debug\Themes\IgniteDark.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Editor.WPF.exe.config
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.csproj.ResolveComReference.cache
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.exe
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\_arrow_down.png
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\_arrow_right.png
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\settings.ini
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Documentation.chm
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\font.xnb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\SDL.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Tutorials\FirstSteps\FirstSteps.xml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Tutorials\FirstSteps\Pictures\image.png
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Tutorials\FirstSteps\Pictures\img1.png
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\Gibbo.Library.xml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\Xceed.Wpf.Toolkit.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\samples\DefaultComponent.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\audio.png
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\bgvs.png
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\editorBMFont_0.png
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\samples\SampleController.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\gibbo.ico
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Content\editorBMFont.fnt
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Content\debugfont.xnb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\GameProject.csproj
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\GameProject.sln
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\Gibbo.Engine.Windows.exe
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\Lidgren.Network.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\MonoGame.Framework.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\NAudio.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\OpenAL32.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\OpenTK.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\OpenTK.GLControl.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\SDL.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Project Templates\libs\Tao.Sdl.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Editor.WPF.exe.manifest
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Editor.WPF.application
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Editor.WPF.exe
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Editor.WPF.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Editor.Model.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Library.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\ICSharpCode.AvalonEdit.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\MonoGame.Framework.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\OpenTK.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\WPFToolkit.Design.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\WPFToolkit.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Lidgren.Network.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Tao.Sdl.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\NAudio.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Editor.Model.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\Gibbo.Library.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Debug\OpenTK.xml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.csprojResolveAssemblyReference.cache
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\TutorialContainer.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\TutorialsCategoryContainer.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\VisualScripting\Generic.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Themes\CheckBoxStyle.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Themes\ComboBoxStyle.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Themes\PropertyGridStyle.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\VisualScripting\VisualNode.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\FirstLoginWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\PicturePreview.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\SettingsWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\SplashWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\WindowsFormsHostOverlay.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\AddNewItemWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\CustomCheckBox.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\CompilerWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\StartupWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\NewProjectWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\App.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\TilesetBrushControl.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\TutorialContainer.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\TutorialsCategoryContainer.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\VisualScripting\VisualNode.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\DeploymentWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\FirstLoginWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\PicturePreview.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\ScriptingEditorWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\SettingsWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\SplashWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\TutorialsListWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\TutorialWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\VisualNodesWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\WindowsFormsHostOverlay.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\AddNewItemWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\CustomCheckBox.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\ProjectExplorerTreeView.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\PropertyBox.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\TestsWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\CompilerWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\MainWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\SceneHierarchyTreeView.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\StartupWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\NewProjectWindow.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Themes\IgniteDark.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\App.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF_Content.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF_MarkupCompile.cache
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF_MarkupCompile.lref
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\TilesetBrushControl.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\DeploymentWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\ScriptingEditorWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\TutorialsListWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\TutorialWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\VisualNodesWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\ProjectExplorerTreeView.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\PropertyBox.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\TestsWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Windows\MainWindow.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Controls\SceneHierarchyTreeView.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Themes\IgniteDark.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.g.resources
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.ThirdParty.GLControl.GLControl.resources
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.csproj.GenerateResource.Cache
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.exe.manifest
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\Gibbo.Editor.WPF.application

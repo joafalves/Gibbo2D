@@ -39,6 +39,7 @@
     <ImageSource x:Key="MoveUpIcon">/Gibbo.Editor.WPF;component/Gibbo.Content/_move_up.png</ImageSource>
     <ImageSource x:Key="MoveDownIcon">/Gibbo.Editor.WPF;component/Gibbo.Content/_move_down.png</ImageSource>
 
+    <SolidColorBrush x:Key="ContextMenuBorderColor" Color="#1e1e1e" po:Freeze="True"/>
     <SolidColorBrush x:Key="NormalBrush" Color="#585858" po:Freeze="True"/>
     <SolidColorBrush x:Key="TitleBackgroundBrush" Color="#FF2D2D30" po:Freeze="True"/>
     <SolidColorBrush x:Key="VSTitleBrush" Color="#FF999999" po:Freeze="True"/>
@@ -1276,15 +1277,14 @@
                     <Border 
                         Name="Border"
                         Background="{StaticResource WindowBackgroundBrush}"
-                        BorderBrush="#111"
-                        BorderThickness="1" Opacity="1" CornerRadius="4">
+                        BorderBrush="{StaticResource ContextMenuBorderColor}"
+                        BorderThickness="1" Opacity="1" >
                         <StackPanel IsItemsHost="True"
                             KeyboardNavigation.DirectionalNavigation="Contained" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasDropShadow" Value="true">
-                            <Setter TargetName="Border" Property="Padding" Value="0,0,0,0"/>
-                            <Setter TargetName="Border" Property="CornerRadius" Value="4"/>
+                            <Setter TargetName="Border" Property="Padding" Value="0,0,0,0"/>               
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -1300,7 +1300,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Separator">
                     <Border BorderBrush="#2F2F2F"
-                BorderThickness="1"/>
+                            BorderThickness="1"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -1326,7 +1326,8 @@
                         SnapsToDevicePixels="True"
                         Background="{StaticResource WindowBackgroundBrush}"
                         Opacity="1"
-                        BorderBrush="#111"
+                        BorderBrush="{StaticResource ContextMenuBorderColor}"
+                        CornerRadius="0"
                         BorderThickness="1" >
                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" >
                             
@@ -1344,7 +1345,7 @@
                 <Setter TargetName="Border" Property="BorderBrush" Value="Transparent"/>
             </Trigger>
             <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
-                <Setter TargetName="SubmenuBorder" Property="CornerRadius" Value="0,0,4,4"/>
+                <Setter TargetName="SubmenuBorder" Property="CornerRadius" Value="0,0,0,0"/>
                 <Setter TargetName="SubmenuBorder" Property="Padding" Value="0,0,0,3"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
@@ -1433,8 +1434,7 @@
             <Trigger Property="IsHighlighted" Value="true">
                 <!--<Setter Property="Background" TargetName="Border" Value="#3399FF"/>-->
                 <Setter Property="Background" TargetName="Border">
-                    <Setter.Value>
-                      
+                    <Setter.Value>                  
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                             <GradientStop Offset="0" Color="#7AA3E5"></GradientStop>
                             <GradientStop Offset="1" Color="#5680C1"></GradientStop>
@@ -1498,7 +1498,8 @@
                         Name="SubmenuBorder"
                         SnapsToDevicePixels="True"
                         Background="{StaticResource WindowBackgroundBrush}"
-                        BorderBrush="#111"
+                        BorderBrush="{StaticResource ContextMenuBorderColor}"
+                        CornerRadius="0"
                         BorderThickness="1" >
                         <StackPanel  
                             IsItemsHost="True" 
@@ -1526,7 +1527,7 @@
                 <Setter Property="TextBlock.Foreground" TargetName="HeaderHost" Value="#222"/>
             </Trigger>
             <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
-                <Setter TargetName="SubmenuBorder" Property="CornerRadius" Value="4"/>
+                <Setter TargetName="SubmenuBorder" Property="CornerRadius" Value="0"/>
                 <Setter TargetName="SubmenuBorder" Property="Padding" Value="0,0,0,0"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">

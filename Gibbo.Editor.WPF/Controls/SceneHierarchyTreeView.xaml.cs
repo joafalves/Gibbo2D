@@ -943,6 +943,9 @@ namespace Gibbo.Editor.WPF
         private void treeView_MouseDown(object sender, MouseButtonEventArgs e)
         {
             canCopyPaste = true;
+
+            if (treeView.SelectedItem != null && e.LeftButton == MouseButtonState.Pressed)
+                (treeView.SelectedItem as TreeViewItem).IsSelected = false;
         }
 
         private void treeView_MouseLeave(object sender, MouseEventArgs e)

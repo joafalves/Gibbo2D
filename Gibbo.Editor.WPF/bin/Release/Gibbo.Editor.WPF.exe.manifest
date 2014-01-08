@@ -48,26 +48,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16384">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16896">
       <assemblyIdentity name="Gibbo.Editor.Model" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>l3VsAy5xe6SqlkDnyljcBuABXu4=</dsig:DigestValue>
+        <dsig:DigestValue>j+baBNneD1LvYFdNMg3gQCTQCgo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="580096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="578560">
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>MuWYDs+S+iaD9mFQ5gSgveS993U=</dsig:DigestValue>
+        <dsig:DigestValue>wQ8ATFFmbbFVMY1uWEl4cfCxprI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -79,7 +79,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rz+uVGS+mvqMRSzp9TuT+gCD9yU=</dsig:DigestValue>
+        <dsig:DigestValue>aQ/vo9EOV1gqA1IkwVxo5braVBw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

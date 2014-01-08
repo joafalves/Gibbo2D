@@ -59,8 +59,23 @@ namespace Gibbo.Editor.WPF
             }
 
             Properties.Settings.Default.LastDeploymentFolder = dialog.SelectedPath;
+            Properties.Settings.Default.Save();
 
-            GlobalCommands.DeployProject(Gibbo.Library.SceneManager.GameProject.ProjectPath, dialog.SelectedPath, selectedOption);
+            bool previousDebugMode = Gibbo.Library.SceneManager.GameProject.Debug;
+            Gibbo.Library.SceneManager.GameProject.Debug = false;
+            Gibbo.Library.SceneManager.GameProject.Save();
+
+            if (GlobalCommands.DeployProject(Gibbo.Library.SceneManager.GameProject.ProjectPath, dialog.SelectedPath, selectedOption))
+            {
+                // deployed with success!
+                if (System.Windows.Forms.MessageBox.Show("Deployment with sucess!\n\nOpen output directory?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(dialog.SelectedPath);
+                }
+            }
+
+            Gibbo.Library.SceneManager.GameProject.Debug = previousDebugMode;
+            Gibbo.Library.SceneManager.GameProject.Save();
         }
 
         private void cancelBtn_Click(object sender, RoutedEventArgs e)

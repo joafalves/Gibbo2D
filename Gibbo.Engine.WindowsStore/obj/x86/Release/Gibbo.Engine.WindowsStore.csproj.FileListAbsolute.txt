@@ -1,0 +1,1 @@
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Engine.WindowsStore\obj\x86\Release\Gibbo.Engine.WindowsStore.csprojResolveAssemblyReference.cache

@@ -23,7 +23,14 @@ namespace Gibbo.Editor.WPF
             // Move the dragged node when the left mouse button is used. EditorUtils.GetParent(result.VisualHit, 2) == 
             if (e.LeftButton == MouseButtonState.Pressed && CanDrag && (result.VisualHit as UIElement) != null && (result.VisualHit as UIElement).IsDescendantOf(this))
             {
-                DragDrop.DoDragDrop(this, this, DragDropEffects.Move);
+                try
+                {
+                    DragDrop.DoDragDrop(this, this, DragDropEffects.Move);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
 
             DragDropTreeViewItem targetNode = GetNearestContainer(e.Source as UIElement);

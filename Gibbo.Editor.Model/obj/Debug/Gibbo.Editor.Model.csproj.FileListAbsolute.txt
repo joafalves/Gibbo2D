@@ -71,3 +71,22 @@ C:\Users\John\Dropbox\Gibbo 2D\Gibbo.Editor.Model\bin\Debug\NAudio.dll
 C:\Users\John\Dropbox\Gibbo 2D\Gibbo.Editor.Model\bin\Debug\Xceed.Wpf.Toolkit.dll
 C:\Users\John\Dropbox\Gibbo 2D\Gibbo.Editor.Model\bin\Debug\Gibbo.Library.pdb
 C:\Users\John\Dropbox\Gibbo 2D\Gibbo.Editor.Model\bin\Debug\Xceed.Wpf.Toolkit.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\SDL.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Gibbo.Editor.Model.dll.config
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Gibbo.Editor.Model.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Gibbo.Editor.Model.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Gibbo.Library.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\MonoGame.Framework.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\OpenTK.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\NAudio.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Lidgren.Network.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Tao.Sdl.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Gibbo.Library.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\MonoGame.Framework.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\bin\Debug\Xceed.Wpf.Toolkit.pdb
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\obj\Debug\Gibbo.Editor.Model.csprojResolveAssemblyReference.cache
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\obj\Debug\Gibbo.Editor.Model.Properties.Resources.resources
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\obj\Debug\Gibbo.Editor.Model.csproj.GenerateResource.Cache
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\obj\Debug\Gibbo.Editor.Model.dll
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.Model\obj\Debug\Gibbo.Editor.Model.pdb
