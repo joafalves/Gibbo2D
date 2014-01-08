@@ -55,19 +55,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>j+baBNneD1LvYFdNMg3gQCTQCgo=</dsig:DigestValue>
+        <dsig:DigestValue>fzDS4EH6wnINjcwjWC5vGH70+5Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="578560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="585216">
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wQ8ATFFmbbFVMY1uWEl4cfCxprI=</dsig:DigestValue>
+        <dsig:DigestValue>Kj6LjBvgWlZYwhvZVR/aOBE111o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

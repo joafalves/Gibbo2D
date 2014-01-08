@@ -138,6 +138,7 @@
     <Compile Include="Classes\LimeScriptEditor.cs" />
     <Compile Include="Classes\OutputMessage.cs" />
     <Compile Include="Classes\Page.cs" />
+    <Compile Include="Classes\TreeViewExtension.cs" />
     <Compile Include="Commands\CommandReference.cs" />
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Controls\TilesetBrushControl.xaml.cs">

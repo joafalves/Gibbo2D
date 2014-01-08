@@ -1025,6 +1025,8 @@ namespace Gibbo.Editor.WPF
             {
                 EditorHandler.SelectedGameObjects.Add(detected.Body.GameObject);
             }
+
+            EditorHandler.SceneTreeView.SelectionUpdate();
         }
 
         private void UpdateCurrentCursor()

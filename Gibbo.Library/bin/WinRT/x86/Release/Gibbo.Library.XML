@@ -720,6 +720,7 @@
             <summary>
             Event thrown when there is a mouse click collision
             </summary>
+            <param name="buttonPressed">The button that was pressed</param>
         </member>
         <member name="M:Gibbo.Library.GameObject.OnMouseMove">
             <summary>
