@@ -43,26 +43,31 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="15872">
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="PresentationUI" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16896">
       <assemblyIdentity name="Gibbo.Editor.Model" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>cRpLLD6OOphVflj2vLoDzzThauM=</dsig:DigestValue>
+        <dsig:DigestValue>vx/fZIap4MKLHGQU81YygzyDYwY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1026560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="641024">
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>hZCdTIjyCHauHZpHh6r7RGkfJ1Q=</dsig:DigestValue>
+        <dsig:DigestValue>9HlW0aAnpuFK8QA0cTCspS1OwRY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +79,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>tH71wp7XWoCkJat7q3S4oO0vfvg=</dsig:DigestValue>
+        <dsig:DigestValue>zbTozak78Kz+J8TPmukY3VDR/+k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,26 +96,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lidgren.Network.dll" size="118272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lidgren.Network.dll" size="144384">
       <assemblyIdentity name="Lidgren.Network" version="2011.3.12.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LPvLvklRNPC1ky1TzXAh76ljq3Y=</dsig:DigestValue>
+        <dsig:DigestValue>aRPoweNPd/7lNw5SYsRr4Fb8XXw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MonoGame.Framework.dll" size="708096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MonoGame.Framework.dll" size="653312">
       <assemblyIdentity name="MonoGame.Framework" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5WxZuM6cUQkgp+URVvywvjbr0bI=</dsig:DigestValue>
+        <dsig:DigestValue>oiSYNM8KEN7kM2qIMHIC57IasPA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -288,13 +293,13 @@
       <dsig:DigestValue>7VX0IxHkl7tdgnFa117eEFPbL3A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Gibbo.Editor.WPF.exe.config" size="1863">
+  <file name="Gibbo.Editor.WPF.exe.config" size="1986">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WGkyr59hMTRxJVUufeYzj7khAj0=</dsig:DigestValue>
+      <dsig:DigestValue>03MOJ7EIl928u3tUZZozEwY8DvA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="gibbo.ico" size="15086">
@@ -450,33 +455,6 @@
       <dsig:DigestValue>teCodyPyqzqgmE4lST9JQDNPwTg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\FirstSteps - Copy\FirstSteps.xml" size="603" writeableType="applicationData">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>6qw95xMTDck86o+pRG8ne2i/JTc=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Tutorials\FirstSteps - Copy\Pictures\image.png" size="47592">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>fxlf84e+vM9sO0oKwh5hTR/z8rg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Tutorials\FirstSteps - Copy\Pictures\img1.png" size="41282">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>mq+LfEQoelmu//HD8olrKdq1S94=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Tutorials\FirstSteps\FirstSteps.xml" size="558" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
@@ -502,33 +480,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>mq+LfEQoelmu//HD8olrKdq1S94=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Tutorials\Test\Pictures\image.png" size="47592">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>fxlf84e+vM9sO0oKwh5hTR/z8rg=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Tutorials\Test\Pictures\img1.png" size="41282">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>mq+LfEQoelmu//HD8olrKdq1S94=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Tutorials\Test\something.xml" size="580" writeableType="applicationData">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>7V6Y8iT26MtpRrRcqDjH8JQZimU=</dsig:DigestValue>
     </hash>
   </file>
   <fileAssociation extension=".gibbo" description="gibbo" progid="gibbo_id_m70" defaultIcon="gibbo.ico" xmlns="urn:schemas-microsoft-com:clickonce.v1" />

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\John\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\obj\Debug\
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Debug\
 Gibbo.Editor.WPF
 none
 false
 DEBUG;TRACE
-C:\Users\John\Dropbox\Gibbo 2D\Gibbo.Editor.WPF\App.xaml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\App.xaml
 29-742684498
-35-1950587343
-681888273251
-38-400084621
+29-942388157
+68-3571213
+39765326243
 Controls\TilesetBrushControl.xaml;Controls\TutorialContainer.xaml;Controls\TutorialsCategoryContainer.xaml;Controls\VisualScripting\Generic.xaml;Themes\CheckBoxStyle.xaml;Themes\ComboBoxStyle.xaml;Themes\PropertyGridStyle.xaml;Controls\VisualScripting\VisualNode.xaml;Windows\DeploymentWindow.xaml;Windows\FirstLoginWindow.xaml;Windows\PicturePreview.xaml;Windows\ScriptingEditorWindow.xaml;Windows\SettingsWindow.xaml;Windows\SplashWindow.xaml;Windows\TutorialsListWindow.xaml;Windows\TutorialWindow.xaml;Windows\VisualNodesWindow.xaml;Windows\WindowsFormsHostOverlay.xaml;Windows\AddNewItemWindow.xaml;Controls\CustomCheckBox.xaml;Controls\ProjectExplorerTreeView.xaml;Controls\PropertyBox.xaml;Windows\TestsWindow.xaml;Windows\CompilerWindow.xaml;Windows\MainWindow.xaml;Controls\SceneHierarchyTreeView.xaml;Windows\StartupWindow.xaml;Windows\NewProjectWindow.xaml;Themes\IgniteDark.xaml;
 
-False
+True
 

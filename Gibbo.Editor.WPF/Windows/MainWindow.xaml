@@ -118,7 +118,7 @@
                     <Separator HorizontalAlignment="Left" Width="200"/>
                     <MenuItem x:Name="saveProjectBtn" Header="Save Project" HorizontalAlignment="Left" Width="200" InputGestureText="Ctrl+S" Click="saveProjectBtn_Click"/>
                     <MenuItem x:Name="saveSceneBtn" Header="Save Scene" HorizontalAlignment="Left" Width="200" Click="saveSceneBtn_Click"/>
-                    <MenuItem x:Name="deployBtn" Header="Deploy Game.." HorizontalAlignment="Left" Width="200" Click="deployBtn_Click"/>
+                    <MenuItem x:Name="deployBtn" Header="Deploy Application.." HorizontalAlignment="Left" Width="200" Click="deployBtn_Click"/>
                     <Separator HorizontalAlignment="Left"  Width="200"/>
                     <MenuItem x:Name="exitBtn" Header="Exit" HorizontalAlignment="Left"  Width="200" Click="exitBtn_Click"/>
                 </MenuItem>
