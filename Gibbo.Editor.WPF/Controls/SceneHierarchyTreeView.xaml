@@ -6,6 +6,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <WPF:DragDropTreeView x:Name="treeView" Background="{DynamicResource PanelBackground}" Foreground="{DynamicResource ForegroundGray}" BorderBrush="{DynamicResource PanelBackground}" SelectedItemChanged="treeView_SelectedItemChanged" MouseDown="treeView_MouseDown" MouseLeave="treeView_MouseLeave"/>
+        <Grid.Resources>
+            <Style TargetType="TreeViewItem">
+                <Setter Property="BorderThickness" Value="1"></Setter>
+                <Style.Triggers>
+                    <Trigger Property="WPF:TreeViewExtension.IsSelected" Value="true">
+                        <Setter Property="BorderBrush" Value="Red"></Setter>
+                        <Setter Property="BorderThickness" Value="2"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"></SolidColorBrush>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"></SolidColorBrush>
+        </Grid.Resources>
+        <WPF:DragDropTreeView x:Name="treeView" WPF:TreeViewExtension.EnableMultiSelect="true" Background="{DynamicResource PanelBackground}" Foreground="{DynamicResource ForegroundGray}" BorderBrush="{DynamicResource PanelBackground}" SelectedItemChanged="treeView_SelectedItemChanged" MouseDown="treeView_MouseDown" MouseLeave="treeView_MouseLeave" MouseUp="treeView_MouseUp"/>
     </Grid>
 </UserControl>

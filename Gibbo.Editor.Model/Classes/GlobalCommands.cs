@@ -51,7 +51,8 @@ namespace Gibbo.Editor.Model
                     {
                         string filename = Path.GetFileName(path);
                         string ext = Path.GetExtension(path);
-                        if (!blockedFileExtensions.Contains(ext) && Directory.Exists(Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
+                        if (!blockedFileExtensions.Contains(ext) && 
+                            Directory.Exists(Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
                         {
                             if (filename.ToLower().Equals("gibbo.engine.windows.exe"))
                             {
@@ -69,13 +70,11 @@ namespace Gibbo.Editor.Model
                     return true;
                 case "windowsstore":
                     // creates shadow directories
-                    foreach (string dirPath in Directory.GetDirectories(projectPath, "*",
-                        SearchOption.AllDirectories))
+                    foreach (string dirPath in Directory.GetDirectories(projectPath, "*", SearchOption.AllDirectories))
                         Directory.CreateDirectory(destinationPath.Replace(projectPath, destinationPath));
 
                     //Copy all the files
-                    foreach (string path in Directory.GetFiles(projectPath, "*.*",
-                        SearchOption.AllDirectories))
+                    foreach (string path in Directory.GetFiles(projectPath, "*.*", SearchOption.AllDirectories))
                     {
                         if (!Directory.Exists(Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
                         {

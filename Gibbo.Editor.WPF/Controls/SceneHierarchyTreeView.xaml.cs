@@ -757,25 +757,7 @@ namespace Gibbo.Editor.WPF
         {
             ItemLostFocus();
 
-            if (sender != null && (sender as TreeView).SelectedItem != null)
-            {
-                object tag = ((sender as TreeView).SelectedItem as DragDropTreeViewItem).Tag;
-
-                if (tag is GameObject)
-                {
-                    // TODO : multiple selection
-                    EditorHandler.SelectedGameObjects = new List<GameObject>();
-                    EditorHandler.SelectedGameObjects.Add((GameObject)tag);
-                    EditorHandler.ChangeSelectedObjects();
-                }
-
-                lastSelectedItem = (sender as TreeView).SelectedItem as DragDropTreeViewItem;
-            }
-            else
-            {
-                EditorHandler.SelectedGameObjects.Clear();
-                EditorHandler.ChangeSelectedObjects();
-            }
+          
         }
 
 
@@ -945,12 +927,64 @@ namespace Gibbo.Editor.WPF
             canCopyPaste = true;
 
             if (treeView.SelectedItem != null && e.LeftButton == MouseButtonState.Pressed)
+            {
                 (treeView.SelectedItem as TreeViewItem).IsSelected = false;
+                TreeViewExtension.UnselectAll(treeView);
+            }
         }
 
         private void treeView_MouseLeave(object sender, MouseEventArgs e)
         {
             canCopyPaste = false;
+        }
+
+        private void treeView_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            // NEW WAY TO DETECT SELECTIONS:
+            if (sender != null && (sender as TreeView).SelectedItem != null)
+            {
+                List<TreeViewItem> it = TreeViewExtension.GetSelectedTreeViewItems(treeView);
+                EditorHandler.SelectedGameObjects = new List<GameObject>();
+                foreach (var i in it)
+                {
+                    //Console.WriteLine(i.Header);
+                    //object tag = ((sender as TreeView).SelectedItem as DragDropTreeViewItem).Tag; // old
+                    object tag = (i as DragDropTreeViewItem).Tag;
+
+                    if (tag is GameObject)
+                    {
+                        // TODO : multiple selection                      
+                        EditorHandler.SelectedGameObjects.Add((GameObject)tag);
+                    }
+                }
+                EditorHandler.ChangeSelectedObjects();
+
+                lastSelectedItem = (sender as TreeView).SelectedItem as DragDropTreeViewItem;
+            }
+            else
+            {
+                EditorHandler.SelectedGameObjects.Clear();
+                EditorHandler.ChangeSelectedObjects();
+            }
+        }
+
+        public void SelectionUpdate()
+        {
+            foreach (TreeViewItem item in TreeViewExtension.GetExpandedTreeViewItems(treeView))
+            {
+                object tag = (item as DragDropTreeViewItem).Tag;
+                if (tag is GameObject)
+                {
+                    if (!EditorHandler.SelectedGameObjects.Contains((tag as GameObject)))
+                    {
+                        TreeViewExtension.SetIsSelected(item, false);
+                    }
+                    else
+                    {
+                        TreeViewExtension.SetIsSelected(item, true);
+                    }
+                }
+            }
         }
 
         #endregion
