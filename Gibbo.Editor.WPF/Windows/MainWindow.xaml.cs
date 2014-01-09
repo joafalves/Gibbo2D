@@ -10,7 +10,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using WinInterop = System.Windows.Interop;
 using System.Deployment.Application;
 using Gibbo.Editor.Model;
+using System.Windows.Controls;
 
 namespace Gibbo.Editor.WPF
 {
@@ -43,13 +44,13 @@ namespace Gibbo.Editor.WPF
             this.WindowState = WindowState.Minimized;
             this.WindowState = WindowState.Maximized;
 
-            
+
         }
 
         public void setFullScreenName(bool setFullScreen)
         {
             System.Windows.Controls.Grid grid = (this.MainGrid.FindName("TopRightButtonsGrid") as System.Windows.Controls.Grid);
-            
+
             if (setFullScreen)
                 (grid.FindName("fullScreenBtn") as RoundedButton).Content = "Exit FullScreen";
             else
@@ -279,6 +280,7 @@ namespace Gibbo.Editor.WPF
         #endregion
 
         #region fields
+        string lastLatestProjects = string.Empty;
         string projectPathToLoad = string.Empty;
         SceneViewGameControl sceneViewGameControl;
         GameViewGameControl gameViewGameControl;
@@ -321,7 +323,6 @@ namespace Gibbo.Editor.WPF
 
         private void Initialize()
         {
-
             this.OutputDataGrid.ItemsSource = EditorHandler.OutputMessages;
             (this.OutputDataGrid.ItemsSource as System.Collections.ObjectModel.ObservableCollection<OutputMessage>).CollectionChanged += MainWindow_CollectionChanged;
 
@@ -341,6 +342,7 @@ namespace Gibbo.Editor.WPF
             EditorHandler.SceneTreeView = sceneTreeView;
             EditorHandler.ProjectTreeView = projectTreeView;
             EditorHandler.UnDoRedo = new Model.UndoRedo();
+            EditorHandler.TilesetMenuItems = tilesetMenuItems;
             // Expander's Context Menu
             this.OutputExpander.ContextMenu = new System.Windows.Controls.ContextMenu();
 
@@ -353,6 +355,7 @@ namespace Gibbo.Editor.WPF
             ClearItem.Click += ClearItem_Click;
             Closed += MainWindow_Closed;
             ContentRendered += MainWindow_ContentRendered;
+
         }
 
         private void UpdateTilesetModes()
@@ -434,15 +437,15 @@ namespace Gibbo.Editor.WPF
                 else if (r == MessageBoxResult.Cancel)
                 {
                     e.Cancel = true;
-                } 
+                }
             }
 
-            if(!e.Cancel)
+            if (!e.Cancel)
                 System.Environment.Exit(0);
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
-        {       
+        {
             Close();
         }
 
@@ -529,14 +532,14 @@ namespace Gibbo.Editor.WPF
 
                 this.Title = string.Format("{0} - {1} - {2}", "Gibbo 2D [" + versionInfo + "]",
                     SceneManager.GameProject.ProjectName, sceneName);
-                
+
                 showGridBtn.IsChecked = SceneManager.GameProject.EditorSettings.ShowGrid;
                 gridSnappingBtn.IsChecked = SceneManager.GameProject.EditorSettings.SnapToGrid;
                 showCollisionsBtn.IsChecked = SceneManager.GameProject.EditorSettings.ShowCollisions;
                 debugViewBtn.IsChecked = Properties.Settings.Default.ShowDebugView;
                 // Console.WriteLine(sceneEditorControl1.EditorMode + ":" + lastEditorMode);
 
-                if(sceneViewGameControl.EditorMode != lastEditorMode)
+                if (sceneViewGameControl.EditorMode != lastEditorMode)
                 {
                     selectBtn.IsChecked = false;
                     translateBtn.IsChecked = false;
@@ -672,7 +675,7 @@ namespace Gibbo.Editor.WPF
             //    }
             //}
 
-            new DeploymentWindow().ShowDialog();  
+            new DeploymentWindow().ShowDialog();
         }
 
         private void undoBtn_Click(object sender, RoutedEventArgs e)
@@ -966,7 +969,7 @@ namespace Gibbo.Editor.WPF
 
                 if (info.UpdateAvailable)
                 {
-                    if (System.Windows.Forms.MessageBox.Show("There is a new build available [" + info.AvailableVersion.ToString() + "]\nCurrent Version [" + updateCheck.CurrentVersion.ToString() + "]\n\nDo you want download?", "Gibbo 2D Software", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                    if (System.Windows.Forms.MessageBox.Show("There is a new build available [" + info.AvailableVersion.ToString() + "]\nCurrent Version [" + updateCheck.CurrentVersion.ToString() + "]\n\nDo you want download?", "Gibbo 2D Software", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
                         //updateCheck.Update();
                         //System.Windows.MessageBox.Show("The application has been updated, and will now restart.", "Gibbo 2D Software");
@@ -1035,7 +1038,7 @@ namespace Gibbo.Editor.WPF
             else if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 SceneViewFormContainer.ContextMenu.IsOpen = true;
-            }        
+            }
         }
 
         private void Window_KeyDown_1(object sender, System.Windows.Input.KeyEventArgs e)
@@ -1255,6 +1258,49 @@ namespace Gibbo.Editor.WPF
             fullDebugProject();
         }
 
+        private void MenuItem_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            if (lastLatestProjects == Properties.Settings.Default.LastLoadedProjects)
+                return;
+
+            lastLatestProjects = Properties.Settings.Default.LastLoadedProjects;
+
+            loadRecentMenuItem.Items.Clear();
+
+            if (Properties.Settings.Default.LastLoadedProjects.Trim() != string.Empty)
+            {
+                string[] splitted = Properties.Settings.Default.LastLoadedProjects.Split('|');
+                int c = 0;
+                foreach (string split in splitted)
+                {
+                    if (split.Trim() != string.Empty && File.Exists(split))
+                    {
+                        MenuItem item = new MenuItem();
+
+                        item.Header = GibboHelper.SplitCamelCase(System.IO.Path.GetDirectoryName(split).Split('\\').Last());
+                        item.Width = 200;
+
+                        item.Click += ((s, _e) =>
+                        {
+                            EditorCommands.AddToProjectHistory(split);
+                            EditorCommands.LoadProject(split);
+                        });
+
+                        loadRecentMenuItem.Items.Add(item);
+                    }
+
+                    c++;
+                    if (c == 4)
+                        break;
+                }
+            }
+            else
+            {
+                loadRecentMenuItem.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
+
         #endregion
+
     }
 }
