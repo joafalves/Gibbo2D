@@ -68,7 +68,7 @@ namespace Gibbo.Editor.WPF
             if (GlobalCommands.DeployProject(Gibbo.Library.SceneManager.GameProject.ProjectPath, dialog.SelectedPath, selectedOption))
             {
                 // deployed with success!
-                if (System.Windows.Forms.MessageBox.Show("Deployment with sucess!\n\nOpen output directory?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                if (System.Windows.Forms.MessageBox.Show("Deployed successfully!\n\nOpen output directory?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start(dialog.SelectedPath);
                 }

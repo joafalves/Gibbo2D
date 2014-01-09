@@ -112,9 +112,10 @@
                         <GradientStop Color="#FF6C6C6C" Offset="1"/>
                     </LinearGradientBrush>
                 </Menu.Background>
-                <MenuItem Header="File" Foreground="#FF212121" >
+                <MenuItem Header="File" Foreground="#FF212121" PreviewMouseLeftButtonDown="MenuItem_PreviewMouseLeftButtonDown_1"  >
                     <MenuItem x:Name="newProjectMenuItem" Header="New Project" HorizontalAlignment="Left" Width="200" Click="newProjectMenuItem_Click"/>
-                    <MenuItem x:Name="loadMenuItem" Header="Load Project" HorizontalAlignment="Left" Width="200" Click="loadMenuItem_Click"/>
+                    <MenuItem x:Name="loadMenuItem" Header="Load Project"  Width="200" Click="loadMenuItem_Click" Icon=""/>
+                    <MenuItem x:Name="loadRecentMenuItem" Header="Load Recent Project" Width="200" Icon=""/>
                     <Separator HorizontalAlignment="Left" Width="200"/>
                     <MenuItem x:Name="saveProjectBtn" Header="Save Project" HorizontalAlignment="Left" Width="200" InputGestureText="Ctrl+S" Click="saveProjectBtn_Click"/>
                     <MenuItem x:Name="saveSceneBtn" Header="Save Scene" HorizontalAlignment="Left" Width="200" Click="saveSceneBtn_Click"/>
@@ -202,7 +203,7 @@
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" Margin="0" Style="{DynamicResource TabTopBorder}">
                         <Border BorderThickness="0,0,0,1" BorderBrush="{DynamicResource Border}">
-                            <StackPanel Margin="4,0,0,0" Orientation="Horizontal">
+                            <StackPanel x:Name="tilesetMenuItems" Margin="4,0,0,0" Orientation="Horizontal">
                                 <ToggleButton x:Name="pencilTilesetBtn" IsChecked="True" Width="18" Height="18" Style="{DynamicResource MiniToolbarMenuItemToggle}" Margin="0" Click="pencilTilesetBtn_Click" BorderThickness="1,0,0,0" ToolTip="Pencil Tool">
                                     <StackPanel  Orientation="Horizontal">
                                         <Image Source="/Gibbo.Editor.WPF;component/Gibbo.Content/_pencil.png" Height="12" Width="12"/>
