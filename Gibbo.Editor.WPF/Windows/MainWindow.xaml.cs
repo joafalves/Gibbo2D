@@ -829,6 +829,11 @@ namespace Gibbo.Editor.WPF
             System.Diagnostics.Process.Start("http://dragon-scale-studios.com/gibbo/index.php/main/display/about");
         }
 
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Whitebeard86/Gibbo2D");           
+        }
+
         private void websiteBtn_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.dragon-scale-studios.com/gibbo");
@@ -1301,6 +1306,8 @@ namespace Gibbo.Editor.WPF
         }
 
         #endregion
+
+
 
     }
 }

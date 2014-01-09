@@ -12,7 +12,7 @@ namespace Gibbo.Editor.WPF
     {
         #region Properties
 
-        private Point lastpos = new Point(0,0);
+        private Point lastpos = new Point(0, 0);
 
         public string Text { get; set; }
         public string FullPath
@@ -68,17 +68,24 @@ namespace Gibbo.Editor.WPF
                     (float)System.Windows.SystemParameters.WorkArea.Height - (float)EditorHandler.PicturePreview.PreviewImage.Height);
 
                 EditorHandler.PicturePreview.Top = p.Y - 20;
-                EditorHandler.PicturePreview.Left = p.X + 30;          
-            }             
-        }   
+                EditorHandler.PicturePreview.Left = p.X + 30;
+            }
+        }
 
         protected override void OnMouseLeave(System.Windows.Input.MouseEventArgs e)
         {
-            base.OnMouseLeave(e);
-            Point p = PointToScreen(e.GetPosition(this));
+            try
+            {
+                base.OnMouseLeave(e);
+                Point p = PointToScreen(e.GetPosition(this));
 
-            if(p != lastpos)
-                EditorHandler.PicturePreview.Visibility = System.Windows.Visibility.Collapsed;
+                if (p != lastpos)
+                    EditorHandler.PicturePreview.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         #endregion

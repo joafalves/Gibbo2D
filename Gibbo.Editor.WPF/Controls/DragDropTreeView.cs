@@ -60,33 +60,58 @@ namespace Gibbo.Editor.WPF
                         // location and add it to the node at the drop location. 
                         if (e.Effects == DragDropEffects.Move)
                         {
-                            //if (draggedNode.Parent == null)
-                            //    this.Items.Remove(draggedNode);
-                            //else
-                            //    if (draggedNode.Parent == this)
-                            //        this.Items.Remove(draggedNode);
-                            //    else
-                            //        (draggedNode.Parent as DragDropTreeViewItem).Items.Remove(draggedNode);
-                            (draggedNode.Parent as ItemsControl).Items.Remove(draggedNode);
+                            List<TreeViewItem> items = TreeViewExtension.GetSelectedTreeViewItems(TreeViewExtension.GetTree(targetNode));
 
-                            if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Center)
+                            if (items != null && items.Count > 0)
                             {
-                                targetNode.Items.Add(draggedNode);
+                                // multi selection drag:
+                                foreach (var ti in items)
+                                {
+                                    (ti.Parent as ItemsControl).Items.Remove(ti);
+
+                                    if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Center)
+                                    {
+                                        targetNode.Items.Add(ti);
+                                    }
+                                    else
+                                    {
+                                        int index = (targetNode.Parent as ItemsControl).ItemContainerGenerator.IndexFromContainer(targetNode);
+                                        if (index < 0) index = 0;
+
+                                        if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Bottom)
+                                            index++;
+
+                                        (targetNode.Parent as ItemsControl).Items.Insert(index, ti);
+                                    }
+
+                                    ti.IsSelected = true;
+
+                                    ReApplyStyle(ti as DragDropTreeViewItem, "IgniteMultiTreeViewItem");
+                                }
                             }
                             else
                             {
-                                int index = (targetNode.Parent as ItemsControl).ItemContainerGenerator.IndexFromContainer(targetNode);
-                                if (index < 0) index = 0;
+                                (draggedNode.Parent as ItemsControl).Items.Remove(draggedNode);
 
-                                if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Bottom)
-                                    index++;
+                                if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Center)
+                                {
+                                    targetNode.Items.Add(draggedNode);
+                                }
+                                else
+                                {
+                                    int index = (targetNode.Parent as ItemsControl).ItemContainerGenerator.IndexFromContainer(targetNode);
+                                    if (index < 0) index = 0;
 
-                                (targetNode.Parent as ItemsControl).Items.Insert(index, draggedNode);                      
+                                    if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Bottom)
+                                        index++;
+
+                                    (targetNode.Parent as ItemsControl).Items.Insert(index, draggedNode);
+                                }
+
+                                draggedNode.IsSelected = true;
+
+                                ReApplyStyle(draggedNode, "IgniteTreeViewItem");
                             }
-
-                            draggedNode.IsSelected = true;
-                            draggedNode.Style = null;
-                            draggedNode.Style = (Style)FindResource("IgniteTreeViewItem");                          
                         }
                         // OPTIONAL:
                         // If it is a copy operation, clone the dragged node  
@@ -108,18 +133,34 @@ namespace Gibbo.Editor.WPF
             }
         }
 
+        private void ReApplyStyle(DragDropTreeViewItem ti, string styleName)
+        {
+            ti.Style = null;
+            ti.Style = (Style)FindResource(styleName);
+
+            foreach (var t in ti.Items)
+            {
+                ReApplyStyle(t as DragDropTreeViewItem, styleName);
+            }
+        }
+
         // Determine whether one node is a parent  
         // or ancestor of a second node. 
         private bool ContainsNode(DragDropTreeViewItem node1, DragDropTreeViewItem node2)
         {
+            return DragDropTreeView.TreeContainsNode(this, node1, node2);
+        }
+
+        public static bool TreeContainsNode(TreeView tv, DragDropTreeViewItem node1, DragDropTreeViewItem node2)
+        {
             // Check the parent node of the second node. 
-            if (node2.Parent == null || node2.Parent == this) return false;
+            if (node2.Parent == null || node2.Parent == tv) return false;
             if (node2.Parent == node1) return true;
 
             // If the parent node is not null or equal to the first node,  
             // call the ContainsNode method recursively using the parent of  
             // the second node. 
-            return ContainsNode(node1, node2.Parent as DragDropTreeViewItem);
+            return TreeContainsNode(tv, node1, node2.Parent as DragDropTreeViewItem);
         }
 
         protected override void OnDragEnter(DragEventArgs e)

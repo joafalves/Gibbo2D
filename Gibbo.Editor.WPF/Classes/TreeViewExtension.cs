@@ -65,63 +65,40 @@ namespace Gibbo.Editor.WPF
             var isEnabled = (bool)args.NewValue;
             if (wasEnable)
             {
-                tree.RemoveHandler(TreeViewItem.MouseDownEvent, new MouseButtonEventHandler(ItemClicked));
+                tree.RemoveHandler(TreeViewItem.PreviewMouseUpEvent, new MouseButtonEventHandler(ItemClicked));
+                tree.RemoveHandler(TreeViewItem.PreviewMouseDownEvent, new MouseButtonEventHandler(ItemDown));
                 tree.RemoveHandler(TreeView.KeyDownEvent, new KeyEventHandler(KeyDown));
             }
             if (isEnabled)
             {
-                tree.AddHandler(TreeViewItem.MouseDownEvent, new MouseButtonEventHandler(ItemClicked), true);
+                tree.AddHandler(TreeViewItem.PreviewMouseUpEvent, new MouseButtonEventHandler(ItemClicked));
+                tree.AddHandler(TreeViewItem.PreviewMouseDownEvent, new MouseButtonEventHandler(ItemDown), true);
                 tree.AddHandler(TreeView.KeyDownEvent, new KeyEventHandler(KeyDown));
-            }
-        }
-
-        static TreeView GetTree(TreeViewItem item)
-        {
-            Func<DependencyObject, DependencyObject> getParent = (o) => VisualTreeHelper.GetParent(o);
-            FrameworkElement currentItem = item;
-            while (!(getParent(currentItem) is TreeView))
-                currentItem = (FrameworkElement)getParent(currentItem);
-            return (TreeView)getParent(currentItem);
-        }
-
-        static void RealSelectedChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
-        {
-            TreeViewItem item = (TreeViewItem)sender;
-            var selectedItems = GetSelectedItems(GetTree(item));
-            if (selectedItems != null)
-            {
-                var isSelected = GetIsSelected(item);
-                if (isSelected)
-                    try
-                    {
-                        selectedItems.Add(item.Header);
-                    }
-                    catch (ArgumentException)
-                    {
-                    }
-                else
-                    selectedItems.Remove(item.Header);
-            }
-        }
-
-        static void KeyDown(object sender, KeyEventArgs e)
-        {
-            TreeView tree = (TreeView)sender;
-            if (e.Key == Key.A && e.KeyboardDevice.Modifiers == ModifierKeys.Control)
-            {
-                foreach (var item in GetExpandedTreeViewItems(tree))
-                {
-                    SetIsSelected(item, true);
-                }
-                e.Handled = true;
             }
         }
 
         static void ItemClicked(object sender, MouseButtonEventArgs e)
         {
+            TreeViewItem _item = FindTreeViewItem(e.OriginalSource);
+            if (_item == null)
+                return;
+
+            var mouseButton = e.ChangedButton;
+            if ((mouseButton == MouseButton.Left) && ((Keyboard.Modifiers & (ModifierKeys.Shift | ModifierKeys.Control)) == ModifierKeys.None))
+            {
+                TreeViewItem item = FindTreeViewItem(e.OriginalSource);
+                MakeSingleSelection(GetTree(item), item);
+
+                return;
+            }
+        }
+
+        static void ItemDown(object sender, MouseButtonEventArgs e)
+        {
             TreeViewItem item = FindTreeViewItem(e.OriginalSource);
             if (item == null)
                 return;
+
             TreeView tree = (TreeView)sender;
 
             var mouseButton = e.ChangedButton;
@@ -134,21 +111,11 @@ namespace Gibbo.Editor.WPF
                         UpdateAnchorAndActionItem(tree, item);
                         return;
                     }
-                    MakeSingleSelection(tree, item);
+
+                    if (!GetIsSelected(item)) // item is already selected?
+                        MakeSingleSelection(tree, item);
                 }
-                return;
-            }
-            if (mouseButton != MouseButton.Left)
-            {
-                if ((mouseButton == MouseButton.Right) && ((Keyboard.Modifiers & (ModifierKeys.Shift | ModifierKeys.Control)) == ModifierKeys.None))
-                {
-                    if (GetIsSelected(item))
-                    {
-                        UpdateAnchorAndActionItem(tree, item);
-                        return;
-                    }
-                    MakeSingleSelection(tree, item);
-                }
+
                 return;
             }
             if ((Keyboard.Modifiers & (ModifierKeys.Shift | ModifierKeys.Control)) != (ModifierKeys.Shift | ModifierKeys.Control))
@@ -163,13 +130,58 @@ namespace Gibbo.Editor.WPF
                     MakeAnchorSelection(tree, item, true);
                     return;
                 }
-                MakeSingleSelection(tree, item);
+
+                if (!GetIsSelected(item)) // item is already selected?
+                    MakeSingleSelection(tree, item);
+
                 return;
             }
-            //MakeAnchorSelection(item, false);
+        }
 
+        public static TreeView GetTree(TreeViewItem item)
+        {
+            Func<DependencyObject, DependencyObject> getParent = (o) => VisualTreeHelper.GetParent(o);
+            FrameworkElement currentItem = item;
+            while (!(getParent(currentItem) is TreeView))
+                currentItem = (FrameworkElement)getParent(currentItem);
+            return (TreeView)getParent(currentItem);
+        }
 
-            //SetIsSelected(tree.SelectedItem
+        static void RealSelectedChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        {
+            TreeViewItem item = (TreeViewItem)sender;
+
+            var selectedItems = GetSelectedItems(GetTree(item));
+            if (selectedItems != null)
+            {
+                var isSelected = GetIsSelected(item);
+                if (isSelected)
+                    try
+                    {
+                        selectedItems.Add(item.Header);
+                    }
+                    catch (ArgumentException)
+                    {
+
+                    }
+                else
+                {
+                    selectedItems.Remove(item.Header);
+                }
+            }
+        }
+
+        static void KeyDown(object sender, KeyEventArgs e)
+        {
+            TreeView tree = (TreeView)sender;
+            if (e.Key == Key.A && e.KeyboardDevice.Modifiers == ModifierKeys.Control)
+            {
+                foreach (var item in GetExpandedTreeViewItems(tree))
+                {
+                    SetIsSelected(item, true);
+                }
+                e.Handled = true;
+            }
         }
 
         private static TreeViewItem FindTreeViewItem(object obj)

@@ -288,6 +288,7 @@ namespace Gibbo.Library
         {
             if (ActiveScene == null) return false;
 
+            activeScene.SaveComponentValues();
             GibboHelper.SerializeObject(ActiveScenePath, ActiveScene);
 
             return true;
