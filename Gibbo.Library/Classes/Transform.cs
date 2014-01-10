@@ -54,7 +54,7 @@ namespace Gibbo.Library
  : ICloneable, ISerializable
 #endif
     {
-#region fields
+        #region fields
         [DataMember]
         internal GameObject gameObject;
         [DataMember]
@@ -324,7 +324,7 @@ namespace Gibbo.Library
         {
 
         }
-
+#if WINDOWS
         protected Transform(SerializationInfo info, StreamingContext context)
         {
             if (info == null)
@@ -354,7 +354,7 @@ namespace Gibbo.Library
             info.AddValue("scale", scale);
             info.AddValue("parent", parent);
         }
-
+#endif
         #endregion
 
 
