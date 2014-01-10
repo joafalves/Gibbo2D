@@ -37,6 +37,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 #endif
 
 using System.Runtime.Serialization;
+using System.Security.Permissions;
 
 namespace Gibbo.Library
 {
@@ -48,13 +49,12 @@ namespace Gibbo.Library
 #endif
     [DataContract]
     public class GameScene : IDisposable
+//#if WINDOWS
+//, ISerializable
+//#endif
     {
         #region fields
 
-#if WINDOWS
-        [NonSerialized]
-#endif
-        internal List<GameObject> markedForRemoval;
         [DataMember]
         private string name = "Game Scene";
         [DataMember]
@@ -65,6 +65,11 @@ namespace Gibbo.Library
         private Color backgroundColor = Color.FromNonPremultiplied(50, 50, 50, 255);
         [DataMember]
         private Vector2 gravity = Vector2.UnitY * 10;
+
+#if WINDOWS
+        [NonSerialized]
+#endif
+        internal List<GameObject> markedForRemoval;
 
 #if WINDOWS
         [NonSerialized]
@@ -221,6 +226,63 @@ namespace Gibbo.Library
 
         #region constructors
 
+        public GameScene()
+        {
+
+        }
+
+//#if WINDOWS
+//        protected GameScene(SerializationInfo info, StreamingContext context)
+//        {
+//            if (info == null)
+//                throw new ArgumentNullException("info");
+
+//            foreach (SerializationEntry entry in info)
+//            {
+//                switch (entry.Name)
+//                {
+//                    case "name":
+//                        name = (string)entry.Value; break;
+//                    case "camera":
+//                        camera = (Camera)entry.Value; break;
+//                    case "gravity":
+//                        gravity = (Vector2)entry.Value; break;
+//                    case "backgroundColor":
+//                        backgroundColor = (Color)entry.Value; break;
+//                    case "gameObjects":
+//                        object obj = entry.Value;
+//                        if (obj.GetType().IsSubclassOf(typeof(System.Collections.CollectionBase)))
+//                        {
+//                            // handle old projects:
+//                            System.Collections.CollectionBase bx = (System.Collections.CollectionBase)obj;
+//                            this.gameObjects = new GameObjectCollection(null);
+//                            foreach (var ob in bx)
+//                            {
+//                                this.gameObjects.Add(ob as GameObject);
+//                            }
+//                        }
+//                        else
+//                        {
+//                            gameObjects = (GameObjectCollection)entry.Value;
+//                        }
+//                        break;
+//                }
+//            }
+//        }
+
+//        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+//        public void GetObjectData(SerializationInfo info, StreamingContext context)
+//        {
+//            if (info == null)
+//                throw new ArgumentNullException("info");
+
+//            info.AddValue("name", name);
+//            info.AddValue("camera", camera);
+//            info.AddValue("backgroundColor", backgroundColor);
+//            info.AddValue("gravity", gravity);
+//            info.AddValue("gameObjects", gameObjects);
+//        }
+//#endif
         #endregion
 
         #region methods

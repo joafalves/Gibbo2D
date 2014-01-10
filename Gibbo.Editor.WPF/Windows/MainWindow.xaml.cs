@@ -1319,7 +1319,7 @@ namespace Gibbo.Editor.WPF
                     }
 
                     c++;
-                    if (c == 4)
+                    if (c == 8)
                         break;
                 }
             }
