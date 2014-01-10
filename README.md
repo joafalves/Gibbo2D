@@ -26,4 +26,6 @@ It's supported by MonoGame, also an open source project.
 
 ## License
 
-Gibbo2D is released under the Microsoft Public License (Ms-PL)
+Gibbo2D is released under the MIT License (see LICENSE.txt for more info)
+
+
