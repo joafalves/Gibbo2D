@@ -512,6 +512,7 @@
     <Content Include="Content\debugfont.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Gibbo.Editor.Model.licenseheader" />
     <None Include="Gibbo.Editor.WPF_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
