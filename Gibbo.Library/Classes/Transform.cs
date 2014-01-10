@@ -36,6 +36,7 @@ using System.Runtime.Serialization;
 
 #if WINDOWS
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using System.Security.Permissions;
 #endif
 
 namespace Gibbo.Library
@@ -48,12 +49,12 @@ namespace Gibbo.Library
     [Serializable, TypeConverter(typeof(ExpandableObjectConverter))]
 #endif
     [DataContract]
-    public class Transform 
+    public class Transform
 #if WINDOWS
-        : ICloneable
+ : ICloneable, ISerializable
 #endif
     {
-        #region fields
+#region fields
         [DataMember]
         internal GameObject gameObject;
         [DataMember]
@@ -125,8 +126,8 @@ namespace Gibbo.Library
         /// The relative position of the object.
         /// If the object has no parent it returns the world position.
         /// </summary>
-#if WINDOWS       
-        [NotifyParentProperty(true)]        
+#if WINDOWS
+        [NotifyParentProperty(true)]
         [DisplayName("Position"), Description("The current position")]
 #endif
         public Vector2 RelativePosition
@@ -204,14 +205,14 @@ namespace Gibbo.Library
                 position = value;
 
                 if (gameObject.Body != null)
-                {                
+                {
                     desiredPosition = value;
 
                     desiredPosition = ConvertUnits.ToSimUnits(desiredPosition);
 
                     //if (SceneManager.IsEditor || gameObject.Body.BodyType == BodyType.Static || gameObject.Body.BodyType == BodyType.Kinematic)
                     //{
-                        gameObject.Body.Position = desiredPosition;
+                    gameObject.Body.Position = desiredPosition;
                     //}
                     //else
                     //{
@@ -261,7 +262,7 @@ namespace Gibbo.Library
                     //if (parent != null)
                     //    return gameObject.Body.Rotation + parent.Rotation;
                     //else
-                        return gameObject.Body.Rotation;
+                    return gameObject.Body.Rotation;
                 }
             }
             set
@@ -281,7 +282,7 @@ namespace Gibbo.Library
             {
                 //if (_obj.Body != null)
                 //    _obj.Body.Rotation = _obj.Body.Rotation + _obj.Transform.rotation;
-                
+
                 _obj.Transform.RelativePosition = _obj.Transform.RelativePosition.Rotate(dif);
 
                 RotateChildren(_obj, dif);
@@ -300,7 +301,7 @@ namespace Gibbo.Library
             get { return scale; }
             set
             {
-                // Rotate children along
+                // scale children along
                 foreach (GameObject go in gameObject.Children)
                 {
                     go.Transform.Scale = value;
@@ -311,34 +312,51 @@ namespace Gibbo.Library
                 if (gameObject.Body != null && gameObject.physicalBody != null)
                 {
                     gameObject.physicalBody.ResetBody();
-                    //Body _body = (gameObject.originalBody).DeepClone();
-                    //(_body.FixtureList[0].Shape as PolygonShape).Vertices.Scale(new Vector2(value));
-                    //gameObject.Body.FixtureList.RemoveAt(0);
-                    //gameObject.Body.FixtureList.Add(_body.FixtureList[0]);
-
-                    //gameObject.Body.FixtureList.Remove(gameObject.Body.FixtureList[0]);
-
-                    //PolygonShape nshape = new PolygonShape(shape
-
-                    //Vector2 _scale = ConvertUnits.ToSimUnits(new Vector2(value));
-
-                    //PolygonShape shape = gameObject.Body.FixtureList[0].Shape as PolygonShape;
-                    //shape.Vertices.Scale(new Vector2(scale));
-
-                    //PolygonShape nshape = new PolygonShape
                 }
-
-                //if (gameObject.Body != null && gameObject.Body.FixtureList != null)
-                //{
-                //    Vector2 _scale = ConvertUnits.ToSimUnits(new Vector2(value));
-                //    foreach (var v in gameObject.Body.FixtureList)
-                //        if (v.Shape is PolygonShape)
-                //            (v.Shape as PolygonShape).Vertices.Scale(ref _scale);
-                //}
             }
         }
 
         #endregion
+
+        #region constructors
+
+        public Transform()
+        {
+
+        }
+
+        protected Transform(SerializationInfo info, StreamingContext context)
+        {
+            if (info == null)
+                throw new ArgumentNullException("info");
+
+            gameObject = info.GetValue("gameObject", typeof(GameObject)) as GameObject;
+            parent = info.GetValue("parent", typeof(Transform)) as Transform;
+            position = (Vector2)info.GetValue("position", typeof(Vector2));
+            rotation = (float)info.GetDouble("rotation");
+
+            object obj = info.GetValue("scale", typeof(object));
+            if (obj is Vector2)
+                scale = (Vector2)info.GetValue("scale", typeof(Vector2));
+            else
+                scale = Vector2.One;
+        }
+
+        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            if (info == null)
+                throw new ArgumentNullException("info");
+
+            info.AddValue("gameObject", gameObject);
+            info.AddValue("position", position);
+            info.AddValue("rotation", rotation);
+            info.AddValue("scale", scale);
+            info.AddValue("parent", parent);
+        }
+
+        #endregion
+
 
         #region methods
 
@@ -375,7 +393,7 @@ namespace Gibbo.Library
         /// <returns></returns>
         public Transform DeepCopy()
         {
-            Transform result = Clone() as Transform; 
+            Transform result = Clone() as Transform;
 
             result.Position = new Vector2(this.Position.X, this.Position.Y);
 

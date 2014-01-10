@@ -238,7 +238,7 @@ namespace Gibbo.Library
             }
             catch (Exception ex)
             {
-                Console.Write(string.Format("Error!\nError Message: {0}", ex.Message));
+                Console.Write(string.Format("Error!\nError Message: {0}\n{1}", ex.Message, ex.StackTrace));
             }
         }
 #elif WINRT
@@ -270,7 +270,7 @@ namespace Gibbo.Library
             }
             catch (Exception ex)
             {
-                Console.Write(string.Format("Error!\nError Message: {0}", ex.Message));
+                Console.Write(string.Format("Error!\nError Message: {0}\n{1}", ex.Message, ex.StackTrace));
             }
         }
 #endif
@@ -295,7 +295,7 @@ namespace Gibbo.Library
             }
             catch (Exception ex)
             {
-                Console.Write(string.Format("Error!\nError Message: {0}", ex.Message));
+                Console.Write(string.Format("Error on deserialization!\nError Message: {0}\n{1}", ex.Message, ex.StackTrace));
                 return null;
             }
 
