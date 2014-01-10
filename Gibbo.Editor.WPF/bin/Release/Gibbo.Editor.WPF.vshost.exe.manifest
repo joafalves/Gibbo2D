@@ -43,11 +43,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="PresentationUI" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16896">
       <assemblyIdentity name="Gibbo.Editor.Model" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
@@ -55,7 +50,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
+        <dsig:DigestValue>O1RnCRKGHWaVrF2v3L8TO5EEJhE=</dsig:DigestValue>
+=======
         <dsig:DigestValue>tRitSCsOljaU1kSstZmUdmwuDQI=</dsig:DigestValue>
+>>>>>>> 60f80a5d7da97a64d399c915b7493be401698146
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,7 +66,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
+        <dsig:DigestValue>ChLUqr2lHp6kgHnaJUdwPIziEgU=</dsig:DigestValue>
+=======
         <dsig:DigestValue>ZvN1YPbzta4makCzcQ3+HIqZbCU=</dsig:DigestValue>
+>>>>>>> 60f80a5d7da97a64d399c915b7493be401698146
       </hash>
     </dependentAssembly>
   </dependency>
@@ -115,7 +118,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>tPC4fClcp9ilW3xrXxmHCzz7qRw=</dsig:DigestValue>
+        <dsig:DigestValue>owHjBPNzhX2atAtjFGI38jAW1i8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
