@@ -116,6 +116,11 @@ namespace Gibbo.Editor.WPF
             get { return Services; }
         }
 
+        public Rectangle MouseBoundingBox
+        {
+            get { return new Rectangle((int)mouseWorldPosition.X, (int)mouseWorldPosition.Y, 1, 1); }
+        }
+
         #endregion
 
         #region constructors
@@ -427,65 +432,63 @@ namespace Gibbo.Editor.WPF
                     //Vector2.Transform(EditorHandler.SelectedGameObject.Transform.Position, SceneManager.ActiveCamera.TransformMatrix);
 
                     // Draw center arrow
-                    //Vector2 start = new Vector2(spos.X, spos.Y - HANDLER_SIZE);
-                    //Vector2 end = new Vector2(spos.X, spos.Y + HANDLER_SIZE);
-                    //
+                    Vector2 start = new Vector2(spos.X, spos.Y - HANDLER_SIZE);
+                    Vector2 end = new Vector2(spos.X, spos.Y + HANDLER_SIZE);
+
                     //start = new Vector2(spos.X - HANDLER_SIZE, spos.Y);
                     //end = new Vector2(spos.X + HANDLER_SIZE, spos.Y);
                     //Primitives.DrawLine(spriteBatch, start, end, Color.Yellow, 2);
 
-                    //if (editorMode == EditorModes.Move || editorMode == EditorModes.Scale)
-                    //{
-                    //    Vector2 start;
-                    //    Vector2 end;
-                    //    // Y axis:
-                    //    {
-                    //        start = new Vector2(spos.X, spos.Y - AXIS_OFFSET);
-                    //        end = new Vector2(spos.X, spos.Y);
-                    //        Primitives.DrawLine(spriteBatch, start, end, Color.Red, 2);
+                    if (editorMode == EditorModes.Move || editorMode == EditorModes.Scale)
+                    {
+                        // Y axis:
+                        {
+                            start = new Vector2(spos.X, spos.Y - AXIS_OFFSET);
+                            end = new Vector2(spos.X, spos.Y);
+                            Primitives.DrawLine(spriteBatch, start, end, Color.Red, 4);
 
-                    //        if (editorMode == EditorModes.Move)
-                    //        {
-                    //            start = new Vector2(spos.X - AXIS_OPT_SIZE / 2, spos.Y - AXIS_OFFSET + AXIS_OPT_SIZE / 2);
-                    //            end = new Vector2(spos.X, spos.Y - AXIS_OFFSET);
-                    //            Primitives.DrawLine(spriteBatch, start, end, Color.Red, 2);
+                            if (editorMode == EditorModes.Move)
+                            {
+                                start = new Vector2(spos.X - AXIS_OPT_SIZE / 2, spos.Y - AXIS_OFFSET + AXIS_OPT_SIZE / 2);
+                                end = new Vector2(spos.X + 1, spos.Y - AXIS_OFFSET);
+                                Primitives.DrawLine(spriteBatch, start, end, Color.Red, 4);
 
-                    //            start = new Vector2(spos.X + AXIS_OPT_SIZE / 2, spos.Y - AXIS_OFFSET + AXIS_OPT_SIZE / 2);
-                    //            end = new Vector2(spos.X, spos.Y - AXIS_OFFSET);
-                    //            Primitives.DrawLine(spriteBatch, start, end, Color.Red, 2);
-                    //        }
-                    //        else if (editorMode == EditorModes.Scale)
-                    //        {
-                    //            Primitives.DrawBoxFilled(spriteBatch,
-                    //                new Rectangle((int)spos.X - AXIS_OPT_SIZE / 2, (int)spos.Y - AXIS_OFFSET - AXIS_OPT_SIZE / 2, AXIS_OPT_SIZE, AXIS_OPT_SIZE)
-                    //                , Color.Red);
-                    //        }
-                    //    }
+                                start = new Vector2(spos.X + AXIS_OPT_SIZE / 2, spos.Y - AXIS_OFFSET + AXIS_OPT_SIZE / 2);
+                                end = new Vector2(spos.X - 1, spos.Y - AXIS_OFFSET);
+                                Primitives.DrawLine(spriteBatch, start, end, Color.Red, 4);
+                            }
+                            else if (editorMode == EditorModes.Scale)
+                            {
+                                Primitives.DrawBoxFilled(spriteBatch,
+                                    new Rectangle((int)spos.X - AXIS_OPT_SIZE / 2, (int)spos.Y - AXIS_OFFSET - AXIS_OPT_SIZE / 2, AXIS_OPT_SIZE, AXIS_OPT_SIZE)
+                                    , Color.Red);
+                            }
+                        }
 
-                    //    // X axis:
-                    //    {
-                    //        start = new Vector2(spos.X + AXIS_OFFSET, spos.Y);
-                    //        end = new Vector2(spos.X, spos.Y);
-                    //        Primitives.DrawLine(spriteBatch, start, end, Color.Green, 2);
+                        // X axis:
+                        {
+                            start = new Vector2(spos.X + AXIS_OFFSET, spos.Y);
+                            end = new Vector2(spos.X, spos.Y);
+                            Primitives.DrawLine(spriteBatch, start, end, Color.Green, 4);
 
-                    //        if (editorMode == EditorModes.Move)
-                    //        {
-                    //            start = new Vector2(spos.X + AXIS_OFFSET - AXIS_OPT_SIZE / 2, spos.Y - AXIS_OPT_SIZE / 2);
-                    //            end = new Vector2(spos.X + AXIS_OFFSET, spos.Y);
-                    //            Primitives.DrawLine(spriteBatch, start, end, Color.Green, 2);
+                            if (editorMode == EditorModes.Move)
+                            {
+                                start = new Vector2(spos.X + AXIS_OFFSET - AXIS_OPT_SIZE / 2, spos.Y - AXIS_OPT_SIZE / 2);
+                                end = new Vector2(spos.X + AXIS_OFFSET, spos.Y + 1);
+                                Primitives.DrawLine(spriteBatch, start, end, Color.Green, 4);
 
-                    //            start = new Vector2(spos.X + AXIS_OFFSET - AXIS_OPT_SIZE / 2, spos.Y + AXIS_OPT_SIZE / 2);
-                    //            end = new Vector2(spos.X + AXIS_OFFSET, spos.Y);
-                    //            Primitives.DrawLine(spriteBatch, start, end, Color.Green, 2);
-                    //        }
-                    //        else if (editorMode == EditorModes.Scale)
-                    //        {
-                    //            Primitives.DrawBoxFilled(spriteBatch,
-                    //                new Rectangle((int)spos.X + AXIS_OFFSET - AXIS_OPT_SIZE / 2, (int)spos.Y - AXIS_OPT_SIZE / 2, AXIS_OPT_SIZE, AXIS_OPT_SIZE)
-                    //                , Color.Green);
-                    //        }
-                    //    }
-                    //}
+                                start = new Vector2(spos.X + AXIS_OFFSET - AXIS_OPT_SIZE / 2, spos.Y + AXIS_OPT_SIZE / 2);
+                                end = new Vector2(spos.X + AXIS_OFFSET, spos.Y - 1);
+                                Primitives.DrawLine(spriteBatch, start, end, Color.Green, 4);
+                            }
+                            else if (editorMode == EditorModes.Scale)
+                            {
+                                Primitives.DrawBoxFilled(spriteBatch,
+                                    new Rectangle((int)spos.X + AXIS_OFFSET - AXIS_OPT_SIZE / 2, (int)spos.Y - AXIS_OPT_SIZE / 2, AXIS_OPT_SIZE, AXIS_OPT_SIZE)
+                                    , Color.Green);
+                            }
+                        }
+                    }
 
                     // Draw Transform Box 
                     Rectangle box = new Rectangle((int)spos.X - HANDLER_SIZE / 2, (int)spos.Y - HANDLER_SIZE / 2, HANDLER_SIZE, HANDLER_SIZE);
@@ -1035,23 +1038,9 @@ namespace Gibbo.Editor.WPF
             {
                 Cursor = Cursors.Hand;
             }
-            else
+            else if(objectHandled)
             {
-                switch (editorMode)
-                {
-                    case EditorModes.Move:
-                        Cursor = Cursors.NoMove2D;
-                        break;
-                    case EditorModes.Rotate:
-                        Cursor = Cursors.NoMoveHoriz;
-                        break;
-                    case EditorModes.Scale:
-                        Cursor = Cursors.NoMoveVert;
-                        break;
-                    default:
-                        Cursor = Cursors.Default;
-                        break;
-                }
+              
             }
         }
 
@@ -1188,7 +1177,7 @@ namespace Gibbo.Editor.WPF
             {
                 foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
                 {
-                    gameObject.Transform.Scale = (Vector2.Distance(gameObject.Transform.Position, mouseWorldPosition) / 100.0f);
+                    gameObject.Transform.Scale *= (Vector2.Distance(gameObject.Transform.Position, mouseWorldPosition) / 100.0f);
                 }
             }
         }
@@ -1203,40 +1192,62 @@ namespace Gibbo.Editor.WPF
             foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
             {
                 Vector2 spos = gameObject.Transform.Position;
+        
+                Rectangle selectedObjectBoundingBox =
+                       new Rectangle((int)spos.X - HANDLER_SIZE / 2, (int)spos.Y - HANDLER_SIZE / 2, HANDLER_SIZE, HANDLER_SIZE);
 
-                if (LeftMouseKeyDown)
+                bool intersects = false;
+
+                if (!objectHandled)
                 {
-                    Rectangle mouseBoundingBox = new Rectangle((int)mouseWorldPosition.X, (int)mouseWorldPosition.Y, 4, 4);
-                    Rectangle selectedObjectBoundingBox =
-                        new Rectangle((int)spos.X - HANDLER_SIZE / 2, (int)spos.Y - HANDLER_SIZE / 2, HANDLER_SIZE, HANDLER_SIZE);
-
-
                     // The mouse is intersecting the selected object?
-                    //if (mouseBoundingBox.Intersects(selectedObjectBoundingBox))
-                    //{
-                    if (!objectHandled)
+                    if (MouseBoundingBox.Intersects(selectedObjectBoundingBox))
                     {
-                        // Save the current transform for Undo / Redo purposes
-                        beforeTransform = (Transform)gameObject.Transform.DeepCopy();
-                        beforeTransform.GameObject = new GameObject();
-                    }
+                        intersects = true;
+                        switch (editorMode)
+                        {
+                            case EditorModes.Move:
+                                Cursor = Cursors.NoMove2D;
+                                break;
+                            case EditorModes.Rotate:
+                                Cursor = Cursors.NoMoveHoriz;
+                                break;
+                            case EditorModes.Scale:
+                                Cursor = Cursors.NoMoveVert;
+                                break;
+                            default:
+                                Cursor = Cursors.Default;
+                                break;
+                        }
 
-                    objectHandled = true;
-                    //}
+                        if (leftMouseKeyDown)
+                        {
+                            // Save the current transform for Undo / Redo purposes
+                            beforeTransform = (Transform)gameObject.Transform.DeepCopy();
+                            beforeTransform.GameObject = new GameObject();
+
+                            objectHandled = true;
+                        }
+                    }
                 }
-                else
+
+                if (!leftMouseKeyDown)
                 {
-                    // The modifications were made?
                     if (objectHandled)
                     {
                         // Save Undo / Redo history
                         InsertUndoRedo();
+                       
                     }
 
-                    objectHandled = false;
+                    if (!intersects)
+                        Cursor = Cursors.Default;
 
-                    //EditorCommands.UpdatePropertyGrid();
+                    objectHandled = false;                                    
                 }
+
+               
+
             }
 
             if (objectHandled)
@@ -1303,7 +1314,6 @@ namespace Gibbo.Editor.WPF
         {
             controlPosition = pos;
             mouseWorldPosition = Vector2.Transform(pos, Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix));
-            //Console.WriteLine(mouseWorldPosition);
         }
 
         Vector2 controlPosition;

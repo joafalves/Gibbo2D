@@ -91,7 +91,7 @@ namespace Gibbo.Library
         /// </summary>
         public override void Initialize()
         {
-            Transform.GameObject.Body = BodyFactory.CreateRectangle(SceneManager.ActiveScene.World, ConvertUnits.ToSimUnits(width * Transform.scale), ConvertUnits.ToSimUnits(height * Transform.scale), density);
+            Transform.GameObject.Body = BodyFactory.CreateRectangle(SceneManager.ActiveScene.World, ConvertUnits.ToSimUnits(width * Transform.scale.X), ConvertUnits.ToSimUnits(height * Transform.scale.Y), density);
             Transform.gameObject.physicalBody = this;
 
             Transform.Position = Transform.position;
@@ -105,7 +105,7 @@ namespace Gibbo.Library
         {
             if (Transform.GameObject.Body.FixtureList[0].Shape != null && Transform.GameObject.Body.FixtureList[0].Shape is PolygonShape)
             {
-                Vertices newVertices = PolygonTools.CreateRectangle((ConvertUnits.ToSimUnits(width) / 2) * Transform.scale, (ConvertUnits.ToSimUnits(height) / 2) * Transform.scale);
+                Vertices newVertices = PolygonTools.CreateRectangle((ConvertUnits.ToSimUnits(width) / 2) * Transform.scale.X, (ConvertUnits.ToSimUnits(height) / 2) * Transform.scale.Y);
                 (Transform.GameObject.Body.FixtureList[0].Shape as PolygonShape).Vertices = newVertices;
                 (Transform.GameObject.Body.FixtureList[0].Shape as PolygonShape).Density = density;
             }

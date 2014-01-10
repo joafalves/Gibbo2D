@@ -1,4 +1,5 @@
 ﻿using Gibbo.Library;
+using Microsoft.Xna.Framework;
 
 namespace Gibbo.Editor.Model
 {
@@ -6,8 +7,8 @@ namespace Gibbo.Editor.Model
     {
         #region fields
 
-        private float _change;
-        private float _beforeChange;
+        private Vector2 _change;
+        private Vector2 _beforeChange;
         private GameObject _element;
 
         #endregion
@@ -19,7 +20,7 @@ namespace Gibbo.Editor.Model
         /// </summary>
         /// <param name="change"></param>
         /// <param name="element"></param>
-        public ScaleCommand(float change, float before, GameObject element)
+        public ScaleCommand(Vector2 change, Vector2 before, GameObject element)
         {
             _change = change;
             _element = element;

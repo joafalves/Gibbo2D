@@ -212,15 +212,15 @@ namespace Gibbo.Library
 
                 if (origin == Origins.TopLeft)
                 {
-                    this.fontRenderer.DrawText(spriteBatch, (int)Transform.Position.X, (int)Transform.Position.Y, this.text.ToString(), Transform.Scale, this.OverlayColor, this.lineSpacing, this.alignMode);
+                    this.fontRenderer.DrawText(spriteBatch, (int)Transform.Position.X, (int)Transform.Position.Y, this.text.ToString(), Transform.Scale.X, this.OverlayColor, this.lineSpacing, this.alignMode);
                 }
                 else
                 {
-                    Vector2 dest = fontRenderer.MeasureString(text, Transform.Scale, this.lineSpacing);
+                    Vector2 dest = fontRenderer.MeasureString(text, Transform.Scale.X, this.lineSpacing);
                     dest.X = Transform.Position.X - (dest.X - dest.X / 2);
                     dest.Y = Transform.Position.Y - (dest.Y - dest.Y / 2);
 
-                    this.fontRenderer.DrawText(spriteBatch, (int)dest.X, (int)dest.Y, this.text.ToString(), Transform.Scale, this.OverlayColor, this.lineSpacing, this.alignMode);
+                    this.fontRenderer.DrawText(spriteBatch, (int)dest.X, (int)dest.Y, this.text.ToString(), Transform.Scale.X, this.OverlayColor, this.lineSpacing, this.alignMode);
                 }
 
                 spriteBatch.End();

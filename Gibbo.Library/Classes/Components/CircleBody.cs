@@ -40,7 +40,7 @@ namespace Gibbo.Library
                     radius = 1;
 
                 if (Transform.GameObject.Body != null)
-                    (Transform.GameObject.Body.FixtureList[0].Shape as CircleShape).Radius = ConvertUnits.ToSimUnits(radius * Transform.Scale);
+                    (Transform.GameObject.Body.FixtureList[0].Shape as CircleShape).Radius = ConvertUnits.ToSimUnits(radius * Transform.Scale.X);
             }
         }
 
@@ -71,7 +71,7 @@ namespace Gibbo.Library
         /// </summary>
         public override void Initialize()
         {
-            Transform.GameObject.Body = BodyFactory.CreateCircle(SceneManager.ActiveScene.World, ConvertUnits.ToSimUnits(radius * Transform.scale), density);
+            Transform.GameObject.Body = BodyFactory.CreateCircle(SceneManager.ActiveScene.World, ConvertUnits.ToSimUnits(radius * Transform.scale.X), density);
             Transform.gameObject.physicalBody = this;
 
             Transform.Position = Transform.position;
@@ -85,7 +85,7 @@ namespace Gibbo.Library
         {
             if (Transform.GameObject.Body == null || Transform.gameObject.Body.FixtureList == null) return;
 
-            (Transform.GameObject.Body.FixtureList[0].Shape as CircleShape).Radius = ConvertUnits.ToSimUnits(radius * Transform.Scale);
+            (Transform.GameObject.Body.FixtureList[0].Shape as CircleShape).Radius = ConvertUnits.ToSimUnits(radius * Transform.Scale.X);
             (Transform.GameObject.Body.FixtureList[0].Shape as CircleShape).Density = density;
         }
 

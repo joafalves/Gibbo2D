@@ -39,7 +39,7 @@ namespace Gibbo.Library
         [DataMember]
         internal float rotation;
         [DataMember]
-        internal float scale = 1.0f;
+        internal Vector2 scale = Vector2.One;
 
 #if WINDOWS
         [NonSerialized]
@@ -271,7 +271,7 @@ namespace Gibbo.Library
         [NotifyParentProperty(true)]
         [DisplayName("Scale"), Description("The current scale")]
 #endif
-        public float Scale
+        public Vector2 Scale
         {
             get { return scale; }
             set

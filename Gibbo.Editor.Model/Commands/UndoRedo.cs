@@ -84,7 +84,7 @@ namespace Gibbo.Editor.Model
         /// <param name="scale"></param>
         /// <param name="oldScale"></param>
         /// <param name="element"></param>
-        public void InsertInUnDoRedoForScale(float scale, float oldScale, GameObject element)
+        public void InsertInUnDoRedoForScale(Vector2 scale, Vector2 oldScale, GameObject element)
         {
             ICommand cmd = new ScaleCommand(scale, oldScale, element);
             _Undocommands.Push(cmd);

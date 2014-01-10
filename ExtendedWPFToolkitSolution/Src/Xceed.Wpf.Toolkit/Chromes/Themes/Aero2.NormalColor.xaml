@@ -55,8 +55,8 @@
                                 <Condition Property="RenderEnabled" Value="False" />
                                 <Condition Property="RenderChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonDisabledOuterBorderKey}}" />
-                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource {x:Static themes:ResourceKeys.ControlDisabledBackgroundKey}}" />
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="Transparent" />
+                            <Setter TargetName="OuterBorder" Property="Background" Value="#FFD8D8D8" />
                         </MultiTrigger>
 
                         <!-- if button is enabled and pressed -->
@@ -65,8 +65,8 @@
                                 <Condition Property="RenderEnabled" Value="True" />
                                 <Condition Property="RenderPressed" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonPressedOuterBorderKey}}" />
-                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonPressedBackgroundKey}}" />
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="Transparent" />
+                            <Setter TargetName="OuterBorder" Property="Background" Value="#FFD8D8D8" />
                         </MultiTrigger>
 
                         <!-- if button is enabled, is not checked, the mouse is over, and not pressed -->
@@ -77,8 +77,8 @@
                                 <Condition Property="RenderMouseOver" Value="True" />
                                 <Condition Property="RenderPressed" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonMouseOverOuterBorderKey}}" />
-                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonMouseOverBackgroundKey}}" />
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="Transparent" />
+                            <Setter TargetName="OuterBorder" Property="Background" Value="#FFD8D8D8" />
                         </MultiTrigger>
 
                         <!-- if button is enabled, checked, the mouse is not over, and it is not pressed -->
@@ -101,8 +101,8 @@
                                 <Condition Property="RenderPressed" Value="False" />
                                 <Condition Property="RenderMouseOver" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonFocusedOuterBorderKey}}" />
-                            <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonFocusedBackgroundKey}}" />
+                            <Setter TargetName="OuterBorder" Property="BorderBrush" Value="Transparent" />
+                            <Setter TargetName="OuterBorder" Property="Background" Value="#FFD8D8D8" />
                         </MultiTrigger>
 
                         <!-- if not rendered normally -->

@@ -109,7 +109,7 @@ namespace Gibbo.Library
                 outline.Translate(ref centroid);
                 outline = SimplifyTools.DouglasPeuckerSimplify(outline, 0.1f);
                 List<Vertices> result = Triangulate.ConvexPartition(outline, TriangulationAlgorithm.Bayazit);
-                Vector2 scale = ConvertUnits.ToSimUnits(new Vector2(Transform.Scale));
+                Vector2 scale = ConvertUnits.ToSimUnits(Transform.Scale);
                 foreach (Vertices vertices in result)
                 {
                     vertices.Scale(ref scale);
