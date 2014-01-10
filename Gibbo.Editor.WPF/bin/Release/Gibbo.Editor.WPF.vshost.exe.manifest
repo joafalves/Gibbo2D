@@ -43,6 +43,11 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="PresentationUI" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16896">
       <assemblyIdentity name="Gibbo.Editor.Model" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
@@ -50,23 +55,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VkQJ37bm4UVUT/Qx3xnSM5udhoI=</dsig:DigestValue>
+        <dsig:DigestValue>06NwdXHND0It/pHH5mQGi15S1RE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="586240">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="590336">
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-<<<<<<< HEAD
-        <dsig:DigestValue>Hx4ah5V2YJtJRgR9YvNdTMnv5EI=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>Q4TpTk63y0pnLtomMYRDuUorSwU=</dsig:DigestValue>
->>>>>>> 3674025873e7a37bcad7c2a62203e2079387f2c3
+        <dsig:DigestValue>2JqA6aagEFDFkpTWKdNMQI7Xd2E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,7 +79,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aQ/vo9EOV1gqA1IkwVxo5braVBw=</dsig:DigestValue>
+        <dsig:DigestValue>vRMOqf6uEWOSUdixvHIfMoVZHLc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -95,26 +96,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lidgren.Network.dll" size="144384">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lidgren.Network.dll" size="118272">
       <assemblyIdentity name="Lidgren.Network" version="2011.3.12.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aRPoweNPd/7lNw5SYsRr4Fb8XXw=</dsig:DigestValue>
+        <dsig:DigestValue>LPvLvklRNPC1ky1TzXAh76ljq3Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MonoGame.Framework.dll" size="653312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MonoGame.Framework.dll" size="653824">
       <assemblyIdentity name="MonoGame.Framework" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>oiSYNM8KEN7kM2qIMHIC57IasPA=</dsig:DigestValue>
+        <dsig:DigestValue>tPC4fClcp9ilW3xrXxmHCzz7qRw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -198,7 +199,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>DyNBQgItkRFuHeTdT7CCoUe7YIk=</dsig:DigestValue>
+        <dsig:DigestValue>spOSwMcjkgUxO4QiIgMQ8ZaGlao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -424,25 +425,25 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>DyNBQgItkRFuHeTdT7CCoUe7YIk=</dsig:DigestValue>
+      <dsig:DigestValue>spOSwMcjkgUxO4QiIgMQ8ZaGlao=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project Templates\samples\DefaultComponent.cs" size="156">
+  <file name="Project Templates\samples\DefaultComponent.cs" size="1375">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>CFsOgvk1HXizM6tV2reQt25Xjz8=</dsig:DigestValue>
+      <dsig:DigestValue>ddGdrz3IACdpnm8TomJSFTWwTrU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project Templates\samples\SampleController.cs" size="3991">
+  <file name="Project Templates\samples\SampleController.cs" size="5210">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>eOG+UNP5c0SSoP925kzV2SPnZvk=</dsig:DigestValue>
+      <dsig:DigestValue>zA2sw2tXGul4R8l8ar9nasg2XL4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Project Templates\settings.ini" size="390">

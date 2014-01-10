@@ -164,6 +164,7 @@
                 </MenuItem>
                 <MenuItem Header="Help" Foreground="#FF212121">
                     <MenuItem Header="Documentation" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_1" />
+                    <MenuItem Header="GitHub Page" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_3" />
                     <Separator HorizontalAlignment="Left" Width="200"/>
                     <MenuItem Header="Tutorials" HorizontalAlignment="Left" Width="200" Click="MenuItem_tutorial_click" />
                     <Separator HorizontalAlignment="Left" Width="200"/>

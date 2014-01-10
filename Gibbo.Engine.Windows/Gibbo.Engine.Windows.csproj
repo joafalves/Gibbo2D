@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Gibbo.Editor.Model.licenseheader" />
     <None Include="Gibbo2D.Engine.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,28 @@
-﻿using Gibbo.Library;
+﻿#region Copyrights
+/*
+Gibbo2D - Copyright - 2013 Gibbo2D Team
+Founders - Joao Alves <joao.cpp.sca@gmail.com> and Luis Fernandes <luisapidcloud@hotmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE. 
+*/
+#endregion
+using Gibbo.Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +58,11 @@ namespace Gibbo.Editor.WPF
         ImageSource hiddenItemIcon;
 
         internal bool canCopyPaste;
+
+        MenuItem renameItem;
+        MenuItem moveUpItem;
+        MenuItem moveDownItem;
+        MenuItem saveStateItem;
 
         #endregion
 
@@ -78,15 +107,15 @@ namespace Gibbo.Editor.WPF
             MenuItem panelCreateObjectItem = EditorUtils.CreateMenuItem("Create New Object...", (ImageSource)FindResource("GameObjectIcon_Sprite"));
             MenuItem addFromStateItem = EditorUtils.CreateMenuItem("Add From State...", null);
             MenuItem panelAddFromStateItem = EditorUtils.CreateMenuItem("Add From State...", null);
-            MenuItem saveStateItem = EditorUtils.CreateMenuItem("Save State...", (ImageSource)FindResource("SaveIcon"));
+            saveStateItem = EditorUtils.CreateMenuItem("Save State...", (ImageSource)FindResource("SaveIcon"));
             MenuItem cutItem = EditorUtils.CreateMenuItem("Cut", (ImageSource)FindResource("CutIcon"));
             MenuItem copyItem = EditorUtils.CreateMenuItem("Copy", (ImageSource)FindResource("CopyIcon"));
             MenuItem pasteItem = EditorUtils.CreateMenuItem("Paste", (ImageSource)FindResource("PasteIcon"));
             MenuItem panelPasteItem = EditorUtils.CreateMenuItem("Paste", (ImageSource)FindResource("PasteIcon"));
             MenuItem deleteItem = EditorUtils.CreateMenuItem("Delete", null);
-            MenuItem renameItem = EditorUtils.CreateMenuItem("Rename", (ImageSource)FindResource("RenameIcon"));
-            MenuItem moveUpItem = EditorUtils.CreateMenuItem("Move Up", (ImageSource)FindResource("MoveUpIcon"));
-            MenuItem moveDownItem = EditorUtils.CreateMenuItem("Move Down", (ImageSource)FindResource("MoveDownIcon"));
+            renameItem = EditorUtils.CreateMenuItem("Rename", (ImageSource)FindResource("RenameIcon"));
+            moveUpItem = EditorUtils.CreateMenuItem("Move Up", (ImageSource)FindResource("MoveUpIcon"));
+            moveDownItem = EditorUtils.CreateMenuItem("Move Down", (ImageSource)FindResource("MoveDownIcon"));
 
             contextMenu.Items.Add(addComponentItem);
             contextMenu.Items.Add(createObjectItem);
@@ -134,18 +163,14 @@ namespace Gibbo.Editor.WPF
 
         internal void Paste()
         {
-            GameObject gameObject = (GameObject)Clipboard.GetData("GameObject");
+            List<GameObject> gameObjects = (List<GameObject>)Clipboard.GetData("GameObject");
 
-            if (gameObject != null)
+            if (gameObjects != null)
             {
-                gameObject.Initialize();
-                SceneManager.ActiveScene.GameObjects.Add(gameObject);
-
-                DragDropTreeViewItem node = AddNode(null, gameObject, GameObjectImageSource(gameObject));
-                node.ContextMenu = contextMenu;
-
-                EditorHandler.SelectedGameObjects = new List<GameObject>();
-                EditorHandler.SelectedGameObjects.Add(gameObject);
+                foreach (GameObject obj in gameObjects)
+                {
+                    AddGameObject(obj, string.Empty);
+                }
             }
         }
 
@@ -318,7 +343,7 @@ namespace Gibbo.Editor.WPF
         internal DragDropTreeViewItem AddNode(DragDropTreeViewItem parent, object tag, ImageSource imageSource)
         {
             DragDropTreeViewItem node = new DragDropTreeViewItem();
-            node.Style = (Style)FindResource("IgniteTreeViewItem");
+            node.Style = (Style)FindResource("IgniteMultiTreeViewItem");
 
             Image visibilityToggleImage = new Image();
             visibilityToggleImage.Cursor = Cursors.Hand;
@@ -395,7 +420,7 @@ namespace Gibbo.Editor.WPF
                 noScene.Header = "No Scene in memory.";
                 noScene.CanDrag = false;
                 noScene.IsEnabled = false;
-                noScene.Style = (Style)FindResource("IgniteTreeViewItem");
+                noScene.Style = (Style)FindResource("IgniteMultiTreeViewItem");
                 // noScene.can
 
                 treeView.Items.Add(noScene);
@@ -498,6 +523,23 @@ namespace Gibbo.Editor.WPF
 
         void contextMenu_Opened(object sender, RoutedEventArgs e)
         {
+            // check disabled :
+            if (TreeViewExtension.GetSelectedTreeViewItems(treeView).Count > 1)
+            {
+                // more than one selected:
+                renameItem.IsEnabled = false;
+                moveUpItem.IsEnabled = false;
+                moveDownItem.IsEnabled = false;
+                saveStateItem.IsEnabled = false;
+            }
+            else
+            {
+                renameItem.IsEnabled = true;
+                moveUpItem.IsEnabled = true;
+                moveDownItem.IsEnabled = true;
+                saveStateItem.IsEnabled = true;
+            }
+
             addComponentItem.Items.Clear();
             GibboMenuItem item = null;
 
@@ -623,15 +665,18 @@ namespace Gibbo.Editor.WPF
         {
             GibboMenuItem _sender = (GibboMenuItem)sender;
 
-            ObjectComponent component = (ObjectComponent)Activator.CreateInstance((Type)_sender.Tag, new object[] { /* params here */ });
-            GameObject gameObject = (GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
-            if (!gameObject.AddComponent(component))
+            foreach (var ti in TreeViewExtension.GetSelectedTreeViewItems(treeView))
             {
-                MessageBox.Show("The component was not added, the requirements are not met", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else
-            {
-                EditorCommands.CreatePropertyGridView();
+                ObjectComponent component = (ObjectComponent)Activator.CreateInstance((Type)_sender.Tag, new object[] { /* params here */ });
+                GameObject gameObject = (GameObject)ti.Tag;
+                if (!gameObject.AddComponent(component))
+                {
+                    MessageBox.Show("The component was not added to " + gameObject.Name + ", the requirements are not met", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    EditorCommands.CreatePropertyGridView();
+                }
             }
         }
 
@@ -652,59 +697,81 @@ namespace Gibbo.Editor.WPF
 
         void treeView_OnDragDropSuccess(DragDropTreeViewItem source, DragDropTreeViewItem target, System.ComponentModel.CancelEventArgs e)
         {
-            // don't allow moving tilesets, only allow game objects
             if (!(source.Tag is GameObject))
             {
                 e.Cancel = true;
                 return;
             }
 
-            GameObject _source = source.Tag as GameObject;
+            List<TreeViewItem> movedItems = TreeViewExtension.GetSelectedTreeViewItems(treeView);
+            // verify if the moved items will not be placed on any of their children or in themselfs
+            foreach (var ti in movedItems)
+            {
+                var tx = (DragDropTreeViewItem)ti;
+                if (ti == target)
+                {
+                    // trying to drop on one of the moved items
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (DragDropTreeView.TreeContainsNode(treeView, tx, target))
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
 
             if (target.Tag is GameObject)
             {
-                // no parent?
-                if (_source.Transform.Parent == null)
+                foreach (var ti in movedItems)
                 {
-                    SceneManager.ActiveScene.GameObjects.Remove(_source, false);
-                }
-                else
-                {
-                    GameObject parent = (source.Parent as DragDropTreeViewItem).Tag as GameObject;
-                    parent.Children.Remove(_source, false);
-                }
-
-                if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Center)
-                {
-                    (target.Tag as GameObject).Children.Insert(0, _source);
-                }
-                else
-                {
-                    int index = 0;
-
+                    GameObject _source = ti.Tag as GameObject;
+     
                     // no parent?
-                    if ((target.Tag as GameObject).Transform.Parent == null)
+                    if (_source.Transform.Parent == null)
                     {
-                        index = SceneManager.ActiveScene.GameObjects.IndexOf(target.Tag as GameObject);
+                        SceneManager.ActiveScene.GameObjects.Remove(_source, false);
                     }
                     else
                     {
-                        GameObject parent = (target.Parent as DragDropTreeViewItem).Tag as GameObject;
-                        index = parent.Children.IndexOf(target.Tag as GameObject);
+                        GameObject parent = (ti.Parent as DragDropTreeViewItem).Tag as GameObject;
+                        parent.Children.Remove(_source, false);
                     }
 
-                    if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Top)
-                        index++;
-
-                    if ((target.Tag as GameObject).Transform.Parent == null)
+                    if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Center)
                     {
-                        SceneManager.ActiveScene.GameObjects.Insert(index, _source);
+                        (target.Tag as GameObject).Children.Insert(0, _source);
                     }
                     else
                     {
-                        GameObject parent = (target.Parent as DragDropTreeViewItem).Tag as GameObject;
-                        parent.Children.Insert(index, _source);
+                        int index = 0;
+
+                        // no parent?
+                        if ((target.Tag as GameObject).Transform.Parent == null)
+                        {
+                            index = SceneManager.ActiveScene.GameObjects.IndexOf(target.Tag as GameObject);
+                        }
+                        else
+                        {
+                            GameObject parent = (target.Parent as DragDropTreeViewItem).Tag as GameObject;
+                            index = parent.Children.IndexOf(target.Tag as GameObject);
+                        }
+
+                        if (DragDropHelper.insertionPlace == DragDropHelper.InsertionPlace.Top)
+                            index++;
+
+                        if ((target.Tag as GameObject).Transform.Parent == null)
+                        {
+                            SceneManager.ActiveScene.GameObjects.Insert(index, _source);
+                        }
+                        else
+                        {
+                            GameObject parent = (target.Parent as DragDropTreeViewItem).Tag as GameObject;
+                            parent.Children.Insert(index, _source);
+                        }
                     }
+
                 }
 
             }
@@ -757,7 +824,7 @@ namespace Gibbo.Editor.WPF
         {
             ItemLostFocus();
 
-          
+
         }
 
 
@@ -857,57 +924,79 @@ namespace Gibbo.Editor.WPF
 
         void deleteItem_Click(object sender, RoutedEventArgs e)
         {
-            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to delete this game object?", "Warning", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+            List<TreeViewItem> selected = TreeViewExtension.GetSelectedTreeViewItems(treeView);
+            string message = "Are you sure you want to delete the selected game object?";
+            if (selected.Count > 1)
             {
-                GameObject gameObject = (GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
-                DragDropTreeViewItem parentNode = (SelectedItem as DragDropTreeViewItem).Parent as DragDropTreeViewItem;
-                if (parentNode == null)
+                message = "Are you sure you want to delete the selected game objects?";
+            }
+
+            if (System.Windows.Forms.MessageBox.Show(message, "Warning", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+            {
+                foreach (var t in selected)
                 {
-                    SceneManager.ActiveScene.GameObjects.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
-                    treeView.Items.Remove(SelectedItem);
-                }
-                else
-                {
-                    GameObject objParent = (GameObject)parentNode.Tag;
-                    objParent.Children.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
-                    parentNode.Items.Remove(SelectedItem);
+                    GameObject gameObject = (GameObject)(t as DragDropTreeViewItem).Tag; //(GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
+                    DragDropTreeViewItem parentNode = (SelectedItem as DragDropTreeViewItem).Parent as DragDropTreeViewItem;
+                    if (parentNode == null)
+                    {
+                        SceneManager.ActiveScene.GameObjects.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
+                        treeView.Items.Remove(SelectedItem);
+                    }
+                    else
+                    {
+                        GameObject objParent = (GameObject)parentNode.Tag;
+                        objParent.Children.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
+                        parentNode.Items.Remove(SelectedItem);
+                    }
                 }
             }
         }
 
         void pasteItem_Click(object sender, RoutedEventArgs e)
         {
-            GameObject gameObject = (GameObject)Clipboard.GetData("GameObject");
-
-            if (gameObject != null)
-            {
-                AddGameObject(gameObject, string.Empty);
-            }
+            Paste();
         }
 
         void copyItem_Click(object sender, RoutedEventArgs e)
         {
-            ((SelectedItem as DragDropTreeViewItem).Tag as GameObject).SaveComponentValues();
-            Clipboard.SetData("GameObject", ((SelectedItem as DragDropTreeViewItem).Tag as GameObject));
+            List<GameObject> toCopy = new List<GameObject>();
+            foreach (TreeViewItem ti in TreeViewExtension.GetSelectedTreeViewItems(treeView))
+            {
+                var gameObject = (ti.Tag as GameObject);
+                gameObject.SaveComponentValues();
+                toCopy.Add(gameObject);
+
+            }
+
+            Clipboard.SetData("GameObject", toCopy);
         }
 
         void cutItem_Click(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetData("GameObject", ((SelectedItem as DragDropTreeViewItem).Tag as GameObject));
+            List<GameObject> toCopy = new List<GameObject>();
+            foreach (TreeViewItem ti in TreeViewExtension.GetSelectedTreeViewItems(treeView))
+            {
+                var gameObject = (ti.Tag as GameObject);
+                gameObject.SaveComponentValues();
+                toCopy.Add(gameObject);
 
-            GameObject gameObject = (GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
-            DragDropTreeViewItem parentNode = (SelectedItem as DragDropTreeViewItem).Parent as DragDropTreeViewItem;
-            if (parentNode == null)
-            {
-                SceneManager.ActiveScene.GameObjects.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
-                treeView.Items.Remove(SelectedItem);
+                DragDropTreeViewItem parentNode = ti.Parent as DragDropTreeViewItem;
+                if (parentNode == null)
+                {
+                    SceneManager.ActiveScene.GameObjects.Remove(ti.Tag as GameObject);
+                    treeView.Items.Remove(ti);
+                }
+                else
+                {
+                    GameObject objParent = (GameObject)parentNode.Tag;
+                    objParent.Children.Remove(ti.Tag as GameObject);
+                    parentNode.Items.Remove(ti);
+                }
             }
-            else
-            {
-                GameObject objParent = (GameObject)parentNode.Tag;
-                objParent.Children.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
-                parentNode.Items.Remove(SelectedItem);
-            }
+            Clipboard.SetData("GameObject", toCopy);
+            TreeViewExtension.UnselectAll(treeView);
+            EditorHandler.SelectedGameObjects.Clear();
+            EditorHandler.ChangeSelectedObjects();
         }
 
         void saveStateItem_Click(object sender, RoutedEventArgs e)
@@ -920,7 +1009,6 @@ namespace Gibbo.Editor.WPF
                 ((SelectedItem as DragDropTreeViewItem).Tag as GameObject).Save(fbd.SelectedPath + "//" + ((SelectedItem as DragDropTreeViewItem).Tag as GameObject).Name + ".state");
             }
         }
-
 
         private void treeView_MouseDown(object sender, MouseButtonEventArgs e)
         {

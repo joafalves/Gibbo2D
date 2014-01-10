@@ -29,9 +29,9 @@
                 <ControlTemplate TargetType="RepeatButton">
                     <Grid>
                         <chrome:ButtonChrome x:Name="Chrome"
-                                       BorderBrush="{TemplateBinding BorderBrush}" 
-                                       Background="Red"                                                                  
-                                       CornerRadius="{DynamicResource {x:Static themes:ResourceKeys.SpinButtonCornerRadiusKey}}"
+                                       BorderBrush="Transparent" 
+                                       Background="#FFC7C7C7"                                                                  
+                                       CornerRadius="2"
                                        RenderEnabled="{TemplateBinding IsEnabled}"
                                        
                                        RenderMouseOver="{TemplateBinding IsMouseOver}"

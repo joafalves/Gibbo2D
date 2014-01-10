@@ -11,8 +11,7 @@
                 <Setter Property="BorderThickness" Value="1"></Setter>
                 <Style.Triggers>
                     <Trigger Property="WPF:TreeViewExtension.IsSelected" Value="true">
-                        <Setter Property="BorderBrush" Value="Red"></Setter>
-                        <Setter Property="BorderThickness" Value="2"></Setter>
+                        <Setter Property="Background" Value="Red"></Setter>                 
                     </Trigger>
                 </Style.Triggers>
             </Style>
