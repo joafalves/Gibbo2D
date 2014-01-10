@@ -680,6 +680,7 @@ namespace Gibbo.Editor.WPF
         /// </summary>
         public void Input(GameTime gameTime)
         {
+                
             delta = (float)gameTime.ElapsedGameTime.Milliseconds;
             if (GameInput.IsKeyDown(Keys.LeftShift)) delta *= 3;
 
@@ -1012,6 +1013,9 @@ namespace Gibbo.Editor.WPF
             {
                 if (selectionStarted)
                 {
+                    if (!GameInput.IsKeyDown(Keys.LeftControl))
+                        selectionArea = Rectangle.Empty;
+
                     if (EditorHandler.SelectedGameObjects.Count > 0)
                     {
                         // EditorHandler.PropertyGrid.SelectedObjects = EditorHandler.SelectedGameObjects.ToArray();

@@ -205,7 +205,7 @@ namespace Microsoft.Xna.Framework
                 window.Close();
                 return;
             }
-
+          
             Keys xnaKey = KeyboardUtil.ToXna(e.Key);
             if (!keys.Contains(xnaKey)) keys.Add(xnaKey);
         }

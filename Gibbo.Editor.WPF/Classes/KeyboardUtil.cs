@@ -130,6 +130,8 @@ namespace Gibbo.Editor.WPF
                 { Keys.LaunchApplication2, XKeys.LaunchApplication2 },
                 { Keys.LaunchMail, XKeys.LaunchMail },
                 { Keys.LControlKey, XKeys.LeftControl },
+                { Keys.LButton | Keys.ShiftKey, XKeys.LeftControl },
+                { Keys.ShiftKey, XKeys.LeftShift },
                 { Keys.Left, XKeys.Left },
                 { Keys.LShiftKey, XKeys.LeftShift },
                 { Keys.LWin, XKeys.LeftWindows },
