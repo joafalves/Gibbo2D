@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>http://www.dragon-scale-studios.com/downloads/gibbo/|http://www.dragon-scale-studios.com/downloads/gibbo/beta/|publish\</PublishUrlHistory>
-    <InstallUrlHistory />
+    <PublishUrlHistory>C:\Users\João\Desktop\deploy\|http://dragon-scale-studios.com/downloads/gibbo2d/|https://dragon-scale-studios.com/downloads/gibbo2d/|dragon-scale-studios.com/downloads/gibbo2d/|ftp://dragon-scale-studios.com/downloads/gibbo2d/</PublishUrlHistory>
+    <InstallUrlHistory>http://dragon-scale-studios.com/downloads/gibbo2d/|http://www.dragon-scale-studios.com/downloads/gibbo2d/|http://www.dragon-scale-studios.com/downloads/gibbo/</InstallUrlHistory>
     <SupportUrlHistory>http://dragon-scale-studios.com/gibbo/forum/</SupportUrlHistory>
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>http://www.dragon-scale-studios.com/downloads/gibbo2d/</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory>http://dragon-scale-studios.com/gibbo/forum/</ErrorReportUrlHistory>
     <FallbackCulture>en-US</FallbackCulture>

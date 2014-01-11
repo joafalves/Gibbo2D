@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ManifestCertificateThumbprint>98E2B4CCA902834BC85F1CBB137090FBEA3288BA</ManifestCertificateThumbprint>
-    <PublishUrl>http://www.dragon-scale-studios.com/downloads/gibbo/</PublishUrl>
+    <PublishUrl>C:\Users\João\Desktop\deploy\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -12,13 +12,17 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://dragon-scale-studios.com/downloads/gibbo2d/</InstallUrl>
+    <UpdateUrl>http://www.dragon-scale-studios.com/downloads/gibbo2d/</UpdateUrl>
     <SupportUrl>http://dragon-scale-studios.com/gibbo/forum/</SupportUrl>
     <ErrorReportUrl>http://dragon-scale-studios.com/gibbo/forum/</ErrorReportUrl>
     <ProductName>Gibbo 2D</ProductName>
-    <PublisherName>Dragon Scale Studios</PublisherName>
+    <PublisherName>Gibbo2D Team</PublisherName>
     <SuiteName>Gibbo Suite</SuiteName>
-    <ApplicationRevision>9</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -188,6 +192,183 @@
     <Compile Include="Windows\WindowsFormsHostOverlay.xaml.cs">
       <DependentUpon>WindowsFormsHostOverlay.xaml</DependentUpon>
     </Compile>
+    <Content Include="Tutorials\01 - User Interface\Pictures\1_gibbo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\01 - User Interface\Pictures\1_menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\01 - User Interface\Pictures\1_scene_explorer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\01 - User Interface\Pictures\1_scene_hierarchy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\01 - User Interface\Pictures\1_scene_inspector.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\01 - User Interface\Pictures\1_scene_tileset.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\01 - User Interface\UserInterface.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\1_menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_center_camera_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_grid_snapping_example.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_menu_bar_settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_menu_bar_undo_redo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_reset_camera_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_rotate_Example.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_rotate_snapping_example.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_scale_Example.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_scene_camera_and_screen_settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_select_single_object_and_inspector.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_settings_grid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_toggle_collision_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_to_collision_block_menu_bar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_translate_example.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\Pictures\2_with_and_without_grid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\02 - Scene View\SceneView.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\03 - Game Mode\GameMode.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\03 - Game Mode\Pictures\3_console_window.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\03 - Game Mode\Pictures\3_debugging_game_window.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\03 - Game Mode\Pictures\3_debug_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\03 - Game Mode\Pictures\3_debug_settings_window.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\03 - Game Mode\Pictures\3_external_settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\03 - Game Mode\Pictures\3_other_settings_window.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\ComponentsBasis.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_AddFromFolder_ProjectExplorer_Option.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_add_component_physics_options_collision.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_add_component_script.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_add_new_object_window.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_add_to_selected_option.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_compile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_content_windows_explorer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_copy_relative_path.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_created_scene_projects_explorer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_create_folder_projects_explorer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_create_script_projects_explorer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_file_new_project.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_image_path_complete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_image_path_property.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_Inspector_Component_Category_Trash_Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_lime_script_OnMouseUp_Only.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_lime_script_switch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_lime_script_variable_tag.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_newgame_tag_inspector.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_output_collision_newgame.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_projects_explorer_create_2options.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_rectangle_body_inspector.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_rename_game_scene.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_resources_real_time_project_explorer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_scene_hierarchy_complete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_startup_new_project.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tutorials\04 - Components Basis\Pictures\4_toggle_visibility_icon_Scene_Hierarchy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Content\android.png" />
     <Resource Include="Content\ios.png" />
     <Resource Include="Content\linux.png" />
@@ -197,16 +378,6 @@
     <Resource Include="Content\windows_store.png" />
     <Resource Include="Gibbo.Content\_debug_view.png" />
     <Resource Include="Gibbo.Content\splashscreen.png" />
-    <Content Include="Tutorials\FirstSteps\FirstSteps.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Tutorials\FirstSteps\Pictures\image.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Tutorials\FirstSteps\Pictures\img1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Gibbo.Content\_pencil.png" />
     <Resource Include="Gibbo.Content\add_column.png" />
     <Resource Include="Gibbo.Content\grid_icon.png" />
