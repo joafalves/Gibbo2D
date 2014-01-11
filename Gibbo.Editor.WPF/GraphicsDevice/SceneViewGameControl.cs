@@ -1263,21 +1263,28 @@ namespace Gibbo.Editor.WPF
                 // todo: proportional scale
                 foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
                 {
+                    // POS OBJ = 0
+                 
+
                     // SCALE A = ?
                     // POSI = X (X => primeiro clique) -- 100%
                     // POSA = SCALE A
                     if (usingYAxis)
                     {
-                        gameObject.Transform.Scale = new Vector2(gameObject.Transform.Scale.X, Math.Abs(mouseWorldPosition.Y * beforeState[gameObject].Scale.Y / mouseClickPosition.Y));
+                        gameObject.Transform.Scale = new Vector2(gameObject.Transform.Scale.X, Math.Abs(((gameObject.Transform.Position.Y - mouseWorldPosition.Y) * beforeState[gameObject].Scale.Y / (gameObject.Transform.Position.Y  - mouseClickPosition.Y))));
                     }
                     else if (usingXAxis)
                     {
-                        gameObject.Transform.Scale = new Vector2(Math.Abs(mouseWorldPosition.X * beforeState[gameObject].Scale.X / mouseClickPosition.X), gameObject.Transform.Scale.Y);
+                        gameObject.Transform.Scale = new Vector2(Math.Abs((gameObject.Transform.Position.X - mouseWorldPosition.X) * beforeState[gameObject].Scale.X / (gameObject.Transform.Position.X - mouseClickPosition.X)), gameObject.Transform.Scale.Y);
                     }
                     else
                     {
-                        gameObject.Transform.Scale = new Vector2(Math.Abs(mouseWorldPosition.X * beforeState[gameObject].Scale.X / mouseClickPosition.X),
-                            Math.Abs(mouseWorldPosition.Y * beforeState[gameObject].Scale.Y / mouseClickPosition.Y));
+                        float dx = (gameObject.Transform.Position.X - mouseWorldPosition.X) - (gameObject.Transform.Position.X - mouseClickPosition.X);
+                        float dy = (gameObject.Transform.Position.Y - mouseWorldPosition.Y) - (gameObject.Transform.Position.Y - mouseClickPosition.Y);
+                        float h = (dx * dx) + (dy * dy);
+                        
+                        gameObject.Transform.Scale = new Vector2(Math.Abs((gameObject.Transform.Position.X - mouseWorldPosition.X) * beforeState[gameObject].Scale.X / (gameObject.Transform.Position.X - mouseClickPosition.X)),
+                            Math.Abs(((gameObject.Transform.Position.Y - mouseWorldPosition.Y)  * beforeState[gameObject].Scale.Y / (gameObject.Transform.Position.Y - mouseClickPosition.Y))));
                     }
                 }
             }
@@ -1302,8 +1309,8 @@ namespace Gibbo.Editor.WPF
                 Rectangle selectedObjectBoundingBox =
                        new Rectangle((int)spos.X - HANDLER_SIZE / 2, (int)spos.Y - HANDLER_SIZE / 2, HANDLER_SIZE, HANDLER_SIZE);
 
-                Rectangle YAxisBoundingBox = new Rectangle((int)spos.X - AXIS_OPT_SIZE / 2, (int)spos.Y - AXIS_OFFSET, AXIS_OPT_SIZE / 2, AXIS_OFFSET - (HANDLER_SIZE / 2));
-                Rectangle XAxisBoundingBox = new Rectangle((int)spos.X + (HANDLER_SIZE / 2), (int)spos.Y - AXIS_OPT_SIZE / 2, AXIS_OFFSET - (HANDLER_SIZE / 2), AXIS_OPT_SIZE);
+                Rectangle YAxisBoundingBox = new Rectangle((int)spos.X - AXIS_OPT_SIZE / 2, (int)spos.Y - AXIS_OFFSET - AXIS_OPT_SIZE / 2, AXIS_OPT_SIZE, AXIS_OFFSET - (HANDLER_SIZE / 2));
+                Rectangle XAxisBoundingBox = new Rectangle((int)spos.X + (HANDLER_SIZE / 2), (int)spos.Y - AXIS_OPT_SIZE / 2, AXIS_OFFSET - (HANDLER_SIZE / 2) + AXIS_OPT_SIZE / 2, AXIS_OPT_SIZE);
 
                 bool intersects = false;
 
