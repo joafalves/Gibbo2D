@@ -63,42 +63,54 @@ namespace Gibbo.Editor.WPF
             }
         }
 
+        static object lockPaste = new object();
         internal static void CopySelectedObjects()
         {
-            foreach (var obj in EditorHandler.SelectedGameObjects)
-                obj.SaveComponentValues();
+            lock (lockPaste)
+            {
+                Clipboard.Clear();
 
-            if (EditorHandler.SelectedGameObjects != null && EditorHandler.SelectedGameObjects.Count > 0)
-                Clipboard.SetData("GameObjects", new List<GameObject>(EditorHandler.SelectedGameObjects));
+                foreach (var obj in EditorHandler.SelectedGameObjects)
+                    obj.SaveComponentValues();
+                
+                if (EditorHandler.SelectedGameObjects != null && EditorHandler.SelectedGameObjects.Count > 0)
+                    Clipboard.SetData("GameObjects", new List<GameObject>(EditorHandler.SelectedGameObjects));
+            }
         }
 
+       
         internal static void PasteSelectedObjects()
         {
-            List<GameObject> list = (List<GameObject>)Clipboard.GetData("GameObjects");
-
-            if (list == null || list.Count == 0) return;
-
-            // verificar se tem um pai
-            foreach (var obj in list)
+            lock (lockPaste)
             {
-                var parent = obj.Transform.Parent;
-                while (parent != null && !list.Contains(parent.GameObject))
-                    parent = parent.Parent;
+                List<GameObject> list = (List<GameObject>)Clipboard.GetData("GameObjects");
+                Clipboard.Clear();
+               
+                if (list == null || list.Count == 0) return;
+                
+                EditorHandler.SelectedGameObjects.Clear();
+                // verificar se tem um pai
+                foreach (var obj in list)
+                {
+                    var parent = obj.Transform.Parent;
+                    while (parent != null && !list.Contains(parent.GameObject))
+                        parent = parent.Parent;
 
-                if (parent != null && list.Contains(parent.GameObject))
-                {
-                    parent.GameObject.Children.Add(obj);
+                    if (parent != null && list.Contains(parent.GameObject))
+                    {
+                        parent.GameObject.Children.Add(obj);
+                    }
+                    else
+                    {
+                        var selected = EditorHandler.SceneTreeView.SelectedItem as DragDropTreeViewItem;
+                        EditorHandler.SceneTreeView.AddGameObject(obj, string.Empty, false);
+                    }
+
+                    EditorHandler.SelectedGameObjects.Add(obj);
                 }
-                else
-                {
-                    var selected = EditorHandler.SceneTreeView.SelectedItem as DragDropTreeViewItem;
-                    EditorHandler.SceneTreeView.AddGameObject(obj, string.Empty);
-                }
+
+                EditorHandler.ChangeSelectedObjects();
             }
-
-            EditorHandler.SelectedGameObjects.Clear();
-            EditorHandler.SelectedGameObjects.Add(list.Last());
-            EditorHandler.ChangeSelectedObjects();
         }
 
         internal static void CreatePropertyGridView()

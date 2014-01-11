@@ -195,7 +195,7 @@ namespace Gibbo.Editor.WPF
             }
         }
 
-        internal void AddGameObject(GameObject gameObject, string type)
+        internal void AddGameObject(GameObject gameObject, string type, bool autoselect = true)
         {
             if (gameObject == null)
             {
@@ -270,10 +270,11 @@ namespace Gibbo.Editor.WPF
                 //foreach (GameObject _obj in gameObject.Children)
                 //    AddGameObject(_obj, string.Empty);
 
-                EditorHandler.SelectedGameObjects = new List<GameObject>();
-                EditorHandler.SelectedGameObjects.Add(gameObject);
-
-
+                if (autoselect)
+                {
+                    EditorHandler.SelectedGameObjects = new List<GameObject>();
+                    EditorHandler.SelectedGameObjects.Add(gameObject);
+                }
             }
         }
 
@@ -727,7 +728,7 @@ namespace Gibbo.Editor.WPF
                 foreach (var ti in movedItems)
                 {
                     GameObject _source = ti.Tag as GameObject;
-     
+
                     // no parent?
                     if (_source.Transform.Parent == null)
                     {
