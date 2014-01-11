@@ -55,7 +55,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>YYXaF270HlPkl4Qykl9THdE6EzE=</dsig:DigestValue>
+        <dsig:DigestValue>KbUCQJ2rnYWFTN8xlmmLoMF5ox8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,19 +67,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rNsnXyMQQQ+EVKm2beeUuKHV2L4=</dsig:DigestValue>
+        <dsig:DigestValue>G4dT8PzXqCnLpmUSeHbmigIwxnE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Library.dll" size="428544">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Library.dll" size="429056">
       <assemblyIdentity name="Gibbo.Library" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>PJPrjA6zHDNWOJJziLexxjNHF/k=</dsig:DigestValue>
+        <dsig:DigestValue>bgQpzH/ZET3uL1xoZR04NA4Fqfo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

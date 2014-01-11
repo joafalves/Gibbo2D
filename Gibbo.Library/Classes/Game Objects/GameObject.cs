@@ -1035,6 +1035,11 @@ namespace Gibbo.Library
             GC.SuppressFinalize(this);
         }
 
+        public virtual Rectangle MeasureDimension()
+        {
+            return new Rectangle((int)transform.position.X, (int)transform.position.Y, 1, 1);
+        }
+
         #endregion
 
         #region events

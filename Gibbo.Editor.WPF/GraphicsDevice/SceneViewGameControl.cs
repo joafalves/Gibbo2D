@@ -48,6 +48,8 @@ namespace Gibbo.Editor.WPF
 
         private bool usingYAxis = false;
         private bool usingXAxis = false;
+        private bool hoverYAxis = false;
+        private bool hoverXAxis = false;
 
         private ContentManager content;
         private SpriteBatch spriteBatch;
@@ -718,7 +720,7 @@ namespace Gibbo.Editor.WPF
             {
                 if (!mouseDragStarted)
                 {
-                   //mouseClickPosition = mouseWorldPosition;
+                    //mouseClickPosition = mouseWorldPosition;
                     mouseDragStarted = true;
                 }
             }
@@ -1080,21 +1082,23 @@ namespace Gibbo.Editor.WPF
 
             foreach (GameObject gameObject in sceneGameObjects)
             {
-                if (gameObject.Selectable && selectionArea.Intersects(new Rectangle((int)gameObject.Transform.Position.X, (int)gameObject.Transform.Position.Y, 1, 1)))
+                if (gameObject.Selectable && selectionArea.Intersects(gameObject.MeasureDimension())) //new Rectangle((int)gameObject.Transform.Position.X, (int)gameObject.Transform.Position.Y, 1, 1)))
                 {
-                    if (selectionArea.Width <= 2 && selectionArea.Height <= 2)
+                    if (selectionArea.Width <= 2 && selectionArea.Height <= 2 && !GameInput.IsKeyDown(Keys.LeftControl))
                     {
                         EditorHandler.SelectedGameObjects.Clear();
                     }
 
-                    EditorHandler.SelectedGameObjects.Add(gameObject);
+                    if (!EditorHandler.SelectedGameObjects.Contains(gameObject))
+                        EditorHandler.SelectedGameObjects.Add(gameObject);
                 }
             }
 
             Fixture detected = SceneManager.ActiveScene.World.TestPoint(ConvertUnits.ToSimUnits(mouseWorldPosition));
             if (detected != null)
             {
-                EditorHandler.SelectedGameObjects.Add(detected.Body.GameObject);
+                if (detected.Body.GameObject.Selectable && !EditorHandler.SelectedGameObjects.Contains(detected.Body.GameObject))
+                    EditorHandler.SelectedGameObjects.Add(detected.Body.GameObject);
             }
 
             EditorHandler.SceneTreeView.SelectionUpdate();
@@ -1174,13 +1178,23 @@ namespace Gibbo.Editor.WPF
             switch (editorMode)
             {
                 case EditorModes.Move:
-                    Cursor = Cursors.NoMove2D;
+                    if (hoverXAxis)
+                        Cursor = Cursors.NoMoveHoriz;
+                    else if (hoverYAxis)
+                        Cursor = Cursors.NoMoveVert;
+                    else
+                        Cursor = Cursors.NoMove2D;
                     break;
                 case EditorModes.Rotate:
-                    Cursor = Cursors.NoMoveHoriz;
+                    Cursor = Cursors.NoMove2D;
                     break;
                 case EditorModes.Scale:
-                    Cursor = Cursors.NoMoveVert;
+                    if (hoverXAxis)
+                        Cursor = Cursors.NoMoveHoriz;
+                    else if (hoverYAxis)
+                        Cursor = Cursors.NoMoveVert;
+                    else
+                        Cursor = Cursors.NoMove2D;
                     break;
                 default:
                     Cursor = Cursors.Default;
@@ -1207,18 +1221,10 @@ namespace Gibbo.Editor.WPF
                     {
                         gameObject.Transform.Position =
                             new Vector2(gameObject.Transform.Position.X, gameObject.Transform.Position.Y + (mouseWorldPosition.Y - mouseLastPosition.Y));
-
                     }
                     else
                     {
                         gameObject.Transform.Position += mouseWorldPosition - mouseLastPosition;
-                    }
-
-                    // Snap to grid?
-                    if (SceneManager.GameProject.EditorSettings.SnapToGrid)
-                    {
-                        gameObject.Transform.Position =
-                            SnapToGrid(gameObject.Transform.Position);
                     }
                 }
             }
@@ -1263,15 +1269,12 @@ namespace Gibbo.Editor.WPF
                 // todo: proportional scale
                 foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
                 {
-                    // POS OBJ = 0
-                 
-
                     // SCALE A = ?
                     // POSI = X (X => primeiro clique) -- 100%
                     // POSA = SCALE A
                     if (usingYAxis)
                     {
-                        gameObject.Transform.Scale = new Vector2(gameObject.Transform.Scale.X, Math.Abs(((gameObject.Transform.Position.Y - mouseWorldPosition.Y) * beforeState[gameObject].Scale.Y / (gameObject.Transform.Position.Y  - mouseClickPosition.Y))));
+                        gameObject.Transform.Scale = new Vector2(gameObject.Transform.Scale.X, Math.Abs(((gameObject.Transform.Position.Y - mouseWorldPosition.Y) * beforeState[gameObject].Scale.Y / (gameObject.Transform.Position.Y - mouseClickPosition.Y))));
                     }
                     else if (usingXAxis)
                     {
@@ -1282,9 +1285,9 @@ namespace Gibbo.Editor.WPF
                         float dx = (gameObject.Transform.Position.X - mouseWorldPosition.X) - (gameObject.Transform.Position.X - mouseClickPosition.X);
                         float dy = (gameObject.Transform.Position.Y - mouseWorldPosition.Y) - (gameObject.Transform.Position.Y - mouseClickPosition.Y);
                         float h = (dx * dx) + (dy * dy);
-                        
+
                         gameObject.Transform.Scale = new Vector2(Math.Abs((gameObject.Transform.Position.X - mouseWorldPosition.X) * beforeState[gameObject].Scale.X / (gameObject.Transform.Position.X - mouseClickPosition.X)),
-                            Math.Abs(((gameObject.Transform.Position.Y - mouseWorldPosition.Y)  * beforeState[gameObject].Scale.Y / (gameObject.Transform.Position.Y - mouseClickPosition.Y))));
+                            Math.Abs(((gameObject.Transform.Position.Y - mouseWorldPosition.Y) * beforeState[gameObject].Scale.Y / (gameObject.Transform.Position.Y - mouseClickPosition.Y))));
                     }
                 }
             }
@@ -1299,6 +1302,7 @@ namespace Gibbo.Editor.WPF
             {
                 if (!panStarted)
                     Cursor = Cursors.Default;
+
                 return;
             }
 
@@ -1316,25 +1320,14 @@ namespace Gibbo.Editor.WPF
 
                 if (!objectHandled && !panStarted)
                 {
+                    hoverXAxis = false;
+                    hoverYAxis = false;
+
                     // The mouse is intersecting the selected object?
-                    if (MouseBoundingBox.Intersects(selectedObjectBoundingBox))
+                    if (MouseBoundingBox.Intersects(YAxisBoundingBox))
                     {
                         intersects = true;
-
-                        CheckCursor();
-
-                        if (leftMouseKeyDown)
-                        {
-                            // Save the current transform for Undo / Redo purposes
-                            SaveState();
-
-                            objectHandled = true;
-                        }
-                    }
-                    else if (MouseBoundingBox.Intersects(YAxisBoundingBox))
-                    {
-                        intersects = true;
-
+                        hoverYAxis = true;
                         CheckCursor(); //
 
                         if (leftMouseKeyDown)
@@ -1349,7 +1342,7 @@ namespace Gibbo.Editor.WPF
                     else if (MouseBoundingBox.Intersects(XAxisBoundingBox))
                     {
                         intersects = true;
-
+                        hoverXAxis = true;
                         CheckCursor(); //
 
                         if (leftMouseKeyDown)
@@ -1361,10 +1354,24 @@ namespace Gibbo.Editor.WPF
                             objectHandled = true;
                         }
                     }
+                    else if ((MouseBoundingBox.Intersects(selectedObjectBoundingBox) || MouseBoundingBox.Intersects(gameObject.MeasureDimension())) && gameObject.Selectable)
+                    {
+                        intersects = true;
+
+                        CheckCursor();
+
+                        if (leftMouseKeyDown)
+                        {
+                            // Save the current transform for Undo / Redo purposes
+                            SaveState();
+
+                            objectHandled = true;
+                        }
+                    }
                 }
                 else if (panStarted)
                 {
-                    Cursor = Cursors.Default;
+                    Cursor = Cursors.Hand;
                 }
 
                 if (!leftMouseKeyDown)
@@ -1374,9 +1381,15 @@ namespace Gibbo.Editor.WPF
                         // Save Undo / Redo history
                         InsertUndoRedo();
 
+                        // Snap to grid?
+                        if (SceneManager.GameProject.EditorSettings.SnapToGrid)
+                        {
+                            gameObject.Transform.Position =
+                                SnapToGrid(gameObject.Transform.Position);
+                        }
                     }
 
-                    if (!intersects)
+                    if (!intersects && !panStarted)
                         Cursor = Cursors.Default;
 
                     objectHandled = false;
