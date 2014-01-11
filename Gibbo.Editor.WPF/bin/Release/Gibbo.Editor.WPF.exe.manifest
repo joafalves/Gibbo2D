@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+<<<<<<< HEAD
   <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.11" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+=======
+<<<<<<< HEAD
+  <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+=======
+  <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+>>>>>>> 0cec382588da22d5d9b1cbcef9448a5de84f3ced
+>>>>>>> 1e17175a1a1f09e0e58b2d756674965c6a9a1ea8
   <description asmv2:iconFile="gibbo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -55,7 +63,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>V7Cp7E7UbTVF9WRyT2ExhG3+aGI=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>MYqZN9FVyn0eIvG8P7TwZEeYBeo=</dsig:DigestValue>
+>>>>>>> 1e17175a1a1f09e0e58b2d756674965c6a9a1ea8
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,7 +79,15 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>bHV46Id/OWCls7Y66UZxb+tPkDs=</dsig:DigestValue>
+=======
+<<<<<<< HEAD
+        <dsig:DigestValue>yqsI7e9HaHDoUBmiwbx1HzpRwso=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>UIrCVE/6X8MEhSl5phNwUHeWnrE=</dsig:DigestValue>
+>>>>>>> 0cec382588da22d5d9b1cbcef9448a5de84f3ced
+>>>>>>> 1e17175a1a1f09e0e58b2d756674965c6a9a1ea8
       </hash>
     </dependentAssembly>
   </dependency>

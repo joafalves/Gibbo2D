@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ManifestCertificateThumbprint>98E2B4CCA902834BC85F1CBB137090FBEA3288BA</ManifestCertificateThumbprint>
+    <PublishUrl>http://dragon-scale-studios.com/downloads/gibbo2d/</PublishUrl>
     <PublishUrl>C:\Users\João\Desktop\deploy\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -22,6 +23,8 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
     <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
