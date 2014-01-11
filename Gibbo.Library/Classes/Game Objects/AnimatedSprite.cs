@@ -393,6 +393,20 @@ namespace Gibbo.Library
             }
         }
 
+        public override Rectangle MeasureDimension()
+        {
+            if (texture != null)
+            {
+                return new Rectangle((int)(Transform.position.X - (texture.Width / totalFramesPerRow / 2) * Transform.scale.X),
+                    (int)(Transform.position.Y - (texture.Height / totalRows / 2) * Transform.scale.Y), (int)(texture.Width / totalFramesPerRow * Transform.scale.X),
+                    (int)(texture.Height / totalRows * Transform.scale.Y));
+            }
+            else
+            {
+                return base.MeasureDimension();
+            }
+        }
+
         #endregion
     }
 }
