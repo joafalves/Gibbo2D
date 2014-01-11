@@ -548,6 +548,13 @@ namespace Gibbo.Editor.WPF
                     Primitives.DrawBox(spriteBatch, box, Color.Yellow, 2);
 
                     Primitives.DrawBoxFilled(spriteBatch, new Rectangle((int)spos.X - 4, (int)spos.Y - 4, 8, 8), Color.Yellow);
+
+                    // Draw Measure Box
+                    Rectangle measure = gameObject.MeasureDimension();
+                    if (measure.Width > HANDLER_SIZE * 2 && measure.Height > HANDLER_SIZE * 2)
+                    {
+                        Primitives.DrawBox(spriteBatch, measure, Color.Yellow, 3);
+                    }
                 }
             }
         }
@@ -1082,7 +1089,7 @@ namespace Gibbo.Editor.WPF
 
             foreach (GameObject gameObject in sceneGameObjects)
             {
-                if (gameObject.Selectable && selectionArea.Intersects(gameObject.MeasureDimension())) //new Rectangle((int)gameObject.Transform.Position.X, (int)gameObject.Transform.Position.Y, 1, 1)))
+                if (gameObject.Visible && gameObject.Selectable && selectionArea.Intersects(gameObject.MeasureDimension())) //new Rectangle((int)gameObject.Transform.Position.X, (int)gameObject.Transform.Position.Y, 1, 1)))
                 {
                     if (selectionArea.Width <= 2 && selectionArea.Height <= 2 && !GameInput.IsKeyDown(Keys.LeftControl))
                     {
@@ -1097,7 +1104,7 @@ namespace Gibbo.Editor.WPF
             Fixture detected = SceneManager.ActiveScene.World.TestPoint(ConvertUnits.ToSimUnits(mouseWorldPosition));
             if (detected != null)
             {
-                if (detected.Body.GameObject.Selectable && !EditorHandler.SelectedGameObjects.Contains(detected.Body.GameObject))
+                if (detected.Body.GameObject.Visible && detected.Body.GameObject.Selectable && !EditorHandler.SelectedGameObjects.Contains(detected.Body.GameObject))
                     EditorHandler.SelectedGameObjects.Add(detected.Body.GameObject);
             }
 

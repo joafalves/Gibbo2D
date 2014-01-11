@@ -37,7 +37,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 #endif
 
 using System.Runtime.Serialization;
-using System.Security.Permissions;
+
 
 namespace Gibbo.Library
 {

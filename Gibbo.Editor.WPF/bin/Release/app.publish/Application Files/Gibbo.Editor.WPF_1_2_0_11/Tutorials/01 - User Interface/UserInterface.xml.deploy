@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Gibbo Tutorial-->
+<Tutorial>
+  <Info>
+    <Title>User Interface</Title>
+    <Author>Gibbo2D Team</Author>
+    <Description>In this tutorial, every main window panel and its specific functions are explained throrougly.</Description>
+    <Category>Easy</Category>
+    <Image>1_gibbo.png</Image>
+  </Info>
+  <Pages>
+    <Page Title="Main Window">
+      <Image>1_gibbo.png</Image>
+      <Description>Gibbo has a simple yet powerful user interface. The main window is divided in several panels as shown in the picture above.</Description>
+    </Page>
+    <Page Title="Project Explorer">
+      <Image>1_scene_explorer.png</Image>
+      <Description>As its own name suggests, the Project Explorer panel shows the content of your project root folder. Regardless of that, Gibbo does not list the files it doesn’t recognize. By using this panel, you can add and open folders, game scenes and scripts. It’s important to note that this panel is refreshed in real-time, so any in/out changes can be seen right away either in the windows explorer or in the project explorer.</Description>
+    </Page>
+    <Page Title="Scene Hierarchy">
+      <Image>1_scene_hierarchy.png</Image>
+      <Description>In the Scene Hierarchy panel you can see the object hierarchy of the active scene, it allows you to add/remove/edit different objects as shown in the picture above.</Description>
+    </Page>
+    <Page Title="Inspector">
+      <Image>1_scene_inspector.png</Image>
+      <Description>As you probably noticed, every object on the previous panel has a name, which allows you to remember their role in the scene. By clicking in these objects the Inspector panel will show you their properties, which you can modify in real-time to achieve the results you want.</Description>
+  	</Page>
+  	<Page Title="Tileset">
+      <Image>1_scene_tileset.png</Image>
+      <Description>In addition to that, if you select a Tileset object, you can also use its own dedicated panel, which allows you to among other things, select tiles (using a user defined size) and draw them in the Scene View.</Description>
+  	</Page>
+  	<Page Title="Scene View Menu">
+      <Image>1_menu.png</Image>
+      <Description>The Scene View is where you can see what is happening in game mode, allowing to modify the current scene by using several tools that Gibbo provides. You can also use the buttons above this panel and some of the buttons in the Menu Bar for a deeper control. </Description>
+  	</Page>
+  </Pages>
+</Tutorial>

@@ -791,7 +791,7 @@ namespace Gibbo.Editor.WPF
                 (tag as GameObject).Visible = !(tag as GameObject).Visible;
             }
 
-            if ((sender as Image).Source == visibleItemIcon)
+            if (!(tag as GameObject).Visible)
             {
                 (sender as Image).Source = hiddenItemIcon;
             }
