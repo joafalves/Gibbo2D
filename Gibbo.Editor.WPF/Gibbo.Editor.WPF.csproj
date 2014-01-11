@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ManifestCertificateThumbprint>98E2B4CCA902834BC85F1CBB137090FBEA3288BA</ManifestCertificateThumbprint>
-    <PublishUrl>http://www.dragon-scale-studios.com/downloads/gibbo/</PublishUrl>
+    <PublishUrl>http://dragon-scale-studios.com/downloads/gibbo2d/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -15,10 +15,12 @@
     <SupportUrl>http://dragon-scale-studios.com/gibbo/forum/</SupportUrl>
     <ErrorReportUrl>http://dragon-scale-studios.com/gibbo/forum/</ErrorReportUrl>
     <ProductName>Gibbo 2D</ProductName>
-    <PublisherName>Dragon Scale Studios</PublisherName>
+    <PublisherName>Gibbo2D Team</PublisherName>
     <SuiteName>Gibbo Suite</SuiteName>
-    <ApplicationRevision>9</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
