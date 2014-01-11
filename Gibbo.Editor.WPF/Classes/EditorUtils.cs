@@ -201,6 +201,9 @@ namespace Gibbo.Editor.WPF
             string src = string.Empty;
             switch (version)
             {
+                case "VisualStudio2013":
+                    src = @"VisualStudio\12.0";
+                    break;
                 case "VisualStudio2012":
                     src = @"VisualStudio\11.0";
                     break;

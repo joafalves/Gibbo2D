@@ -697,6 +697,9 @@ namespace Gibbo.Editor.WPF
                             string editor = Properties.Settings.Default.DefaultScriptEditor;
                             switch (editor)
                             {
+                                case "VisualStudio2013":
+                                    rf = "VisualStudio.DTE.12.0";
+                                    break;
                                 case "VisualStudio2012":
                                     rf = "VisualStudio.DTE.11.0";
                                     break;
@@ -732,17 +735,17 @@ namespace Gibbo.Editor.WPF
                         MessageBox.Show("You don't have selected a default scripting editor.\nEither select one on the Settings Window or open the scripts solution (.sln file) with other IDE to manage the scripts", "Error!");
                     }
                     break;
-                //default:
-                //    // Default behaviour, tries to use the default user opening for this type of file:
-                //    try
-                //    {
-                //        Process.Start(explorerTreeViewItem.FullPath);
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show(ex.Message);
-                //    }
-                //    break;
+                default:
+                    // Default behaviour, tries to use the default user opening for this type of file:
+                    try
+                    {
+                        Process.Start(explorerTreeViewItem.FullPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    break;
             }
         }
 

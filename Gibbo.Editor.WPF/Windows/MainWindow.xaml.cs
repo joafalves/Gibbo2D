@@ -1000,10 +1000,10 @@ namespace Gibbo.Editor.WPF
                 {
                     if (System.Windows.Forms.MessageBox.Show("There is a new build available [" + info.AvailableVersion.ToString() + "]\nCurrent Version [" + updateCheck.CurrentVersion.ToString() + "]\n\nDo you want download?", "Gibbo 2D Software", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        //updateCheck.Update();
-                        //System.Windows.MessageBox.Show("The application has been updated, and will now restart.", "Gibbo 2D Software");
-                        //Application.Restart();
-                        System.Diagnostics.Process.Start("http://www.dragon-scale-studios.com/downloads/gibbo/setup.exe");
+                        updateCheck.Update();
+                        System.Windows.MessageBox.Show("The application has been updated, and will now restart.", "Gibbo 2D Software");
+                        System.Windows.Forms.Application.Restart();
+                        //System.Diagnostics.Process.Start("http://www.dragon-scale-studios.com/downloads/gibbo2d/setup.exe");
                     }
                 }
                 else
