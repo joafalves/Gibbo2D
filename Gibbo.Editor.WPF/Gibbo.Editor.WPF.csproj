@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ManifestCertificateThumbprint>98E2B4CCA902834BC85F1CBB137090FBEA3288BA</ManifestCertificateThumbprint>
-    <PublishUrl>http://dragon-scale-studios.com/downloads/gibbo2d/</PublishUrl>
     <PublishUrl>C:\Users\João\Desktop\deploy\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
@@ -22,9 +21,7 @@
     <SuiteName>Gibbo Suite</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>11</ApplicationRevision>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -41,7 +38,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>gibbo.ico</ApplicationIcon>
+    <ApplicationIcon>gibbo2d.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -195,6 +192,8 @@
     <Compile Include="Windows\WindowsFormsHostOverlay.xaml.cs">
       <DependentUpon>WindowsFormsHostOverlay.xaml</DependentUpon>
     </Compile>
+    <Resource Include="gibbo2d.ico" />
+    <Resource Include="icongibbo2d.ico" />
     <Content Include="Tutorials\01 - User Interface\Pictures\1_gibbo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -823,51 +822,11 @@
       <Visible>False</Visible>
       <Description>gibbo</Description>
       <Progid>gibbo_id_m70</Progid>
-      <DefaultIcon>gibbo.ico</DefaultIcon>
+      <DefaultIcon>gibbo2d.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="Project Templates\Gibbo.Library.xml">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="Tutorials\01 - User Interface\UserInterface.xml">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="Tutorials\02 - Scene View\SceneView.xml">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="Tutorials\03 - Game Mode\GameMode.xml">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="Tutorials\04 - Components Basis\ComponentsBasis.xml">
       <Visible>False</Visible>
       <Group>
       </Group>

@@ -1003,6 +1003,7 @@ namespace Gibbo.Editor.WPF
                         updateCheck.Update();
                         System.Windows.MessageBox.Show("The application has been updated, and will now restart.", "Gibbo 2D Software");
                         System.Windows.Forms.Application.Restart();
+                        System.Windows.Application.Current.Shutdown();
                         //System.Diagnostics.Process.Start("http://www.dragon-scale-studios.com/downloads/gibbo2d/setup.exe");
                     }
                 }

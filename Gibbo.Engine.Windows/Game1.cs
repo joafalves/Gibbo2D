@@ -40,6 +40,12 @@ namespace Gibbo.Engine.Windows
     public class Game1 : Game
     {
 #if WINDOWS
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        const int SW_HIDE = 0;
+        const int SW_SHOW = 5;
         // P/Invoke required:
         private const UInt32 StdOutputHandle = 0xFFFFFFF5;
         [DllImport("kernel32.dll")]
@@ -49,6 +55,7 @@ namespace Gibbo.Engine.Windows
         [DllImport("kernel32")]
         static extern bool AllocConsole();
 #endif
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -63,7 +70,7 @@ namespace Gibbo.Engine.Windows
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "";
-            
+
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
         }
 
@@ -72,29 +79,19 @@ namespace Gibbo.Engine.Windows
         /// </summary>
         private void InitializeSettings()
         {
-            AllocConsole();
-
+            //AllocConsole();           
             IniFile settings = new IniFile(AppDomain.CurrentDomain.BaseDirectory + "\\settings.ini");
 
             try
             {
                 // Console
                 bool showConsole = settings.IniReadValue("Console", "Visible").ToLower().Trim().Equals("true") ? true : false;
-                if (showConsole)
+                if (!showConsole)
                 {
-                   
+                    var handle = GetConsoleWindow();
 
-                    // stdout's handle seems to always be equal to 7
-                    IntPtr defaultStdout = new IntPtr(7);
-                    IntPtr currentStdout = GetStdHandle(StdOutputHandle);
-
-                    if (currentStdout != defaultStdout)
-                        // reset stdout
-                        SetStdHandle(StdOutputHandle, defaultStdout);
-
-                    // reopen stdout
-                    TextWriter writer = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true };
-                    Console.SetOut(writer);
+                    // Hide
+                    ShowWindow(handle, SW_HIDE);
                 }
 
                 // Cursor
@@ -146,47 +143,47 @@ namespace Gibbo.Engine.Windows
         /// <param name="sender"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-    static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
-    {
-        Assembly objExecutingAssemblies;
-        string strTempAssmbPath = "";
-
-        objExecutingAssemblies = Assembly.GetExecutingAssembly();
-        AssemblyName[] arrReferencedAssmbNames = objExecutingAssemblies.GetReferencedAssemblies();
-
-        //Loop through the array of referenced assembly names.
-        foreach (AssemblyName strAssmbName in arrReferencedAssmbNames)
+        static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
-            //Check for the assembly names that have raised the "AssemblyResolve" event.
-            if (strAssmbName.FullName.Substring(0, strAssmbName.FullName.IndexOf(",")) == args.Name.Substring(0, args.Name.IndexOf(",")))
-            {
-                //Build the path of the assembly from where it has to be loaded.				
-                strTempAssmbPath = SceneManager.GameProject.ProjectPath + "\\" + args.Name.Substring(0, args.Name.IndexOf(",")) + ".dll";
-                break;
-            }
-        }
+            Assembly objExecutingAssemblies;
+            string strTempAssmbPath = "";
 
-        if (strTempAssmbPath == "")
-        {
-            foreach (string fileName in Directory.GetFiles(SceneManager.GameProject.ProjectPath + "\\libs\\"))
+            objExecutingAssemblies = Assembly.GetExecutingAssembly();
+            AssemblyName[] arrReferencedAssmbNames = objExecutingAssemblies.GetReferencedAssemblies();
+
+            //Loop through the array of referenced assembly names.
+            foreach (AssemblyName strAssmbName in arrReferencedAssmbNames)
             {
-                string asmName = Path.GetFileName(fileName);
-                if (asmName.Replace(".dll", "") == args.Name.Substring(0, args.Name.IndexOf(",")))
+                //Check for the assembly names that have raised the "AssemblyResolve" event.
+                if (strAssmbName.FullName.Substring(0, strAssmbName.FullName.IndexOf(",")) == args.Name.Substring(0, args.Name.IndexOf(",")))
                 {
-                    strTempAssmbPath = SceneManager.GameProject.ProjectPath + "\\libs\\" + asmName;
+                    //Build the path of the assembly from where it has to be loaded.				
+                    strTempAssmbPath = SceneManager.GameProject.ProjectPath + "\\" + args.Name.Substring(0, args.Name.IndexOf(",")) + ".dll";
                     break;
                 }
             }
-        }
 
-        if (strTempAssmbPath == "")
-        {
-            return SceneManager.ScriptsAssembly;
-        }
+            if (strTempAssmbPath == "")
+            {
+                foreach (string fileName in Directory.GetFiles(SceneManager.GameProject.ProjectPath + "\\libs\\"))
+                {
+                    string asmName = Path.GetFileName(fileName);
+                    if (asmName.Replace(".dll", "") == args.Name.Substring(0, args.Name.IndexOf(",")))
+                    {
+                        strTempAssmbPath = SceneManager.GameProject.ProjectPath + "\\libs\\" + asmName;
+                        break;
+                    }
+                }
+            }
 
-        //Load and return the loaded assembly.
-        return Assembly.LoadFrom(strTempAssmbPath);
-    }
+            if (strTempAssmbPath == "")
+            {
+                return SceneManager.ScriptsAssembly;
+            }
+
+            //Load and return the loaded assembly.
+            return Assembly.LoadFrom(strTempAssmbPath);
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
