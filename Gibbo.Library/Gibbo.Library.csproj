@@ -106,6 +106,7 @@
     <Compile Include="Classes\Particle.cs" />
     <Compile Include="Classes\Physics.cs" />
     <Compile Include="Classes\PrimitiveBatch.cs" />
+    <Compile Include="Classes\RotatedRectangle.cs" />
     <Compile Include="Design\ContentBrowserEditor.cs" />
     <Compile Include="Design\LocalResources.cs" />
     <Compile Include="Design\XNAColorConverter.cs" />

@@ -55,31 +55,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>IPp349x75y7uCy0xR62qwDsfTg8=</dsig:DigestValue>
+        <dsig:DigestValue>AbBFBEV5KLUbv+jCrfMCMm/aNgs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1711616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1712128">
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>TLWgCTkJymT/OjCtYKPNcNmvpH0=</dsig:DigestValue>
+        <dsig:DigestValue>Dx1w9NFdIGpT7x+WBjvvRoA5mX0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Library.dll" size="429056">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Library.dll" size="432128">
       <assemblyIdentity name="Gibbo.Library" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>eexcBMvGqECxeqvlt9ZAqw8/uGo=</dsig:DigestValue>
+        <dsig:DigestValue>9uWbgdtrJSNFutgr3uVHVpYmmOs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

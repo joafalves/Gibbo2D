@@ -110,7 +110,7 @@ namespace Gibbo.Library
         public Matrix TransformMatrix
         {
             get
-            {                
+            {
                 transformMatrix = CalculateTransform();
 
                 return transformMatrix;
@@ -127,12 +127,12 @@ namespace Gibbo.Library
         {
             get
             {
-                Vector2 topLeft = Vector2.Transform(Vector2.Zero, 
+                Vector2 topLeft = Vector2.Transform(Vector2.Zero,
                     Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix));
 
                 Vector2 bottomRight = Vector2.Transform(
-                    new Vector2(SceneManager.GraphicsDevice.Viewport.Width, 
-                        SceneManager.GraphicsDevice.Viewport.Height), 
+                    new Vector2(SceneManager.GraphicsDevice.Viewport.Width,
+                        SceneManager.GraphicsDevice.Viewport.Height),
                         Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix));
 
                 return new Rectangle(
@@ -167,15 +167,40 @@ namespace Gibbo.Library
         /// <returns></returns>
         private Matrix CalculateTransform()
         {
+            Vector3 scalingFactor = Vector3.One;
+            if (!SceneManager.IsEditor)
+            {
+                // make sure we keep the real scale (user input):
+                float widthScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth / (float)SceneManager.GameProject.Settings.ScreenWidth;
+                float heightScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight / (float)SceneManager.GameProject.Settings.ScreenHeight;
+                scalingFactor = new Vector3(widthScale, heightScale, 1);
+            }
+
             Vector2 target = Position;
 
             Matrix result = Matrix.CreateTranslation(-target.X, -target.Y, 0.0f) *
                 Matrix.CreateRotationZ(rotation) *
                 Matrix.CreateScale(new Vector3((float)zoom, (float)zoom, 1)) *
-                Matrix.CreateTranslation(SceneManager.GraphicsDevice.Viewport.Width / 2, 
+                Matrix.CreateScale(scalingFactor) *
+                Matrix.CreateTranslation(SceneManager.GraphicsDevice.Viewport.Width / 2,
                     SceneManager.GraphicsDevice.Viewport.Height / 2, 0);
 
             return result;
+        }
+         
+        /// <summary>
+        /// Calculates the transformation matrix of the camera for a given game object
+        /// </summary>
+        /// <param name="obj">The game object</param>
+        /// <returns></returns>
+        public Matrix ObjectTransform(GameObject obj)
+        {                      
+            return
+                Matrix.CreateTranslation(-obj.Transform.Position.X, -obj.Transform.Position.Y, 0.0f) *
+                Matrix.CreateRotationZ(obj.Transform.Rotation) *
+                Matrix.CreateTranslation(obj.Transform.Position.X, obj.Transform.Position.Y, 0.0f) *
+                CalculateTransform()
+             ;
         }
 
         /// <summary>

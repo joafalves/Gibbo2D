@@ -61,5 +61,16 @@ namespace Gibbo.Library
             var cos = (float)Math.Cos(value);
             return new Vector2(vec.X * cos - vec.Y * sin, vec.X * sin + vec.Y * cos);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="rectangle"></param>
+        /// <returns></returns>
+        public static bool Intersects(this Rectangle r, RotatedRectangle rectangle) {
+            RotatedRectangle rotated = new RotatedRectangle(r, 0);
+            return rotated.Intersects(rectangle);
+        }
     }
 }

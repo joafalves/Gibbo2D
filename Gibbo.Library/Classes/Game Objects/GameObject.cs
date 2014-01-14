@@ -1035,9 +1035,9 @@ namespace Gibbo.Library
             GC.SuppressFinalize(this);
         }
 
-        public virtual Rectangle MeasureDimension()
+        public virtual RotatedRectangle MeasureDimension()
         {
-            return new Rectangle((int)transform.position.X, (int)transform.position.Y, 1, 1);
+            return new RotatedRectangle(new Rectangle((int)transform.position.X, (int)transform.position.Y, 1, 1));
         }
 
         #endregion

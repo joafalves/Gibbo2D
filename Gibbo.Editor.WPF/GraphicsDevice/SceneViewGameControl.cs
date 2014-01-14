@@ -423,10 +423,14 @@ namespace Gibbo.Editor.WPF
                 }
             }
 
+            spriteBatch.End();
+
             if (EditorHandler.SelectedGameObjects.Count > 0)
             {
                 DrawCurrentObjectHandler();
             }
+
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
 
             if (editorMode == EditorModes.Select && selectionStart != selectionEnd)
             {
@@ -452,6 +456,8 @@ namespace Gibbo.Editor.WPF
         /// </summary>
         private void DrawCurrentObjectHandler()
         {
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+
             foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
             {
                 if (!(gameObject is Tileset))
@@ -549,11 +555,15 @@ namespace Gibbo.Editor.WPF
 
                     Primitives.DrawBoxFilled(spriteBatch, new Rectangle((int)spos.X - 4, (int)spos.Y - 4, 8, 8), Color.Yellow);
 
+                    spriteBatch.End();
+
                     // Draw Measure Box
-                    Rectangle measure = gameObject.MeasureDimension();
+                    Rectangle measure = gameObject.MeasureDimension().CollisionRectangle;
                     if (measure.Width > HANDLER_SIZE * 2 && measure.Height > HANDLER_SIZE * 2)
                     {
+                        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.ObjectTransform(gameObject));
                         Primitives.DrawBox(spriteBatch, measure, Color.Yellow, 3);
+                        spriteBatch.End();
                     }
                 }
             }

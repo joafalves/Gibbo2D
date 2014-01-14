@@ -351,13 +351,14 @@ namespace Gibbo.Library
             }
         }
 
-        public override Rectangle MeasureDimension()
+        public override RotatedRectangle MeasureDimension()
         {
             if (texture != null && Body == null)
             {
-                return new Rectangle((int)(Transform.position.X - (texture.Width / 2) * Transform.scale.X),
+               Rectangle r = new Rectangle((int)(Transform.position.X - (texture.Width / 2) * Transform.scale.X),
                     (int)(Transform.position.Y - (texture.Height / 2) * Transform.scale.Y), (int)(texture.Width * Transform.scale.X),
                     (int)(texture.Height * Transform.scale.Y));
+               return new RotatedRectangle(r, Transform.Rotation);
             }
             else
             {

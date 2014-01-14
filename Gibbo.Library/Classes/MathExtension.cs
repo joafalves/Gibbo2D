@@ -34,7 +34,24 @@ namespace Gibbo.Library
     /// This class provides some math extension methods to make some calculations easy.
     /// </summary>
     public static class MathExtension
-    {
+    { 
+        /// <summary>
+        /// Rotate a point from a given location and adjust using the Origin we
+        /// are rotating around.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="origin"></param>
+        /// <param name="rotation"></param>
+        /// <returns></returns>
+        public static Vector2 RotatePoint(Vector2 point, Vector2 origin, float rotation)
+        {
+            Vector2 aTranslatedPoint = new Vector2();
+            aTranslatedPoint.X = (float)(origin.X + (point.X - origin.X) * Math.Cos(rotation) - (point.Y - origin.Y) * Math.Sin(rotation));
+            aTranslatedPoint.Y = (float)(origin.Y + (point.Y - origin.Y) * Math.Cos(rotation) + (point.X - origin.X) * Math.Sin(rotation));
+            
+            return aTranslatedPoint;
+        }
+
         /// <summary>
         /// Calculate basizer point based on a cubic line (4 control points)
         /// </summary>

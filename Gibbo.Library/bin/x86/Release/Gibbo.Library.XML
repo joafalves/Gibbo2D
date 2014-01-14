@@ -383,6 +383,14 @@
             <param name="angle"></param>
             <returns></returns>
         </member>
+        <member name="M:Gibbo.Library.ExtensionMethods.Intersects(Microsoft.Xna.Framework.Rectangle,Gibbo.Library.RotatedRectangle)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="rectangle"></param>
+            <returns></returns>
+        </member>
         <member name="T:Gibbo.Library.FontLoader">
             <summary>
             Font Loader
@@ -917,6 +925,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Gibbo.Library.Camera.ObjectTransform(Gibbo.Library.GameObject)">
+            <summary>
+            Calculates the transformation matrix of the camera for a given game object
+            </summary>
+            <param name="obj">The game object</param>
+            <returns></returns>
+        </member>
         <member name="M:Gibbo.Library.Camera.ToString">
             <summary>
             
@@ -1408,6 +1423,56 @@
             it will call Flush to actually submit the draw call to the graphics card, and
             then tell the basic effect to end.
             </summary>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.ChangePosition(System.Int32,System.Int32)">
+            <summary>
+            Used for changing the X and Y position of the RotatedRectangle
+            </summary>
+            <param name="theXPositionAdjustment"></param>
+            <param name="theYPositionAdjustment"></param>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.Intersects(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            This intersects method can be used to check a standard XNA framework Rectangle
+            object and see if it collides with a Rotated Rectangle object
+            </summary>
+            <param name="theRectangle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.Intersects(Gibbo.Library.RotatedRectangle)">
+            <summary>
+            Check to see if two Rotated Rectangls have collided
+            </summary>
+            <param name="theRectangle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.IsAxisCollision(Gibbo.Library.RotatedRectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Determines if a collision has occurred on an Axis of one of the
+            planes parallel to the Rectangle
+            </summary>
+            <param name="theRectangle"></param>
+            <param name="aAxis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.GenerateScalar(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Generates a scalar value that can be used to compare where corners of 
+            a rectangle have been projected onto a particular axis. 
+            </summary>
+            <param name="theRectangleCorner"></param>
+            <param name="theAxis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.RotatePoint(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Rotate a point from a given location and adjust using the Origin we
+            are rotating around
+            </summary>
+            <param name="thePoint"></param>
+            <param name="theOrigin"></param>
+            <param name="theRotation"></param>
+            <returns></returns>
         </member>
         <member name="T:Gibbo.Library.ContentBrowserEditor">
             <summary>
@@ -7490,6 +7555,16 @@
             <summary>
             This class provides some math extension methods to make some calculations easy.
             </summary>
+        </member>
+        <member name="M:Gibbo.Library.MathExtension.RotatePoint(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Rotate a point from a given location and adjust using the Origin we
+            are rotating around.
+            </summary>
+            <param name="point"></param>
+            <param name="origin"></param>
+            <param name="rotation"></param>
+            <returns></returns>
         </member>
         <member name="M:Gibbo.Library.MathExtension.CalculateBezierPoint(System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
             <summary>
