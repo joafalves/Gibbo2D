@@ -1,27 +1,22 @@
 ﻿#region Copyrights
 /*
-Gibbo2D - Copyright - 2013 Gibbo2D Team
-Founders - Joao Alves <joao.cpp.sca@gmail.com> and Luis Fernandes <luisapidcloud@hotmail.com>
+Gibbo2D License - Version 1.0
+Copyright (c) 2013 - Gibbo2D Team
+Founders Joao Alves <joao.cpp.sca@gmail.com> & Luis Fernandes <luisapidcloud@hotmail.com>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is granted to use this software and associated documentation files (the "Software") free of charge, 
+to any person or company. The code can be used, modified and merged without restrictions, but you cannot sell 
+the software itself and parts where this license applies. Still, permission is granted for anyone to sell 
+applications made using this software (for example, a game). This software cannot be claimed as your own, 
+except for copyright holders. This license notes should also be available on any of the changed or added files.
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+The software is provided "as is", without warranty of any kind, express or implied, including but not limited to 
+the warranties of merchantability, fitness for a particular purpose and non-infrigement. In no event shall the 
+authors or copyright holders be liable for any claim, damages or other liability.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE. 
 */
 #endregion
+
 using Gibbo.Editor.Model;
 using Gibbo.Library;
 using System;
