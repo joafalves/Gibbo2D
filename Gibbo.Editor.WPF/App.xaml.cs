@@ -49,9 +49,6 @@ namespace Gibbo.Editor.WPF
 
         void App_Startup(object sender, StartupEventArgs e)
         {
-            //new ScriptingEditorWindow().ShowDialog();
-
- 
             // remove temp folder
             try
             {

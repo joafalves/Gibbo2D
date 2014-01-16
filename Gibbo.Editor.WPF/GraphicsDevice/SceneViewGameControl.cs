@@ -456,12 +456,12 @@ namespace Gibbo.Editor.WPF
         /// </summary>
         private void DrawCurrentObjectHandler()
         {
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
-
             foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
             {
                 if (!(gameObject is Tileset))
                 {
+                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+
                     Vector2 spos = gameObject.Transform.Position;
 
                     //If you dont want to use the spritebatch of the Camera.tion matrix, multiply the position like shown bellow:
@@ -563,7 +563,7 @@ namespace Gibbo.Editor.WPF
                     {
                         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.ObjectTransform(gameObject));
                         Primitives.DrawBox(spriteBatch, measure, Color.Yellow, 3);
-                        spriteBatch.End();
+                        spriteBatch.End();                       
                     }
                 }
             }
