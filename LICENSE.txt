@@ -1,4 +1,4 @@
-Gibbo2D License - Version 1.2
+Gibbo2D License - Version 1.0
 Copyright (c) 2013 - Gibbo2D Team
 Founders João Alves <joao.cpp.sca@gmail.com> & Luis Fernandes <luisapidcloud@hotmail.com>
 
