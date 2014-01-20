@@ -14,6 +14,9 @@ The software is provided "as is", without warranty of any kind, express or impli
 the warranties of merchantability, fitness for a particular purpose and non-infrigement. In no event shall the 
 authors or copyright holders be liable for any claim, damages or other liability.
 
+The license applies to all versions of the software, both newer and older than the one listed, unless a newer copy 
+of the license is available, in which case the most recent copy of the license supercedes all others.
+
 */
 #endregion
 
@@ -1217,12 +1220,33 @@ namespace Gibbo.Editor.WPF
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        private bool ChildrenOfSelected(GameObject obj)
+        {
+            Transform o = obj.Transform.Parent;
+            while(o != null)
+            {
+                if (EditorHandler.SelectedGameObjects.Contains(o.GameObject))
+                    return true;
+
+                o = o.Parent;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void HandleTransformations()
         {
             if (editorMode == EditorModes.Move)
             {
                 foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
                 {
+                    if (ChildrenOfSelected(gameObject)) continue;
+
                     if (GameInput.IsKeyDown(Keys.X) || usingXAxis)
                     {
                         gameObject.Transform.Position =
