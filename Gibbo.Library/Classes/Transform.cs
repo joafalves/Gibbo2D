@@ -74,7 +74,7 @@ namespace Gibbo.Library
 #if WINDOWS
         [NonSerialized]
 #endif
-        internal Vector2 desiredPosition = Vector2.Zero;
+        private Vector2 desiredPosition = Vector2.Zero;
 
         #endregion
 
@@ -206,18 +206,8 @@ namespace Gibbo.Library
 
                 if (gameObject.Body != null)
                 {
-                    desiredPosition = value;
-
-                    desiredPosition = ConvertUnits.ToSimUnits(desiredPosition);
-
-                    //if (SceneManager.IsEditor || gameObject.Body.BodyType == BodyType.Static || gameObject.Body.BodyType == BodyType.Kinematic)
-                    //{
+                    desiredPosition = ConvertUnits.ToSimUnits(value);
                     gameObject.Body.Position = desiredPosition;
-                    //}
-                    //else
-                    //{
-                    //    physicsPositionReached = false;
-                    //}
                 }
             }
         }
@@ -230,10 +220,9 @@ namespace Gibbo.Library
 
                 if (_obj.Body != null)
                 {
-                    if (SceneManager.IsEditor)
-                        _obj.Body.Position += difSim;
-                    else
-                        desiredPosition += difSim;
+                    _obj.Body.Position += difSim;
+                    if (!SceneManager.IsEditor)
+                        _obj.Body.Awake = true; //wake the body for physics detection
                 }
 
                 TranslateChildren(_obj, dif, difSim);

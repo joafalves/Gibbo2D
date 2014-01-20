@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.16" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.19" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
   <description asmv2:iconFile="gibbo2d.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -55,19 +55,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>AbBFBEV5KLUbv+jCrfMCMm/aNgs=</dsig:DigestValue>
+        <dsig:DigestValue>4jEsf3nXrOw6zLCSJTI6ZI27Lrc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1712128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1693696">
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Dx1w9NFdIGpT7x+WBjvvRoA5mX0=</dsig:DigestValue>
+        <dsig:DigestValue>P6oki0C2SXUUmzLdbAGmx8Q/ts0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -79,7 +79,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9uWbgdtrJSNFutgr3uVHVpYmmOs=</dsig:DigestValue>
+        <dsig:DigestValue>ggFYGlAJLjsjSSbuWvBxLCYBZmg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -428,22 +428,22 @@
       <dsig:DigestValue>spOSwMcjkgUxO4QiIgMQ8ZaGlao=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project Templates\samples\DefaultComponent.cs" size="1375">
+  <file name="Project Templates\samples\DefaultComponent.cs" size="1448">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ddGdrz3IACdpnm8TomJSFTWwTrU=</dsig:DigestValue>
+      <dsig:DigestValue>UCcU1yCNn1ekxs9dAhcpyFwLvM8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project Templates\samples\SampleController.cs" size="5210">
+  <file name="Project Templates\samples\SampleController.cs" size="5283">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zA2sw2tXGul4R8l8ar9nasg2XL4=</dsig:DigestValue>
+      <dsig:DigestValue>9LUNMpYv/6jzXaEiR1+jb1DsLiE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Project Templates\settings.ini" size="390">
@@ -509,7 +509,7 @@
       <dsig:DigestValue>p5uRNfbcYFNPRbPlGj7EwNAUHNQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\01 - User Interface\UserInterface.xml" size="2578" writeableType="applicationData">
+  <file name="Tutorials\01 - User Interface\UserInterface.xml" size="2578">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -662,7 +662,7 @@
       <dsig:DigestValue>Ck6Mq9lq0P52kUFYNDlpc5hj3SU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\02 - Scene View\SceneView.xml" size="5321" writeableType="applicationData">
+  <file name="Tutorials\02 - Scene View\SceneView.xml" size="5321">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -671,7 +671,7 @@
       <dsig:DigestValue>HMSS0WSKrnkuFiD/bMlN70sHC+8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\03 - Game Mode\GameMode.xml" size="2324" writeableType="applicationData">
+  <file name="Tutorials\03 - Game Mode\GameMode.xml" size="2324">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -734,7 +734,7 @@
       <dsig:DigestValue>uhna9O/llTFVUxUPZSUOQiOe/qE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\04 - Components Basis\ComponentsBasis.xml" size="12583" writeableType="applicationData">
+  <file name="Tutorials\04 - Components Basis\ComponentsBasis.xml" size="12583">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />

@@ -22,17 +22,28 @@ of the license is available, in which case the most recent copy of the license s
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-using OpenTK.Graphics;
-using OpenTK.Platform;
-
-namespace OpenTK
+namespace Gibbo.Editor.WPF
 {
-    internal interface IGLControl
+    /// <summary>
+    /// Interaction logic for VisualNode.xaml
+    /// </summary>
+    public partial class VisualNode : UserControl
     {
-        IGraphicsContext CreateContext(int major, int minor, GraphicsContextFlags flags);
-        bool IsIdle { get; }
-        IWindowInfo WindowInfo { get; }
+        public VisualNode()
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.15" publicKeyToken="176bfaab6b4f4cb2" language="neutral" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.18" publicKeyToken="176bfaab6b4f4cb2" language="neutral" processorArchitecture="x86" type="win32" />
   <description asmv2:iconFile="gibbo2d.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -55,31 +55,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>IPp349x75y7uCy0xR62qwDsfTg8=</dsig:DigestValue>
+        <dsig:DigestValue>WR4nlY7S2PFcqiO9qRB2U0B357M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1711616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1712128">
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>59oQyhXUh1xaUxraB1204q9rziQ=</dsig:DigestValue>
+        <dsig:DigestValue>AA9yHaNONKFB8IZWzQWjf9uM2OE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Library.dll" size="429056">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Library.dll" size="432128">
       <assemblyIdentity name="Gibbo.Library" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>eexcBMvGqECxeqvlt9ZAqw8/uGo=</dsig:DigestValue>
+        <dsig:DigestValue>9uWbgdtrJSNFutgr3uVHVpYmmOs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -428,22 +428,22 @@
       <dsig:DigestValue>spOSwMcjkgUxO4QiIgMQ8ZaGlao=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project Templates\samples\DefaultComponent.cs" size="1375">
+  <file name="Project Templates\samples\DefaultComponent.cs" size="1226">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>ddGdrz3IACdpnm8TomJSFTWwTrU=</dsig:DigestValue>
+      <dsig:DigestValue>lX7JWflMpBpcy9UlFsqCuXlMCLk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project Templates\samples\SampleController.cs" size="5210">
+  <file name="Project Templates\samples\SampleController.cs" size="5061">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zA2sw2tXGul4R8l8ar9nasg2XL4=</dsig:DigestValue>
+      <dsig:DigestValue>tAzFN5cg28GI0QLIpuF0oQXGdLA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Project Templates\settings.ini" size="390">
@@ -509,7 +509,7 @@
       <dsig:DigestValue>p5uRNfbcYFNPRbPlGj7EwNAUHNQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\01 - User Interface\UserInterface.xml" size="2578" writeableType="applicationData">
+  <file name="Tutorials\01 - User Interface\UserInterface.xml" size="2578">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -662,7 +662,7 @@
       <dsig:DigestValue>Ck6Mq9lq0P52kUFYNDlpc5hj3SU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\02 - Scene View\SceneView.xml" size="5321" writeableType="applicationData">
+  <file name="Tutorials\02 - Scene View\SceneView.xml" size="5321">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -671,7 +671,7 @@
       <dsig:DigestValue>HMSS0WSKrnkuFiD/bMlN70sHC+8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\03 - Game Mode\GameMode.xml" size="2324" writeableType="applicationData">
+  <file name="Tutorials\03 - Game Mode\GameMode.xml" size="2324">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -734,7 +734,7 @@
       <dsig:DigestValue>uhna9O/llTFVUxUPZSUOQiOe/qE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tutorials\04 - Components Basis\ComponentsBasis.xml" size="12583" writeableType="applicationData">
+  <file name="Tutorials\04 - Components Basis\ComponentsBasis.xml" size="12583">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -987,4 +987,4 @@
     </hash>
   </file>
   <fileAssociation extension=".gibbo" description="gibbo" progid="gibbo_id_m70" defaultIcon="gibbo2d.ico" xmlns="urn:schemas-microsoft-com:clickonce.v1" />
-<publisherIdentity name="CN=Gena-PC\João" issuerKeyHash="19bc68fb228f3bb531cd9db966ce85b738a8f1a2" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>rdS89Wy4gnGhByGgUvIJeqM5Qb0=</DigestValue></Reference></SignedInfo><SignatureValue>rzkt/28m1L5VmhNSpWkfEtoKB/gLNaHBB+DSnWXbhT4nbKFNa8X//On4uWcV93x9MHisPvOXzb9IJD2zCcbit3Wc7Muz29RtlhcoZB51eH2OGIGWhBVd4B6CC5mMaE5C6VQ4VQ5HbHJ+BGcwoJU/8pwc9OaFzKTrrs+NG8Gtwqg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>2fpLGKkzTaiAIM0iZ9+6ElVfmDMRi7nqLz1L7DDDOzDB5sD0YFMKUNdo05L/YLr4MKedzEZdXyX5OYlJGQoG8PAv2dZYtUoSPnzT7hjyyraEghCCqODNdNTjAmb8eZ4yu76RC0gXUBB+GcLGJDWau3RCPuLqbddB8tLby8I5bQU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="bd4139a37a09f252a02107a17182b86cf5bcd4ad" Description="" Url=""><as:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.15" publicKeyToken="176bfaab6b4f4cb2" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Gena-PC\João</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>salMOgqTPIjseQsJNxTS3TScBRo=</DigestValue></Reference></SignedInfo><SignatureValue>ec0ze0wd3WByiLhdlmH2JrW/wxs7CgtQQuC/E8eRsJTdqtloLFOS2LcwTTNT6LE2nVSI7Q6Z0k2U3S3iAyYfChZsVUeVAItgBZe2iR/5fl0dOhkCaJ1lesjlAMDgn9MjcViURUDJsv5T54wCcfz7Gv9ZVas8dU9dWgbIc3WIvkw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>2fpLGKkzTaiAIM0iZ9+6ElVfmDMRi7nqLz1L7DDDOzDB5sD0YFMKUNdo05L/YLr4MKedzEZdXyX5OYlJGQoG8PAv2dZYtUoSPnzT7hjyyraEghCCqODNdNTjAmb8eZ4yu76RC0gXUBB+GcLGJDWau3RCPuLqbddB8tLby8I5bQU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQTcp2WQ4dTrhAqOW0Ggq11zANBgkqhkiG9w0BAQUFADAjMSEwHwYDVQQDHhgARwBlAG4AYQAtAFAAQwBcAEoAbwDjAG8wHhcNMTMwNzMwMTQyMDU1WhcNMTQwNzMwMjAyMDU1WjAjMSEwHwYDVQQDHhgARwBlAG4AYQAtAFAAQwBcAEoAbwDjAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANn6SxipM02ogCDNImffuhJVX5gzEYu56i89S+wwwzswwebA9GBTClDXaNOS/2C6+DCnncxGXV8l+TmJSRkKBvDwL9nWWLVKEj580+4Y8sq2hIIQgqjgzXTU4wJm/HmeMru+kQtIF1AQfhnCxiQ1mrt0Qj7i6m3XQfLS28vCOW0FAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEADXfrwN9p2CJuGfbonI1h8TNqcyEG/loqbQksf4OHqWygJY2FjuF4ak+hx5q4st5ANofnLbbZ20xYJAUmfJAoZVJdfSSWTcczwdAhAuoZa+TJ2+MWc/PSfqyEKSg4xfcdvujjEBZZGUwiC4fBlCE7uam/3B1M433SbzseteVX7sA=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=Gena-PC\João" issuerKeyHash="19bc68fb228f3bb531cd9db966ce85b738a8f1a2" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>Gz6qWi84eP5o8P3forNlnFlV0/Q=</DigestValue></Reference></SignedInfo><SignatureValue>aJ88g4q6CwIEwuQbXLwDJqT1khb6mXuZipjUii8+kWLiiGSna1eFBxK1/Hdey/Gv8D/Pdhl4vea55pDJ9BDqdfxLNI2T3KozaiUxJm1ijRk5mpoFxANjPrWg9Tlpn/+PXdWTcY1dj+B4dPf7iMoO0npNzuybemQAsRwHLigmS90=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>2fpLGKkzTaiAIM0iZ9+6ElVfmDMRi7nqLz1L7DDDOzDB5sD0YFMKUNdo05L/YLr4MKedzEZdXyX5OYlJGQoG8PAv2dZYtUoSPnzT7hjyyraEghCCqODNdNTjAmb8eZ4yu76RC0gXUBB+GcLGJDWau3RCPuLqbddB8tLby8I5bQU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f4d355599c65b3a2dffdf068fe78382f5aaa3e1b" Description="" Url=""><as:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.18" publicKeyToken="176bfaab6b4f4cb2" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Gena-PC\João</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>O1A6ylXDsdvVjA2J5TaJKpsOizY=</DigestValue></Reference></SignedInfo><SignatureValue>Ko1XqTXzEBHuNnou97ba9R+TeoYDDFPwB39484sTuMoBRGsvoTZwp3spk+JjDMTl1V6ROwE3jcIF0C9Txs6OZOEnno4NdUY8JyUpMudwP5MWD1PywACmpHp+Q0vGdGpDhN7WRhX1oeesPUxcHKPFqFNeaX/sbE++jbfWp5REyco=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>2fpLGKkzTaiAIM0iZ9+6ElVfmDMRi7nqLz1L7DDDOzDB5sD0YFMKUNdo05L/YLr4MKedzEZdXyX5OYlJGQoG8PAv2dZYtUoSPnzT7hjyyraEghCCqODNdNTjAmb8eZ4yu76RC0gXUBB+GcLGJDWau3RCPuLqbddB8tLby8I5bQU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQTcp2WQ4dTrhAqOW0Ggq11zANBgkqhkiG9w0BAQUFADAjMSEwHwYDVQQDHhgARwBlAG4AYQAtAFAAQwBcAEoAbwDjAG8wHhcNMTMwNzMwMTQyMDU1WhcNMTQwNzMwMjAyMDU1WjAjMSEwHwYDVQQDHhgARwBlAG4AYQAtAFAAQwBcAEoAbwDjAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANn6SxipM02ogCDNImffuhJVX5gzEYu56i89S+wwwzswwebA9GBTClDXaNOS/2C6+DCnncxGXV8l+TmJSRkKBvDwL9nWWLVKEj580+4Y8sq2hIIQgqjgzXTU4wJm/HmeMru+kQtIF1AQfhnCxiQ1mrt0Qj7i6m3XQfLS28vCOW0FAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEADXfrwN9p2CJuGfbonI1h8TNqcyEG/loqbQksf4OHqWygJY2FjuF4ak+hx5q4st5ANofnLbbZ20xYJAUmfJAoZVJdfSSWTcczwdAhAuoZa+TJ2+MWc/PSfqyEKSg4xfcdvujjEBZZGUwiC4fBlCE7uam/3B1M433SbzseteVX7sA=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
