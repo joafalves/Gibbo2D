@@ -539,3 +539,7 @@ C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Libra
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.xml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\OpenTK.xml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.application
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.exe.config
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.ResolveComReference.cache
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.exe
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.pdb
