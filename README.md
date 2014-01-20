@@ -30,6 +30,6 @@ It's supported by MonoGame, also an open source project.
 
 ## License
 
-Gibbo2D is released under the Gibbo2D License v1.0 (see LICENSE.txt for more info)
+Gibbo2D is released under the Gibbo2D License v1.0 (see LICENSE.txt for more info) and some parts under the MIT License.
 
 
