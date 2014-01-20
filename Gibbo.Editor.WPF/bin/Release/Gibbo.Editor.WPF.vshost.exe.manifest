@@ -55,19 +55,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>4jEsf3nXrOw6zLCSJTI6ZI27Lrc=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>fR0AUqVKu+nx1gzmuP9BuwcLSMM=</dsig:DigestValue>
+>>>>>>> 6d7bf4a8076b7483311a40b37d7dbc9be32964c5
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1522688">
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1527296">
+>>>>>>> 6d7bf4a8076b7483311a40b37d7dbc9be32964c5
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>mSZUNQbcaL8bkJkz12na79hjz3g=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>I/jMCq5y04I88imn977Uc7PRca8=</dsig:DigestValue>
+>>>>>>> 6d7bf4a8076b7483311a40b37d7dbc9be32964c5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -79,7 +91,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>ggFYGlAJLjsjSSbuWvBxLCYBZmg=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>Lz7acy4FrzeZLmZEpT+gdt6AJWk=</dsig:DigestValue>
+>>>>>>> 6d7bf4a8076b7483311a40b37d7dbc9be32964c5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -115,7 +131,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>U7S5PE+7K766tydJURD821M4t9U=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>CByoXn6kHnJeELLXQbK6XsSNfIk=</dsig:DigestValue>
+>>>>>>> 6d7bf4a8076b7483311a40b37d7dbc9be32964c5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -428,13 +448,13 @@
       <dsig:DigestValue>spOSwMcjkgUxO4QiIgMQ8ZaGlao=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project Templates\samples\DefaultComponent.cs" size="1448">
+  <file name="Project Templates\samples\DefaultComponent.cs" size="156">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>UCcU1yCNn1ekxs9dAhcpyFwLvM8=</dsig:DigestValue>
+      <dsig:DigestValue>CFsOgvk1HXizM6tV2reQt25Xjz8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Project Templates\samples\SampleController.cs" size="5283">
