@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="Themes/PropertyGridStyle.xaml"/>
                 <ResourceDictionary Source="Themes/ComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="Themes/CheckBoxStyle.xaml"/>
-                <ResourceDictionary Source="/Controls/VisualScripting/Generic.xaml" />
+                <ResourceDictionary Source="Themes/VisualScriptingDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
     	</ResourceDictionary>
          

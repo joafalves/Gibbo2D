@@ -12,14 +12,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Gibbo.Editor.WPF.Controls.VisualScripting
+namespace Gibbo.Editor.WPF
 {
     /// <summary>
     /// Interaction logic for VisualScriptingConnector.xaml
     /// </summary>
-    public partial class VisualScriptingConnector : UserControl
+    public partial class VisualScriptingRightConnector : UserControl
     {
-        public VisualScriptingConnector()
+        public VisualScriptingRightConnector()
         {
             InitializeComponent();
         }
