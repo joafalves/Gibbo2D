@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Gibbo.Editor.WPF.Controls.VisualScripting
+namespace Gibbo.Editor.WPF
 {
     /// <summary>
     /// Interaction logic for VisualScriptingNode.xaml

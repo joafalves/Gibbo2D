@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Gibbo.Editor.WPF.Controls.VisualScripting.VisualScriptingRightConnector"
+﻿<UserControl x:Class="Gibbo.Editor.WPF.VisualScriptingRightConnector"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,10 +13,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="ConnectorTextBlock" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Margin="0, 0, 4, 0">
+        <TextBlock x:Name="ConnectorTextBlockRight" Foreground="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Margin="0, 0, 4, 0">
             Value
         </TextBlock>
-        <Border x:Name="ConnectorBlock" Grid.Column="1" BorderBrush="{StaticResource DarkMediumGray}" BorderThickness="1, 1, 0, 1" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <Border x:Name="ConnectorBlockRight" Grid.Column="1" BorderBrush="{StaticResource DarkMediumGray}" BorderThickness="1, 1, 0, 1" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Rectangle Fill="{StaticResource MediumGray}" Width="20"  Height="12"/>
         </Border>
     </Grid>

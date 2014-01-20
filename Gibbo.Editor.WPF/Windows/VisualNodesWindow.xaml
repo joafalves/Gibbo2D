@@ -10,7 +10,7 @@
         </Grid.ColumnDefinitions>
 
         <Canvas Grid.Column="1">
-            <local:VisualNode Canvas.Left="42" Canvas.Top="29" />
+            <local:VisualScriptingNode Canvas.Left="42" Canvas.Top="29" />
         </Canvas>
     </Grid>
 </Window>
