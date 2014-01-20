@@ -543,3 +543,179 @@ C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gi
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.ResolveComReference.cache
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.exe
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.pdb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_gibbo.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_menu.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_scene_explorer.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_scene_hierarchy.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_scene_inspector.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_scene_tileset.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\UserInterface.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\1_menu.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_center_camera_button.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_grid_snapping_example.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_menu_bar_settings.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_menu_bar_undo_redo.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_reset_camera_button.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_rotate_Example.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_rotate_snapping_example.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_scale_Example.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_scene_camera_and_screen_settings.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_select_single_object_and_inspector.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_settings_grid.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_toggle_collision_button.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_to_collision_block_menu_bar.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_translate_example.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\Pictures\2_with_and_without_grid.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\02 - Scene View\SceneView.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\03 - Game Mode\GameMode.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\03 - Game Mode\Pictures\3_console_window.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\03 - Game Mode\Pictures\3_debugging_game_window.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\03 - Game Mode\Pictures\3_debug_button.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\03 - Game Mode\Pictures\3_debug_settings_window.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\03 - Game Mode\Pictures\3_external_settings.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\03 - Game Mode\Pictures\3_other_settings_window.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\ComponentsBasis.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_AddFromFolder_ProjectExplorer_Option.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_add_component_physics_options_collision.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_add_component_script.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_add_new_object_window.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_add_to_selected_option.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_compile.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_content_windows_explorer.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_copy_relative_path.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_created_scene_projects_explorer.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_create_folder_projects_explorer.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_create_script_projects_explorer.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_file_new_project.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_image_path_complete.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_image_path_property.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_Inspector_Component_Category_Trash_Icon.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_lime_script_OnMouseUp_Only.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_lime_script_switch.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_lime_script_variable_tag.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_newgame_tag_inspector.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_output_collision_newgame.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_projects_explorer_create_2options.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_rectangle_body_inspector.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_rename_game_scene.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_resources_real_time_project_explorer.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_scene_hierarchy_complete.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_startup_new_project.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\04 - Components Basis\Pictures\4_toggle_visibility_icon_Scene_Hierarchy.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\_arrow_down.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\_arrow_right.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\settings.ini
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Documentation.chm
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\font.xnb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\SDL.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\Gibbo.Library.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\Xceed.Wpf.Toolkit.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\samples\DefaultComponent.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\audio.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\bgvs.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\editorBMFont_0.png
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\samples\SampleController.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\gibbo.ico
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Content\editorBMFont.fnt
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Content\debugfont.xnb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\GameProject.csproj
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\GameProject.sln
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\Gibbo.Engine.Windows.exe
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\Lidgren.Network.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\MonoGame.Framework.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\NAudio.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\OpenAL32.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\OpenTK.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\OpenTK.GLControl.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\SDL.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\Tao.Sdl.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.exe.manifest
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.application
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.exe
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.pdb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.Model.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\ICSharpCode.AvalonEdit.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\MonoGame.Framework.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\OpenTK.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\WPFToolkit.Design.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\WPFToolkit.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Xceed.Wpf.Toolkit.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Lidgren.Network.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tao.Sdl.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\NAudio.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.Model.pdb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.pdb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\OpenTK.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csprojResolveAssemblyReference.cache
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialContainer.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialsCategoryContainer.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingLeftConnector.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingRightConnector.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingNode.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\CheckBoxStyle.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\ComboBoxStyle.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\PropertyGridStyle.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\VisualScriptingDictionary.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\FirstLoginWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\PicturePreview.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\SettingsWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\SplashWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\WindowsFormsHostOverlay.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\AddNewItemWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\CustomCheckBox.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\CompilerWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\StartupWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\NewProjectWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\App.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TilesetBrushControl.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialContainer.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialsCategoryContainer.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingLeftConnector.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingRightConnector.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingNode.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\DeploymentWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\FirstLoginWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\PicturePreview.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\ScriptingEditorWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\SettingsWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\SplashWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\TutorialsListWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\TutorialWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\VisualNodesWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\WindowsFormsHostOverlay.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\AddNewItemWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\CustomCheckBox.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\ProjectExplorerTreeView.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\PropertyBox.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\TestsWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\CompilerWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\MainWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\SceneHierarchyTreeView.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\StartupWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\NewProjectWindow.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\IgniteDark.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\App.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF_Content.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF_MarkupCompile.cache
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF_MarkupCompile.lref
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TilesetBrushControl.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\DeploymentWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\ScriptingEditorWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\TutorialsListWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\TutorialWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\VisualNodesWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\ProjectExplorerTreeView.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\PropertyBox.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\TestsWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\MainWindow.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\SceneHierarchyTreeView.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\IgniteDark.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.g.resources
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.ThirdParty.GLControl.GLControl.resources
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.GenerateResource.Cache
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.exe.manifest
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.application

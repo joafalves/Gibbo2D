@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Gibbo Tutorial-->
+<Tutorial>
+  <Info>
+    <Title>Game Mode</Title>
+    <Author>Gibbo2D Team</Author>
+    <Description>In this tutorial, Game Mode and general settings are explained throrougly.</Description>
+    <Category>Easy</Category>
+    <Image>3_console_window.png</Image>
+  </Info>
+  <Pages>
+    <Page Title="Debug">
+      <Image>3_debug_button.png</Image>
+      <Description>In this third tutorial, we’re going to go over the Game Mode. This, allows you to play the Active Scene by simply pressing the Debug button or by using its shortcut (F5).</Description>
+    </Page>
+    <Page Title="Active Scene">
+      <Image>3_debugging_game_window.png</Image>
+      <Description>Debugging will automatically show a new window containing the active scene running.</Description>
+    </Page>
+    <Page Title="Console">
+      <Image>3_console_window.png</Image>
+      <Description>Note that you won’t be able to use the Editor while it’s open! By default, there’s a secondary window – a console which is very useful while Debugging since you can print the output of scripts in order to see if everything is going according to what you’ve planned beforehand.</Description>
+    </Page>
+    <Page Title="Console Settings">
+      <Image>3_debug_settings_window.png</Image>
+      <Description>This debugging setting (the console) also enables the frames per second in the window’s title – therefore, unchecking it will both disable the console and the fps.</Description>
+  	</Page>
+  	<Page Title="Other Settings">
+      <Image>3_other_settings_window.png</Image>
+      <Description>There are a few more settings that may be useful such as Starting on FullScreen or turning the System Mouse Visible or Invisible.</Description>
+  	</Page>
+  	<Page Title="External Settings">
+      <Image>3_external_settings.png</Image>
+      <Description>As shown in the previous tutorials, it’s also possible to change the Game’s resolution. All of this can also be changed in the External Settings (.ini file). This file is extremely useful to make the above changes without recompiling the project. You can also save user definitions inside as well (approached in a future lesson).</Description>
+  	</Page>
+  </Pages>
+</Tutorial>
