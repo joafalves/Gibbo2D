@@ -154,14 +154,20 @@
     <Compile Include="Controls\TutorialsCategoryContainer.xaml.cs">
       <DependentUpon>TutorialsCategoryContainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\VisualScripting\VisualScriptingLeftConnector.xaml.cs">
+      <DependentUpon>VisualScriptingLeftConnector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VisualScripting\VisualScriptingRightConnector.xaml.cs">
+      <DependentUpon>VisualScriptingRightConnector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VisualScripting\VisualScriptingNode.xaml.cs">
+      <DependentUpon>VisualScriptingNode.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GraphicsDevice\GameViewGameControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ViewModel\ButtonVisibilityViewModel.cs" />
     <Compile Include="Model\ResizeBasedVisibility.cs" />
-    <Compile Include="Controls\VisualScripting\VisualNode.xaml.cs">
-      <DependentUpon>VisualNode.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\DeploymentWindow.xaml.cs">
       <DependentUpon>DeploymentWindow.xaml</DependentUpon>
     </Compile>
@@ -411,7 +417,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\VisualScripting\Generic.xaml">
+    <Page Include="Controls\VisualScripting\VisualScriptingLeftConnector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VisualScripting\VisualScriptingRightConnector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VisualScripting\VisualScriptingNode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -427,7 +441,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\VisualScripting\VisualNode.xaml">
+    <Page Include="Themes\VisualScriptingDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

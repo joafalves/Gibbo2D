@@ -70,19 +70,21 @@ namespace Gibbo.Library
         /// <param name="outputInterface"></param>
         /// <param name="inputInterface"></param>
         /// <returns></returns>
-        public static bool EstablishConnection(VisualScriptNodeInterfaceOutput outputInterface ,VisualScriptNodeInterfaceInput inputInterface)
+        public static bool EstablishConnection(VisualScriptNodeInterfaceOutput outputInterface, VisualScriptNodeInterfaceInput inputInterface)
         {
             if (inputInterface.RequiredType == outputInterface.Transmission.GetType())
             {
-               VisualScriptConnection connection = 
-                   new VisualScriptConnection() { 
-                       _outputInterface = outputInterface,
-                       _inputInterface = inputInterface };
+                VisualScriptConnection connection =
+                    new VisualScriptConnection()
+                    {
+                        _outputInterface = outputInterface,
+                        _inputInterface = inputInterface
+                    };
 
-               outputInterface.Connections.Add(connection);
-               inputInterface.Connections.Add(connection);
+                outputInterface.Connections.Add(connection);
+                inputInterface.Connections.Add(connection);
 
-               return true;
+                return true;
             }
 
             return false;

@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Gibbo.Editor.WPF.Controls.VisualScripting.VisualScriptingNode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" MinHeight="80" MinWidth="180" Height="41" Width="150">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Themes/VisualScriptingDictionary.xaml"/>
+    </UserControl.Resources>
+    <Border
+        Background="{StaticResource DarkGray}"
+        CornerRadius="{StaticResource CornerRadiusFull}"
+        BorderBrush="{StaticResource ShadowBlack}"
+        BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Cursor="Hand"
+                Background="{StaticResource MediumGrayGradient}"
+                CornerRadius="{StaticResource CornerRadiusTop}"
+                BorderThickness="0,0,0,1"
+                BorderBrush="{StaticResource ShadowBlack}">
+                <TextBlock
+                    x:Name="HeaderTextBlock"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Text="My Header"
+                    Foreground="LightGray">
+                </TextBlock>
+            </Border>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel x:Name="LeftGrid" Orientation="Vertical" Grid.Column="0">
+                    
+                </StackPanel>
+                <StackPanel x:Name="RightGrid" Orientation="Vertical" Grid.Column="2">
+                    
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
+

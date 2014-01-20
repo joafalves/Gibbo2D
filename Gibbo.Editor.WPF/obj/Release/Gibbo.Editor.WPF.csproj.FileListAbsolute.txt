@@ -659,3 +659,10 @@ C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Libra
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.xml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\OpenTK.xml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.application
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingLeftConnector.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingRightConnector.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingNode.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\VisualScriptingDictionary.baml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingLeftConnector.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingRightConnector.g.cs
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingNode.g.cs
