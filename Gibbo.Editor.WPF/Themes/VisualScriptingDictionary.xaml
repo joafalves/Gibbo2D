@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Solid Color -->
+    <SolidColorBrush x:Key="ShadowBlack" Color="#222" po:Freeze="True"/>
+    <SolidColorBrush x:Key="DarkGray" Color="#252525" po:Freeze="True"/>
+    <SolidColorBrush x:Key="MediumGray" Color="#4A4A4A" po:Freeze="True"/>
+    <SolidColorBrush x:Key="DarkMediumGray" Color="#363636" po:Freeze="True"/>
+
+    <!-- Gradients -->
+    <LinearGradientBrush x:Key="MediumGrayGradient" StartPoint="0.5, 0" EndPoint="0.5, 1">
+        <GradientStop Color="#4D4D4D" Offset="0"/>
+        <GradientStop Color="#3E3E3E" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!-- CornerRadius -->
+    <CornerRadius x:Key="CornerRadiusFull" BottomLeft="8" BottomRight="8" TopLeft="8" TopRight="8"/>
+    <CornerRadius x:Key="CornerRadiusTop" BottomLeft="0" BottomRight="0" TopLeft="8" TopRight="8"/>
+
+</ResourceDictionary>
