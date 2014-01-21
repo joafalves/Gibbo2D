@@ -367,11 +367,9 @@ C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Edito
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.ResolveComReference.cache
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialContainer.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialsCategoryContainer.baml
-C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\Generic.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\CheckBoxStyle.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\ComboBoxStyle.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\PropertyGridStyle.baml
-C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualNode.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\FirstLoginWindow.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\PicturePreview.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\SettingsWindow.baml
@@ -386,7 +384,6 @@ C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\App.baml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TilesetBrushControl.g.cs
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialContainer.g.cs
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialsCategoryContainer.g.cs
-C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualNode.g.cs
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\DeploymentWindow.g.cs
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\FirstLoginWindow.g.cs
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Windows\PicturePreview.g.cs
@@ -719,3 +716,10 @@ C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gi
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.GenerateResource.Cache
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.exe.manifest
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.application
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingLeftConnector.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingRightConnector.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingNode.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Themes\VisualScriptingDictionary.baml
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingLeftConnector.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingRightConnector.g.cs
+C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingNode.g.cs

@@ -124,7 +124,7 @@ namespace Gibbo.Library
             return true;
         }
 
-        internal void Delete(GameObject item)
+        public void Delete(GameObject item)
         {
             item.RemoveAllComponents();
 

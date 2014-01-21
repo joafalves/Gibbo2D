@@ -846,7 +846,7 @@ namespace Gibbo.Editor.WPF
 
                 // Shift objects 
                 GameObject topObject = parent.Children[index - 1];
-                parent.Children.Remove(topObject);
+                parent.Children.Delete(topObject);
                 parent.Children.Insert(index, topObject);
 
                 //// Shift in treeview
@@ -857,14 +857,14 @@ namespace Gibbo.Editor.WPF
             else
             {
                 int index = SceneManager.ActiveScene.GameObjects.FindIndex(o => o.GetHashCode() == gameObject.GetHashCode());
-
+                
                 // already on bottom?
                 if (index == 0)
                     return;
 
                 // Shift objects 
                 GameObject topObject = SceneManager.ActiveScene.GameObjects[index - 1];
-                SceneManager.ActiveScene.GameObjects.Remove(topObject);
+                SceneManager.ActiveScene.GameObjects.Delete(topObject);
                 SceneManager.ActiveScene.GameObjects.Insert(index, topObject);
 
                 //// Shift in treeview
@@ -893,7 +893,7 @@ namespace Gibbo.Editor.WPF
 
                 // Shift objects 
                 GameObject topObject = parent.Children[index + 1];
-                parent.Children.Remove(topObject);
+                parent.Children.Delete(topObject);
                 parent.Children.Insert(index, topObject);
 
                 //// Shift in treeview
@@ -911,7 +911,7 @@ namespace Gibbo.Editor.WPF
 
                 // Shift objects 
                 GameObject topObject = SceneManager.ActiveScene.GameObjects[index + 1];
-                SceneManager.ActiveScene.GameObjects.Remove(topObject);
+                SceneManager.ActiveScene.GameObjects.Delete(topObject);
                 SceneManager.ActiveScene.GameObjects.Insert(index, topObject);
 
                 //// Shift in treeview
