@@ -177,8 +177,9 @@ namespace Gibbo.Library
             }
 
             Vector2 target = Position;
-
-            Matrix result = Matrix.CreateTranslation(-target.X, -target.Y, 0.0f) *
+            float aspectRatio = ((float)SceneManager.GraphicsDevice.Viewport.Width) / ((float)SceneManager.GraphicsDevice.Viewport.Height);
+            Matrix result =
+                Matrix.CreateTranslation(-target.X, -target.Y, 0.0f) *
                 Matrix.CreateRotationZ(rotation) *
                 Matrix.CreateScale(new Vector3((float)zoom, (float)zoom, 1)) *
                 Matrix.CreateScale(scalingFactor) *

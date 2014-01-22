@@ -14,6 +14,7 @@
 
   ***********************************************************************************/
 
+using System.Windows.Media;
 namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
 {
   public class ColorEditor : TypeEditor<ColorPicker>
@@ -23,6 +24,8 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
       Editor.BorderThickness = new System.Windows.Thickness( 0 );
       Editor.DisplayColorAndName = true;
       Editor.Style = PropertyGridUtilities.ColorPickerStyle;
+      Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));
+      Editor.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
     }
     protected override void SetValueDependencyProperty()
     {

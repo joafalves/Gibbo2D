@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+<<<<<<< HEAD
   <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.19" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+=======
+  <asmv1:assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.21" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
   <description asmv2:iconFile="gibbo2dn.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -43,6 +47,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
+=======
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="PresentationUI" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16896">
       <assemblyIdentity name="Gibbo.Editor.Model" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
@@ -50,19 +62,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>P5J/ABnxjXkMeDCA7vUWW2V/9BI=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>HaWEebOL+MaIiXZ3O6rsCDczEuY=</dsig:DigestValue>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1528832">
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.WPF.exe" size="1527296">
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       <assemblyIdentity name="Gibbo.Editor.WPF" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>r5mx31Vxi9/N9eVM8/z+fV6G2KM=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>yNBZyigZKdc1s3iLK13ejUI/QRg=</dsig:DigestValue>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +98,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>wsplBQq2l7hgOew+R6s++O4o7oQ=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>uZn27ow42JLI4IuCC8nogef/2C4=</dsig:DigestValue>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,14 +119,22 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lidgren.Network.dll" size="118272">
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Lidgren.Network.dll" size="144384">
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       <assemblyIdentity name="Lidgren.Network" version="2011.3.12.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>LPvLvklRNPC1ky1TzXAh76ljq3Y=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>aRPoweNPd/7lNw5SYsRr4Fb8XXw=</dsig:DigestValue>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -110,7 +146,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>8DxnNagkukatxVS4iYKS9xmhwH4=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>tscqtAEhvMy0VM5kNn89lY4gzfc=</dsig:DigestValue>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -175,6 +215,7 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WPFToolkit.Design.dll" size="33624">
       <assemblyIdentity name="WPFToolkit.Design" version="3.5.40128.1" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -333,12 +374,20 @@
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xceed.Wpf.Toolkit.dll" size="901120">
       <assemblyIdentity name="Xceed.Wpf.Toolkit" version="2.0.0.0" publicKeyToken="3E4669D2F30244F4" language="neutral" processorArchitecture="x86" />
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xceed.Wpf.Toolkit.dll" size="901120">
+      <assemblyIdentity name="Xceed.Wpf.Toolkit" version="2.0.0.0" language="neutral" processorArchitecture="x86" />
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>spOSwMcjkgUxO4QiIgMQ8ZaGlao=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>c6NskTi4Q6phuP8O9me48Aaq7yY=</dsig:DigestValue>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
       </hash>
     </dependentAssembly>
   </dependency>
@@ -558,13 +607,21 @@
       <dsig:DigestValue>Sj1QElVQpBwF1JFZ7oNQ2mwnmJg=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD
   <file name="Project Templates\libs\Xceed.Wpf.Toolkit.dll" size="901120">
+=======
+  <file name="Project Templates\libs\Xceed.Wpf.Toolkit.dll" size="921088">
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
       <dsig:DigestValue>spOSwMcjkgUxO4QiIgMQ8ZaGlao=</dsig:DigestValue>
+=======
+      <dsig:DigestValue>srrfrLR5XmHzY9nd/FqTuj9qkzA=</dsig:DigestValue>
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
     </hash>
   </file>
   <file name="Project Templates\samples\DefaultComponent.cs" size="156">

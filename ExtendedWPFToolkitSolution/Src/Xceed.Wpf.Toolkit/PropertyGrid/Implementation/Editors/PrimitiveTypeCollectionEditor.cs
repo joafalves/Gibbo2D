@@ -14,26 +14,30 @@
 
   ***********************************************************************************/
 
+using System.Windows.Media;
 namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
 {
-  public class PrimitiveTypeCollectionEditor : TypeEditor<PrimitiveTypeCollectionControl>
-  {
-    protected override void SetControlProperties()
+    public class PrimitiveTypeCollectionEditor : TypeEditor<PrimitiveTypeCollectionControl>
     {
-      Editor.BorderThickness = new System.Windows.Thickness( 0 );
-      Editor.Content = "(Collection)";
-    }
+        protected override void SetControlProperties()
+        {          
+            Editor.BorderThickness = new System.Windows.Thickness(1);           
+            Editor.Content = "(Collection)";
+            Editor.Background = new SolidColorBrush(Color.FromRgb(76, 76, 76));
+            Editor.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+            Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));
+        }
 
-    protected override void SetValueDependencyProperty()
-    {
-      ValueProperty = PrimitiveTypeCollectionControl.ItemsSourceProperty;
-    }
+        protected override void SetValueDependencyProperty()
+        {
+            ValueProperty = PrimitiveTypeCollectionControl.ItemsSourceProperty;
+        }
 
-    protected override void ResolveValueBinding( PropertyItem propertyItem )
-    {
-      Editor.ItemsSourceType = propertyItem.PropertyType;
-      Editor.ItemType = propertyItem.PropertyType.GetGenericArguments()[ 0 ];
-      base.ResolveValueBinding( propertyItem );
+        protected override void ResolveValueBinding(PropertyItem propertyItem)
+        {
+            Editor.ItemsSourceType = propertyItem.PropertyType;
+            Editor.ItemType = propertyItem.PropertyType.GetGenericArguments()[0];
+            base.ResolveValueBinding(propertyItem);
+        }
     }
-  }
 }

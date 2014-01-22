@@ -30,6 +30,7 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
     {
 
         Editor.Margin = new System.Windows.Thickness( 0, 0, 0, 0 );
+        Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));
         //Editor.Background = System.Windows.Media.Brushes.Red; 
         //Editor.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#383838"));
     } 

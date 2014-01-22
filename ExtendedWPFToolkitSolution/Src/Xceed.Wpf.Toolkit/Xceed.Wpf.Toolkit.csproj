@@ -35,11 +35,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MonoGame.Framework, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Gibbo.Editor.WPF\Project Templates\libs\MonoGame.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -374,6 +379,7 @@
     <Compile Include="CollectionControl\Implementation\ItemDeletingEventArgs.cs" />
     <Compile Include="CollectionControl\Implementation\ItemEventArgs.cs" />
     <Compile Include="CollectionControl\Implementation\PrimitiveTypeCollectionControl.cs" />
+    <Compile Include="Converters\XNAColorConverter.cs" />
     <Compile Include="Core\CancelRoutedEventArgs.cs" />
     <Compile Include="Core\Converters\ColorBlendConverter.cs" />
     <Compile Include="Core\Converters\WindowContentBorderMarginConverter.cs" />

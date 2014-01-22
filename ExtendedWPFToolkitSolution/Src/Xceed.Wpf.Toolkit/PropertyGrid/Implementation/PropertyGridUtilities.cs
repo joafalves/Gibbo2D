@@ -150,67 +150,67 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid
     {
       ITypeEditor editor = null;
 
-      if( propertyType == typeof( string )  )
-        editor = new TextBoxEditor();
-      else if( propertyType == typeof( bool ) || propertyType == typeof( bool? ) )
-        editor = new CheckBoxEditor();
-      else if( propertyType == typeof( decimal ) || propertyType == typeof( decimal? ) )
-        editor = new DecimalUpDownEditor();
-      else if( propertyType == typeof( double ) || propertyType == typeof( double? ) )
-        editor = new DoubleUpDownEditor();
-      else if( propertyType == typeof( int ) || propertyType == typeof( int? ) )
-        editor = new IntegerUpDownEditor();
-      else if( propertyType == typeof( short ) || propertyType == typeof( short? ) )
-        editor = new ShortUpDownEditor();
-      else if( propertyType == typeof( long ) || propertyType == typeof( long? ) )
-        editor = new LongUpDownEditor();
-      else if( propertyType == typeof( float ) || propertyType == typeof( float? ) )
-        editor = new SingleUpDownEditor();
-      else if( propertyType == typeof( byte ) || propertyType == typeof( byte? ) )
-        editor = new ByteUpDownEditor();
-      else if( propertyType == typeof( sbyte ) || propertyType == typeof( sbyte? ) )
-        editor = new UpDownEditor<SByteUpDown,sbyte?>();
-      else if( propertyType == typeof( uint ) || propertyType == typeof( uint? ) )
-        editor = new UpDownEditor<UIntegerUpDown, uint?>();
-      else if( propertyType == typeof( ulong ) || propertyType == typeof( ulong? ) )
-        editor = new UpDownEditor<ULongUpDown, ulong?>();
-      else if( propertyType == typeof( ushort ) || propertyType == typeof( ushort? ) )
-        editor = new UpDownEditor<UShortUpDown, ushort?>();
-      else if( propertyType == typeof( DateTime ) || propertyType == typeof( DateTime? ) )
-        editor = new DateTimeUpDownEditor();
-      else if( ( propertyType == typeof( Color ) ) )
-        editor = new ColorEditor();
-      else if( propertyType.IsEnum )
-        editor = new EnumComboBoxEditor();
-      else if( propertyType == typeof( TimeSpan ) )
-        editor = new TimeSpanEditor();
-      else if( propertyType == typeof( FontFamily ) || propertyType == typeof( FontWeight ) || propertyType == typeof( FontStyle ) || propertyType == typeof( FontStretch ) )
-        editor = new FontComboBoxEditor();
-      else if( propertyType == typeof( object ) )
-        // If any type of object is possible in the property, default to the TextBoxEditor.
-        // Useful in some case (e.g., Button.Content).
-        // Can be reconsidered but was the legacy behavior on the PropertyGrid.
-        editor = new TextBoxEditor();
+      if (propertyType == typeof(string))
+          editor = new TextBoxEditor();
+      else if (propertyType == typeof(bool) || propertyType == typeof(bool?))
+          editor = new CheckBoxEditor();
+      else if (propertyType == typeof(decimal) || propertyType == typeof(decimal?))
+          editor = new DecimalUpDownEditor();
+      else if (propertyType == typeof(double) || propertyType == typeof(double?))
+          editor = new DoubleUpDownEditor();
+      else if (propertyType == typeof(int) || propertyType == typeof(int?))
+          editor = new IntegerUpDownEditor();
+      else if (propertyType == typeof(short) || propertyType == typeof(short?))
+          editor = new ShortUpDownEditor();
+      else if (propertyType == typeof(long) || propertyType == typeof(long?))
+          editor = new LongUpDownEditor();
+      else if (propertyType == typeof(float) || propertyType == typeof(float?))
+          editor = new SingleUpDownEditor();
+      else if (propertyType == typeof(byte) || propertyType == typeof(byte?))
+          editor = new ByteUpDownEditor();
+      else if (propertyType == typeof(sbyte) || propertyType == typeof(sbyte?))
+          editor = new UpDownEditor<SByteUpDown, sbyte?>();
+      else if (propertyType == typeof(uint) || propertyType == typeof(uint?))
+          editor = new UpDownEditor<UIntegerUpDown, uint?>();
+      else if (propertyType == typeof(ulong) || propertyType == typeof(ulong?))
+          editor = new UpDownEditor<ULongUpDown, ulong?>();
+      else if (propertyType == typeof(ushort) || propertyType == typeof(ushort?))
+          editor = new UpDownEditor<UShortUpDown, ushort?>();
+      else if (propertyType == typeof(DateTime) || propertyType == typeof(DateTime?))
+          editor = new DateTimeUpDownEditor();
+      else if ((propertyType == typeof(Color)) || (propertyType == typeof(Microsoft.Xna.Framework.Color)))
+          editor = new ColorEditor();
+      else if (propertyType.IsEnum)
+          editor = new EnumComboBoxEditor();
+      else if (propertyType == typeof(TimeSpan))
+          editor = new TimeSpanEditor();
+      else if (propertyType == typeof(FontFamily) || propertyType == typeof(FontWeight) || propertyType == typeof(FontStyle) || propertyType == typeof(FontStretch))
+          editor = new FontComboBoxEditor();
+      else if (propertyType == typeof(object))
+          // If any type of object is possible in the property, default to the TextBoxEditor.
+          // Useful in some case (e.g., Button.Content).
+          // Can be reconsidered but was the legacy behavior on the PropertyGrid.
+          editor = new TextBoxEditor();
       else
       {
-        Type listType = ListUtilities.GetListItemType( propertyType );
+          Type listType = ListUtilities.GetListItemType(propertyType);
 
-        if( listType != null )
-        {
-          if( !listType.IsPrimitive && !listType.Equals( typeof( String ) ) )
-            editor = new Xceed.Wpf.Toolkit.PropertyGrid.Editors.CollectionEditor();
+          if (listType != null)
+          {
+              if (!listType.IsPrimitive && !listType.Equals(typeof(String)))
+                  editor = new Xceed.Wpf.Toolkit.PropertyGrid.Editors.CollectionEditor();
+              else
+                  editor = new Xceed.Wpf.Toolkit.PropertyGrid.Editors.PrimitiveTypeCollectionEditor();
+          }
           else
-            editor = new Xceed.Wpf.Toolkit.PropertyGrid.Editors.PrimitiveTypeCollectionEditor();
-        }
-        else
-        {
-          // If the type is not supported, check if there is a converter that supports
-          // string conversion to the object type. Use TextBox in theses cases.
-          // Otherwise, return a TextBlock editor since no valid editor exists.
-          editor = ( typeConverter != null && typeConverter.CanConvertFrom( typeof( string ) ) )
-            ? ( ITypeEditor )new TextBoxEditor()
-            : ( ITypeEditor )new TextBlockEditor();
-        }
+          {
+              // If the type is not supported, check if there is a converter that supports
+              // string conversion to the object type. Use TextBox in theses cases.
+              // Otherwise, return a TextBlock editor since no valid editor exists.
+              editor = (typeConverter != null && typeConverter.CanConvertFrom(typeof(string)))
+                ? (ITypeEditor)new TextBoxEditor()
+                : (ITypeEditor)new TextBlockEditor();
+          }
       }
 
       return editor;

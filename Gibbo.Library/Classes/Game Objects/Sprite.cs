@@ -339,7 +339,8 @@ namespace Gibbo.Library
                 }
                 else
                 {
-                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                    
+                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, SceneManager.ActiveCamera.TransformMatrix);
 
                     if (sourceRectangle == Rectangle.Empty)
                         spriteBatch.Draw(texture, Transform.Position, null, color, Transform.Rotation, _orgx, Transform.Scale, SpriteEffects.None, 1);

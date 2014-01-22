@@ -29,7 +29,7 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
       Editor.Format = DateTimeFormat.LongTime;
     }
 
-    protected override IValueConverter CreateValueConverter()
+    protected override IValueConverter CreateValueConverter(Type type = null)
     {
       return new EditorTimeSpanConverter();
     }

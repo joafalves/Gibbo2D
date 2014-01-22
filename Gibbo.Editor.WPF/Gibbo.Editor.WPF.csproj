@@ -21,7 +21,7 @@
     <SuiteName>Gibbo Suite</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -718,6 +718,10 @@
     <!--<AppDesigner Include="Properties\" />-->
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExtendedWPFToolkitSolution\Src\Xceed.Wpf.Toolkit\Xceed.Wpf.Toolkit.csproj">
+      <Project>{72e591d6-8f83-4d8c-8f67-9c325e623234}</Project>
+      <Name>Xceed.Wpf.Toolkit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gibbo.Editor.Model\Gibbo.Editor.Model.csproj">
       <Project>{7f87f0fe-019d-4e0a-afa4-48baba1a5b42}</Project>
       <Name>Gibbo.Editor.Model</Name>

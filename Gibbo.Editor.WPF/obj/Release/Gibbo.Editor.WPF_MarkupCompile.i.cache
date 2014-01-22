@@ -12,8 +12,13 @@ TRACE
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\App.xaml
 31-829125766
 851788182008
+<<<<<<< HEAD
 71468792345
 401369260707
+=======
+71-424254469
+37-1853225250
+>>>>>>> adab60d19e1a01c7784b43c84c3c8dbabfe955f5
 Controls\TilesetBrushControl.xaml;Controls\TutorialContainer.xaml;Controls\TutorialsCategoryContainer.xaml;Controls\VisualScripting\VisualScriptingLeftConnector.xaml;Controls\VisualScripting\VisualScriptingRightConnector.xaml;Controls\VisualScripting\VisualScriptingNode.xaml;Themes\CheckBoxStyle.xaml;Themes\ComboBoxStyle.xaml;Themes\PropertyGridStyle.xaml;Themes\VisualScriptingDictionary.xaml;Windows\DeploymentWindow.xaml;Windows\FirstLoginWindow.xaml;Windows\PicturePreview.xaml;Windows\ScriptingEditorWindow.xaml;Windows\SettingsWindow.xaml;Windows\SplashWindow.xaml;Windows\TutorialsListWindow.xaml;Windows\TutorialWindow.xaml;Windows\VisualNodesWindow.xaml;Windows\WindowsFormsHostOverlay.xaml;Windows\AddNewItemWindow.xaml;Controls\CustomCheckBox.xaml;Controls\ProjectExplorerTreeView.xaml;Controls\PropertyBox.xaml;Windows\TestsWindow.xaml;Windows\CompilerWindow.xaml;Windows\MainWindow.xaml;Controls\SceneHierarchyTreeView.xaml;Windows\StartupWindow.xaml;Windows\NewProjectWindow.xaml;Themes\IgniteDark.xaml;
 
 False
