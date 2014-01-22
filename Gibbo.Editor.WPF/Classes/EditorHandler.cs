@@ -44,7 +44,7 @@ namespace Gibbo.Editor.WPF
         {
             get
             {
-                return outputMessages;
+                return outputMessages; 
             }
         }
 
