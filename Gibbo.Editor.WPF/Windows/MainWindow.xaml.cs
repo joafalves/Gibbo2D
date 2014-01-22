@@ -356,8 +356,8 @@ namespace Gibbo.Editor.WPF
 
             SceneViewFormContainer.Child = sceneViewGameControl;
 
-            gameViewGameControl = new GameViewGameControl();
-            SceneViewGameFormContainer.Child = gameViewGameControl;
+            //gameViewGameControl = new GameViewGameControl();
+            //SceneViewGameFormContainer.Child = gameViewGameControl;
 
             EditorHandler.SceneViewControl = sceneViewGameControl;
             EditorHandler.PropertyGridContainer = PropertyGridContainer;
@@ -463,7 +463,7 @@ namespace Gibbo.Editor.WPF
             }
 
             if (!e.Cancel)
-                System.Environment.Exit(0);
+                Application.Current.Shutdown();
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
@@ -848,7 +848,7 @@ namespace Gibbo.Editor.WPF
 
         private void aboutBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://dragon-scale-studios.com/gibbo/index.php/main/display/about");
+            System.Diagnostics.Process.Start("http://www.gibbo2d.com/index.php/main/display/about");
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
@@ -858,7 +858,7 @@ namespace Gibbo.Editor.WPF
 
         private void websiteBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.dragon-scale-studios.com/gibbo");
+            System.Diagnostics.Process.Start("http://www.gibbo2d.com/");
         }
 
         private void ToCollisionBlock()
@@ -1258,12 +1258,12 @@ namespace Gibbo.Editor.WPF
 
         private void OutputExpander_Collapsed(object sender, RoutedEventArgs e)
         {
-            MainGrid.RowDefinitions[5].Height = new GridLength(1);
+            SceneViewContainer.RowDefinitions[3].Height = new GridLength(20);
         }
 
         private void OutputExpander_Expanded(object sender, RoutedEventArgs e)
         {
-            MainGrid.RowDefinitions[5].Height = new GridLength(100);
+            SceneViewContainer.RowDefinitions[3].Height = new GridLength(100);
         }
 
         private void fullDebug_Click_1(object sender, RoutedEventArgs e)

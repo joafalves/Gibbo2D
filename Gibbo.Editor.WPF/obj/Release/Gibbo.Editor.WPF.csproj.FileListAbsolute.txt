@@ -539,10 +539,6 @@ C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Libra
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.xml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\OpenTK.xml
 C:\Users\João\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.application
-C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.exe.config
-C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.ResolveComReference.cache
-C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.exe
-C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.pdb
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_gibbo.png
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_menu.png
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tutorials\01 - User Interface\Pictures\1_scene_explorer.png
@@ -629,6 +625,7 @@ C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Pr
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\OpenTK.GLControl.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\SDL.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Project Templates\libs\Tao.Sdl.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.exe.config
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.exe.manifest
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.application
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Editor.WPF.exe
@@ -641,6 +638,8 @@ C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Op
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\System.Windows.Controls.DataVisualization.Toolkit.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\WPFToolkit.Design.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\WPFToolkit.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Xceed.Wpf.AvalonDock.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Xceed.Wpf.AvalonDock.Themes.IgniteDark.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Xceed.Wpf.Toolkit.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Lidgren.Network.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Tao.Sdl.dll
@@ -649,7 +648,20 @@ C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gi
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.pdb
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Gibbo.Library.xml
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\OpenTK.xml
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Xceed.Wpf.AvalonDock.pdb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\Xceed.Wpf.AvalonDock.Themes.IgniteDark.pdb
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\bin\Release\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csprojResolveAssemblyReference.cache
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.ResolveComReference.cache
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialContainer.baml
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\TutorialsCategoryContainer.baml
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Controls\VisualScripting\VisualScriptingLeftConnector.baml
@@ -719,3 +731,5 @@ C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gi
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.csproj.GenerateResource.Cache
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.exe.manifest
 C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.application
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.exe
+C:\Users\Luis Fernandes\Documents\GitHub\Gibbo2D\Gibbo.Editor.WPF\obj\Release\Gibbo.Editor.WPF.pdb
