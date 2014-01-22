@@ -42,7 +42,7 @@ namespace Gibbo.Editor.WPF
         private static ObservableCollection<OutputMessage> outputMessages = new ObservableCollection<OutputMessage>();
         public static ObservableCollection<OutputMessage> OutputMessages
         {
-            get
+            get 
             {
                 return outputMessages; 
             }
