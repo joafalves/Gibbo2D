@@ -14,14 +14,18 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Gibbo.Editor.WPF.exe.manifest" size="48893">
+    <dependentAssembly dependencyType="install" codebase="Gibbo.Editor.WPF.exe.manifest" size="48602">
       <assemblyIdentity name="Gibbo.Editor.WPF.exe" version="1.2.0.21" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>4lxdLwvKmHmNxjhPkmgpv1sOTas=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>adjxUTa/kbvus+iRECG581c+mLk=</dsig:DigestValue>
+>>>>>>> 6b6b0e952979e554073c7737f045b79d4002d1cb
       </hash>
     </dependentAssembly>
   </dependency>

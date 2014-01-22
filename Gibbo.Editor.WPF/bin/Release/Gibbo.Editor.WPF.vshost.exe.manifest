@@ -43,11 +43,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="PresentationUI" version="4.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gibbo.Editor.Model.dll" size="16896">
       <assemblyIdentity name="Gibbo.Editor.Model" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
@@ -55,7 +50,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>2j/MHyws4YTBJTwf0hn9CkHXWzE=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>m1awxe0VbDAM5loDS5oSOGNaGhU=</dsig:DigestValue>
+>>>>>>> 6b6b0e952979e554073c7737f045b79d4002d1cb
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,7 +66,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>txsLEmB7fk28k02MTsWR6cG0mlE=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>7icA7bIYNs2q5r7x4APETpoqJf8=</dsig:DigestValue>
+>>>>>>> 6b6b0e952979e554073c7737f045b79d4002d1cb
       </hash>
     </dependentAssembly>
   </dependency>
@@ -79,7 +82,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>gid2xC9kdm68YUeHiGRc3DEmh3M=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>VrFL+fBNUmuPvBbXdqv92HixRpQ=</dsig:DigestValue>
+>>>>>>> 6b6b0e952979e554073c7737f045b79d4002d1cb
       </hash>
     </dependentAssembly>
   </dependency>
@@ -115,7 +122,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>RyWKdBd4sz0y/neaXD9cDrjGc68=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>1vSZoGdUNxgHI8X9MR7vL8befbg=</dsig:DigestValue>
+>>>>>>> 6b6b0e952979e554073c7737f045b79d4002d1cb
       </hash>
     </dependentAssembly>
   </dependency>
@@ -223,7 +234,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>3u4hDLUjmiZKWy26jrmdc7cvFeg=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>3ssQ7tJ/UlXIceTYGWy2zcTsyEo=</dsig:DigestValue>
+>>>>>>> 6b6b0e952979e554073c7737f045b79d4002d1cb
       </hash>
     </dependentAssembly>
   </dependency>
