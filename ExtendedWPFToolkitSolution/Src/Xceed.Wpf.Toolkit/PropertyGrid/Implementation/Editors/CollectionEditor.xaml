@@ -21,7 +21,8 @@
 
    <UserControl.Resources>
       <Style x:Key="ButtonStyle" TargetType="Button">
-         <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#CCC"/>
+            <Setter Property="Background" Value="White" />
          <Setter Property="BorderThickness" Value="0" />
          <Setter Property="Padding" Value="2,0,0,0" />
          <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -75,5 +76,7 @@
            SnapsToDevicePixels="True"
            Content="(Collection)"
            Style="{StaticResource ButtonStyle}"
-           Click="Button_Click" />
+           Click="Button_Click"
+           Foreground="#CCC"
+           />
 </UserControl>

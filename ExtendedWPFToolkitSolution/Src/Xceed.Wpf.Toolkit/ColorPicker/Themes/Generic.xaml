@@ -105,7 +105,7 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <Border Background="#4C4C4C" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <Border Background="#4C4C4C" BorderBrush="#565656" BorderThickness="1" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
                                 <ContentPresenter Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
@@ -115,15 +115,14 @@
 
                             <chrome:ButtonChrome x:Name="ToggleButtonChrome"
                                           Grid.Column="1"
-                                          CornerRadius="0,2.75,2.75,0"
                                           Visibility="{Binding ShowDropDownButton, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ColorPicker}, Converter={StaticResource BooleanToVisibilityConverter}}"
                                           RenderChecked="{Binding IsOpen, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ColorPicker}}"
-                                          RenderEnabled="{Binding IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ColorPicker}}"
-											         RenderMouseOver="{TemplateBinding IsMouseOver}"
-											         RenderPressed="{TemplateBinding IsPressed}">
+                                          RenderEnabled="{Binding IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ColorPicker}}"  
+                                          BorderThickness="0">
 
                                 <Grid x:Name="arrowGlyph" IsHitTestVisible="False" Grid.Column="1" Margin="5">
-                                    <Path x:Name="Arrow" Width="7" Height="4" Data="M 0,1 C0,1 0,0 0,0 0,0 3,0 3,0 3,0 3,1 3,1 3,1 4,1 4,1 4,1 4,0 4,0 4,0 7,0 7,0 7,0 7,1 7,1 7,1 6,1 6,1 6,1 6,2 6,2 6,2 5,2 5,2 5,2 5,3 5,3 5,3 4,3 4,3 4,3 4,4 4,4 4,4 3,4 3,4 3,4 3,3 3,3 3,3 2,3 2,3 2,3 2,2 2,2 2,2 1,2 1,2 1,2 1,1 1,1 1,1 0,1 0,1 z" Fill="#FF000000" />
+                                    <Path x:Name="Arrow" Width="7" Height="4" Data="M 0,1 C0,1 0,0 0,0 0,0 3,0 3,0 3,0 3,1 3,1 3,1 4,1 4,1 4,1 4,0 4,0 4,0 7,0 7,0 7,0 7,1 7,1 7,1 6,1 6,1 6,1 6,2 6,2 6,2 5,2 5,2 5,2 5,3 5,3 5,3 4,3 4,3 4,3 4,4 4,4 4,4 3,4 3,4 3,4 3,3 3,3 3,3 2,3 2,3 2,3 2,2 2,2 2,2 1,2 1,2 1,2 1,1 1,1 1,1 0,1 0,1 z" 
+                                          Fill="#FF000000" />
                                 </Grid>
                             </chrome:ButtonChrome>
                         </Grid>
@@ -166,6 +165,35 @@
         <Setter Property="SelectionMode" Value="Single" />
     </Style>
 
+    <Style x:Key="StandardCheckButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FontSize" Value="13" />       
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="#E6E6E6" />
+        <Setter Property="Background" Value="#4c4c4c" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border Name="border" BorderThickness="0" Padding="0,0" BorderBrush="DarkGray" CornerRadius="0" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="content" Margin="15,0,0,0"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="#888" />
+                            <Setter Property="Foreground">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFF9CE7B" Offset="0"/>
+                                        <GradientStop Color="#FFE88C41" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="{x:Type local:ColorPicker}">
         <Setter Property="Background" Value="#4c4c4c" />
         <Setter Property="BorderBrush" Value="#555" />
@@ -190,7 +218,7 @@
                                 IsChecked="{Binding IsOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                 IsHitTestVisible="{Binding IsOpen, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InverseBoolConverter}}"
                                 Style="{TemplateBinding ButtonStyle}"
-                                Foreground="#FFC7C7C7">
+                                Foreground="#FFEEEEEE">
                             <Grid Margin="2">
                                 <ContentControl x:Name="ColorOnly" Style="{StaticResource ColorDisplayStyle}" />
 
@@ -204,7 +232,7 @@
                         </ToggleButton>
 
                         <Popup x:Name="PART_ColorPickerPalettePopup" VerticalAlignment="Bottom" IsOpen="{Binding ElementName=PART_ColorPickerToggleButton, Path=IsChecked}" StaysOpen="False" AllowsTransparency="True" Focusable="False" HorizontalOffset="1" VerticalOffset="1" PopupAnimation="Slide">
-                            <Border BorderThickness="1" Background="{StaticResource PopupBackgroundBrush}" BorderBrush="#555" Padding="3">
+                            <Border BorderThickness="1" Background="#2e2e2e" BorderBrush="#111" Padding="3">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
@@ -227,7 +255,7 @@
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition />
                                                 </Grid.RowDefinitions>
-                                                <TextBlock Text="{TemplateBinding AvailableColorsHeader}" Background="#4c4c4c" Padding="2" Margin="0,0,0,1" Foreground="#FFC7C7C7" />
+                                                <TextBlock Text="{TemplateBinding AvailableColorsHeader}" Background="#2e2e2e" Padding="2" Margin="0,0,0,1" Foreground="#FFC7C7C7" />
                                                 <ListBox x:Name="PART_AvailableColors"
                                              Grid.Row="1"
                                              ItemsSource="{Binding AvailableColors, RelativeSource={RelativeSource TemplatedParent}}"
@@ -242,7 +270,7 @@
                                                     <RowDefinition Height="Auto" />
                                                     <RowDefinition Height="Auto" />
                                                 </Grid.RowDefinitions>
-                                                <TextBlock Text="{TemplateBinding StandardColorsHeader}" Background="#4c4c4c" Padding="2" Margin="0,1,0,1" Foreground="#FFC7C7C7"/>
+                                                <TextBlock Text="{TemplateBinding StandardColorsHeader}" Background="#2e2e2e" Padding="2" Margin="0,1,0,1" Foreground="#FFC7C7C7"/>
                                                 <ListBox x:Name="PART_StandardColors"
                                              Grid.Row="1"
                                              ItemsSource="{Binding StandardColors, RelativeSource={RelativeSource TemplatedParent}}"                                                      
@@ -275,10 +303,13 @@
                                                  SelectedColor="{Binding SelectedColor, RelativeSource={RelativeSource TemplatedParent}}" />
                                     </Grid>
 
-                                    <Separator Grid.Row="1" HorizontalAlignment="Stretch" Margin="5,0,5,0" />
+                                    <Separator Grid.Row="1" HorizontalAlignment="Stretch" Margin="5,0,5,0" Background="#666" />
 
                                     <!-- More Colors Button -->
-                                    <ToggleButton x:Name="_colorMode" Grid.Row="2" Content="Advanced" Margin="5" Visibility="{TemplateBinding ShowAdvancedButton, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <ToggleButton x:Name="_colorMode" Grid.Row="2" Content="Advanced" Margin="5" Visibility="{TemplateBinding ShowAdvancedButton, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                  Background="#4c4c4c" Foreground="#CCC" IsChecked="False" Style="{StaticResource StandardCheckButton}">
+
+                                    </ToggleButton>
                                 </Grid>
                             </Border>
                         </Popup>

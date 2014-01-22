@@ -119,14 +119,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\WPFToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="WPFToolkit.Design, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\WPFToolkit.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.Toolkit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Xceed.Wpf.Toolkit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -710,6 +702,10 @@
     <!--<AppDesigner Include="Properties\" />-->
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExtendedWPFToolkitSolution\Src\Xceed.Wpf.Toolkit\Xceed.Wpf.Toolkit.csproj">
+      <Project>{72e591d6-8f83-4d8c-8f67-9c325e623234}</Project>
+      <Name>Xceed.Wpf.Toolkit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gibbo.Editor.Model\Gibbo.Editor.Model.csproj">
       <Project>{7f87f0fe-019d-4e0a-afa4-48baba1a5b42}</Project>
       <Name>Gibbo.Editor.Model</Name>

@@ -170,7 +170,9 @@ namespace Xceed.Wpf.Toolkit
 
     #endregion //RecentColorsHeader
 
-    #region SelectedColor
+    #region 
+
+
 
     public static readonly DependencyProperty SelectedColorProperty = DependencyProperty.Register( "SelectedColor", typeof( Color ), typeof( ColorPicker ), new FrameworkPropertyMetadata( Colors.Black, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback( OnSelectedColorPropertyChanged ) ) );
     public Color SelectedColor

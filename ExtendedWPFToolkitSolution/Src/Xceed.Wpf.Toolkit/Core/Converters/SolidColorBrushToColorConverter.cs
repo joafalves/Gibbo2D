@@ -26,6 +26,7 @@ namespace Xceed.Wpf.Toolkit.Core.Converters
 
     public object Convert( object value, Type targetType, object parameter, System.Globalization.CultureInfo culture )
     {
+      
       SolidColorBrush brush = value as SolidColorBrush;
       if( brush != null )
         return brush.Color;
