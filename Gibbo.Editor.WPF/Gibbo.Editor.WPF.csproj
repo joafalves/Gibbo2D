@@ -125,15 +125,11 @@
     </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libraries\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock.Themes.Metro\bin\Release\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <HintPath>..\References\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock.Themes.IgniteDark, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libraries\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock.Themes.Metro\bin\Release\Xceed.Wpf.AvalonDock.Themes.IgniteDark.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.Toolkit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\Xceed.Wpf.Toolkit.dll</HintPath>
+      <HintPath>..\References\Xceed.Wpf.AvalonDock.Themes.IgniteDark.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -718,6 +714,10 @@
     <!--<AppDesigner Include="Properties\" />-->
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExtendedWPFToolkitSolution\Src\Xceed.Wpf.Toolkit\Xceed.Wpf.Toolkit.csproj">
+      <Project>{72e591d6-8f83-4d8c-8f67-9c325e623234}</Project>
+      <Name>Xceed.Wpf.Toolkit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExtendedWPFToolkitSolution\Src\Xceed.Wpf.Toolkit\Xceed.Wpf.Toolkit.csproj">
       <Project>{72e591d6-8f83-4d8c-8f67-9c325e623234}</Project>
       <Name>Xceed.Wpf.Toolkit</Name>
