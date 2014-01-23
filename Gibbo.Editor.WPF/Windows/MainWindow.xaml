@@ -5,6 +5,7 @@
         xmlns:local="clr-namespace:Gibbo.Editor.WPF" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:Gibbo.Editor.WPF.Controls" mc:Ignorable="d" x:Class="Gibbo.Editor.WPF.MainWindow"
         Title="Gibbo 2D" Width="1200" Height="640" Icon="/Gibbo.Editor.WPF;component/Gibbo.Content/logo_modern.png" WindowStyle="None" ResizeMode="CanResize" KeyDown="Window_KeyDown_1" Closing="Window_Closing_1" 
         xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" Loaded="Window_Loaded_1"
+        
     >
     <Window.Resources>
 
@@ -213,9 +214,9 @@
             </avalonDock:DockingManager.Theme>
             <avalonDock:LayoutRoot>
                 <avalonDock:LayoutPanel x:Name="GLOBALPANEL" Orientation="Horizontal">
-                    <avalonDock:LayoutPanel x:Name="SceneHPGroup" Orientation="Vertical" DockWidth="*">
+                    <avalonDock:LayoutPanel x:Name="SceneHPGroup" Orientation="Vertical" DockWidth="*" >
                         <avalonDock:LayoutAnchorablePane DockWidth="*">
-                            <avalonDock:LayoutAnchorable ContentId="SceneHierarchyPanel" Title="Scene Hierarchy">
+                            <avalonDock:LayoutAnchorable ContentId="SceneHierarchyPanel" Title="Scene Hierarchy" >
                                 <Border BorderBrush="{DynamicResource BorderDark}" BorderThickness="1">
                                     <Grid>
                                         <DockPanel LastChildFill="True">

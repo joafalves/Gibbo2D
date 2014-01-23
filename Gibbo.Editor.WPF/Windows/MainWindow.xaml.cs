@@ -42,6 +42,7 @@ using WinInterop = System.Windows.Interop;
 using System.Deployment.Application;
 using Gibbo.Editor.Model;
 using System.Windows.Controls;
+using Xceed.Wpf.AvalonDock;
 
 namespace Gibbo.Editor.WPF
 {
@@ -316,21 +317,26 @@ namespace Gibbo.Editor.WPF
         System.Windows.Controls.ContextMenu gameViewContextMenu;
         #endregion
 
+        
+
         #region constructors
 
         public MainWindow()
         {
             InitializeComponent();
+
             //this.Loaded += new RoutedEventHandler(win_Loaded);
             //this.SourceInitialized += new EventHandler(win_SourceInitialized);
             SetFullScreen(Properties.Settings.Default.StartOnFullScreen);
 
             Initialize();
+
         }
 
         public MainWindow(string projectPath)
         {
             InitializeComponent();
+
 
             SetFullScreen(Properties.Settings.Default.StartOnFullScreen);
 
