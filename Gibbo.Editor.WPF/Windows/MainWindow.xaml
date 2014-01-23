@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:local="clr-namespace:Gibbo.Editor.WPF" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:Gibbo.Editor.WPF.Controls" mc:Ignorable="d" x:Class="Gibbo.Editor.WPF.MainWindow"
-        Title="Gibbo 2D" Width="1200" Height="640" Icon="/Gibbo.Editor.WPF;component/Gibbo.Content/logo_modern.png" WindowStyle="None" ResizeMode="CanResize" KeyDown="Window_KeyDown_1" Closing="Window_Closing_1" >
+        Title="Gibbo 2D" Width="1200" Height="640" Icon="/Gibbo.Editor.WPF;component/Gibbo.Content/logo_modern.png" WindowStyle="None" ResizeMode="CanResize" KeyDown="Window_KeyDown_1" Closing="Window_Closing_1" 
+        xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" Loaded="Window_Loaded_1"
+    >
     <Window.Resources>
 
         <Style x:Key="MiniToolbarMenuItem" TargetType="{x:Type Button}">
@@ -155,6 +157,10 @@
                         <MenuItem Header="Numeric Scale.." HorizontalAlignment="Left"  Width="200" Click="numericScale_Click"/>
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="Layout" Foreground="#FF212121">
+                    <MenuItem Header="Set Current Layout as Default" HorizontalAlignment="Left" Width="200" Click="OnSaveLayout" />
+                    <MenuItem Header="Reset Layout" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
+                </MenuItem>
                 <MenuItem Header="Tools" Foreground="#FF212121" Visibility="Collapsed">
                     <MenuItem Header="Visual Scripting.." HorizontalAlignment="Left" Width="200" />
                 </MenuItem>
@@ -207,8 +213,8 @@
             </avalonDock:DockingManager.Theme>
             <avalonDock:LayoutRoot>
                 <avalonDock:LayoutPanel x:Name="GLOBALPANEL" Orientation="Horizontal">
-                    <avalonDock:LayoutPanel x:Name="SceneHPGroup" Orientation="Vertical" DockWidth="220">
-                        <avalonDock:LayoutAnchorablePane DockWidth="220">
+                    <avalonDock:LayoutPanel x:Name="SceneHPGroup" Orientation="Vertical" DockWidth="*">
+                        <avalonDock:LayoutAnchorablePane DockWidth="*">
                             <avalonDock:LayoutAnchorable ContentId="SceneHierarchyPanel" Title="Scene Hierarchy">
                                 <Border BorderBrush="{DynamicResource BorderDark}" BorderThickness="1">
                                     <Grid>
@@ -243,7 +249,7 @@
                                 </Border>
                             </avalonDock:LayoutAnchorable>
                         </avalonDock:LayoutAnchorablePane>
-                        <avalonDock:LayoutAnchorablePane DockWidth="220">
+                        <avalonDock:LayoutAnchorablePane DockWidth="*">
                             <avalonDock:LayoutAnchorable ContentId="ProjectExplorer" Title="Project Explorer">
                                 <Border BorderBrush="{DynamicResource BorderDark}" BorderThickness="1">
                                     <Grid>
@@ -311,7 +317,7 @@
 
                                     <!--<Grid x:Name="SceneViewFormContainer" Grid.Row="1"></Grid>-->
                                     <Border Grid.Row="1" BorderBrush="{DynamicResource BorderDark}" BorderThickness="1, 0, 1, 1">
-                                        <WindowsFormsHost  x:Name="SceneViewFormContainer" Margin="0"/>
+                                        <winformsIntegration:WindowsFormsHost  x:Name="SceneViewFormContainer" Margin="0"/>
                                     </Border>
                                     <GridSplitter Grid.Row="2" Height="7" VerticalAlignment="Center" HorizontalAlignment="Stretch" ShowsPreview="True" Style="{DynamicResource GridSplitterStyle}"/>
                                     <Border x:Name="OutputExpanderBorder" MinHeight="20" Height="Auto" Grid.Row="3" BorderThickness="1" Margin="0,0,0,0" BorderBrush="{DynamicResource BorderDark}">
@@ -357,7 +363,7 @@
                     </avalonDock:LayoutPanel>
 
                     <!-- Inspector and Tileset Panels Group -->
-                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="350">
+                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="*">
                         <avalonDock:LayoutAnchorablePane DockWidth="*">
                             <avalonDock:LayoutAnchorable ContentId="tool1" Title="Inspector">
                                 <Border BorderBrush="{DynamicResource BorderDark}" BorderThickness="1">

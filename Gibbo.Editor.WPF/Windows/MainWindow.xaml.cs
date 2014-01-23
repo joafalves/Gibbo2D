@@ -442,9 +442,92 @@ namespace Gibbo.Editor.WPF
                 debugProject();
         }
 
+
+        // [alterar] colocar o field na região correspondente
+        private const string layoutPath = @".\AvalonDock_";
+        private const string layoutExtension = ".config";
+
+        // Attemps to Load a Layout
+        private bool LoadLayout(string layoutName, string path = layoutPath)
+        {
+            try
+            {
+                var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
+                using (var stream = new StreamReader(string.Format(path + "{0}" + layoutExtension, layoutName)))
+                    serializer.Deserialize(stream);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            // loaded successfully
+            return true;
+        }
+
+        // Attemps to load Gibbo's default layout
+        private void LoadGibbsoDefaultLayout()
+        {
+            EditorCommands.ShowOutputMessage("Attempting to load Gibbo's default layout");
+            if (this.LoadLayout("Default", @".\Layout\AvalonDock_"))
+                EditorCommands.ShowOutputMessage("Gibbo's default layout has been loaded successfully");
+            else
+                EditorCommands.ShowOutputMessage("Gibbo's saved layout load attempt has failed");
+        }
+
         #endregion
 
         #region events
+
+        // Attemps to Reset the Layout by setting Gibbo's default layout as current
+        private void ResetLayoutClick(object sender, RoutedEventArgs e)
+        {
+            EditorCommands.ShowOutputMessage("Attempting to reset the layout");
+            // apaga o ficheiro do utilizador se existir, de modo a resetar completamente
+            if (File.Exists(layoutPath + userLayoutFileName + layoutExtension))
+            {
+                EditorCommands.ShowOutputMessage("User's saved layout located");
+                try
+                {
+                    EditorCommands.ShowOutputMessage("Attempting to delete User's saved layout");
+                    File.Delete(layoutPath + userLayoutFileName + layoutExtension);
+                    this.LoadGibbsoDefaultLayout();
+                }
+                catch (Exception)
+                {
+                    EditorCommands.ShowOutputMessage("User's saved layout delete attempt has failed");
+                }
+                
+            }
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            // provavelmente pode-se procurar um default sem ser na pasta Layout, e caso exista faz-se load a esse em vez do nosso default
+            if (File.Exists(layoutPath + userLayoutFileName + layoutExtension))
+            {
+                EditorCommands.ShowOutputMessage("Attempting to load User's saved layout");
+                if (this.LoadLayout(userLayoutFileName))
+                {
+                    EditorCommands.ShowOutputMessage("User's saved layout has been loaded successfully");
+                    return;
+                }
+                else
+                    EditorCommands.ShowOutputMessage("User's saved layout load attempt has failed");
+            }
+            // attemps to load Gibbo's default layout
+            this.LoadGibbsoDefaultLayout();
+        }
+
+        private const string userLayoutFileName = "UserDefault";
+
+        private void OnSaveLayout(object sender, RoutedEventArgs e)
+        {
+            // [alterar] possivelmente mudar para outra pasta? .\Layouts\
+            // utilizar um possível contador para incrementar o numero de ficheiros, invez de colocar opções específicas e limitadas para guardar layouts (como acontece no avalondockTest)
+            var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
+            using (var stream = new StreamWriter(layoutPath + userLayoutFileName + layoutExtension))
+                serializer.Serialize(stream);
+        }
 
         private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -1329,8 +1412,5 @@ namespace Gibbo.Editor.WPF
         }
 
         #endregion
-
-
-
     }
 }
