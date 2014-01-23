@@ -490,7 +490,6 @@ namespace Gibbo.Editor.WPF
                 {
                     EditorCommands.ShowOutputMessage("Attempting to delete User's saved layout");
                     File.Delete(layoutPath + userLayoutFileName + layoutExtension);
-                    this.LoadGibbsoDefaultLayout();
                 }
                 catch (Exception)
                 {
@@ -498,6 +497,7 @@ namespace Gibbo.Editor.WPF
                 }
                 
             }
+            this.LoadGibbsoDefaultLayout();
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
