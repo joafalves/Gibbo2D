@@ -115,7 +115,7 @@ namespace Gibbo.Editor.WPF
 
             gameTime = new GameTime(timer.Elapsed, timer.Elapsed - elapsed);
             elapsed = timer.Elapsed;
-
+            
             deltaFPSTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (deltaFPSTime > 1)
             {
