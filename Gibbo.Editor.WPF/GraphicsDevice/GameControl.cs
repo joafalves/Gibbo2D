@@ -111,6 +111,7 @@ namespace Gibbo.Editor.WPF
 
         private void GameLoop()
         {
+            
             if (timer == null) return;
 
             gameTime = new GameTime(timer.Elapsed, timer.Elapsed - elapsed);
