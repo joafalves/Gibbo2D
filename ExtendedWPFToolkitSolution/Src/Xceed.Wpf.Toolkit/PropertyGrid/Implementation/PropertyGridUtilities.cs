@@ -201,6 +201,7 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid
                   editor = new Xceed.Wpf.Toolkit.PropertyGrid.Editors.CollectionEditor();
               else
                   editor = new Xceed.Wpf.Toolkit.PropertyGrid.Editors.PrimitiveTypeCollectionEditor();
+              
           }
           else
           {

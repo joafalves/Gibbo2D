@@ -21,7 +21,7 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
   {
     protected override void SetControlProperties()
     {
-      Editor.BorderThickness = new System.Windows.Thickness( 0 );
+      Editor.BorderThickness = new System.Windows.Thickness( 1 );
       Editor.DisplayColorAndName = true;
       Editor.Style = PropertyGridUtilities.ColorPickerStyle;
       Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));

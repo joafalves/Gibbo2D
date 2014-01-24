@@ -316,9 +316,7 @@ namespace Gibbo.Editor.WPF
         bool gameVideoMode = false;
         System.Windows.Controls.ContextMenu gameViewContextMenu;
         #endregion
-
         
-
         #region constructors
 
         public MainWindow()
@@ -504,6 +502,13 @@ namespace Gibbo.Editor.WPF
                 
             }
             this.LoadGibbsoDefaultLayout();
+        }
+
+        private void DebugResetClick(object sender, RoutedEventArgs e)
+        {
+            var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
+            using (var stream = new StreamWriter(@".\Layout\AvalonDock_Default.config"))
+                serializer.Serialize(stream);
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
@@ -1418,5 +1423,7 @@ namespace Gibbo.Editor.WPF
         }
 
         #endregion
+
+       
     }
 }

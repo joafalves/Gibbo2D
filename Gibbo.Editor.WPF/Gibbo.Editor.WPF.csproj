@@ -707,7 +707,7 @@
     <None Include="Gibbo.Editor.Model.licenseheader" />
     <None Include="Gibbo.Editor.WPF_TemporaryKey.pfx" />
     <None Include="Layout\AvalonDock_Default.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -96,22 +96,21 @@ namespace Gibbo.Editor.WPF
         protected override void Draw()
         {
             GameLoop();
-            
+
             //if (!this.Focused)
             //{
-            //    //Thread.Sleep(10);
+            //    Thread.Sleep(10);
             //}
             //else
             //{
-            //    //Thread.Sleep(1);
+            //    Thread.Sleep(1);
             //}
 
             Draw(gameTime);
         }
 
         private void GameLoop()
-        {
-            
+        {            
             if (timer == null) return;
 
             gameTime = new GameTime(timer.Elapsed, timer.Elapsed - elapsed);

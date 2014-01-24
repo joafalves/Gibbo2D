@@ -161,6 +161,7 @@
                 <MenuItem Header="Layout" Foreground="#FF212121">
                     <MenuItem Header="Set Current Layout as Default" HorizontalAlignment="Left" Width="200" Click="OnSaveLayout" />
                     <MenuItem Header="Reset Layout" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
+                    <MenuItem Header="Debug Reset" Click="DebugResetClick" Visibility="Collapsed" />
                 </MenuItem>
                 <MenuItem Header="Tools" Foreground="#FF212121" Visibility="Collapsed">
                     <MenuItem Header="Visual Scripting.." HorizontalAlignment="Left" Width="200" />
@@ -206,8 +207,6 @@
                 <local:RoundedButton x:Name="fullScreenBtn" ToolTip="Toggle FullScreen, Shortcut Key: [F11]" Style="{DynamicResource RoundedButtonStyle}" Foreground="{DynamicResource ForegroundGray}" Width="120" Cursor="Hand" FontSize="11" Click="fullScreenBtn_Click" Height="26" VerticalAlignment="Top" CornerRadius="4,4,4,4" />
             </DockPanel>
         </Grid>
-
-
         <avalonDock:DockingManager x:Name="dockManager" Grid.Row="2" Grid.ColumnSpan="3" AllowMixedOrientation="True" Background="#FF282828">
             <avalonDock:DockingManager.Theme>
                 <avalonDock:IgniteDarkTheme/>
@@ -243,7 +242,7 @@
                                                         </StackPanel>
                                                     </Border>
                                                 </Border>
-                                                <local:SceneHierarchyTreeView x:Name="sceneTreeView" Grid.Row="1"/>
+                                                <local:SceneHierarchyTreeView x:Name="sceneTreeView" Grid.Row="1" />
                                             </Grid>
                                         </DockPanel>
                                     </Grid>

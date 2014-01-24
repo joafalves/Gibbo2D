@@ -14,6 +14,7 @@
 
   ***********************************************************************************/
 
+using System.Windows;
 using System.Windows.Media;
 namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
 {
@@ -25,7 +26,7 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
             Editor.Content = "(Collection)";
             Editor.Background = new SolidColorBrush(Color.FromRgb(76, 76, 76));
             Editor.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
-            Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));
+            Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));           
         }
 
         protected override void SetValueDependencyProperty()

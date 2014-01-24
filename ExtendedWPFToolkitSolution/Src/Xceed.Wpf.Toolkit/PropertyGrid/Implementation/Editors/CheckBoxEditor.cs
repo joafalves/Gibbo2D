@@ -30,9 +30,9 @@ namespace Xceed.Wpf.Toolkit.PropertyGrid.Editors
     protected override void SetValueDependencyProperty()
     {
       ValueProperty = CheckBox.IsCheckedProperty;
-      //Editor.Background = new SolidColorBrush(Color.FromRgb(76, 76, 76));
-      //Editor.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
-      //Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));
+      Editor.Background = new SolidColorBrush(Color.FromRgb(76, 76, 76));
+      Editor.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+      Editor.Foreground = new SolidColorBrush(Color.FromRgb(230, 230, 230));
     }
   }
 }
