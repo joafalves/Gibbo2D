@@ -71,7 +71,7 @@
                               </Grid.ColumnDefinitions>
                               <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="true" />
                               <Grid x:Name="arrowGlyph" IsHitTestVisible="False" Margin="4,3,4,3" Grid.Column="1">
-                                 <Path HorizontalAlignment="Center" x:Name="Up_Arrow" VerticalAlignment="Center" Fill="{StaticResource GlyphBrush}" Data="M 0 0 L 4 4 L 8 0 Z" RenderTransformOrigin="0.5,0.5">
+                                 <Path HorizontalAlignment="Center" x:Name="Up_Arrow" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 0 0 L 4 4 L 8 0 Z" RenderTransformOrigin="0.5,0.5">
                 <Path.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="1" ScaleY="1" />

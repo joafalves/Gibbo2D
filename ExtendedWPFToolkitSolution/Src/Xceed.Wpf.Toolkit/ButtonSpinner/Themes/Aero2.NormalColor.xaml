@@ -60,12 +60,10 @@
                                 <RepeatButton x:Name="PART_IncreaseButton"
                                    Style="{DynamicResource {x:Static themes:ResourceKeys.SpinnerButtonStyleKey}}"
                                    IsTabStop="{TemplateBinding IsTabStop}" ContentTemplate="{StaticResource IncreaseGlyphNormalKey}" />
-
                                 <RepeatButton x:Name="PART_DecreaseButton"
                                    Grid.Row="1"
                                    Style="{DynamicResource {x:Static themes:ResourceKeys.SpinnerButtonStyleKey}}"
                                    IsTabStop="{TemplateBinding IsTabStop}" ContentTemplate="{StaticResource DecreaseGlyphNormalKey}" />
-
                             </Grid>
                         </Grid>
                     </Border>
