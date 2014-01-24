@@ -30,15 +30,7 @@
                     <Grid>
                         <chrome:ButtonChrome x:Name="Chrome"
                                        BorderBrush="Transparent" 
-                                       Background="#FFC7C7C7"                                                                  
-                                       CornerRadius="2"
-                                       RenderEnabled="{TemplateBinding IsEnabled}"
-                                       
-                                       RenderMouseOver="{TemplateBinding IsMouseOver}"
-                                       RenderPressed="{TemplateBinding IsPressed}"
-                                             
-                                       RenderNormal="True"
-                                       
+                                       Background="Transparent"                                                                  
                                        SnapsToDevicePixels="true" />
 
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

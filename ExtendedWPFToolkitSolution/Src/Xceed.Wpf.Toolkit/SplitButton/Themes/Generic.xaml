@@ -68,7 +68,7 @@
                            </Button.Template>
                            <Grid>
                               <chrome:ButtonChrome x:Name="ActionButtonChrome"
-                                                   BorderThickness="1,1,0,1"
+                                                   BorderThickness="1, 1, 0, 1"
                                                    CornerRadius="2.75, 0, 0, 2.75"
                                                    RenderEnabled="{TemplateBinding IsEnabled}"
 											                  RenderMouseOver="{Binding IsMouseOver, ElementName=PART_ActionButton}"
