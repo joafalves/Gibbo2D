@@ -49,7 +49,7 @@
                                 <chrome:ButtonChrome x:Name="ToggleButtonChrome"
                                           Grid.Column="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                                     <Grid x:Name="arrowGlyph" IsHitTestVisible="False" Grid.Column="1" Margin="5" >
-                                        <Path HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="#ECECEC"  Data="M 0 4 L 4 0 L 8 4 Z" RenderTransformOrigin="0.5,0.5">
+                                        <Path HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="#C7C7C7"  Data="M 0 4 L 4 0 L 8 4 Z" RenderTransformOrigin="0.5,0.5">
                                             <Path.RenderTransform>
                                                 <TransformGroup>
                                                     <ScaleTransform ScaleX="1" ScaleY="1" />

@@ -404,7 +404,7 @@
                             <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
                         </Border>
                         <Border Grid.Column="1" BorderThickness="1" BorderBrush="#565656">
-                            <TextBlock MouseDown="PathMouseDown" FontSize="15" Background="#4c4c4c" VerticalAlignment="Center" TextAlignment="Center" Foreground="#e6e6e6">...</TextBlock>
+                            <TextBlock MouseUp="PathMouseDown" FontSize="15" Background="#4c4c4c" VerticalAlignment="Center" TextAlignment="Center" Foreground="#C7C7C7">...</TextBlock>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>

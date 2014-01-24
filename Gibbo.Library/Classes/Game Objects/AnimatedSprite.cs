@@ -408,7 +408,7 @@ namespace Gibbo.Library
 
         public override RotatedRectangle MeasureDimension()
         {
-            if (texture != null && Body == null)
+            if (texture != null && Body == null && totalRows != 0 && totalFramesPerRow != 0)
             {
                 Rectangle r = new Rectangle((int)(Transform.position.X - (texture.Width / totalFramesPerRow / 2) * Transform.scale.X),
                     (int)(Transform.position.Y - (texture.Height / totalRows / 2) * Transform.scale.Y), (int)(texture.Width / totalFramesPerRow * Transform.scale.X),

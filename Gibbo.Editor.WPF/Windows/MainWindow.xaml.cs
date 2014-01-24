@@ -1221,7 +1221,7 @@ namespace Gibbo.Editor.WPF
         {
             if (EditorHandler.SelectedGameObjects.Count > 0 && EditorHandler.SelectedGameObjects[0] is Tileset)
             {
-                EditorHandler.TilesetBrushControl.ChangeImageSource((EditorHandler.SelectedGameObjects[0] as Tileset).ImagePath);
+                EditorHandler.TilesetBrushControl.ChangeImageSource((EditorHandler.SelectedGameObjects[0] as Tileset).ImageName);
             }
         }
 

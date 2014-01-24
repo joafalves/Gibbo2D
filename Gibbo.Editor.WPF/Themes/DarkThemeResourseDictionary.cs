@@ -129,7 +129,7 @@ namespace Gibbo.Editor.WPF
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Title = "Set Image Path";
-            ofd.Filter = "BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff|" + "All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff";
+            ofd.Filter = "All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff" + "|BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
 
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -154,6 +154,15 @@ namespace Gibbo.Editor.WPF
             System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
             string relativePath = @"Content\" + filename;
             (parentDO as TextBox).Text = relativePath;
+
+            FrameworkElement parent = (FrameworkElement)(parentDO as TextBox).Parent;
+            while (parent != null && parent is IInputElement && !((IInputElement)parent).Focusable)
+            {
+                parent = (FrameworkElement)parent.Parent;
+            }
+
+            DependencyObject scope = FocusManager.GetFocusScope((parentDO as TextBox));
+            FocusManager.SetFocusedElement(scope, parent as IInputElement);
         }
     }
 }

@@ -173,9 +173,9 @@ namespace Gibbo.Library
 #if WINDOWS
         [EditorAttribute(typeof(ContentBrowserEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [Category("Tileset Properties")]
-        [DisplayName("Image Path"), Description("The relative path to the image")]
+        [DisplayName("Image Name"), Description("The relative path to the image")]
 #endif
-        public string ImagePath
+        public string ImageName
         {
             get { return imagePath; }
             set

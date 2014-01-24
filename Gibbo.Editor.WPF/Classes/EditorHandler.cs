@@ -99,7 +99,7 @@ namespace Gibbo.Editor.WPF
                     if (SelectedGameObjects[0] is Tileset)
                     {
                         EditorHandler.TilesetBrushControl.ChangeSelectionSize((SelectedGameObjects[0] as Tileset).TileWidth, (SelectedGameObjects[0] as Tileset).TileHeight);
-                        EditorHandler.TilesetBrushControl.ChangeImageSource((SelectedGameObjects[0] as Tileset).ImagePath);
+                        EditorHandler.TilesetBrushControl.ChangeImageSource((SelectedGameObjects[0] as Tileset).ImageName);
 
                         SceneManager.ActiveTileset = (Tileset)SelectedGameObjects[0];
                         EditorHandler.TilesetMenuItems.IsEnabled = true;

@@ -154,37 +154,45 @@ namespace Gibbo.Editor.WPF.Controls
         {
             if (image == null) return;
 
-            int px = (int)e.GetPosition(ImageHolder).X;
-            int py = (int)e.GetPosition(ImageHolder).Y;
 
-            if (px < this.image.Width - 1 && py < this.image.Height - 1 && px > 0 && py > 0)
+            try
             {
-                int x, y, width, height;
+                int px = (int)e.GetPosition(ImageHolder).X;
+                int py = (int)e.GetPosition(ImageHolder).Y;
 
-                int ex = px / brushSizeX;
-                int ey = py / brushSizeY;
-
-                x = (int)selectionStartPoint.X;
-                y = (int)selectionStartPoint.Y;
-
-                width = 1;
-                height = 1;
-
-                if (ex > selectionStartPoint.X) width = ex - (int)selectionStartPoint.X + 1;
-                else if (ex < selectionStartPoint.X)
+                if (px < this.image.Width - 1 && py < this.image.Height - 1 && px > 0 && py > 0)
                 {
-                    x = ex;
-                    width = ((int)selectionStartPoint.X - x) + 1;
-                }
-                if (ey > selectionStartPoint.Y) height = ey - (int)selectionStartPoint.Y + 1;
-                else if (ey < selectionStartPoint.Y)
-                {
-                    y = ey;
-                    height = ((int)selectionStartPoint.Y - y) + 1;
-                }
+                    int x, y, width, height;
 
-                selectionRectangle = new Rect(x * brushSizeX, y * brushSizeY, width * brushSizeX, height * brushSizeY);
-                DrawingCanvas.Selection = selectionRectangle;
+                    int ex = px / brushSizeX;
+                    int ey = py / brushSizeY;
+
+                    x = (int)selectionStartPoint.X;
+                    y = (int)selectionStartPoint.Y;
+
+                    width = 1;
+                    height = 1;
+
+                    if (ex > selectionStartPoint.X) width = ex - (int)selectionStartPoint.X + 1;
+                    else if (ex < selectionStartPoint.X)
+                    {
+                        x = ex;
+                        width = ((int)selectionStartPoint.X - x) + 1;
+                    }
+                    if (ey > selectionStartPoint.Y) height = ey - (int)selectionStartPoint.Y + 1;
+                    else if (ey < selectionStartPoint.Y)
+                    {
+                        y = ey;
+                        height = ((int)selectionStartPoint.Y - y) + 1;
+                    }
+
+                    selectionRectangle = new Rect(x * brushSizeX, y * brushSizeY, width * brushSizeX, height * brushSizeY);
+                    DrawingCanvas.Selection = selectionRectangle;
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 

@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="24"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Border Grid.ColumnSpan="3" Background="#404040" BorderThickness="0,0,0,1" BorderBrush="#FF262626" MouseUp="VisibilityHandlerBtn_MouseUp" Cursor="Hand"></Border>
-            <Border Grid.ColumnSpan="3" BorderBrush="#FF535353" BorderThickness="0,1,0,0" Margin="-4,0,4,0">
+            <Border Grid.ColumnSpan="3" BorderBrush="#FF535353" BorderThickness="0,1,0,0" Margin="0,0,0,0">
             </Border>
             <Image x:Name="VisibilityHandlerBtn" Source="/Gibbo.Editor.WPF;component/Gibbo.Content/_arrow_right.png" Cursor="Hand" MouseUp="VisibilityHandlerBtn_MouseUp" Stretch="Fill" Width="16" Height="16"/>
             <Image x:Name="SettingsBtn" Source="/Gibbo.Editor.WPF;component/Gibbo.Content/_trash.png" Cursor="Hand" Grid.Column="2" Stretch="Fill" Width="16" Height="16" MouseUp="SettingsBtn_MouseUp"/>
