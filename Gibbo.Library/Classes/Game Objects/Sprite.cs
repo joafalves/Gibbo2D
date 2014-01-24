@@ -72,6 +72,8 @@ namespace Gibbo.Library
         private Rectangle sourceRectangle = Rectangle.Empty;
         [DataMember]
         private BlendModes blendMode = BlendModes.NonPremultiplied;
+        [DataMember]
+        private SpriteEffects spriteEffect = SpriteEffects.None;
 
 #if WINDOWS
         [NonSerialized]
@@ -122,6 +124,19 @@ namespace Gibbo.Library
         {
             get { return origin; }
             set { origin = value; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if WINDOWS
+        [Category("Sprite Properties")]
+        [DisplayName("Sprite Effect"), Description("Sprite effect")]
+#endif
+        public SpriteEffects SpriteEffect
+        {
+            get { return spriteEffect; }
+            set { spriteEffect = value; }
         }
 
         /// <summary>
@@ -303,7 +318,7 @@ namespace Gibbo.Library
 
                     spriteBatch.Draw(texture, new Vector2((int)SceneManager.ActiveCamera.Position.X - SceneManager.GraphicsDevice.Viewport.Width, (int)SceneManager.ActiveCamera.Position.Y - SceneManager.GraphicsDevice.Viewport.Height), new Rectangle((int)SceneManager.ActiveCamera.Position.X,
                          (int)SceneManager.ActiveCamera.Position.Y, SceneManager.GraphicsDevice.Viewport.Width * 2, SceneManager.GraphicsDevice.Viewport.Height * 2), Color, 0, Vector2.Zero, Transform.Scale,
-                         SpriteEffects.None, 1);
+                         spriteEffect, 1);
                 }
                 else if (displayMode == DisplayModes.PositionTile)
                 {
@@ -320,7 +335,7 @@ namespace Gibbo.Library
 
                     spriteBatch.Draw(texture, new Vector2((int)SceneManager.ActiveCamera.Position.X - SceneManager.GraphicsDevice.Viewport.Width, (int)SceneManager.ActiveCamera.Position.Y - SceneManager.GraphicsDevice.Viewport.Height), new Rectangle((int)Transform.Position.X,
                     (int)Transform.Position.Y, SceneManager.GraphicsDevice.Viewport.Width * 2, SceneManager.GraphicsDevice.Viewport.Height * 2), Color, 0, Vector2.Zero, Transform.Scale,
-                    SpriteEffects.None, 1);
+                    spriteEffect, 1);
                 }
                 else if (displayMode == DisplayModes.Fill)
                 {
@@ -333,9 +348,9 @@ namespace Gibbo.Library
                     spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
 
                     if (sourceRectangle == Rectangle.Empty)
-                        spriteBatch.Draw(texture, fill, null, Color);
+                        spriteBatch.Draw(texture, fill, null, Color, 0, _orgx, spriteEffect, 0);
                     else
-                        spriteBatch.Draw(texture, fill, sourceRectangle, Color);
+                        spriteBatch.Draw(texture, fill, sourceRectangle, Color, 0, _orgx, spriteEffect, 0);
                 }
                 else
                 {
@@ -343,9 +358,9 @@ namespace Gibbo.Library
                     spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, SceneManager.ActiveCamera.TransformMatrix);
 
                     if (sourceRectangle == Rectangle.Empty)
-                        spriteBatch.Draw(texture, Transform.Position, null, color, Transform.Rotation, _orgx, Transform.Scale, SpriteEffects.None, 1);
+                        spriteBatch.Draw(texture, Transform.Position, null, color, Transform.Rotation, _orgx, Transform.Scale, spriteEffect, 1);
                     else
-                        spriteBatch.Draw(texture, Transform.Position, sourceRectangle, color, Transform.Rotation, _orgx, Transform.Scale, SpriteEffects.None, 1);
+                        spriteBatch.Draw(texture, Transform.Position, sourceRectangle, color, Transform.Rotation, _orgx, Transform.Scale, spriteEffect, 1);
                 }
 
                 spriteBatch.End();

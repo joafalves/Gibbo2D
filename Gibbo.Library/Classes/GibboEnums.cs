@@ -55,7 +55,7 @@ namespace Gibbo.Library
     public enum Origins { TopLeft, Center }
 
     /// <summary>
-    /// 
+    /// Blending Modes
     /// </summary>
     public enum BlendModes { NonPremultiplied, AlphaBlend, Additive }
 }
