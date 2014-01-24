@@ -70,6 +70,8 @@ namespace Gibbo.Library
         private Color color = Color.White;
         [DataMember]
         private int totalMillisecondsPassed = 0;
+        [DataMember]
+        private SpriteEffects spriteEffect = SpriteEffects.None;
 
 #if WINDOWS
         [NonSerialized]
@@ -132,6 +134,16 @@ namespace Gibbo.Library
         {
             get { return blendMode; }
             set { blendMode = value; this.LoadState(); }
+        }
+
+#if WINDOWS
+        [Category("Sprite Properties")]
+        [DisplayName("Sprite Effect"), Description("Sprite effect")]
+#endif
+        public SpriteEffects SpriteEffect
+        {
+            get { return spriteEffect; }
+            set { spriteEffect = value; }
         }
 
         /// <summary>
@@ -388,7 +400,8 @@ namespace Gibbo.Library
 
                 spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
 
-                spriteBatch.Draw(texture, Transform.Position, new Rectangle(currentColumn * width, currentRow * height, width, height), Color, Transform.Rotation, new Vector2(width / 2, height / 2), Transform.Scale, SpriteEffects.None, 1);
+                spriteBatch.Draw(texture, Transform.Position, new Rectangle(currentColumn * width, currentRow * height, width, height), Color, Transform.Rotation, new Vector2(width / 2, height / 2), Transform.Scale, spriteEffect, 1);
+                
                 spriteBatch.End();
             }
         }

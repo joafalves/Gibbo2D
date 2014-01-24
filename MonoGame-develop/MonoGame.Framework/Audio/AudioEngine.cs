@@ -129,7 +129,8 @@ namespace Microsoft.Xna.Framework.Audio
 					uint formatVersion = reader.ReadUInt16 ();
 #if DEBUG
 					if (formatVersion != 42) {
-						Console.WriteLine ("Warning: XGS format not supported");
+						
+                    WriteLine ("Warning: XGS format not supported");
 					}
 #endif
 					uint crc = reader.ReadUInt16 (); //??
