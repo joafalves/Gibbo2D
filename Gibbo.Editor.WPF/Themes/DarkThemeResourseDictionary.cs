@@ -124,5 +124,36 @@ namespace Gibbo.Editor.WPF
             win.WindowState = WindowState.Minimized;
             
         }
+
+        void PathMouseDown(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.Title = "Set Image Path";
+            ofd.Filter = "BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff|" + "All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff";
+
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                //(EditorUtils.FindVisualChildren<ScrollViewer>(parent).ElementAt(0) as ScrollViewer).Visibility = Visibility.Collapsed;
+                DependencyObject parent = EditorUtils.GetParent(sender as TextBlock, 3);
+                string destFolder = Gibbo.Library.SceneManager.GameProject.ProjectPath + "\\Content\\";
+                string filename = System.IO.Path.GetFileName(ofd.FileName);
+
+                if (!System.IO.File.Exists(destFolder + filename))
+                    this.setNewImagePath(ofd.FileName, destFolder, filename, parent);
+                else
+                {
+                    MessageBoxResult overwriteResult = MessageBox.Show("A file with the name " + filename + " already exists. Would you like to overwrite it?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+                    if (overwriteResult == MessageBoxResult.Yes )
+                        this.setNewImagePath(ofd.FileName, destFolder, filename, parent, true);
+                }
+            }
+        }
+
+        void setNewImagePath(string srcPath, string destFolder, string filename, DependencyObject parentDO, bool overwrite = false)
+        {
+            System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
+            string relativePath = @"Content\" + filename;
+            (parentDO as TextBox).Text = relativePath;
+        }
     }
 }

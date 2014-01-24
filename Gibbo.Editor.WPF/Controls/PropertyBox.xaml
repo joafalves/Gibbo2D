@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" d:DesignWidth="300" Height="auto">
     <Grid>
@@ -30,7 +31,22 @@
                             <Setter Property="Foreground" Value="{DynamicResource ForegroundGray}"/>
                         </Style> 
                     </xceed:PropertyGrid.Resources>
+                    <xceed:PropertyGrid.EditorDefinitions>
+                    <xceed:EditorDefinition TargetType="{x:Type sys:String}">
+                        <xceed:EditorDefinition.PropertiesDefinitions>
+                            <xceed:PropertyDefinition Name="ImageName"/>
+                        </xceed:EditorDefinition.PropertiesDefinitions>
+                        <xceed:EditorDefinition.EditorTemplate>
+                            <DataTemplate>
+                                <!-- [TODO]: change textbox style accordingly -->
+                                    <TextBox Foreground="#e6e6e6" Style="{DynamicResource IgnitePathTextBox}" Text="{Binding Value}" />
+                            </DataTemplate>
+                        </xceed:EditorDefinition.EditorTemplate>
+                    </xceed:EditorDefinition>
+
+                    </xceed:PropertyGrid.EditorDefinitions>
                 </xceed:PropertyGrid>
+                
             </Grid>
         </Grid>
     </Grid>
