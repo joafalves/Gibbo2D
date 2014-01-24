@@ -219,8 +219,7 @@ namespace Xceed.Wpf.Toolkit
       }
     }
 
-    protected override void 
-        ( KeyEventArgs e )
+    protected override void OnPreviewKeyDown ( KeyEventArgs e )
     {
       switch( e.Key )
       {
