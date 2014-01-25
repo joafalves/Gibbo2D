@@ -112,6 +112,7 @@ namespace Gibbo.Editor.WPF
                     (settings as GameScreenDynamic).StartOnFullScreen = iniSettings.IniReadValue("Window", "StartFullScreen").ToLower().Trim().Equals("true") ? true : false;
                     (settings as GameScreenDynamic).ScreenWidth = SceneManager.GameProject.Settings.ScreenWidth;
                     (settings as GameScreenDynamic).ScreenHeight = SceneManager.GameProject.Settings.ScreenHeight;
+                    //(settings as GameScreenDynamic).VSync = SceneManager.GameProject.ProjectSettings.VSyncEnabled;
                     break;
             }
 
@@ -197,6 +198,7 @@ namespace Gibbo.Editor.WPF
                     iniSettings.IniWriteValue("Window", "StartFullScreen",  (propertyGrid.SelectedObject as GameScreenDynamic).StartOnFullScreen.ToString());
                     SceneManager.GameProject.Settings.ScreenWidth = (propertyGrid.SelectedObject as GameScreenDynamic).ScreenWidth;
                     SceneManager.GameProject.Settings.ScreenHeight = (propertyGrid.SelectedObject as GameScreenDynamic).ScreenHeight;
+                    //SceneManager.GameProject.ProjectSettings.VSyncEnabled = (propertyGrid.SelectedObject as GameScreenDynamic).VSync;
                     break;
             }
         } 
@@ -358,6 +360,15 @@ namespace Gibbo.Editor.WPF
         private bool mouseVisible;
         private int screenWidth;
         private int screenHeight;
+        //private bool vsync;
+
+        //[Category("Screen")]
+        //[DisplayName("Vertical Sync (VSync)")]
+        //public bool VSync
+        //{
+        //    get { return vsync; }
+        //    set { vsync = value; }
+        //}
 
         [Category("Screen")]
         [DisplayName("Start on Full Screen")]

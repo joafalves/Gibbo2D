@@ -323,7 +323,7 @@ namespace Gibbo.Editor.WPF
 
                 if (tilesetMode == TilesetModes.Pencil)
                 {
-                    if ((EditorHandler.SelectedGameObjects[0] as Tileset).Texture != null)
+                    if ((EditorHandler.SelectedGameObjects[0] as Tileset).Texture != null && EditorHandler.TilesetBrushControl.SelectionRectangle != System.Windows.Rect.Empty)
                     {
                         spriteBatch.Draw((EditorHandler.SelectedGameObjects[0] as Tileset).Texture, SnapToTilesetGrid(mouseWorldPosition), EditorHandler.TilesetBrushControl.CurrentSelectionXNA, Color.White);
                     }

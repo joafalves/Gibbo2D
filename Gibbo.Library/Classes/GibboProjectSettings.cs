@@ -47,10 +47,24 @@ namespace Gibbo.Library
         private bool highlightActiveTilesetInEditor = true;
         [DataMember]
         private bool highlightActiveTilesetInGame = false;
+        //[DataMember]
+        //private bool vsyncEnabled = true;
 
         #endregion
 
         #region properties
+
+//        /// <summary>
+//        /// Determines if the vertical sync is enabled. If you use the physics system, you should keep this enabled.
+//        /// </summary>
+//#if WINDOWS
+//        [DisplayName("VSync"), Description("Determines if the vertical sync is enabled")]
+//#endif
+//        public bool VSyncEnabled
+//        {
+//            get { return vsyncEnabled; }
+//            set { vsyncEnabled = value; }
+//        }
 
         /// <summary>
         /// Determines if the active tileset is going to be highlighted in the editor

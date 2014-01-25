@@ -136,6 +136,8 @@ namespace Gibbo.Editor.WPF.Controls
             DrawingCanvas.Height = image.Height;
             ImageHolder.Source = image;
 
+            selectionRectangle = Rect.Empty;
+
             this.InvalidateVisual();
         }
 

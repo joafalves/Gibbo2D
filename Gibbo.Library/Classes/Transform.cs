@@ -208,6 +208,7 @@ namespace Gibbo.Library
                 {
                     desiredPosition = ConvertUnits.ToSimUnits(value);
                     gameObject.Body.Position = desiredPosition;
+                    gameObject.Body.Awake = true;
                 }
             }
         }
@@ -261,7 +262,10 @@ namespace Gibbo.Library
                 rotation = value;
 
                 if (gameObject.Body != null)
+                {
                     gameObject.Body.Rotation = rotation;
+                    gameObject.Body.Awake = true;
+                }
             }
         }
 
@@ -301,6 +305,7 @@ namespace Gibbo.Library
                 if (gameObject.Body != null && gameObject.physicalBody != null)
                 {
                     gameObject.physicalBody.ResetBody();
+                    gameObject.Body.Awake = true;
                 }
             }
         }
@@ -313,6 +318,7 @@ namespace Gibbo.Library
         {
 
         }
+
 #if WINDOWS
         protected Transform(SerializationInfo info, StreamingContext context)
         {

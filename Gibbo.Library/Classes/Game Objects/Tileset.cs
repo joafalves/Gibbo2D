@@ -390,14 +390,14 @@ namespace Gibbo.Library
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             base.Draw(gameTime, spriteBatch);
-
+           
             if (texture != null && Visible)
             {
                 Rectangle visibleTiles = VisibleTiles;
 
                 if (visibleTiles != Rectangle.Empty)
                 {
-                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                    spriteBatch.Begin(SpriteSortMode.Texture, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
 
                     for (int x = visibleTiles.X; x < visibleTiles.X + visibleTiles.Width; x++)
                     {
@@ -425,17 +425,8 @@ namespace Gibbo.Library
                                 else
                                 {
                                     // normal mode (everything has the same focus)
-                                    spriteBatch.Draw(this.texture, TileWorldPos(x, y), tiles[x, y].Source, Color.White);
+                                    spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, Color.White);
                                 }
-
-                                //if (checkForCollisions)
-                                //{                        
-                                //    if (SceneManager.IsEditor && SceneManager.GameProject.EditorSettings.ShowCollisions)
-                                //    {
-                                //        Rectangle boundry = new Rectangle((int)worldPos.X, (int)worldPos.Y, tileWidth, tileHeight);
-                                //        Primitives.DrawBoxFilled(spriteBatch, new Rectangle((int)worldPos.X, (int)worldPos.Y, tileWidth, tileHeight), collisionBoundryColor);
-                                //    }
-                                //}
                             }
                         }
                     }
@@ -487,8 +478,8 @@ namespace Gibbo.Library
         {
             return new Vector2()
             {
-                X = (int)((x * tileWidth) - ((Width * tileWidth) / 2)),
-                Y = (int)((y * tileHeight) - ((Height * tileHeight) / 2))
+                X = ((x * tileWidth) - ((float)(Width * tileWidth) / 2.0f)),
+                Y = ((y * tileHeight) - ((float)(Height * tileHeight) / 2.0f))
             };
         }
 

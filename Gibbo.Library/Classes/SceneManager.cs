@@ -55,7 +55,8 @@ namespace Gibbo.Library
         private static bool isEditor = true;
         private static Tileset activeTileset = null;
 
-        private static float fps = 0f;
+        private static int fpsCount = 0;
+        private static int fps = 0;
         private static float deltaFPSTime = 0f;
 
         #endregion
@@ -75,7 +76,7 @@ namespace Gibbo.Library
         /// <summary>
         /// The current frame per second rate
         /// </summary>
-        public static float FPS
+        public static int FPS
         {
             get { return fps; }
             set { fps = value; }
@@ -222,12 +223,16 @@ namespace Gibbo.Library
         {
             GameInput.Update();
 
-            float _fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             deltaFPSTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (deltaFPSTime > 1)
+            if (deltaFPSTime >= 1)
             {
-                fps = _fps;
-                deltaFPSTime -= 1;
+                fps = fpsCount;
+                fpsCount = 0;
+                deltaFPSTime = 0;
+            }
+            else
+            {
+                fpsCount++;
             }
 
             if (activeScene != null)

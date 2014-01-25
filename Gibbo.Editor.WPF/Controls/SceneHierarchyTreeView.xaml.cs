@@ -932,22 +932,25 @@ namespace Gibbo.Editor.WPF
 
             if (System.Windows.Forms.MessageBox.Show(message, "Warning", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
             {
+                TreeViewExtension.UnselectAll(treeView);
                 foreach (var t in selected)
                 {
                     GameObject gameObject = (GameObject)(t as DragDropTreeViewItem).Tag; //(GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
-                    DragDropTreeViewItem parentNode = (SelectedItem as DragDropTreeViewItem).Parent as DragDropTreeViewItem;
+                    DragDropTreeViewItem parentNode = (t as DragDropTreeViewItem).Parent as DragDropTreeViewItem;
                     if (parentNode == null)
                     {
-                        SceneManager.ActiveScene.GameObjects.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
-                        treeView.Items.Remove(SelectedItem);
+                        SceneManager.ActiveScene.GameObjects.Remove((t as DragDropTreeViewItem).Tag as GameObject);
+                        treeView.Items.Remove(t);
                     }
                     else
                     {
                         GameObject objParent = (GameObject)parentNode.Tag;
-                        objParent.Children.Remove((SelectedItem as DragDropTreeViewItem).Tag as GameObject);
-                        parentNode.Items.Remove(SelectedItem);
+                        objParent.Children.Remove((t as DragDropTreeViewItem).Tag as GameObject);
+                        parentNode.Items.Remove(t);
                     }
                 }
+                EditorHandler.SelectedGameObjects.Clear();
+                EditorHandler.ChangeSelectedObjects();
             }
         }
 

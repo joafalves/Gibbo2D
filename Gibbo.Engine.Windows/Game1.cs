@@ -54,6 +54,7 @@ namespace Gibbo.Engine.Windows
         private static extern void SetStdHandle(UInt32 nStdHandle, IntPtr handle);
         [DllImport("kernel32")]
         static extern bool AllocConsole();
+        TimeSpan elapsedTime = TimeSpan.Zero;
 #endif
 
         GraphicsDeviceManager graphics;
@@ -63,12 +64,17 @@ namespace Gibbo.Engine.Windows
 
         string originalTitle;
 
+        private static int fpsCount = 0;
+        private static int fps = 0;
+        private static float deltaFPSTime = 0f;
+
         /// <summary>
         /// 
         /// </summary>
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            //graphics.SynchronizeWithVerticalRetrace = false;
             Content.RootDirectory = "";
 
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
@@ -101,7 +107,7 @@ namespace Gibbo.Engine.Windows
 
                 graphics.PreferredBackBufferWidth = Convert.ToInt32(settings.IniReadValue("Window", "Width").Trim());
                 graphics.PreferredBackBufferHeight = Convert.ToInt32(settings.IniReadValue("Window", "Height").Trim());
-
+               
                 // Full Screen
                 bool fullScreen = settings.IniReadValue("Window", "StartFullScreen").ToLower().Trim().Equals("true") ? true : false;
                 if (fullScreen)
@@ -202,11 +208,12 @@ namespace Gibbo.Engine.Windows
             SceneManager.GameProject = GibboProject.Load(projectFilePath);
             SceneManager.GameWindow = this;
 
-            Console.WriteLine("Gibbo 2D - Game Engine Console");
+            //IsFixedTimeStep = (SceneManager.GameProject.ProjectSettings.VSyncEnabled) ? true : false;
 
             if (SceneManager.GameProject.Debug)
             {
-                Console.WriteLine("Scene Loaded with success!");
+                Console.WriteLine("Gibbo 2D - Game Engine Console");
+                Console.WriteLine("Scene loaded successfully!");
                 Console.WriteLine("Path: " + SceneManager.GameProject.ProjectPath);
                 Console.WriteLine("Assembly path " + SceneManager.ScriptsAssembly.Location.ToString());
             }
@@ -262,7 +269,21 @@ namespace Gibbo.Engine.Windows
                     SceneManager.Update(gameTime);
 
                     if (SceneManager.GameProject.Debug)
-                        Window.Title = originalTitle + " - FPS: " + (int)SceneManager.FPS;
+                    {
+                        deltaFPSTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (deltaFPSTime >= 1)
+                        {
+                            fps = fpsCount;
+                            fpsCount = 0;
+                            deltaFPSTime = 0;
+
+                            Window.Title = originalTitle + " - FPS: " + fps.ToString();
+                        }
+                        else
+                        {
+                            fpsCount++;
+                        }
+                    }
                 }
             }
             catch (Exception ex)

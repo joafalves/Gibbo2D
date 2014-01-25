@@ -419,9 +419,9 @@ namespace Gibbo.Library
         /// </summary>
 #if WINDOWS
         [Category("Emitter Basic Properties")]
-        [DisplayName("Texture Path"), Description("The relative path to the texture")]
+        [DisplayName("Image Name"), Description("The relative path to the texture")]
 #endif
-        public string TexturePath
+        public string ImageName
         {
             get { return texturePath; }
             set { texturePath = value; this.LoadTexture(); }

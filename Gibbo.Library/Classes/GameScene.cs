@@ -343,7 +343,11 @@ namespace Gibbo.Library
             if (SceneManager.IsEditor)
                 world.Step(0);
             else
+            {
                 world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
+                //Console.WriteLine((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
+            }
+               
         }
 
         /// <summary>
