@@ -125,34 +125,67 @@ namespace Gibbo.Editor.WPF
             
         }
 
+
+        void TexturePathMouseDown(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.Title = "Set BMFont Texture Path";
+            ofd.Filter = "PNG|*.png";
+            this.ProcessDialog(sender, e, ofd, "Fonts\\");
+        }
+
+        void FntPathMouseDown(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.Title = "Set BMFont File Path";
+            ofd.Filter = "FNT|*.fnt";
+            this.ProcessDialog(sender, e, ofd, "Fonts\\");
+        }
+
+        void AudioPathMouseDown(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.Title = "Set Audio File Path";
+            ofd.Filter = "WAV|*.wav|MP3|*.mp3";
+            this.ProcessDialog(sender, e, ofd, "Audio\\");
+        }
+
         void PathMouseDown(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Title = "Set Image Path";
             ofd.Filter = "All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff" + "|BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
+            this.ProcessDialog(sender, e, ofd);
+        }
 
+        void ProcessDialog(object sender, RoutedEventArgs e, System.Windows.Forms.OpenFileDialog ofd, string specificFolder = "")
+        {
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //(EditorUtils.FindVisualChildren<ScrollViewer>(parent).ElementAt(0) as ScrollViewer).Visibility = Visibility.Collapsed;
                 DependencyObject parent = EditorUtils.GetParent(sender as TextBlock, 3);
-                string destFolder = Gibbo.Library.SceneManager.GameProject.ProjectPath + "\\Content\\";
+
+                string destFolder = (Gibbo.Library.SceneManager.GameProject.ProjectPath + "\\Content\\" + specificFolder).Trim();
                 string filename = System.IO.Path.GetFileName(ofd.FileName);
+                
+                if (!System.IO.Directory.Exists(destFolder))
+                    System.IO.Directory.CreateDirectory(destFolder);
 
                 if (!System.IO.File.Exists(destFolder + filename))
-                    this.setNewImagePath(ofd.FileName, destFolder, filename, parent);
+                    this.SetNewPath(ofd.FileName, destFolder, specificFolder, filename, parent);
                 else
                 {
                     MessageBoxResult overwriteResult = MessageBox.Show("A file with the name " + filename + " already exists. Would you like to overwrite it?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
-                    if (overwriteResult == MessageBoxResult.Yes )
-                        this.setNewImagePath(ofd.FileName, destFolder, filename, parent, true);
+                    if (overwriteResult == MessageBoxResult.Yes)
+                        this.SetNewPath(ofd.FileName, destFolder, specificFolder, filename, parent, true);
                 }
             }
         }
 
-        void setNewImagePath(string srcPath, string destFolder, string filename, DependencyObject parentDO, bool overwrite = false)
+        void SetNewPath(string srcPath, string destFolder, string specificFolder, string filename, DependencyObject parentDO, bool overwrite = false)
         {
             System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
-            string relativePath = @"Content\" + filename;
+            string relativePath = (@"Content\" + specificFolder + filename).Trim();
             (parentDO as TextBox).Text = relativePath;
 
             FrameworkElement parent = (FrameworkElement)(parentDO as TextBox).Parent;
