@@ -126,6 +126,30 @@ namespace Gibbo.Editor.WPF
         }
 
 
+        void TagPreviewMouseDown(object sender, MouseEventArgs e)
+        {
+            (sender as ComboBox).Items.Clear();
+
+            foreach (var item in Gibbo.Library.SceneManager.ActiveScene.CommonTags)
+            {
+                (sender as ComboBox).Items.Add(new TextBlock()
+                {
+                    Margin = new Thickness(4, 0, 0, 0),
+                    Text = item
+                });
+            }
+        }
+
+        void TagItemChanged(object sender, RoutedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedItem == null) return;
+
+            DependencyObject parent = EditorUtils.GetParent(sender as ComboBox, 3);
+            (parent as TextBox).Text = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+
+            EditorUtils.SelectAnotherElement<TextBox>(parent);
+        }
+
         void TexturePathMouseDown(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
@@ -188,14 +212,7 @@ namespace Gibbo.Editor.WPF
             string relativePath = (@"Content\" + specificFolder + filename).Trim();
             (parentDO as TextBox).Text = relativePath;
 
-            FrameworkElement parent = (FrameworkElement)(parentDO as TextBox).Parent;
-            while (parent != null && parent is IInputElement && !((IInputElement)parent).Focusable)
-            {
-                parent = (FrameworkElement)parent.Parent;
-            }
-
-            DependencyObject scope = FocusManager.GetFocusScope((parentDO as TextBox));
-            FocusManager.SetFocusedElement(scope, parent as IInputElement);
+            EditorUtils.SelectAnotherElement<TextBox>(parentDO);
         }
     }
 }

@@ -9,7 +9,6 @@
         
     >
     <Window.Resources>
-
         <Style x:Key="MiniToolbarMenuItem" TargetType="{x:Type Button}">
             <Setter Property="BorderThickness" Value="1,0,1,0"/>
             <Setter Property="BorderBrush" Value="#2e2e2e"/>
@@ -127,6 +126,8 @@
                     <MenuItem x:Name="undoBtn" Header="Undo" HorizontalAlignment="Left" Width="200" Click="undoBtn_Click"  InputGestureText="Ctrl+Z"/>
                     <MenuItem x:Name="redoBtn" Header="Redo" HorizontalAlignment="Left" Width="200" Click="redoBtn_Click"  InputGestureText="Ctrl+Y"/>
                     <Separator HorizontalAlignment="Left" Width="200"/>
+                    <MenuItem Header="Manage Scene Tags" HorizontalAlignment="Left" Width="200" x:Name="manageTagsBtn" Click="manageTagsBtn_Click" />
+                    <Separator HorizontalAlignment="Left" Width="200"/>
                     <MenuItem Header="Settings" HorizontalAlignment="Left" Width="200" x:Name="projectSettingsBtn" Click="projectSettingsBtn_Click" />
                     <MenuItem x:Name="sceneSettingsBtn" Header="Scene Settings" HorizontalAlignment="Left" Width="200" Click="sceneSettingsBtn_Click" />
                 </MenuItem>
@@ -160,7 +161,7 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Layout" Foreground="#FF212121">
-                    <MenuItem Header="Currently Set" Focusable="False"/>
+                    <MenuItem Header="Currently Set" IsEnabled="False" HorizontalAlignment="Center"/>
                     <MenuItem Header="Set Current Layout as Default" HorizontalAlignment="Left" Width="200" Click="OnSaveLayout" />
                     <MenuItem Header="Reset Layout" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
                     <xceed:WatermarkTextBox Background="#3c3c3c" Foreground="#e6e6e6" Watermark="Give Current Layout a Name" />

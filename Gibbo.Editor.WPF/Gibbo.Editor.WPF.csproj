@@ -176,6 +176,9 @@
     <Compile Include="Windows\FirstLoginWindow.xaml.cs">
       <DependentUpon>FirstLoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ManageTagsWindow.xaml.cs">
+      <DependentUpon>ManageTagsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PicturePreview.xaml.cs">
       <DependentUpon>PicturePreview.xaml</DependentUpon>
     </Compile>
@@ -453,6 +456,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\FirstLoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ManageTagsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

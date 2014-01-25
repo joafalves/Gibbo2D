@@ -482,6 +482,14 @@ namespace Gibbo.Editor.WPF
 
         #region events
 
+        // TODO: add invalidate at the end so the inspector refreshes
+        private void manageTagsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ManageTagsWindow window = new ManageTagsWindow();
+
+            window.ShowDialog();
+        }
+
         // Attemps to Reset the Layout by setting Gibbo's default layout as current
         private void ResetLayoutClick(object sender, RoutedEventArgs e)
         {
@@ -1424,6 +1432,5 @@ namespace Gibbo.Editor.WPF
 
         #endregion
 
-       
     }
 }

@@ -34,6 +34,16 @@
                     <xceed:PropertyGrid.EditorDefinitions>
                         <xceed:EditorDefinition TargetType="{x:Type sys:String}">
                             <xceed:EditorDefinition.PropertiesDefinitions>
+                                <xceed:PropertyDefinition Name="Tag"/>
+                            </xceed:EditorDefinition.PropertiesDefinitions>
+                            <xceed:EditorDefinition.EditorTemplate>
+                                <DataTemplate>
+                                    <TextBox PreviewKeyDown="TagTextBox_PreviewKeyDown" Height="18" Foreground="#e6e6e6" Style="{DynamicResource IgniteTagTextBox}" Text="{Binding Value}" />
+                                </DataTemplate>
+                            </xceed:EditorDefinition.EditorTemplate>
+                        </xceed:EditorDefinition>
+                        <xceed:EditorDefinition TargetType="{x:Type sys:String}">
+                            <xceed:EditorDefinition.PropertiesDefinitions>
                                 <xceed:PropertyDefinition Name="ImageName"/>
                             </xceed:EditorDefinition.PropertiesDefinitions>
                             <xceed:EditorDefinition.EditorTemplate>
