@@ -249,7 +249,8 @@ namespace Gibbo.Library
             set
             {
                 if (value % 2 != 0)
-                    value -= 1;
+                    if (value > Height) value += 1;
+                    else value -= 1;
 
                 if (value > 200)
                     value = 200;
