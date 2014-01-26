@@ -30,6 +30,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.IO;
 using Microsoft.Win32;
+using System.Windows.Input;
 
 namespace Gibbo.Editor.WPF
 {
@@ -260,5 +261,17 @@ namespace Gibbo.Editor.WPF
 
         }
 
+
+        internal static void SelectAnotherElement<T>(DependencyObject obj) where T : FrameworkElement
+        {
+            FrameworkElement parent = (FrameworkElement)(obj as T).Parent;
+            while (parent != null && parent is IInputElement && !((IInputElement)parent).Focusable)
+            {
+                parent = (FrameworkElement)parent.Parent;
+            }
+
+            DependencyObject scope = FocusManager.GetFocusScope((obj as T));
+            FocusManager.SetFocusedElement(scope, parent as IInputElement);
+        }
     }
 }

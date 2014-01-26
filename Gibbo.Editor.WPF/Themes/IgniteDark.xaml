@@ -368,6 +368,175 @@
         </Setter>
     </Style>
 
+    <ControlTemplate x:Key="SimpleMenuItem" TargetType="{x:Type MenuItem}">
+        <Border Name="Border" Padding="1,2,1,2" Margin="0,0,0,0" ClipToBounds="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Shortcut"/>
+                    <ColumnDefinition Width="13"/>
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Name="Icon"
+                    Margin="6,0,6,0"
+                    VerticalAlignment="Center"
+                    ContentSource="Icon"/>
+                <Border 
+                    Name="Check"  
+                    Width="13" Height="13" 
+                    Visibility="Collapsed"
+                    Margin="6,0,6,0" 
+                    Background="{StaticResource NormalBrush}"
+                    BorderThickness="1"
+                    BorderBrush="#111">
+                    <Path 
+                        Name="CheckMark"
+                        Width="7" Height="7" 
+                        Visibility="Hidden" 
+                        SnapsToDevicePixels="False" 
+                        Stroke="{StaticResource GlyphBrush}"
+                        StrokeThickness="2"
+                        Data="M 0 0 L 7 7 M 0 7 L 7 0" />
+                </Border>
+                <TextBox Grid.Column="1" Height="14" Style="{DynamicResource IgniteLayoutTextBox}" PreviewKeyDown="LayoutTextBox_PreviewKeyDown" />
+                <TextBlock x:Name="InputGestureText"
+                    Grid.Column="2"
+                    Text="{TemplateBinding InputGestureText}"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Right" />
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Hidden"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="true">
+                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="IsCheckable" Value="true">
+                <Setter TargetName="Check" Property="Visibility" Value="Visible"/>
+                <Setter TargetName="Icon" Property="Visibility" Value="Hidden"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="IgniteLayoutTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="SnapsToDevicePixels"
+          Value="True" />
+        <Setter Property="OverridesDefaultStyle"
+          Value="True" />
+        <Setter Property="KeyboardNavigation.TabNavigation"
+          Value="None" />
+        <Setter Property="FocusVisualStyle"
+          Value="{x:Null}" />
+        <Setter Property="MinWidth"
+          Value="120" />
+        <Setter Property="MinHeight"
+          Value="20" />
+        <Setter Property="AllowDrop"
+          Value="true" />
+        <Setter Property="Margin" Value="0, 5, 0, 5" />
+        <Setter Property="CaretBrush" Value="#e6e6e6"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="18"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Name="Border" Grid.Column="2"
+                            Padding="2"
+                            BorderThickness="1" BorderBrush="#565656" Background="#4c4c4c">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                        </Border>
+                        <Border Grid.Column="3" BorderThickness="0, 0, 1, 0" BorderBrush="#565656">
+                            <ComboBox PreviewMouseDown="LayoutsPreviewMouseDown" SelectionChanged="Layouts_SelectionChanged" Style="{DynamicResource LayoutComboBox}" />
+                        </Border>
+                        <Border Grid.Column="0" BorderThickness="1" BorderBrush="#565656">
+                            <TextBlock MouseUp="addLayoutMouseDown" FontWeight="Bold" FontSize="18" Background="#4c4c4c" VerticalAlignment="Center" TextAlignment="Center" Foreground="#C7C7C7">+</TextBlock>
+                        </Border>
+                        <Border Grid.Column="1" BorderThickness="1" BorderBrush="#565656">
+                            <TextBlock MouseUp="removeLayoutMouseDown" FontWeight="Bold" FontSize="18" Background="#4c4c4c" VerticalAlignment="Center" TextAlignment="Center" Foreground="#C7C7C7">-</TextBlock>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="IgniteTagTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="SnapsToDevicePixels"
+          Value="True" />
+        <Setter Property="OverridesDefaultStyle"
+          Value="True" />
+        <Setter Property="KeyboardNavigation.TabNavigation"
+          Value="None" />
+        <Setter Property="FocusVisualStyle"
+          Value="{x:Null}" />
+        <Setter Property="MinWidth"
+          Value="120" />
+        <Setter Property="MinHeight"
+          Value="20" />
+        <Setter Property="AllowDrop"
+          Value="true" />
+        <Setter Property="CaretBrush" Value="#e6e6e6"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="18"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Name="Border" Grid.Column="0"
+                            Padding="2"
+                            BorderThickness="1" BorderBrush="#565656" Background="#4c4c4c">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                        </Border>
+                        <Border Grid.Column="1">
+                            <ComboBox Style="{DynamicResource TagComboBox}" PreviewMouseDown="TagPreviewMouseDown" SelectionChanged="TagItemChanged" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#FF7EB4EA" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#FF569DE5" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="IgnitePathTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="SnapsToDevicePixels"
           Value="True" />
@@ -533,8 +702,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-
 
     <Style x:Key="IgniteAudioPathTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="SnapsToDevicePixels"
@@ -865,8 +1032,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-
 
     <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
@@ -1651,6 +1816,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+
     
     <!-- TopLevelItem Ainda não sei o que altera-->
     <!--<ControlTemplate x:Key="{x:Static MenuItem.TopLevelItemTemplateKey}" TargetType="MenuItem">

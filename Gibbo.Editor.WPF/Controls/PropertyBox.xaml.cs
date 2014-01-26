@@ -106,21 +106,21 @@ namespace Gibbo.Editor.WPF
             //disp.BeginInvoke(DispatcherPriority.Background, (Action)(() =>
             //{
 
-                bool expanded = false;
-                if (PropertyGridContainer.Visibility == System.Windows.Visibility.Collapsed)
-                {
-                    PropertyGridContainer.Visibility = System.Windows.Visibility.Visible;
-                    VisibilityHandlerBtn.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Gibbo.Content/_arrow_down.png");
-                    expanded = true;
-                }
-                else if (PropertyGridContainer.Visibility == System.Windows.Visibility.Visible)
-                {
-                    PropertyGridContainer.Visibility = System.Windows.Visibility.Collapsed;
-                    VisibilityHandlerBtn.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Gibbo.Content/_arrow_right.png");
-                }
+            bool expanded = false;
+            if (PropertyGridContainer.Visibility == System.Windows.Visibility.Collapsed)
+            {
+                PropertyGridContainer.Visibility = System.Windows.Visibility.Visible;
+                VisibilityHandlerBtn.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Gibbo.Content/_arrow_down.png");
+                expanded = true;
+            }
+            else if (PropertyGridContainer.Visibility == System.Windows.Visibility.Visible)
+            {
+                PropertyGridContainer.Visibility = System.Windows.Visibility.Collapsed;
+                VisibilityHandlerBtn.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("Gibbo.Content/_arrow_right.png");
+            }
 
-                if (SelectedObject is ObjectComponent)
-                    (SelectedObject as ObjectComponent).EditorExpanded = expanded;
+            if (SelectedObject is ObjectComponent)
+                (SelectedObject as ObjectComponent).EditorExpanded = expanded;
             //}));
         }
 
@@ -143,6 +143,31 @@ namespace Gibbo.Editor.WPF
 
                 EditorCommands.CheckPropertyGridConsistency();
             }
+        }
+
+        private void TagTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string text = (sender as TextBox).Text.Trim();
+                if (!text.Equals(string.Empty) && text.StartsWith("+"))
+                {
+                    text = text.Remove(0, 1);
+
+                    if (!text.Trim().Equals(string.Empty))
+                    {
+
+                        if (SceneManager.ActiveScene.CommonTags.Contains(text))
+                            SceneManager.ActiveScene.CommonTags.Remove(text);
+
+                        SceneManager.ActiveScene.CommonTags.Insert(0, text);
+
+                        (sender as TextBox).Text = text;
+                    }
+                }
+            }
+
+            
         }
     }
 }

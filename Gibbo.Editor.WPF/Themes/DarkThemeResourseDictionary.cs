@@ -125,6 +125,106 @@ namespace Gibbo.Editor.WPF
             
         }
 
+        void Layouts_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedItem == null) return;
+
+            string name = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+            
+            DependencyObject parent = EditorUtils.GetParent(sender as ComboBox, 3);
+            (parent as TextBox).Text = name;
+   
+        }
+
+        void LayoutTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string layoutName = (sender as TextBox).Text.Trim();
+                if (layoutName.Equals(string.Empty)) return;
+
+                //if (LayoutHelper.RenameLayout(layoutName))
+                //{
+                //    (sender as TextBox).Text = "";
+                //    EditorUtils.SelectAnotherElement<TextBox>(sender as DependencyObject);
+                //}
+                if (LayoutHelper.LoadLayout(layoutName))
+                {
+                    (sender as TextBox).Text = "";
+                    EditorUtils.SelectAnotherElement<TextBox>(sender as DependencyObject);
+                }
+            }
+            
+        }
+
+        void LayoutsPreviewMouseDown(object sender, MouseEventArgs e)
+        {
+            (sender as ComboBox).Items.Clear();
+
+            foreach (var layout in LayoutHelper.GetLayouts())
+            {
+                (sender as ComboBox).Items.Add(new TextBlock()
+                {
+                    Margin = new Thickness(4, 0, 0, 0),
+                    Text = layout
+                });
+            }
+        }
+
+        void removeLayoutMouseDown(object sender, RoutedEventArgs e)
+        {
+            DependencyObject parent = EditorUtils.GetParent(sender as TextBlock, 3);
+
+            string layoutName = (parent as TextBox).Text.Trim();
+
+            if (layoutName.Equals(string.Empty) || layoutName.Equals(Properties.Settings.Default.Layout)) return;
+
+            if (LayoutHelper.RemoveLayout(layoutName))
+            {
+                (parent as TextBox).Text = "";
+                EditorUtils.SelectAnotherElement<TextBox>(parent);
+            }
+        }
+
+        void addLayoutMouseDown(object sender, RoutedEventArgs e)
+        {
+            DependencyObject parent = EditorUtils.GetParent(sender as TextBlock, 3);
+
+            string layoutName = (parent as TextBox).Text.Trim();
+
+            if (layoutName.Equals(string.Empty)) return;
+
+            if (LayoutHelper.CreateNewLayout(layoutName))
+            {
+                (parent as TextBox).Text = "";
+                EditorUtils.SelectAnotherElement<TextBox>(parent);
+            }
+        }
+
+
+        void TagPreviewMouseDown(object sender, MouseEventArgs e)
+        {
+            (sender as ComboBox).Items.Clear();
+
+            foreach (var item in Gibbo.Library.SceneManager.ActiveScene.CommonTags)
+            {
+                (sender as ComboBox).Items.Add(new TextBlock()
+                {
+                    Margin = new Thickness(4, 0, 0, 0),
+                    Text = item
+                });
+            }
+        }
+
+        void TagItemChanged(object sender, RoutedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedItem == null) return;
+
+            DependencyObject parent = EditorUtils.GetParent(sender as ComboBox, 3);
+            (parent as TextBox).Text = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+
+            EditorUtils.SelectAnotherElement<TextBox>(parent);
+        }
 
         void TexturePathMouseDown(object sender, RoutedEventArgs e)
         {
@@ -188,14 +288,7 @@ namespace Gibbo.Editor.WPF
             string relativePath = (@"Content\" + specificFolder + filename).Trim();
             (parentDO as TextBox).Text = relativePath;
 
-            FrameworkElement parent = (FrameworkElement)(parentDO as TextBox).Parent;
-            while (parent != null && parent is IInputElement && !((IInputElement)parent).Focusable)
-            {
-                parent = (FrameworkElement)parent.Parent;
-            }
-
-            DependencyObject scope = FocusManager.GetFocusScope((parentDO as TextBox));
-            FocusManager.SetFocusedElement(scope, parent as IInputElement);
+            EditorUtils.SelectAnotherElement<TextBox>(parentDO);
         }
     }
 }

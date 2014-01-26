@@ -62,7 +62,7 @@
                   <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="1" Background="{TemplateBinding Background}" />
                   <Border x:Name="MouseOverVisual" Opacity="0" BorderThickness="0" BorderBrush="Transparent"  CornerRadius="0" />
                   <Border x:Name="FocusVisual" Opacity="0" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{StaticResource TextBox_Focused}" CornerRadius="1" />
-                  <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                  <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" />
                   <ContentPresenter x:Name="PART_WatermarkHost"
                                     Content="{TemplateBinding Watermark}"
                                     ContentTemplate="{TemplateBinding WatermarkTemplate}"

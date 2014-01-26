@@ -130,5 +130,17 @@ namespace Gibbo.Editor.WPF.Properties {
                 this["LastDeploymentFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Default")]
+        public string Layout {
+            get {
+                return ((string)(this["Layout"]));
+            }
+            set {
+                this["Layout"] = value;
+            }
+        }
     }
 }

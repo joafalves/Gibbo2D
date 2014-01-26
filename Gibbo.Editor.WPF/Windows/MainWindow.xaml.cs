@@ -446,78 +446,49 @@ namespace Gibbo.Editor.WPF
                 debugProject();
         }
 
-
-        // [alterar] colocar o field na região correspondente
-        private const string layoutPath = @".\AvalonDock_";
-        private const string layoutExtension = ".config";
-
-        // Attemps to Load a Layout
-        private bool LoadLayout(string layoutName, string path = layoutPath)
-        {
-            try
-            {
-                var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
-                using (var stream = new StreamReader(string.Format(path + "{0}" + layoutExtension, layoutName)))
-                    serializer.Deserialize(stream);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            // loaded successfully
-            return true;
-        }
-
-        // Attemps to load Gibbo's default layout
-        private void LoadGibbsoDefaultLayout()
-        {
-            EditorCommands.ShowOutputMessage("Attempting to load Gibbo's default layout");
-            if (this.LoadLayout("Default", @".\Layout\AvalonDock_"))
-                EditorCommands.ShowOutputMessage("Gibbo's default layout has been loaded successfully");
-            else
-                EditorCommands.ShowOutputMessage("Gibbo's saved layout load attempt has failed");
-        }
-
         #endregion
 
         #region events
+
+        // TODO: add invalidate at the end so the inspector refreshes
+        private void manageTagsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ManageTagsWindow window = new ManageTagsWindow();
+
+            window.ShowDialog();
+        }
 
         // Attemps to Reset the Layout by setting Gibbo's default layout as current
         private void ResetLayoutClick(object sender, RoutedEventArgs e)
         {
             EditorCommands.ShowOutputMessage("Attempting to reset the layout");
-            // apaga o ficheiro do utilizador se existir, de modo a resetar completamente
-            if (File.Exists(layoutPath + userLayoutFileName + layoutExtension))
-            {
-                EditorCommands.ShowOutputMessage("User's saved layout located");
-                try
-                {
-                    EditorCommands.ShowOutputMessage("Attempting to delete User's saved layout");
-                    File.Delete(layoutPath + userLayoutFileName + layoutExtension);
-                }
-                catch (Exception)
-                {
-                    EditorCommands.ShowOutputMessage("User's saved layout delete attempt has failed");
-                }
-                
-            }
-            this.LoadGibbsoDefaultLayout();
+            LayoutHelper.LoadGibbsoDefaultLayout();
+
         }
 
         private void DebugResetClick(object sender, RoutedEventArgs e)
         {
             var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
-            using (var stream = new StreamWriter(@".\Layout\AvalonDock_Default.config"))
+            using (var stream = new StreamWriter(@".\Layout\Dock_Default.layout"))
                 serializer.Serialize(stream);
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            // provavelmente pode-se procurar um default sem ser na pasta Layout, e caso exista faz-se load a esse em vez do nosso default
-            if (File.Exists(layoutPath + userLayoutFileName + layoutExtension))
+            LayoutHelper.DockManager = dockManager;
+
+            // Attempts to load the latest used layout
+            if (Properties.Settings.Default.Layout.Equals("Default"))
+            {
+                // attempts to load Gibbo's default layout
+                LayoutHelper.LoadGibbsoDefaultLayout();
+                return;
+            }
+
+            if (LayoutHelper.LayoutExists(Properties.Settings.Default.Layout))
             {
                 EditorCommands.ShowOutputMessage("Attempting to load User's saved layout");
-                if (this.LoadLayout(userLayoutFileName))
+                if (LayoutHelper.LoadLayout(Properties.Settings.Default.Layout))
                 {
                     EditorCommands.ShowOutputMessage("User's saved layout has been loaded successfully");
                     return;
@@ -525,23 +496,19 @@ namespace Gibbo.Editor.WPF
                 else
                     EditorCommands.ShowOutputMessage("User's saved layout load attempt has failed");
             }
-            // attemps to load Gibbo's default layout
-            this.LoadGibbsoDefaultLayout();
+
         }
 
-        private const string userLayoutFileName = "UserDefault";
-
-        private void OnSaveLayout(object sender, RoutedEventArgs e)
+        private void LayoutMenuItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            // [alterar] possivelmente mudar para outra pasta? .\Layouts\
-            // utilizar um possível contador para incrementar o numero de ficheiros, invez de colocar opções específicas e limitadas para guardar layouts (como acontece no avalondockTest)
-            var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
-            using (var stream = new StreamWriter(layoutPath + userLayoutFileName + layoutExtension))
-                serializer.Serialize(stream);
+            this.CurrentLayoutMenuItem.Header = "Currently Set: " + Properties.Settings.Default.Layout;
         }
 
         private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            LayoutHelper.CreateNewLayout(Properties.Settings.Default.Layout);
+            Properties.Settings.Default.Save();
+
             if (SceneManager.ActiveScene != null)
             {
                 MessageBoxResult r = System.Windows.MessageBox.Show("Do you want to save the current scene?", "Warning", MessageBoxButton.YesNoCancel);
@@ -1424,6 +1391,5 @@ namespace Gibbo.Editor.WPF
 
         #endregion
 
-       
     }
 }

@@ -65,6 +65,8 @@ namespace Gibbo.Library
         private Color backgroundColor = Color.FromNonPremultiplied(50, 50, 50, 255);
         [DataMember]
         private Vector2 gravity = Vector2.UnitY * 10;
+        [DataMember]
+        private List<string> commonTags = new List<string>();
 
 #if WINDOWS
         [NonSerialized]
@@ -105,6 +107,15 @@ namespace Gibbo.Library
         #endregion
 
         #region properties
+
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public List<string> CommonTags
+        {
+            get { return commonTags; }
+            set { commonTags = value; }
+        }
 
         /// <summary>
         /// The active content manager
@@ -293,6 +304,9 @@ namespace Gibbo.Library
         /// </summary>
         public virtual void Initialize()
         {
+            if (CommonTags == null)
+                CommonTags = new List<string>();
+
             markedForRemoval = new List<GameObject>();
 
             if (world != null)
