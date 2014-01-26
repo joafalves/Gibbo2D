@@ -248,7 +248,11 @@ namespace Gibbo.Library
         public string ImageName
         {
             get { return imageName; }
-            set { imageName = value; }
+            set
+            {
+                imageName = value;
+                LoadTexture();
+            }
         }
 
         /// <summary>
@@ -300,6 +304,12 @@ namespace Gibbo.Library
             }
 
             LoadState();
+            LoadTexture();
+        }
+
+        private void LoadTexture()
+        {
+            texture = TextureLoader.FromContent(imageName);
         }
 
         private void LoadState()
@@ -390,7 +400,7 @@ namespace Gibbo.Library
 
             if (texture == null && imageName != string.Empty)
             {
-                texture = TextureLoader.FromContent(imageName);
+                LoadTexture();
             }
 
             if (texture != null && totalFramesPerRow > 0 && totalRows > 0 && Visible) //  && CollisionModel.CollisionBoundry.Intersects(SceneManager.ActiveCamera.BoundingBox)
@@ -401,7 +411,7 @@ namespace Gibbo.Library
                 spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
 
                 spriteBatch.Draw(texture, Transform.Position, new Rectangle(currentColumn * width, currentRow * height, width, height), Color, Transform.Rotation, new Vector2(width / 2, height / 2), Transform.Scale, spriteEffect, 1);
-                
+
                 spriteBatch.End();
             }
         }
