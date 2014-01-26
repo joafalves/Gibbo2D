@@ -160,7 +160,7 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Layout" Foreground="#FF212121" PreviewMouseDown="LayoutMenuItem_PreviewMouseDown">
-                    <MenuItem x:Name="CurrentLayoutMenuItem" IsEnabled="False" HorizontalAlignment="Center" />
+                    <MenuItem x:Name="CurrentLayoutMenuItem" IsEnabled="False" HorizontalAlignment="Center" Visibility="Collapsed"/>
                     <MenuItem Template="{DynamicResource SimpleMenuItem}" />
                     <MenuItem Header="Reset to Default" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
                     <MenuItem Header="Debug Reset" Click="DebugResetClick" Visibility="Collapsed" />

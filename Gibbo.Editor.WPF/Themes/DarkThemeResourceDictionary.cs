@@ -22,6 +22,7 @@ of the license is available, in which case the most recent copy of the license s
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -31,9 +32,8 @@ using System.Windows.Media;
 
 namespace Gibbo.Editor.WPF
 {
-    partial class DarkThemeResourseDictionary : ResourceDictionary
+    partial class DarkThemeResourceDictionary : ResourceDictionary
     {
-
         //private Visibility _actionsVisible;
         //public Visibility ActionsVisible
         //{
@@ -56,7 +56,7 @@ namespace Gibbo.Editor.WPF
         //    }
         //}
 
-        public DarkThemeResourseDictionary()
+        public DarkThemeResourceDictionary()
         {
             InitializeComponent();
         }
@@ -91,8 +91,13 @@ namespace Gibbo.Editor.WPF
                     //        win.WindowState = WindowState.Maximized;
                     //}
                 }
-            } 
-            
+            }
+
+        }
+
+        void LayoutTextBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            (sender as TextBox).Text = Properties.Settings.Default.Layout;
         }
 
         void btnClose_Click(object sender, RoutedEventArgs e)
@@ -108,7 +113,7 @@ namespace Gibbo.Editor.WPF
         {
             Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
 
-            if (win == null || !win.IsVisible || (win.ResizeMode != ResizeMode.CanResize && win.ResizeMode != ResizeMode.CanResizeWithGrip) ||win.WindowState == WindowState.Maximized) return;
+            if (win == null || !win.IsVisible || (win.ResizeMode != ResizeMode.CanResize && win.ResizeMode != ResizeMode.CanResizeWithGrip) || win.WindowState == WindowState.Maximized) return;
 
             if (win is MainWindow) // como tem fullscreen
                 (win as MainWindow).SetFullScreen(false);
@@ -122,7 +127,7 @@ namespace Gibbo.Editor.WPF
             Window win = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
 
             win.WindowState = WindowState.Minimized;
-            
+
         }
 
         void Layouts_SelectionChanged(object sender, RoutedEventArgs e)
@@ -130,10 +135,10 @@ namespace Gibbo.Editor.WPF
             if ((sender as ComboBox).SelectedItem == null) return;
 
             string name = ((sender as ComboBox).SelectedItem as TextBlock).Text;
-            
+            LayoutHelper.LoadLayout(name);
+
             DependencyObject parent = EditorUtils.GetParent(sender as ComboBox, 3);
             (parent as TextBox).Text = name;
-   
         }
 
         void LayoutTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -143,18 +148,25 @@ namespace Gibbo.Editor.WPF
                 string layoutName = (sender as TextBox).Text.Trim();
                 if (layoutName.Equals(string.Empty)) return;
 
-                //if (LayoutHelper.RenameLayout(layoutName))
-                //{
-                //    (sender as TextBox).Text = "";
-                //    EditorUtils.SelectAnotherElement<TextBox>(sender as DependencyObject);
-                //}
-                if (LayoutHelper.LoadLayout(layoutName))
+                if (LayoutHelper.RenameLayout(layoutName))
                 {
                     (sender as TextBox).Text = "";
                     EditorUtils.SelectAnotherElement<TextBox>(sender as DependencyObject);
                 }
+                //if (LayoutHelper.LoadLayout(layoutName))
+                //{
+                //    (sender as TextBox).Text = "";
+                //    EditorUtils.SelectAnotherElement<TextBox>(sender as DependencyObject);
+                //}
+                //else
+                //{
+                //    if (LayoutHelper.CreateNewLayout(layoutName))
+                //    {
+                //        (sender as TextBox).Text = "";
+                //        EditorUtils.SelectAnotherElement<TextBox>(sender as DependencyObject);
+                //    }
+                //}
             }
-            
         }
 
         void LayoutsPreviewMouseDown(object sender, MouseEventArgs e)
@@ -177,7 +189,7 @@ namespace Gibbo.Editor.WPF
 
             string layoutName = (parent as TextBox).Text.Trim();
 
-            if (layoutName.Equals(string.Empty) || layoutName.Equals(Properties.Settings.Default.Layout)) return;
+            if (layoutName.Equals(string.Empty)) return;
 
             if (LayoutHelper.RemoveLayout(layoutName))
             {
@@ -246,7 +258,7 @@ namespace Gibbo.Editor.WPF
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Title = "Set Audio File Path";
-            ofd.Filter = "WAV|*.wav|MP3|*.mp3";
+            ofd.Filter = "All Supported Audio Types|*.mp3;*.wav|WAV|*.wav|MP3|*.mp3";
             this.ProcessDialog(sender, e, ofd, "Audio\\");
         }
 
@@ -254,8 +266,8 @@ namespace Gibbo.Editor.WPF
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Title = "Set Image Path";
-            ofd.Filter = "All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff" + "|BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
-            this.ProcessDialog(sender, e, ofd);
+            ofd.Filter = "All Supported Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff" + "|BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
+            this.ProcessDialog(sender, e, ofd, "Images\\");
         }
 
         void ProcessDialog(object sender, RoutedEventArgs e, System.Windows.Forms.OpenFileDialog ofd, string specificFolder = "")
@@ -267,11 +279,13 @@ namespace Gibbo.Editor.WPF
 
                 string destFolder = (Gibbo.Library.SceneManager.GameProject.ProjectPath + "\\Content\\" + specificFolder).Trim();
                 string filename = System.IO.Path.GetFileName(ofd.FileName);
-                
-                if (!System.IO.Directory.Exists(destFolder))
+
+                bool fileOnDirectory = ofd.FileName.StartsWith(Gibbo.Library.SceneManager.GameProject.ProjectPath);
+
+                if (!System.IO.Directory.Exists(destFolder) && !fileOnDirectory)
                     System.IO.Directory.CreateDirectory(destFolder);
 
-                if (!System.IO.File.Exists(destFolder + filename))
+                if (!System.IO.File.Exists(destFolder + filename) || fileOnDirectory)
                     this.SetNewPath(ofd.FileName, destFolder, specificFolder, filename, parent);
                 else
                 {
@@ -284,8 +298,15 @@ namespace Gibbo.Editor.WPF
 
         void SetNewPath(string srcPath, string destFolder, string specificFolder, string filename, DependencyObject parentDO, bool overwrite = false)
         {
-            System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
-            string relativePath = (@"Content\" + specificFolder + filename).Trim();
+            bool fileOnDirectory = srcPath.StartsWith(Gibbo.Library.SceneManager.GameProject.ProjectPath);
+
+            if (!System.IO.File.Exists(destFolder + filename) && !fileOnDirectory)
+                System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
+
+            string relativePath = (@"\Content\" + specificFolder + filename).Trim();
+            if (fileOnDirectory)
+                relativePath = srcPath.Replace(Gibbo.Library.SceneManager.GameProject.ProjectPath, string.Empty);
+
             (parentDO as TextBox).Text = relativePath;
 
             EditorUtils.SelectAnotherElement<TextBox>(parentDO);

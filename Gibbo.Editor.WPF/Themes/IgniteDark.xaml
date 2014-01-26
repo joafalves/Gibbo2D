@@ -3,7 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
     xmlns:local="clr-namespace:Gibbo.Editor.WPF"
     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
-    x:Class="Gibbo.Editor.WPF.DarkThemeResourseDictionary"
+    x:Class="Gibbo.Editor.WPF.DarkThemeResourceDictionary"
     xmlns:sw ="clr-namespace:System.Windows;assembly=PresentationFramework"
                 x:ClassModifier="public">
 
@@ -398,7 +398,7 @@
                         StrokeThickness="2"
                         Data="M 0 0 L 7 7 M 0 7 L 7 0" />
                 </Border>
-                <TextBox Grid.Column="1" Height="14" Style="{DynamicResource IgniteLayoutTextBox}" PreviewKeyDown="LayoutTextBox_PreviewKeyDown" />
+                <TextBox Grid.Column="1" Height="14" Style="{DynamicResource IgniteLayoutTextBox}" PreviewKeyDown="LayoutTextBox_PreviewKeyDown"  Loaded="LayoutTextBox_Loaded"/>
                 <TextBlock x:Name="InputGestureText"
                     Grid.Column="2"
                     Text="{TemplateBinding InputGestureText}"
@@ -517,7 +517,7 @@
                             </VisualStateManager.VisualStateGroups>
                             <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
                         </Border>
-                        <Border Grid.Column="1">
+                        <Border Grid.Column="1" BorderThickness="0,0,1,0" BorderBrush="#565656" >
                             <ComboBox Style="{DynamicResource TagComboBox}" PreviewMouseDown="TagPreviewMouseDown" SelectionChanged="TagItemChanged" />
                         </Border>
                     </Grid>

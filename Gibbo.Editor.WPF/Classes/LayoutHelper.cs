@@ -24,7 +24,10 @@ namespace Gibbo.Editor.WPF
         // Attemps to Load a Layout
         public static bool LoadLayout(string layoutName)
         {
-            if (!LayoutExists(layoutName)) return false;
+            if (!LayoutExists(layoutName))
+            {
+                layoutName = "Default";
+            }
 
             try
             {
@@ -55,6 +58,8 @@ namespace Gibbo.Editor.WPF
         // Attemps to create a new Layout
         public static bool CreateNewLayout(string layoutName)
         {
+            if (layoutName.Trim().Equals(string.Empty)) return false;
+
             EditorCommands.ShowOutputMessage("Attempting to create a new layout");
 
             if (layoutName.Equals("Default"))
@@ -62,7 +67,7 @@ namespace Gibbo.Editor.WPF
                 EditorCommands.ShowOutputMessage("Cannot override Gibbo's Default Layout");
                 return false;
             }
-            
+
             if (RemoveLayout(layoutName))
                 EditorCommands.ShowOutputMessage("Attempting to replace layout");
 
@@ -109,7 +114,14 @@ namespace Gibbo.Editor.WPF
             }
 
             if (LayoutExists(layoutName))
-                try { System.IO.File.Delete(layoutPath + layoutName + layoutExtension); }
+                try
+                {
+                    System.IO.File.Delete(layoutPath + layoutName + layoutExtension);
+                    if(Properties.Settings.Default.Layout == layoutName)
+                    {
+                        Properties.Settings.Default.Layout = string.Empty;
+                    }
+                }
                 catch { EditorCommands.ShowOutputMessage("Attempt to remove layout has failed"); return false; }
 
             return true;
@@ -125,18 +137,18 @@ namespace Gibbo.Editor.WPF
         }
 
         public static List<string> GetLayouts()
-         {
-             List<string> Layouts = new List<string>();
+        {
+            List<string> Layouts = new List<string>();
 
-             foreach (var layout in System.IO.Directory.GetFiles(layoutPath, "*.layout"))
-             {
-                 string name = System.IO.Path.GetFileNameWithoutExtension(layout);
-                 if (!name.Equals("Default"))
-                     Layouts.Add(name);
-             }
+            foreach (var layout in System.IO.Directory.GetFiles(layoutPath, "*.layout"))
+            {
+                string name = System.IO.Path.GetFileNameWithoutExtension(layout);
+                if (!name.Equals("Default"))
+                    Layouts.Add(name);
+            }
 
-             return Layouts;
-         }
+            return Layouts;
+        }
 
     }
 }

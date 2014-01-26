@@ -522,7 +522,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="Controls\GibboMenuItem.cs" />
-    <Compile Include="Themes\DarkThemeResourseDictionary.cs" />
+    <Compile Include="Themes\DarkThemeResourceDictionary.cs" />
     <Compile Include="Windows\AddNewItemWindow.xaml.cs">
       <DependentUpon>AddNewItemWindow.xaml</DependentUpon>
     </Compile>

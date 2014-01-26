@@ -469,7 +469,7 @@ namespace Gibbo.Editor.WPF
         private void DebugResetClick(object sender, RoutedEventArgs e)
         {
             var serializer = new Xceed.Wpf.AvalonDock.Layout.Serialization.XmlLayoutSerializer(dockManager);
-            using (var stream = new StreamWriter(@".\Layout\Dock_Default.layout"))
+            using (var stream = new StreamWriter(@".\Layout\Default.layout"))
                 serializer.Serialize(stream);
         }
 
@@ -478,30 +478,31 @@ namespace Gibbo.Editor.WPF
             LayoutHelper.DockManager = dockManager;
 
             // Attempts to load the latest used layout
-            if (Properties.Settings.Default.Layout.Equals("Default"))
+            //if (Properties.Settings.Default.Layout.Equals("Default"))
+            //{
+            //    // attempts to load Gibbo's default layout
+            //    LayoutHelper.LoadGibbsoDefaultLayout();
+            //    return;
+            //}
+
+            //if (LayoutHelper.LayoutExists(Properties.Settings.Default.Layout))
+            //{
+            EditorCommands.ShowOutputMessage("Attempting to load User's saved layout");
+            if (LayoutHelper.LoadLayout(Properties.Settings.Default.Layout))
             {
-                // attempts to load Gibbo's default layout
-                LayoutHelper.LoadGibbsoDefaultLayout();
+                EditorCommands.ShowOutputMessage("User's saved layout has been loaded successfully");
                 return;
             }
-
-            if (LayoutHelper.LayoutExists(Properties.Settings.Default.Layout))
-            {
-                EditorCommands.ShowOutputMessage("Attempting to load User's saved layout");
-                if (LayoutHelper.LoadLayout(Properties.Settings.Default.Layout))
-                {
-                    EditorCommands.ShowOutputMessage("User's saved layout has been loaded successfully");
-                    return;
-                }
-                else
-                    EditorCommands.ShowOutputMessage("User's saved layout load attempt has failed");
-            }
-
+            else
+                EditorCommands.ShowOutputMessage("User's saved layout load attempt has failed");
+            //}
         }
 
         private void LayoutMenuItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             this.CurrentLayoutMenuItem.Header = "Currently Set: " + Properties.Settings.Default.Layout;
+
+
         }
 
         private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
