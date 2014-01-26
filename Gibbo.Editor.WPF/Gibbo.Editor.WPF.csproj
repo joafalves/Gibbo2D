@@ -139,6 +139,7 @@
     <Compile Include="Classes\CommandBindings.cs" />
     <Compile Include="Classes\DragDropHelper.cs" />
     <Compile Include="Classes\InsertionAdorner.cs" />
+    <Compile Include="Classes\LayoutHelper.cs" />
     <Compile Include="Classes\LeftMarginMultiplierConverter.cs" />
     <Compile Include="Classes\LimeScriptEditor.cs" />
     <Compile Include="Classes\OutputMessage.cs" />
@@ -692,6 +693,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Layout\Default.layout">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThirdParty\GLControl\GLControl.resx" />
     <Content Include="Project Templates\settings.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -711,9 +715,6 @@
     </Content>
     <None Include="Gibbo.Editor.Model.licenseheader" />
     <None Include="Gibbo.Editor.WPF_TemporaryKey.pfx" />
-    <None Include="Layout\AvalonDock_Default.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

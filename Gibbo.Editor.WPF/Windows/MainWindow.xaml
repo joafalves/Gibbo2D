@@ -6,7 +6,6 @@
         Title="Gibbo 2D" Width="1200" Height="640" Icon="/Gibbo.Editor.WPF;component/Gibbo.Content/logo_modern.png" WindowStyle="None" ResizeMode="CanResize" KeyDown="Window_KeyDown_1" Closing="Window_Closing_1" 
         xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" Loaded="Window_Loaded_1"
         xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
-        
     >
     <Window.Resources>
         <Style x:Key="MiniToolbarMenuItem" TargetType="{x:Type Button}">
@@ -160,14 +159,10 @@
                         <MenuItem Header="Numeric Scale.." HorizontalAlignment="Left"  Width="200" Click="numericScale_Click"/>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Layout" Foreground="#FF212121">
-                    <MenuItem Header="Currently Set" IsEnabled="False" HorizontalAlignment="Center"/>
-                    <MenuItem Header="Set Current Layout as Default" HorizontalAlignment="Left" Width="200" Click="OnSaveLayout" />
-                    <MenuItem Header="Reset Layout" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
-                    <xceed:WatermarkTextBox Background="#3c3c3c" Foreground="#e6e6e6" Watermark="Give Current Layout a Name" />
-                    <MenuItem Header="Give Current Layout a Name" Icon="">
-                        <TextBox Background="#4c4c4c" Foreground="#e6e6e6" Width="200"/>
-                    </MenuItem>
+                <MenuItem Header="Layout" Foreground="#FF212121" PreviewMouseDown="LayoutMenuItem_PreviewMouseDown">
+                    <MenuItem x:Name="CurrentLayoutMenuItem" IsEnabled="False" HorizontalAlignment="Center" />
+                    <MenuItem Template="{DynamicResource SimpleMenuItem}" />
+                    <MenuItem Header="Reset to Default" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
                     <MenuItem Header="Debug Reset" Click="DebugResetClick" Visibility="Collapsed" />
                 </MenuItem>
                 <MenuItem Header="Tools" Foreground="#FF212121" Visibility="Collapsed">
