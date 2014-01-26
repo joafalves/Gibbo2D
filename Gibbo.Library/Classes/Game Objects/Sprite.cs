@@ -340,8 +340,8 @@ namespace Gibbo.Library
                 else if (displayMode == DisplayModes.Fill)
                 {
                     Rectangle fill = new Rectangle(
-                         (int)SceneManager.ActiveScene.Camera.Position.X - (int)SceneManager.GameProject.Settings.ScreenWidth / 2,
-                         (int)SceneManager.ActiveScene.Camera.Position.Y - (int)SceneManager.GameProject.Settings.ScreenHeight / 2,
+                         (int)SceneManager.ActiveScene.Camera.Position.X,
+                         (int)SceneManager.ActiveScene.Camera.Position.Y,
                          (int)SceneManager.GameProject.Settings.ScreenWidth,
                          (int)SceneManager.GameProject.Settings.ScreenHeight);
 
