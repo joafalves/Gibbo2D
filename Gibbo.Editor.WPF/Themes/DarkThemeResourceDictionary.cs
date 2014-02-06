@@ -300,7 +300,7 @@ namespace Gibbo.Editor.WPF
         {
             bool fileOnDirectory = srcPath.StartsWith(Gibbo.Library.SceneManager.GameProject.ProjectPath);
 
-            if (!System.IO.File.Exists(destFolder + filename) && !fileOnDirectory)
+            if (!fileOnDirectory)
                 System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
 
             string relativePath = (@"\Content\" + specificFolder + filename).Trim();
