@@ -2508,5 +2508,185 @@
         
     <BooleanToVisibilityConverter x:Key="bool2VisibilityConverter" />
 
+    <!--Expander style-->
+    <ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
+        <Grid>
+            <Rectangle Margin="0,0,0,0" x:Name="Rectangle" Fill="Transparent" />
+            <Path HorizontalAlignment="Center" x:Name="Up_Arrow" VerticalAlignment="Center" Fill="#777" Data="M 0 0 L 4 4 L 8 0 Z" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                        <SkewTransform AngleX="0" AngleY="0" />
+                        <RotateTransform Angle="-90" />
+                        <TranslateTransform X="0" Y="0" />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Visibility="Collapsed" HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="#777" Data="M 0 4 L 4 0 L 8 4 Z" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                        <SkewTransform AngleX="0" AngleY="0" />
+                        <RotateTransform Angle="135" />
+                        <TranslateTransform X="0" Y="0" />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="true">
+                <Setter Property="Visibility" Value="Visible" TargetName="Down_Arrow" />
+                <Setter Property="Visibility" Value="Collapsed" TargetName="Up_Arrow" />
+                <Setter Property="OpacityMask" TargetName="Down_Arrow" Value="#FF000000" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+
+    <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundGray}"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Expander}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" x:Name="ContentRow" />
+                        </Grid.RowDefinitions>
+                        <Border x:Name="Border" Background="{DynamicResource PanelBackground}" BorderBrush="#FFF0F0F0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ToggleButton Template="{StaticResource ExpanderToggleButton}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True" />
+                                <ContentPresenter Grid.Column="1" Margin="1" RecognizesAccessKey="True" ContentSource="Header" TextElement.FontWeight="Bold" />
+                            </Grid>
+                        </Border>
+                        <Border Visibility="Collapsed" Grid.Row="1" x:Name="ExpandSite" Background="{DynamicResource PanelBackground}" Padding="10 0 0 0">
+                            <Border Background="Transparent" BorderThickness="0" Margin="0" Padding="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="false" />
+                            </Border>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="ExpandSite" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ExpanderStyleNoPadding" TargetType="{x:Type Expander}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Foreground" Value="#999"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Expander}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="*" x:Name="ContentRow" />
+                        </Grid.RowDefinitions>
+                        <Border x:Name="Border" Background="{DynamicResource GradientBrush1}" BorderBrush="#FFF0F0F0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="15" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ToggleButton Template="{StaticResource ExpanderToggleButton}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True" />
+                                <ContentPresenter  VerticalAlignment="Center" Grid.Column="1" Margin="1" RecognizesAccessKey="True" ContentSource="Header" />
+                            </Grid>
+                        </Border>
+                        <Border Visibility="Collapsed" Grid.Row="1" x:Name="ExpandSite" Background="{DynamicResource PanelBackground}" Padding="0 0 0 0">
+                            <Border Background="Transparent" BorderThickness="0" Margin="0" Padding="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="false" />
+                            </Border>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="ExpandSite" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ExpanderStyleNoPaddingScroll" TargetType="{x:Type Expander}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundGray}"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Expander}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" x:Name="ContentRow" />
+                        </Grid.RowDefinitions>
+                        <Border x:Name="Border" Background="{DynamicResource PanelBackground}" BorderBrush="#FFF0F0F0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ToggleButton Template="{StaticResource ExpanderToggleButton}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True" />
+                                <ContentPresenter Grid.Column="1" Margin="1" RecognizesAccessKey="True" ContentSource="Header" TextElement.FontWeight="Bold" />
+                            </Grid>
+                        </Border>
+                        <Border Visibility="Collapsed" Grid.Row="1" x:Name="ExpandSite" Background="{DynamicResource PanelBackground}" Padding="0 0 0 0">
+                            <Border Background="Transparent" BorderThickness="1" Margin="0" Padding="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="false" />
+                                </ScrollViewer>
+
+                            </Border>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="ExpandSite" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PropertyExpanderStyle" TargetType="{x:Type Expander}">
+        <Setter Property="Padding" Value="10 0 0 0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Expander}">
+                    <Grid>
+                        <Border Visibility="Collapsed" Grid.Row="1" x:Name="ExpandSite" Padding="0 0 0 0">
+                            <Border BorderThickness="0" Margin="0" Padding="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+												      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+												      Focusable="false"  />
+                            </Border>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Setter Property="Visibility" Value="Visible" TargetName="ExpandSite" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 </ResourceDictionary>

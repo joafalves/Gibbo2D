@@ -107,7 +107,14 @@ namespace Gibbo.Editor.WPF
                 }
             }
 
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
 
             this.ContentRendered += StartupForm_ContentRendered;
 

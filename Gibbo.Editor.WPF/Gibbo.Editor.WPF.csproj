@@ -35,7 +35,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>gibbo2dn.ico</ApplicationIcon>
@@ -612,8 +612,8 @@
     <Content Include="Project Templates\samples\SampleController.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Compile Include="Windows\StartupWindow.xaml.cs">
-      <DependentUpon>StartupWindow.xaml</DependentUpon>
+    <Compile Include="Windows\StartupForm.xaml.cs">
+      <DependentUpon>StartupForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
@@ -671,7 +671,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\StartupWindow.xaml">
+    <Page Include="Windows\StartupForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -714,7 +714,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Gibbo.Editor.Model.licenseheader" />
-    <None Include="Gibbo.Editor.WPF_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

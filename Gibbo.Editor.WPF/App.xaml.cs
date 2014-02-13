@@ -43,6 +43,12 @@ namespace Gibbo.Editor.WPF
         public App()
         {
             Startup += App_Startup;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;                     
+        }
+
+        void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(e.ExceptionObject.ToString());
         }
 
         void App_Startup(object sender, StartupEventArgs e)
@@ -61,6 +67,8 @@ namespace Gibbo.Editor.WPF
             {
                 Console.WriteLine(ex.Message);
             }
+
+            //base.OnStartup(e);
         }
     }
 }
