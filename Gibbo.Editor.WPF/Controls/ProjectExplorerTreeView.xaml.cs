@@ -544,9 +544,7 @@ namespace Gibbo.Editor.WPF
             _node.PriorityIndex = priorityIndex;
             _node.Text = text;
             _node.MouseDoubleClick += newNode_MouseDoubleClick;
-
-
-
+            
             StackPanel sp = new StackPanel();
             sp.Orientation = Orientation.Horizontal;
             sp.Children.Add(new Image() { Source = imageSource });
@@ -562,7 +560,6 @@ namespace Gibbo.Editor.WPF
 
             return _node;
         }
-
 
         private ImageSource GetImageSource(string extension)
         {

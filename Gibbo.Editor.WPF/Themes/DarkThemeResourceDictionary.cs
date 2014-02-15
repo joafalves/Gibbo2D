@@ -307,6 +307,9 @@ namespace Gibbo.Editor.WPF
             if (fileOnDirectory)
                 relativePath = srcPath.Replace(Gibbo.Library.SceneManager.GameProject.ProjectPath, string.Empty);
 
+            if (relativePath.StartsWith("\\"))
+                relativePath = relativePath.Substring(1, relativePath.Length - 1);
+
             (parentDO as TextBox).Text = relativePath;
 
             EditorUtils.SelectAnotherElement<TextBox>(parentDO);

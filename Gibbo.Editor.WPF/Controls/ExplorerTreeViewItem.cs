@@ -66,7 +66,6 @@ namespace Gibbo.Editor.WPF
             //(Header as StackPanel).MouseLeave += ExplorerTreeViewItem_MouseLeave;
         }
 
-
         #endregion
 
         #region events
@@ -82,7 +81,6 @@ namespace Gibbo.Editor.WPF
             {
                 EditorHandler.PicturePreview.ChangeImage(FullPath);
                 EditorHandler.PicturePreview.Visibility = System.Windows.Visibility.Visible;
-
 
                 p.Y = Microsoft.Xna.Framework.MathHelper.Clamp(
                     (float)p.Y,
