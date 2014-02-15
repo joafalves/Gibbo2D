@@ -2364,6 +2364,8 @@
         </Setter>
     </Style>
 
+    <BooleanToVisibilityConverter x:Key="bool2VisibilityConverter" />
+
     <!--Style and template for the DataGridRowHeader.-->
     <Style TargetType="{x:Type DataGridRowHeader}">
         <Setter Property="Template">
@@ -2506,7 +2508,6 @@
     <Color x:Key="ControlMouseOverColor">#FF3843C4</Color>
     <Color x:Key="ControlPressedColor">#FF211AA9</Color>
         
-    <BooleanToVisibilityConverter x:Key="bool2VisibilityConverter" />
 
     <!--Expander style-->
     <ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
