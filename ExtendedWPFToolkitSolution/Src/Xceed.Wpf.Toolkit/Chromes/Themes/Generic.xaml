@@ -35,8 +35,8 @@
             <ControlTemplate TargetType="{x:Type chrome:ButtonChrome}">
                <Grid>
 
-                  <Border x:Name="OuterBorder" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-                     <Border x:Name="InnerBorder" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding InnerCornerRadius}" BorderBrush="{DynamicResource {x:Static themes:ResourceKeys.ButtonNormalInnerBorderKey}}" />
+                  <Border x:Name="OuterBorder" BorderThickness="1" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                     <Border x:Name="InnerBorder" BorderThickness="0" CornerRadius="{TemplateBinding InnerCornerRadius}" BorderBrush="{DynamicResource {x:Static themes:ResourceKeys.ButtonNormalInnerBorderKey}}" />
                   </Border>
 
                   <Border x:Name="MouseOverVisual" Opacity="0" Visibility="Collapsed" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{DynamicResource {x:Static themes:ResourceKeys.ButtonMouseOverOuterBorderKey}}" Background="{DynamicResource {x:Static themes:ResourceKeys.ButtonMouseOverBackgroundKey}}">
@@ -67,7 +67,7 @@
                         <Condition Property="RenderChecked" Value="False" />
                      </MultiTrigger.Conditions>
                      <Setter TargetName="OuterBorder" Property="BorderBrush" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonDisabledOuterBorderKey}}" />
-                     <Setter TargetName="InnerBorder" Property="BorderBrush" Value="{DynamicResource {x:Static themes:ResourceKeys.ButtonInnerBorderDisabledKey}}" />
+                     <Setter TargetName="InnerBorder" Property="BorderBrush" Value="Transparent" />
                      <Setter TargetName="OuterBorder" Property="Background" Value="{DynamicResource {x:Static themes:ResourceKeys.ControlDisabledBackgroundKey}}" />
                   </MultiTrigger>
 

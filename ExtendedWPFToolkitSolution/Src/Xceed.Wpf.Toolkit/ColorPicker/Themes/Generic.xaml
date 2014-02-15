@@ -60,8 +60,8 @@
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Grid ToolTip="{Binding Name}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <Border BorderThickness="1" Background="Transparent" BorderBrush="Transparent" x:Name="_outerBorder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                            <Border Background="Transparent" BorderThickness="1" BorderBrush="Transparent" x:Name="_innerBorder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        <Border BorderThickness="0" Background="Transparent" BorderBrush="Transparent" x:Name="_outerBorder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Border Background="Transparent" BorderThickness="0" BorderBrush="Transparent" x:Name="_innerBorder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -113,7 +113,7 @@
                             </Border>
 
                             <chrome:ButtonChrome x:Name="ToggleButtonChrome"
-                                          Grid.Column="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                          Grid.Column="1" Background="{TemplateBinding Background}" BorderBrush="#565656" BorderThickness="1">
                                 <Grid x:Name="arrowGlyph" IsHitTestVisible="False" Grid.Column="1" Margin="5" >
                                     <Path HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="#C7C7C7"  Data="M 0 4 L 4 0 L 8 4 Z" RenderTransformOrigin="0.5,0.5">
                                         <Path.RenderTransform>
