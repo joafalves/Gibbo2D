@@ -72,7 +72,7 @@ namespace Gibbo.Library
             if (SceneManager.GraphicsDevice == null) return null;
 
             // The image was already loaded to memory?
-            if (!textures.ContainsKey(filename))
+            if (!textures.ContainsKey(filename) || SceneManager.IsEditor)
             {
 #if WINDOWS
                 FileInfo aTexturePath = new FileInfo(filename);
