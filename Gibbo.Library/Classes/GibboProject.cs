@@ -293,6 +293,7 @@ namespace Gibbo.Library
             Directory.CreateDirectory(this.projectPath + "//Libs");
             Directory.CreateDirectory(this.projectPath + "//Scenes");
             Directory.CreateDirectory(this.projectPath + "//Content");
+            Directory.CreateDirectory(this.projectPath + "//Scripts");
         }
 #endif
 

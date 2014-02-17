@@ -213,7 +213,6 @@ namespace Gibbo.Editor.WPF
             }
         }
 
-
         void TagPreviewMouseDown(object sender, MouseEventArgs e)
         {
             (sender as ComboBox).Items.Clear();

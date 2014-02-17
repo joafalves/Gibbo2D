@@ -35,6 +35,8 @@ using FarseerPhysics.Collision.Shapes;
 using FarseerPhysics.Common;
 using System.Runtime.Serialization;
 using System.Diagnostics;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Gibbo.Library
 {
@@ -1012,7 +1014,27 @@ namespace Gibbo.Library
         /// <returns></returns>
         public object Clone()
         {
-            return this.MemberwiseClone();
+            //return this.MemberwiseClone(); // old not functional way
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new MemoryStream();
+            using (stream)
+            {
+                formatter.Serialize(stream, this);
+                stream.Seek(0, SeekOrigin.Begin);
+                var obj = (object)formatter.Deserialize(stream);
+                (obj as GameObject).Initialize(); // important
+                return obj;
+            }
+        }
+
+        /// <summary>
+        /// Clone de game object 
+        /// </summary>
+        /// <returns></returns>
+        public GameObject Copy()
+        {
+            return (GameObject)Clone();
         }
 
         /// <summary>
