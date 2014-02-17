@@ -65,7 +65,7 @@ namespace Gibbo.Library
         [Category("Physical Body Properties")]
         [DisplayName("Texture Path"), Description("The relative path to the texture")]
 #endif
-        public string TextureFilePath
+        public string ImageName
         {
             get { return texturePath; }
             set { texturePath = value; this.LoadTexture(); }
