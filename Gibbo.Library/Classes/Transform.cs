@@ -371,15 +371,15 @@ namespace Gibbo.Library
         /// <param name="y"></param>
         public void Translate(float x, float y)
         {
-            if (gameObject.Body == null)
-            {
-                this.position.X += x;
-                this.position.Y += y;
-            }
-            else
-            {
+            //if (gameObject.Body == null)
+            //{
+            //    this.position.X += x;
+            //    this.position.Y += y;
+            //}
+            //else
+            //{
                 this.Position = new Vector2(this.Position.X + x, this.Position.Y + y);
-            }
+            //}
         }
 
         /// <summary>
