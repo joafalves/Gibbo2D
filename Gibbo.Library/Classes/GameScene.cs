@@ -49,9 +49,9 @@ namespace Gibbo.Library
 #endif
     [DataContract]
     public class GameScene : IDisposable
-//#if WINDOWS
-//, ISerializable
-//#endif
+    //#if WINDOWS
+    //, ISerializable
+    //#endif
     {
         #region fields
 
@@ -67,6 +67,11 @@ namespace Gibbo.Library
         private Vector2 gravity = Vector2.UnitY * 10;
         [DataMember]
         private List<string> commonTags = new List<string>();
+
+#if WINDOWS
+        [NonSerialized]
+#endif
+        private List<RenderView> renderViews = new List<RenderView>();
 
 #if WINDOWS
         [NonSerialized]
@@ -107,6 +112,15 @@ namespace Gibbo.Library
         #endregion
 
         #region properties
+
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public List<RenderView> RenderViews
+        {
+            get { return renderViews; }
+            set { renderViews = value; }
+        }
 
 #if WINDOWS
         [Browsable(false)]
@@ -242,58 +256,58 @@ namespace Gibbo.Library
 
         }
 
-//#if WINDOWS
-//        protected GameScene(SerializationInfo info, StreamingContext context)
-//        {
-//            if (info == null)
-//                throw new ArgumentNullException("info");
+        //#if WINDOWS
+        //        protected GameScene(SerializationInfo info, StreamingContext context)
+        //        {
+        //            if (info == null)
+        //                throw new ArgumentNullException("info");
 
-//            foreach (SerializationEntry entry in info)
-//            {
-//                switch (entry.Name)
-//                {
-//                    case "name":
-//                        name = (string)entry.Value; break;
-//                    case "camera":
-//                        camera = (Camera)entry.Value; break;
-//                    case "gravity":
-//                        gravity = (Vector2)entry.Value; break;
-//                    case "backgroundColor":
-//                        backgroundColor = (Color)entry.Value; break;
-//                    case "gameObjects":
-//                        object obj = entry.Value;
-//                        if (obj.GetType().IsSubclassOf(typeof(System.Collections.CollectionBase)))
-//                        {
-//                            // handle old projects:
-//                            System.Collections.CollectionBase bx = (System.Collections.CollectionBase)obj;
-//                            this.gameObjects = new GameObjectCollection(null);
-//                            foreach (var ob in bx)
-//                            {
-//                                this.gameObjects.Add(ob as GameObject);
-//                            }
-//                        }
-//                        else
-//                        {
-//                            gameObjects = (GameObjectCollection)entry.Value;
-//                        }
-//                        break;
-//                }
-//            }
-//        }
+        //            foreach (SerializationEntry entry in info)
+        //            {
+        //                switch (entry.Name)
+        //                {
+        //                    case "name":
+        //                        name = (string)entry.Value; break;
+        //                    case "camera":
+        //                        camera = (Camera)entry.Value; break;
+        //                    case "gravity":
+        //                        gravity = (Vector2)entry.Value; break;
+        //                    case "backgroundColor":
+        //                        backgroundColor = (Color)entry.Value; break;
+        //                    case "gameObjects":
+        //                        object obj = entry.Value;
+        //                        if (obj.GetType().IsSubclassOf(typeof(System.Collections.CollectionBase)))
+        //                        {
+        //                            // handle old projects:
+        //                            System.Collections.CollectionBase bx = (System.Collections.CollectionBase)obj;
+        //                            this.gameObjects = new GameObjectCollection(null);
+        //                            foreach (var ob in bx)
+        //                            {
+        //                                this.gameObjects.Add(ob as GameObject);
+        //                            }
+        //                        }
+        //                        else
+        //                        {
+        //                            gameObjects = (GameObjectCollection)entry.Value;
+        //                        }
+        //                        break;
+        //                }
+        //            }
+        //        }
 
-//        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
-//        public void GetObjectData(SerializationInfo info, StreamingContext context)
-//        {
-//            if (info == null)
-//                throw new ArgumentNullException("info");
+        //        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+        //        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        //        {
+        //            if (info == null)
+        //                throw new ArgumentNullException("info");
 
-//            info.AddValue("name", name);
-//            info.AddValue("camera", camera);
-//            info.AddValue("backgroundColor", backgroundColor);
-//            info.AddValue("gravity", gravity);
-//            info.AddValue("gameObjects", gameObjects);
-//        }
-//#endif
+        //            info.AddValue("name", name);
+        //            info.AddValue("camera", camera);
+        //            info.AddValue("backgroundColor", backgroundColor);
+        //            info.AddValue("gravity", gravity);
+        //            info.AddValue("gameObjects", gameObjects);
+        //        }
+        //#endif
         #endregion
 
         #region methods
@@ -304,6 +318,9 @@ namespace Gibbo.Library
         /// </summary>
         public virtual void Initialize()
         {
+            if (renderViews == null)
+                renderViews = new List<RenderView>();
+
             if (CommonTags == null)
                 CommonTags = new List<string>();
 
@@ -361,7 +378,7 @@ namespace Gibbo.Library
                 world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
                 //Console.WriteLine((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
             }
-               
+
         }
 
         /// <summary>
@@ -371,8 +388,30 @@ namespace Gibbo.Library
         /// <param name="gameTime">The Gametime</param>
         public void Draw(GameTime gameTime)
         {
-            for (int i = 0; i < gameObjects.Count; i++)
-                gameObjects[i].Draw(gameTime, this.SpriteBatch);
+            if (renderViews.Count == 0)
+            {
+                for (int i = 0; i < gameObjects.Count; i++)
+                    gameObjects[i].Draw(gameTime, this.SpriteBatch);
+            }
+            else
+            {
+                // save defaults
+                Viewport defaultViewport = SceneManager.GraphicsDevice.Viewport;
+                Camera defaultCamera = SceneManager.ActiveCamera;
+
+                foreach (RenderView v in renderViews)
+                {
+                    SceneManager.GraphicsDevice.Viewport = v.Viewport;
+                    SceneManager.ActiveScene.camera = v.Camera;
+
+                    for (int i = 0; i < gameObjects.Count; i++)
+                        gameObjects[i].Draw(gameTime, this.SpriteBatch);
+                }
+
+                // load defaults
+                SceneManager.GraphicsDevice.Viewport = defaultViewport;
+                SceneManager.ActiveCamera = defaultCamera;
+            }
 
             if ((SceneManager.IsEditor && SceneManager.GameProject.EditorSettings.ShowCollisions)
                 || (!SceneManager.IsEditor && SceneManager.GameProject.Debug && SceneManager.GameProject.EditorSettings.ShowCollisions))

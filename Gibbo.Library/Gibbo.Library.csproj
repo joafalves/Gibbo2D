@@ -225,6 +225,7 @@
     <Compile Include="Interfaces\IPlugin.cs" />
     <Compile Include="Classes\Settings.cs" />
     <Compile Include="Classes\Game Objects\Sprite.cs" />
+    <Compile Include="RenderView.cs" />
     <Compile Include="Utils\EditorKeyboard.cs" />
     <Compile Include="Classes\Components\ExtendedObjectComponent.cs" />
     <Compile Include="Classes\GibboCompiler.cs" />

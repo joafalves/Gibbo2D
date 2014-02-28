@@ -91,7 +91,7 @@ namespace Gibbo.Editor.WPF
                     // send login information
                     Task loginTask = new Task(() =>
                     {
-                        string url = "http://dragon-scale-studios.com/gibbo/dataset/gibbo_dataset.php?opt=login&email=" + 
+                        string url = "http://gibbo2d.com/dataset/gibbo_dataset.php?opt=login&email=" + 
                             Gibbo.Editor.WPF.Properties.Settings.Default.UserEmail + "&version=" +
                             ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
 
