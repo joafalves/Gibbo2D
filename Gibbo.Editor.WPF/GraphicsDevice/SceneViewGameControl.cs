@@ -52,7 +52,7 @@ namespace Gibbo.Editor.WPF
         private ContentManager content;
         private SpriteBatch spriteBatch;
 
-        private FontRenderer bmFontRenderer;
+        private BitmapFontRenderer bmFontRenderer;
 
         private Vector2 mouseWorldPosition;
         private EditorModes editorMode = EditorModes.Select;
@@ -189,7 +189,7 @@ namespace Gibbo.Editor.WPF
 
                 FontFile fontFile = FontLoader.Load(AppDomain.CurrentDomain.BaseDirectory + "\\Gibbo.Content\\editorBMFont.fnt");
                 Texture2D fontTexture = TextureLoader.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\Gibbo.Content\\editorBMFont_0.png");
-                bmFontRenderer = new FontRenderer(fontFile, fontTexture);
+                bmFontRenderer = new BitmapFontRenderer(fontFile, fontTexture);
 
                 LoadContent();
 

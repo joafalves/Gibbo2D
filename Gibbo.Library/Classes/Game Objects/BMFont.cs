@@ -59,7 +59,7 @@ namespace Gibbo.Library
 #if WINDOWS
         [NonSerialized]
 #endif
-        private FontRenderer fontRenderer;
+        private BitmapFontRenderer fontRenderer;
 
 #if WINDOWS
         [NonSerialized]
@@ -217,7 +217,7 @@ namespace Gibbo.Library
                 this.fontFile = FontLoader.Load(_fntFilePath);
                 this.fontTexture = TextureLoader.FromFile(_textureFilePath);
 
-                this.fontRenderer = new FontRenderer(this.fontFile, this.fontTexture);
+                this.fontRenderer = new BitmapFontRenderer(this.fontFile, this.fontTexture);
             }
         }
 

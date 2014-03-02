@@ -39,7 +39,7 @@ namespace Gibbo.Library.Classes
     {
         #region fields
 
-        private static Dictionary<string, FontRenderer> fontRenderers = new Dictionary<string, FontRenderer>();
+        private static Dictionary<string, BitmapFontRenderer> fontRenderers = new Dictionary<string, BitmapFontRenderer>();
 
         #endregion
 
@@ -48,7 +48,7 @@ namespace Gibbo.Library.Classes
         /// <summary>
         /// The available font renderers
         /// </summary>
-        public static Dictionary<string, FontRenderer> FontRenderers
+        public static Dictionary<string, BitmapFontRenderer> FontRenderers
         {
             get { return BMFontLoader.fontRenderers; }
         }
@@ -64,7 +64,7 @@ namespace Gibbo.Library.Classes
         /// <param name="fontTexturePath"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static FontRenderer AddBMFont(string fntFilePath, string fontTexturePath, string name)
+        public static BitmapFontRenderer AddBMFont(string fntFilePath, string fontTexturePath, string name)
         {
             if(!fontRenderers.ContainsKey(name))
             {
@@ -80,7 +80,7 @@ namespace Gibbo.Library.Classes
                     FontFile fontFile = FontLoader.Load(_fntFilePath);
                     Texture2D fontTexture = TextureLoader.FromFile(_textureFilePath);
 
-                    FontRenderer fr = new FontRenderer(fontFile, fontTexture);
+                    BitmapFontRenderer fr = new BitmapFontRenderer(fontFile, fontTexture);
                     fontRenderers[name] = fr;
 
                     return fr;

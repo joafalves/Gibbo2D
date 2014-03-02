@@ -35,7 +35,7 @@ namespace Gibbo.Library
     /// <summary>
     /// Font Renderer
     /// </summary>
-    public class FontRenderer
+    public class BitmapFontRenderer
     {
         #region fields
 
@@ -80,7 +80,7 @@ namespace Gibbo.Library
         /// </summary>
         /// <param name="fontFile">The font file</param>
         /// <param name="fontTexture">The font texture</param>
-        public FontRenderer(FontFile fontFile, Texture2D fontTexture)
+        public BitmapFontRenderer(FontFile fontFile, Texture2D fontTexture)
         {
             _fontFile = fontFile;
             _texture = fontTexture;

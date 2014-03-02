@@ -88,7 +88,7 @@
     <Compile Include="Classes\ExtensionMethods.cs" />
     <Compile Include="Classes\Font.cs" />
     <Compile Include="Classes\BMFontLoader.cs" />
-    <Compile Include="Classes\FontRenderer.cs" />
+    <Compile Include="Classes\BitmapFontRenderer.cs" />
     <Compile Include="Classes\Game Objects\AnimatedSprite.cs" />
     <Compile Include="Classes\Audio.cs" />
     <Compile Include="Classes\Game Objects\AudioObject.cs" />
