@@ -32,5 +32,8 @@
     <Setting Name="Layout" Type="System.String" Scope="User">
       <Value Profile="(Default)">Default</Value>
     </Setting>
+    <Setting Name="secundaryExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">animatedsprite</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

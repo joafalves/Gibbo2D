@@ -405,24 +405,48 @@ namespace Gibbo.Editor.WPF
 
                 string relativePath = item.FullPath.Replace(SceneManager.GameProject.ProjectPath + "\\", string.Empty);
                 string name = System.IO.Path.GetFileNameWithoutExtension(relativePath);
-                string extension = item.Text.ToLower().Split('.').Last();
+
                 
-                switch (extension)
+                string[] extensions = item.Text.ToLower().Split('.');
+
+
+                string secundaryExtension = string.Empty;
+                if (extensions.Length > 2)
+                    secundaryExtension = extensions[extensions.Length - 2];
+
+                GameObject objToAdd = null;
+
+                if (secundaryExtension.ToLower().Equals(Properties.Settings.Default.secundaryExtension))
                 {
-                    case "png":
-                    case "jpeg":
-                    case "jpg":
-                    case "gif":
-                    case "bmp":
-                        EditorHandler.SceneTreeView.AddGameObject(new Sprite() { ImageName = relativePath, Name = name  }, "", true);
-                        EditorHandler.ChangeSelectedObjects();
-                        break;
-                    case "mp3":
-                    case "wav":
-                        EditorHandler.SceneTreeView.AddGameObject(new AudioObject() { FilePath = relativePath, Name = name }, "", true);
-                        EditorHandler.ChangeSelectedObjects();
-                        break;
+                    objToAdd = new AnimatedSprite() { ImageName = relativePath, Name = name.ToLower().Replace("." + Properties.Settings.Default.secundaryExtension, ""), TotalFramesPerRow = 1, TotalRows = 1 };
                 }
+                else
+                {
+                    string extension = extensions.Last();
+
+                    switch (extension)
+                    {
+                        case "png":
+                        case "jpeg":
+                        case "jpg":
+                        case "gif":
+                        case "bmp":
+                            objToAdd = new Sprite() { ImageName = relativePath, Name = name };
+                            break;
+                        case "mp3":
+                        case "wav":
+                            objToAdd = new AudioObject() { FilePath = relativePath, Name = name };
+                            break;
+                    }
+                }
+
+                if (objToAdd != null)
+                {
+                    EditorHandler.SceneTreeView.AddGameObject(objToAdd, "", true);
+                    EditorHandler.ChangeSelectedObjects();
+                }
+                
+                
             }
         }
 
