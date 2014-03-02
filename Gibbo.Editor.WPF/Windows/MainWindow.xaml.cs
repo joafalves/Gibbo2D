@@ -43,6 +43,7 @@ using System.Deployment.Application;
 using Gibbo.Editor.Model;
 using System.Windows.Controls;
 using Xceed.Wpf.AvalonDock;
+using System.Diagnostics;
 
 namespace Gibbo.Editor.WPF
 {
@@ -1047,6 +1048,14 @@ namespace Gibbo.Editor.WPF
             {
                 System.Windows.MessageBox.Show("No object selected", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void bmFont_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = "bmfont\\bmfont.exe";
+            startInfo.Arguments = "bmfont\\bmsettings.bmfc";
+            Process.Start(startInfo);
         }
 
         private void checkForUpdatesBtn_Click(object sender, RoutedEventArgs e)

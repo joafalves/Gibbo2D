@@ -137,7 +137,7 @@
                     <Separator HorizontalAlignment="Left"  Width="200"/>
                     <MenuItem Header="Clear Texture Buffer" HorizontalAlignment="Left" Width="200" Click="clearTextureBuffBtn_Click"/>
                 </MenuItem>
-                <MenuItem Header="Commands" Foreground="#FF212121">
+                <MenuItem Header="Tools" Foreground="#FF212121">
                     <MenuItem Header="Selection"  Width="200" Icon="">
                         <MenuItem Header="To Collision Block" HorizontalAlignment="Left" Width="200" InputGestureText="Ctrl+B" Click="convertToCollision_Click"/>
                         <Separator HorizontalAlignment="Left"  Width="200"/>
@@ -158,6 +158,8 @@
                     <MenuItem Header="Scale" HorizontalAlignment="Left" Width="200" Visibility="Collapsed">
                         <MenuItem Header="Numeric Scale.." HorizontalAlignment="Left"  Width="200" Click="numericScale_Click"/>
                     </MenuItem>
+                    <Separator HorizontalAlignment="Left"  Width="200"/>
+                    <MenuItem Header="BMFont" HorizontalAlignment="Left" Width="200" Click="bmFont_Click" />
                 </MenuItem>
                 <MenuItem Header="Layout" Foreground="#FF212121" PreviewMouseDown="LayoutMenuItem_PreviewMouseDown">
                     <MenuItem x:Name="CurrentLayoutMenuItem" IsEnabled="False" HorizontalAlignment="Center" Visibility="Collapsed"/>

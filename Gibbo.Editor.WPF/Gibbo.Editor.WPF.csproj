@@ -208,6 +208,9 @@
     <Resource Include="gibbo2d.ico" />
     <Resource Include="icongibbo2d.ico" />
     <Resource Include="gibbo2dn.ico" />
+    <Content Include="bmfont\bmfont.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Tutorials\01 - User Interface\Pictures\1_gibbo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -713,6 +716,9 @@
     </Content>
     <Content Include="Content\debugfont.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bmfont\bmsettings.bmfc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Gibbo.Editor.Model.licenseheader" />
     <None Include="packages.config" />
