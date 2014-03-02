@@ -210,7 +210,7 @@ namespace Gibbo.Editor.WPF
         /// </summary>
         private void LoadContent()
         {
-
+            
         }
 
         /// <summary>
@@ -553,10 +553,10 @@ namespace Gibbo.Editor.WPF
                     if (measure.Width < HANDLER_SIZE || measure.Height < HANDLER_SIZE)
                     {
                         Rectangle box = new Rectangle((int)spos.X - HANDLER_SIZE / 2, (int)spos.Y - HANDLER_SIZE / 2, HANDLER_SIZE, HANDLER_SIZE);
-                        Primitives.DrawBox(spriteBatch, box, Color.Yellow, 2);
+                        Primitives.DrawBox(spriteBatch, box, Color.CornflowerBlue, 2);
                     }
 
-                    Primitives.DrawBoxFilled(spriteBatch, new Rectangle((int)spos.X - 4, (int)spos.Y - 4, 8, 8), Color.Yellow);
+                    Primitives.DrawBoxFilled(spriteBatch, new Rectangle((int)spos.X - 4, (int)spos.Y - 4, 8, 8), Color.CornflowerBlue);
 
                     spriteBatch.End();
 
@@ -564,7 +564,7 @@ namespace Gibbo.Editor.WPF
                     if (measure.Width > HANDLER_SIZE * 2 && measure.Height > HANDLER_SIZE * 2)
                     {
                         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.ObjectTransform(gameObject));
-                        Primitives.DrawBox(spriteBatch, measure, Color.Yellow, 3);
+                        Primitives.DrawBox(spriteBatch, measure, Color.CornflowerBlue, 3);
                         spriteBatch.End();                       
                     }
                 }

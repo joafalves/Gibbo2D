@@ -316,9 +316,23 @@ namespace Gibbo.Library
                     //    (int)SceneManager.ActiveCamera.Position.Y, sizeWidth, sizeHeight), Color, 0, Vector2.Zero, 1.0f,
                     //    SpriteEffects.None, 1);
 
-                    spriteBatch.Draw(texture, new Vector2((int)SceneManager.ActiveCamera.Position.X - SceneManager.GraphicsDevice.Viewport.Width, (int)SceneManager.ActiveCamera.Position.Y - SceneManager.GraphicsDevice.Viewport.Height), new Rectangle((int)SceneManager.ActiveCamera.Position.X,
-                         (int)SceneManager.ActiveCamera.Position.Y, SceneManager.GraphicsDevice.Viewport.Width * 2, SceneManager.GraphicsDevice.Viewport.Height * 2), Color, 0, Vector2.Zero, Transform.Scale,
-                         spriteEffect, 1);
+                    float tBorder = Vector2.Transform(new Vector2(0, 0), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix)).Y;
+                    float bBorder = Vector2.Transform(new Vector2(0, SceneManager.GraphicsDevice.Viewport.Height), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix)).Y;
+                    float lBorder = Vector2.Transform(new Vector2(0, 0), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix)).X;
+                    float rBorder = Vector2.Transform(new Vector2(SceneManager.GraphicsDevice.Viewport.Width, 0), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix)).X;
+
+                    Rectangle dispRect = new Rectangle()
+                    {
+                        X = (int)lBorder,
+                        Y = (int)tBorder,
+                        Width = (int)rBorder - (int)lBorder,
+                        Height = (int)bBorder - (int)tBorder
+                    };
+
+                    //spriteBatch.Draw(texture, dispRect, null, Color, 0, Vector2.Zero, spriteEffect, 1);
+
+                    spriteBatch.Draw(texture, new Vector2(lBorder, tBorder), new Rectangle((int)SceneManager.ActiveCamera.Position.X,
+                             (int)SceneManager.ActiveCamera.Position.Y, dispRect.Width, dispRect.Height), Color, 0, Vector2.Zero, Transform.Scale, spriteEffect, 1);  
                 }
                 else if (displayMode == DisplayModes.PositionTile)
                 {
@@ -334,8 +348,8 @@ namespace Gibbo.Library
                     //    SpriteEffects.None, 1);
 
                     spriteBatch.Draw(texture, new Vector2((int)SceneManager.ActiveCamera.Position.X - SceneManager.GraphicsDevice.Viewport.Width, (int)SceneManager.ActiveCamera.Position.Y - SceneManager.GraphicsDevice.Viewport.Height), new Rectangle((int)Transform.Position.X,
-                    (int)Transform.Position.Y, SceneManager.GraphicsDevice.Viewport.Width * 2, SceneManager.GraphicsDevice.Viewport.Height * 2), Color, 0, Vector2.Zero, Transform.Scale,
-                    spriteEffect, 1);
+                        (int)Transform.Position.Y, SceneManager.GraphicsDevice.Viewport.Width * 2, SceneManager.GraphicsDevice.Viewport.Height * 2), Color, 0, Vector2.Zero, Transform.Scale,
+                        spriteEffect, 1);
                 }
                 else if (displayMode == DisplayModes.Fill)
                 {

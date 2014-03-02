@@ -320,7 +320,7 @@
                                     </Border>
 
                                     <!--<Grid x:Name="SceneViewFormContainer" Grid.Row="1"></Grid>-->
-                                    <Border Grid.Row="1" BorderBrush="{DynamicResource BorderDark}" BorderThickness="1, 0, 1, 1">
+                                    <Border Grid.Row="1" BorderBrush="{DynamicResource BorderDark}" BorderThickness="1, 0, 1, 1" x:Name="SceneViewFormContainerHolder">
                                         <winformsIntegration:WindowsFormsHost  x:Name="SceneViewFormContainer" Margin="0"/>
                                     </Border>
                                     <GridSplitter Grid.Row="2" Height="7" VerticalAlignment="Center" HorizontalAlignment="Stretch" ShowsPreview="True" Style="{DynamicResource GridSplitterStyle}"/>

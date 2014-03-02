@@ -383,6 +383,57 @@ namespace Gibbo.Editor.WPF
             Closed += MainWindow_Closed;
             ContentRendered += MainWindow_ContentRendered;
 
+            sceneViewGameControl.AllowDrop = true;
+            sceneViewGameControl.DragEnter += sceneViewGameControl_DragEnter;
+            sceneViewGameControl.DragDrop += sceneViewGameControl_DragDrop;
+            
+        }
+
+        void sceneViewGameControl_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+        {
+            if (SceneManager.ActiveScene == null) return;
+
+            if (e.Data.GetDataPresent(typeof(ExplorerTreeViewItem)))
+            {
+                FieldInfo info;
+                object obj;
+                info = e.Data.GetType().GetField("innerData", BindingFlags.NonPublic | BindingFlags.Instance);
+                obj = info.GetValue(e.Data);
+                info = obj.GetType().GetField("innerData", BindingFlags.NonPublic | BindingFlags.Instance);
+                System.Windows.DataObject dataObj = info.GetValue(obj) as System.Windows.DataObject;
+                ExplorerTreeViewItem item = dataObj.GetData(typeof(ExplorerTreeViewItem)) as ExplorerTreeViewItem;
+
+                string relativePath = item.FullPath.Replace(SceneManager.GameProject.ProjectPath + "\\", string.Empty);
+                string name = System.IO.Path.GetFileNameWithoutExtension(relativePath);
+                string extension = item.Text.ToLower().Split('.').Last();
+                
+                switch (extension)
+                {
+                    case "png":
+                    case "jpeg":
+                    case "jpg":
+                    case "gif":
+                    case "bmp":
+                        EditorHandler.SceneTreeView.AddGameObject(new Sprite() { ImageName = relativePath, Name = name  }, "", true);
+                        EditorHandler.ChangeSelectedObjects();
+                        break;
+                    case "mp3":
+                    case "wav":
+                        EditorHandler.SceneTreeView.AddGameObject(new AudioObject() { FilePath = relativePath, Name = name }, "", true);
+                        EditorHandler.ChangeSelectedObjects();
+                        break;
+                }
+            }
+        }
+
+        void sceneViewGameControl_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
+        {
+            if (SceneManager.ActiveScene == null) return;
+
+            if (e.Data.GetDataPresent(typeof(ExplorerTreeViewItem)))
+            {
+                e.Effect = System.Windows.Forms.DragDropEffects.Move;
+            }
         }
 
         private void UpdateTilesetModes()

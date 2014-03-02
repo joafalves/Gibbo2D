@@ -51,7 +51,7 @@ namespace Gibbo.Library
     //[KnownType(typeof(Sprite)), KnownType(typeof(Transform)), KnownType(typeof(BodyType)), KnownType(typeof(PropertyLabel))]
     public class GameObject : SystemObject, IDisposable
 #if WINDOWS
-        , ICloneable
+, ICloneable
 #endif
     {
         #region fields
@@ -562,7 +562,7 @@ namespace Gibbo.Library
             foreach (PropertyInfo propInfo in props)
             {
                 try
-                {                   
+                {
 #if WINRT
                     bool found = false;
                     foreach (var item in componentValues[component.GetType().FullName])
@@ -586,7 +586,7 @@ namespace Gibbo.Library
 
                     // There is a place to store the component value?
                     if (!componentValues[component.GetType().FullName].ContainsKey(label))
-                    {                      
+                    {
                         this.componentValues[component.GetType().FullName][label] = propInfo.GetValue(component, null);
                     }
                     else
@@ -661,7 +661,7 @@ namespace Gibbo.Library
                 if (mouseOver)
                 {
                     Fixture detected = SceneManager.ActiveScene.World.TestPoint(ConvertUnits.ToSimUnits(GameInput.MousePosition));
-                    if (detected == null || detected.Body.GameObject != this)
+                    if (detected == null || detected.Body.GameObject != this && !SceneManager.IsEditor)
                     {
                         this.mouseOver = false;
                         this.OnMouseOut();
@@ -925,7 +925,8 @@ namespace Gibbo.Library
         {
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
-                component.OnMouseDown(buttonPressed);
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnMouseDown(buttonPressed);
         }
 
         /// <summary>
@@ -936,7 +937,8 @@ namespace Gibbo.Library
         {
             // Send notification to components that this object was clicked
             foreach (ObjectComponent component in components)
-                component.OnMouseClick(buttonPressed);
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnMouseClick(buttonPressed);
         }
 
         /// <summary>
@@ -946,7 +948,8 @@ namespace Gibbo.Library
         {
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
-                component.OnMouseMove();
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnMouseMove();
         }
 
         /// <summary>
@@ -955,7 +958,8 @@ namespace Gibbo.Library
         public void OnMouseEnter()
         {
             foreach (ObjectComponent component in components)
-                component.OnMouseEnter();
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnMouseEnter();
         }
 
         /// <summary>
@@ -965,7 +969,8 @@ namespace Gibbo.Library
         {
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
-                component.OnMouseUp();
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnMouseUp();
         }
 
         /// <summary>
@@ -975,7 +980,8 @@ namespace Gibbo.Library
         {
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
-                component.OnMouseOut();
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnMouseOut();
         }
 
         /// <summary>
@@ -986,7 +992,8 @@ namespace Gibbo.Library
         {
             // send notification to components that this object collided with other
             foreach (ObjectComponent component in components)
-                component.OnCollisionEnter(other);
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnCollisionEnter(other);
         }
 
         /// <summary>
@@ -996,7 +1003,8 @@ namespace Gibbo.Library
         {
             // send notification to components
             foreach (ObjectComponent component in components)
-                component.OnCollisionFree();
+                if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
+                    component.OnCollisionFree();
         }
 
         /// <summary>
