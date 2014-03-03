@@ -403,8 +403,7 @@ namespace Gibbo.Editor.WPF
                 System.Windows.DataObject dataObj = info.GetValue(obj) as System.Windows.DataObject;
                 ExplorerTreeViewItem item = dataObj.GetData(typeof(ExplorerTreeViewItem)) as ExplorerTreeViewItem;
 
-                if (EditorUtils.isDirectory(item.FullPath))
-                    return;
+                if (EditorUtils.isDirectory(item.FullPath)) return;
 
                 string relativePath = item.FullPath.Replace(SceneManager.GameProject.ProjectPath + "\\", string.Empty);
                 string name = System.IO.Path.GetFileNameWithoutExtension(relativePath);

@@ -62,7 +62,7 @@ namespace Gibbo.Editor.WPF
                 //Dispatcher.Invoke((Action)(() =>
                 //{ 
                     //PreviewImage.Source = new BitmapImage(new Uri(path));
-                    if (lastPath == path) return;
+                    if (lastPath == path || EditorUtils.isDirectory(path)) return;
                     lastPath = path;
 
                     BitmapImage image = new BitmapImage();

@@ -79,9 +79,7 @@ namespace Gibbo.Editor.WPF
 
         protected override void OnMouseEnter(System.Windows.Input.MouseEventArgs e)
         {
-
-            if (EditorUtils.isDirectory(this.FullPath))
-                return;
+            if (!System.IO.File.Exists(this.FullPath) || EditorUtils.isDirectory(this.FullPath)) return;
 
             Point p = PointToScreen(e.GetPosition(this));
             lastpos = p;
