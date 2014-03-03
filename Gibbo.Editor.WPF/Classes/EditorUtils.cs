@@ -273,5 +273,16 @@ namespace Gibbo.Editor.WPF
             DependencyObject scope = FocusManager.GetFocusScope((obj as T));
             FocusManager.SetFocusedElement(scope, parent as IInputElement);
         }
+
+        internal static bool isDirectory(string fullPath)
+        {
+            FileAttributes attr = File.GetAttributes(fullPath);
+
+            //detect whether its a directory or file
+            if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+                return true;
+
+            return false;
+        }
     }
 }

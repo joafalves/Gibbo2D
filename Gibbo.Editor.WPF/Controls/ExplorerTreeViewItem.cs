@@ -23,6 +23,7 @@ of the license is available, in which case the most recent copy of the license s
 using Gibbo.Library;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -68,10 +69,20 @@ namespace Gibbo.Editor.WPF
 
         #endregion
 
+        #region Methods
+
+        
+         
+        #endregion
+
         #region events
 
         protected override void OnMouseEnter(System.Windows.Input.MouseEventArgs e)
         {
+
+            if (EditorUtils.isDirectory(this.FullPath))
+                return;
+
             Point p = PointToScreen(e.GetPosition(this));
             lastpos = p;
 
