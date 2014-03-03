@@ -114,7 +114,7 @@ namespace Gibbo.Library
             get { return fntFilePath; }
             set
             {
-                if (Path.GetExtension(value).Equals(".fnt"))
+                if (System.IO.Path.GetExtension(value).Equals(".fnt"))
                 {
                     fntFilePath = value;
                     LoadData();
@@ -136,7 +136,7 @@ namespace Gibbo.Library
             get { return textureFilePath; }
             set
             {
-                if (Path.GetExtension(value).Equals(".png"))
+                if (System.IO.Path.GetExtension(value).Equals(".png"))
                 {
                     textureFilePath = value;
                     LoadData();
@@ -205,8 +205,8 @@ namespace Gibbo.Library
 
         private void LoadData()
         {
-            string _fntFilePath = Path.Combine(SceneManager.GameProject.ProjectPath, fntFilePath);
-            string _textureFilePath = Path.Combine(SceneManager.GameProject.ProjectPath, textureFilePath);
+            string _fntFilePath = System.IO.Path.Combine(SceneManager.GameProject.ProjectPath, fntFilePath);
+            string _textureFilePath = System.IO.Path.Combine(SceneManager.GameProject.ProjectPath, textureFilePath);
 
 #if WINDOWS
             if (File.Exists(_fntFilePath) && File.Exists(_textureFilePath))

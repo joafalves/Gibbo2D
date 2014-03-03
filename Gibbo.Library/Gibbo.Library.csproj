@@ -96,6 +96,7 @@
     <Compile Include="Classes\CollisionManager.cs" />
     <Compile Include="Classes\Game Objects\BMFont.cs" />
     <Compile Include="Classes\Game Objects\ParticleEmitter.cs" />
+    <Compile Include="Classes\Game Objects\Path.cs" />
     <Compile Include="Classes\Game Objects\SystemObject.cs" />
     <Compile Include="Classes\Game Objects\Tileset.cs" />
     <Compile Include="Classes\GameObjectCollection.cs" />

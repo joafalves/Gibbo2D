@@ -225,7 +225,7 @@ namespace Gibbo.Library
             GibboProject project = (GibboProject)GibboHelper.DeserializeObject(typeof(GibboProject), npath);
 #endif    
             // Update the project path:
-            project.ProjectPath = Path.GetDirectoryName(filepath);
+            project.ProjectPath = System.IO.Path.GetDirectoryName(filepath);
             project.ProjectFilePath = filepath;
 
             // Load data files

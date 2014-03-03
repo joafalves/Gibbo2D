@@ -68,8 +68,8 @@ namespace Gibbo.Library.Classes
         {
             if(!fontRenderers.ContainsKey(name))
             {
-                string _fntFilePath = Path.Combine(SceneManager.GameProject.ProjectPath, fntFilePath);
-                string _textureFilePath = Path.Combine(SceneManager.GameProject.ProjectPath, fontTexturePath);
+                string _fntFilePath = System.IO.Path.Combine(SceneManager.GameProject.ProjectPath, fntFilePath);
+                string _textureFilePath = System.IO.Path.Combine(SceneManager.GameProject.ProjectPath, fontTexturePath);
 
 #if WINDOWS
                 if (File.Exists(_fntFilePath) && File.Exists(_textureFilePath))

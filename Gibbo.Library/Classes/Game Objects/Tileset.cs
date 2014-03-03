@@ -75,6 +75,17 @@ namespace Gibbo.Library
     {
         #region fields
 
+        bool useRenderTarget = false;
+
+        [NonSerialized]
+        bool needsRefresh = false;
+
+        [NonSerialized]
+        private SpriteBatch tilesetBatch;
+
+        [NonSerialized]
+        private RenderTarget2D tilesetRender;
+
         [DataMember]
         private Tile[,] tiles = new Tile[20, 18];
 
@@ -111,6 +122,19 @@ namespace Gibbo.Library
         #region properties
 
         /// <summary>
+        /// Determine if in game mode it should use a render target
+        /// </summary>
+#if WINDOWS
+        [Category("Tileset Properties")]
+        [DisplayName("Use Render Target"), Description("Determine if in game mode it should use a render target")]
+#endif
+        public bool UseRenderTarget
+        {
+            get { return useRenderTarget; }
+            set { useRenderTarget = value; }
+        }
+
+        /// <summary>
         /// 
         /// </summary>
 #if WINDOWS
@@ -119,7 +143,7 @@ namespace Gibbo.Library
         public Tile[,] Tiles
         {
             get { return tiles; }
-            set { tiles = value; }
+            set { tiles = value; needsRefresh = true; }
         }
 
         /// <summary>
@@ -303,7 +327,9 @@ namespace Gibbo.Library
                 else if (endPos.Y < 0)
                     endPos.Y = 0;
 
-                return new Rectangle((int)startPos.X, (int)startPos.Y, (int)endPos.X - (int)startPos.X, (int)endPos.Y - (int)startPos.Y);
+                Rectangle result = new Rectangle((int)startPos.X, (int)startPos.Y, (int)endPos.X - (int)startPos.X, (int)endPos.Y - (int)startPos.Y);
+
+                return result;
             }
         }
 
@@ -367,6 +393,11 @@ namespace Gibbo.Library
 
             collisionBoundryColor = Color.FromNonPremultiplied(255, 64, 0, 120);
             dimColor = Color.FromNonPremultiplied(255, 255, 255, 150);
+
+            tilesetBatch = new SpriteBatch(SceneManager.GraphicsDevice);
+
+            needsRefresh = true;
+
         }
 
         private void LoadTexture()
@@ -391,48 +422,119 @@ namespace Gibbo.Library
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             base.Draw(gameTime, spriteBatch);
-           
+
             if (texture != null && Visible)
             {
-                Rectangle visibleTiles = VisibleTiles;
-
-                if (visibleTiles != Rectangle.Empty)
+                if (!SceneManager.IsEditor && useRenderTarget)
                 {
-                    spriteBatch.Begin(SpriteSortMode.Texture, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                    Rectangle visibleTiles = VisibleTiles;
 
-                    for (int x = visibleTiles.X; x < visibleTiles.X + visibleTiles.Width; x++)
+                    if (visibleTiles != Rectangle.Empty)
                     {
-                        for (int y = visibleTiles.Y; y < visibleTiles.Y + visibleTiles.Height; y++)
+                        if (needsRefresh)
                         {
-                            if (tiles[x, y] != null)
-                            {
-                                //  Console.WriteLine(TileWorldPos(x, y));
-                                Vector2 worldPos = TileWorldPos(x, y);
+                            needsRefresh = false;
 
-                                // use highlight mode?
-                                if (((SceneManager.IsEditor && SceneManager.GameProject.ProjectSettings.HighlightActiveTilesetInEditor) ||
-                                    !SceneManager.IsEditor && SceneManager.GameProject.ProjectSettings.HighlightActiveTilesetInGame) &&
-                                    SceneManager.ActiveTileset != null)
+                            if (tilesetRender != null)
+                                tilesetRender.Dispose();
+
+                            tilesetRender = new RenderTarget2D(SceneManager.GraphicsDevice, Width * tileWidth,
+                                           Height * tileHeight);
+
+                            SceneManager.GraphicsDevice.SetRenderTarget(tilesetRender);
+                            SceneManager.GraphicsDevice.Clear(Color.Transparent);
+
+                            tilesetBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
+
+                            for (int x = 0; x < Width; x++)
+                            {
+                                for (int y = 0; y < Height; y++)
                                 {
-                                    if (SceneManager.ActiveTileset == this)
+                                    if (tiles[x, y] != null)
                                     {
-                                        spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, Color.White);
+                                        //  Console.WriteLine(TileWorldPos(x, y));
+                                        //Vector2 worldPos = TileWorldPos(x, y);
+                                        Vector2 worldPos = new Vector2() { X = x * tileWidth, Y = y * tileHeight };
+                                        Rectangle nsrc = tiles[x, y].Source;
+
+                                        // normal mode (everything has the same focus)
+                                        tilesetBatch.Draw(this.texture, worldPos, nsrc, Color.White);
+                                    }
+                                }
+                            }
+
+                            tilesetBatch.End();
+
+                            SceneManager.GraphicsDevice.SetRenderTarget(null);
+                        }
+
+                        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+
+                        Vector2 drawPosition = TileWorldPos(0, 0);
+
+                        //if (((SceneManager.IsEditor && SceneManager.GameProject.ProjectSettings.HighlightActiveTilesetInEditor) ||
+                        //                    !SceneManager.IsEditor && SceneManager.GameProject.ProjectSettings.HighlightActiveTilesetInGame) &&
+                        //                    SceneManager.ActiveTileset != null)
+                        //{
+                        //    if (SceneManager.ActiveTileset == this)
+                        //    {
+                        //        spriteBatch.Draw(tilesetRender, drawPosition, Color.White);
+                        //    }
+                        //    else
+                        //    {
+                        //        spriteBatch.Draw(tilesetRender, drawPosition, dimColor);
+                        //    }
+                        //}
+                        //else
+                        //{
+                            spriteBatch.Draw(tilesetRender, drawPosition, Color.White);
+                        //}
+
+                        spriteBatch.End();
+                    }
+                }
+                else
+                {
+                    Rectangle visibleTiles = VisibleTiles;
+
+                    if (visibleTiles != Rectangle.Empty)
+                    {
+                        spriteBatch.Begin(SpriteSortMode.Texture, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+
+                        for (int x = visibleTiles.X; x < visibleTiles.X + visibleTiles.Width; x++)
+                        {
+                            for (int y = visibleTiles.Y; y < visibleTiles.Y + visibleTiles.Height; y++)
+                            {
+                                if (tiles[x, y] != null)
+                                {
+                                    //  Console.WriteLine(TileWorldPos(x, y));
+                                    Vector2 worldPos = TileWorldPos(x, y);
+
+                                    // use highlight mode?
+                                    if (((SceneManager.IsEditor && SceneManager.GameProject.ProjectSettings.HighlightActiveTilesetInEditor) ||
+                                        !SceneManager.IsEditor && SceneManager.GameProject.ProjectSettings.HighlightActiveTilesetInGame) &&
+                                        SceneManager.ActiveTileset != null)
+                                    {
+                                        if (SceneManager.ActiveTileset == this)
+                                        {
+                                            spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, Color.White);
+                                        }
+                                        else
+                                        {
+                                            spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, dimColor);
+                                        }
                                     }
                                     else
                                     {
-                                        spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, dimColor);
+                                        // normal mode (everything has the same focus)
+                                        spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, Color.White);
                                     }
-                                }
-                                else
-                                {
-                                    // normal mode (everything has the same focus)
-                                    spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, Color.White);
                                 }
                             }
                         }
-                    }
 
-                    spriteBatch.End();
+                        spriteBatch.End();
+                    }
                 }
             }
         }
@@ -465,6 +567,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
 
             this.tiles = newTileset;
         }
@@ -595,6 +699,8 @@ namespace Gibbo.Library
                     Source = new Rectangle((int)sourcePosition.X, (int)sourcePosition.Y, tileWidth, tileHeight)
                 };
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -675,6 +781,8 @@ namespace Gibbo.Library
                 }
             }
 
+            needsRefresh = true;
+
             return result;
         }
 
@@ -704,6 +812,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -732,6 +842,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -760,6 +872,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -788,6 +902,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -839,6 +955,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -864,6 +982,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -889,6 +1009,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>
@@ -914,6 +1036,8 @@ namespace Gibbo.Library
                     }
                 }
             }
+
+            needsRefresh = true;
         }
 
         /// <summary>

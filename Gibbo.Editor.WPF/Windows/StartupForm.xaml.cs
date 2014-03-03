@@ -143,7 +143,7 @@ namespace Gibbo.Editor.WPF
                     {
                         ListBoxItem item = new ListBoxItem();
 
-                        item.Content = GibboHelper.SplitCamelCase( Path.GetDirectoryName(split).Split('\\').Last());
+                        item.Content = GibboHelper.SplitCamelCase(System.IO.Path.GetDirectoryName(split).Split('\\').Last());
                         item.Tag = split;
 
                         ProjectsListBox.Items.Add(item);

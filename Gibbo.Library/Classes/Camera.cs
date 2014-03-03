@@ -173,13 +173,13 @@ namespace Gibbo.Library
                 // make sure we keep the real scale (user input):
                 float widthScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth / (float)SceneManager.GameProject.Settings.ScreenWidth;
                 float heightScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight / (float)SceneManager.GameProject.Settings.ScreenHeight;
-                scalingFactor = new Vector3(widthScale, heightScale, 1);
+                scalingFactor = new Vector3((float)Math.Round(widthScale, 1), (float)Math.Round(heightScale, 1), 1);
             }
 
             Vector2 target = Position;
             float aspectRatio = ((float)SceneManager.GraphicsDevice.Viewport.Width) / ((float)SceneManager.GraphicsDevice.Viewport.Height);
             Matrix result =
-                Matrix.CreateTranslation(-target.X, -target.Y, 0.0f) *
+                Matrix.CreateTranslation(-(float)Math.Round(target.X, 1), -(float)Math.Round(target.Y), 0.0f) *
                 Matrix.CreateRotationZ(rotation) *
                 Matrix.CreateScale(new Vector3((float)zoom, (float)zoom, 1)) *
                 Matrix.CreateScale(scalingFactor) *

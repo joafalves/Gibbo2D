@@ -74,10 +74,23 @@ namespace Gibbo.Engine.Windows
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreparingDeviceSettings += graphics_PreparingDeviceSettings;
             //graphics.SynchronizeWithVerticalRetrace = false;
             Content.RootDirectory = "";
 
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
+        }
+
+        void graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+            try
+            {
+                e.GraphicsDeviceInformation.PresentationParameters.PresentationInterval = PresentInterval.Two;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         /// <summary>
@@ -135,7 +148,7 @@ namespace Gibbo.Engine.Windows
             // Search for the project file
             foreach (string filePath in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
             {
-                if (Path.GetExtension(filePath).ToLower().Equals(".gibbo"))
+                if (System.IO.Path.GetExtension(filePath).ToLower().Equals(".gibbo"))
                 {
                     projectFilePath = filePath;
                     break;
@@ -173,7 +186,7 @@ namespace Gibbo.Engine.Windows
             {
                 foreach (string fileName in Directory.GetFiles(SceneManager.GameProject.ProjectPath + "\\libs\\"))
                 {
-                    string asmName = Path.GetFileName(fileName);
+                    string asmName = System.IO.Path.GetFileName(fileName);
                     if (asmName.Replace(".dll", "") == args.Name.Substring(0, args.Name.IndexOf(",")))
                     {
                         strTempAssmbPath = SceneManager.GameProject.ProjectPath + "\\libs\\" + asmName;

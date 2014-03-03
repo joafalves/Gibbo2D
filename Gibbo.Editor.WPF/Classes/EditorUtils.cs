@@ -276,11 +276,13 @@ namespace Gibbo.Editor.WPF
 
         internal static bool isDirectory(string fullPath)
         {
-            FileAttributes attr = File.GetAttributes(fullPath);
+            //FileAttributes attr = File.GetAttributes(fullPath);
 
-            //detect whether its a directory or file
-            if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
-                return true;
+            ////detect whether its a directory or file
+            //if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+            //    return true;
+
+            //return false;
 
             return false;
         }

@@ -60,6 +60,8 @@ namespace Gibbo.Editor.WPF
             graphicsDevice.PresentationParameters.DeviceWindowHandle = windowHandle;
             graphicsDevice.PresentationParameters.BackBufferWidth = Math.Max(width, 1);
             graphicsDevice.PresentationParameters.BackBufferHeight = Math.Max(height, 1);
+            graphicsDevice.PresentationParameters.PresentationInterval = PresentInterval.Two;
+          
         }
 
 

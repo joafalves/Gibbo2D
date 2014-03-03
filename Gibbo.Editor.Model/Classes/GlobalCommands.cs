@@ -64,21 +64,21 @@ namespace Gibbo.Editor.Model
                     // clear blocked directories from the root folder:
                     foreach (string dirPath in Directory.GetDirectories(destinationPath, "*", SearchOption.TopDirectoryOnly))
                     {
-                        if (blockedDirs.Contains(Path.GetFileName(dirPath)))
+                        if (blockedDirs.Contains(System.IO.Path.GetFileName(dirPath)))
                             Directory.Delete(dirPath, true);
                     }
 
                     // copy all the files
                     foreach (string path in Directory.GetFiles(projectPath, "*.*", SearchOption.AllDirectories))
                     {
-                        string filename = Path.GetFileName(path);
-                        string ext = Path.GetExtension(path);
-                        if (!blockedFileExtensions.Contains(ext) && 
-                            Directory.Exists(Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
+                        string filename = System.IO.Path.GetFileName(path);
+                        string ext = System.IO.Path.GetExtension(path);
+                        if (!blockedFileExtensions.Contains(ext) &&
+                            Directory.Exists(System.IO.Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
                         {
                             if (filename.ToLower().Equals("gibbo.engine.windows.exe"))
                             {
-                                File.Copy(path, Path.GetDirectoryName(path.Replace(projectPath, destinationPath)) + "\\" + SceneManager.GameProject.ProjectName + ".exe", true);
+                                File.Copy(path, System.IO.Path.GetDirectoryName(path.Replace(projectPath, destinationPath)) + "\\" + SceneManager.GameProject.ProjectName + ".exe", true);
                             }
                             else
                             {
@@ -98,9 +98,9 @@ namespace Gibbo.Editor.Model
                     //Copy all the files
                     foreach (string path in Directory.GetFiles(projectPath, "*.*", SearchOption.AllDirectories))
                     {
-                        if (!Directory.Exists(Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
+                        if (!Directory.Exists(System.IO.Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
                         {
-                            Directory.CreateDirectory(Path.GetDirectoryName(path.Replace(projectPath, destinationPath)));
+                            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path.Replace(projectPath, destinationPath)));
                         }
 
                         if (path.ToLower().EndsWith(".scene"))

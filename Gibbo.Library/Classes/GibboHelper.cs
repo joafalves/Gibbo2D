@@ -84,7 +84,7 @@ namespace Gibbo.Library
             foreach (FileInfo file in files)
             {
                 // Create the path to the new copy of the file.
-                string temppath = Path.Combine(destDirName, file.Name);
+                string temppath = System.IO.Path.Combine(destDirName, file.Name);
 
                 // Copy the file.
                 file.CopyTo(temppath, true);
@@ -96,7 +96,7 @@ namespace Gibbo.Library
                 foreach (DirectoryInfo subdir in dirs)
                 {
                     // Create the subdirectory.
-                    string temppath = Path.Combine(destDirName, subdir.Name);
+                    string temppath = System.IO.Path.Combine(destDirName, subdir.Name);
 
                     // Copy the subdirectories.
                     CopyDirectory(subdir.FullName, temppath, copySubDirs);
@@ -212,7 +212,7 @@ namespace Gibbo.Library
             if (String.IsNullOrEmpty(toPath)) throw new ArgumentNullException("toPath");
 
 #if WINDOWS
-            return toPath.Replace(fromPath, string.Empty).TrimStart(Path.DirectorySeparatorChar);
+            return toPath.Replace(fromPath, string.Empty).TrimStart(System.IO.Path.DirectorySeparatorChar);
 #elif WINRT
             return toPath.Replace(fromPath, string.Empty).TrimStart('\\');
 #endif

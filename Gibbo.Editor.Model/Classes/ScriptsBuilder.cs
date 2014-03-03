@@ -87,11 +87,11 @@ namespace Gibbo.Editor
                     //search for .sln and .csproj files
                     foreach (string filename in Directory.GetFiles(SceneManager.GameProject.ProjectPath))
                     {
-                        if (Path.GetExtension(filename).ToLower().Equals(".csproj"))
+                        if (System.IO.Path.GetExtension(filename).ToLower().Equals(".csproj"))
                         {
                             UserPreferences.Instance.ProjectCsProjFilePath = filename;
                         }
-                        else if (Path.GetExtension(filename).ToLower().Equals(".sln"))
+                        else if (System.IO.Path.GetExtension(filename).ToLower().Equals(".sln"))
                         {
                             UserPreferences.Instance.ProjectSlnFilePath = filename;
                         }
