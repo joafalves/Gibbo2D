@@ -97,14 +97,14 @@ namespace Gibbo.Editor.WPF
         {
             GameLoop();
 
-            //if (!this.Focused)
-            //{
-            //    Thread.Sleep(10);
-            //}
-            //else
-            //{
-            //    Thread.Sleep(1);
-            //}
+            if (!this.Focused)
+            {
+                Thread.Sleep(200);
+            }
+            else
+            {
+                Thread.Sleep(10);
+            }
 
             Draw(gameTime);
         }

@@ -331,7 +331,7 @@ namespace Gibbo.Library
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine(ex.ToString());
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }

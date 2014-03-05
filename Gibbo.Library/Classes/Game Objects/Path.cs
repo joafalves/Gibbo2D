@@ -78,6 +78,11 @@ namespace Gibbo.Library
 
         #region methods
 
+        /// <summary>
+        /// Draws this instance
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spriteBatch"></param>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             base.Draw(gameTime, spriteBatch);
