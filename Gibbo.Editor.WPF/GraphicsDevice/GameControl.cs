@@ -28,6 +28,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Gibbo.Library;
 using XKeys = Microsoft.Xna.Framework.Input.Keys;
+using System.ComponentModel;
 
 namespace Gibbo.Editor.WPF
 {
@@ -64,6 +65,11 @@ namespace Gibbo.Editor.WPF
             KeyUp += GameControl_KeyUp;
         }
 
+        void t_Tick(object sender, EventArgs e)
+        {
+            GameLoop();
+        }
+
         void GameControl_KeyUp(object sender, KeyEventArgs e)
         {
             XKeys xkey = KeyboardUtil.ToXna(e.KeyCode);
@@ -95,18 +101,7 @@ namespace Gibbo.Editor.WPF
 
         protected override void Draw()
         {
-            GameLoop();
-
-            if (!this.Focused)
-            {
-                Thread.Sleep(200);
-            }
-            else
-            {
-                Thread.Sleep(10);
-            }
-
-            Draw(gameTime);
+            GameLoop();            
         }
 
         private void GameLoop()
@@ -135,7 +130,8 @@ namespace Gibbo.Editor.WPF
                 HandleInput();
             }
             
-            Update(gameTime);    
+            Update(gameTime);
+            Draw(gameTime);
         }
 
         private void HandleInput()

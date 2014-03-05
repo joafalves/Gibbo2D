@@ -44,6 +44,7 @@ using Gibbo.Editor.Model;
 using System.Windows.Controls;
 using Xceed.Wpf.AvalonDock;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Gibbo.Editor.WPF
 {

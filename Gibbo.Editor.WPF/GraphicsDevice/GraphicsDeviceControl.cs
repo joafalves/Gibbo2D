@@ -182,9 +182,11 @@ namespace Gibbo.Editor.WPF
 
         #region Paint
 
+
+
         void TickWhileIdle(object sender, EventArgs e)
         {
-            //Console.WriteLine("Tick: " + this.GetType());
+          
             Tick(sender, e);
 
             NativeMethods.Message message;
@@ -221,6 +223,7 @@ namespace Gibbo.Editor.WPF
             {
                 Invalidate();
             }
+
         }
 
         /// <summary>
@@ -243,18 +246,32 @@ namespace Gibbo.Editor.WPF
             return base.IsInputKey(keyData);
         }
 
+        const float IDLE_PAINT_ELAPSED = 400;
+        const float FOCUSED_PAINT_ELAPSED = 15;
+        float elapsed = IDLE_PAINT_ELAPSED;
+
         /// <summary>
         /// Redraws the control in response to a WinForms paint message.
         /// </summary>
         protected override void OnPaint(PaintEventArgs e)
         {
+            TimeSpan currentTime = stopWatch.Elapsed;
+            TimeSpan elapsedTime = currentTime - lastTime;
+           
+            elapsed += elapsedTime.Milliseconds;
+            lastTime = currentTime;
+
             string beginDrawError = BeginDraw();
 
             if (string.IsNullOrEmpty(beginDrawError))
             {
                 // Draw the control using the GraphicsDevice.
-                Draw();
-                EndDraw();
+                if (elapsed > (this.Focused ? FOCUSED_PAINT_ELAPSED : IDLE_PAINT_ELAPSED)) // cpu memory leak fix
+                {
+                    elapsed = 0;
+                    Draw();
+                    EndDraw();
+                }
             }
             else
             {

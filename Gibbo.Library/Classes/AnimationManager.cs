@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace Gibbo.Library
-{
-    
+{  
 
     public class AnimationManager
     {
