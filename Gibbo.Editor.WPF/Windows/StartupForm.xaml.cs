@@ -76,8 +76,8 @@ namespace Gibbo.Editor.WPF
         #region constructors
 
         public StartupForm()
-        {
-            //new SplashWindow().ShowDialog();
+        {            
+            new SplashWindow().ShowDialog();
 
             while (Gibbo.Editor.WPF.Properties.Settings.Default.UserEmail.Equals(string.Empty))
                 new FirstLoginWindow().ShowDialog();

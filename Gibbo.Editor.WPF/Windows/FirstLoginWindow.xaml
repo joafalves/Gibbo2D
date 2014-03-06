@@ -6,7 +6,8 @@
         <Label Content="Your Email:" FontSize="14" Foreground="{DynamicResource ForegroundGray}" HorizontalAlignment="Left" Margin="7,108,0,0" VerticalAlignment="Top" />
         <TextBox FontSize="14" Foreground="{DynamicResource ForegroundGray}" Height="24" HorizontalAlignment="Left" Margin="12,137,0,0" Name="emailTxtBox" Template="{DynamicResource TextBoxBaseControlTemplate}" Text="" TextWrapping="NoWrap" VerticalAlignment="Top" Width="379" />
         <Label Content="Welcome to Gibbo 2D!" FontSize="14" Foreground="{DynamicResource ForegroundGray}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="404" FontWeight="SemiBold" />
-        <TextBlock  TextWrapping="WrapWithOverflow" Text="In order to use this editor you need to insert your email (you won't get unwanted emails). Thanks for the cooperation." FontSize="14" Foreground="{DynamicResource ForegroundGray}" Height="60" HorizontalAlignment="Left" Margin="22,36,0,0" VerticalAlignment="Top" Width="369" ClipToBounds="True" />
+        <TextBlock  TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource ForegroundGray}" Height="60" HorizontalAlignment="Left" Margin="16,41,0,0" VerticalAlignment="Top" Width="369" ClipToBounds="True" Text="If you want to receive newsletters about Gibbo2D please insert your email in the field bellow." />
         <Button x:Name="continueBtn" Content="Continue" HorizontalAlignment="Left" Margin="302,178,0,0" VerticalAlignment="Top" Width="89" Style="{DynamicResource ButtonStyle}" Click="continueBtn_Click" />
+        <Button x:Name="skipBtn" Content="Skip" HorizontalAlignment="Left" Margin="208,178,0,0" VerticalAlignment="Top" Width="89" Style="{DynamicResource ButtonStyle}" Click="skipBtn_Click" />
     </Grid>
 </Window>

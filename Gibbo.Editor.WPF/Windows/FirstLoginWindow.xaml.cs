@@ -47,6 +47,15 @@ namespace Gibbo.Editor.WPF
             InitializeComponent();
         }
 
+        private void skipBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.UserEmail = Gibbo.Library.GibboHelper.EncryptMD5(DateTime.Now.ToString() + Gibbo.Library.GibboHelper.RandomNumber(1, 1000));
+            Properties.Settings.Default.Save();
+
+            canClose = true;
+            this.Close();
+        }
+
         private void continueBtn_Click(object sender, RoutedEventArgs e)
         {
             if (IsValidEmail(emailTxtBox.Text))
