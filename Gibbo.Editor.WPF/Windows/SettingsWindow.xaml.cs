@@ -71,6 +71,7 @@ namespace Gibbo.Editor.WPF
                     }
                     (settings as GibboGeneralSettingsDynamic).StartOnFullScreen = Properties.Settings.Default.StartOnFullScreen;
                     (settings as GibboGeneralSettingsDynamic).ShowDebugView = Properties.Settings.Default.ShowDebugView;
+                    (settings as GibboGeneralSettingsDynamic).ReduceConsumption = Properties.Settings.Default.ReduceConsumption;
                     break;
 
                 case "gibbo_tileset":
@@ -129,7 +130,7 @@ namespace Gibbo.Editor.WPF
                     Properties.Settings.Default.LoadLastProject = (propertyGrid.SelectedObject as GibboGeneralSettingsDynamic).AutomaticProjectLoad;
                     Properties.Settings.Default.StartOnFullScreen = (propertyGrid.SelectedObject as GibboGeneralSettingsDynamic).StartOnFullScreen;
                     Properties.Settings.Default.ShowDebugView = (propertyGrid.SelectedObject as GibboGeneralSettingsDynamic).ShowDebugView;
-
+                    Properties.Settings.Default.ReduceConsumption = (propertyGrid.SelectedObject as GibboGeneralSettingsDynamic).ReduceConsumption;
                     string appName = (propertyGrid.SelectedObject as GibboGeneralSettingsDynamic).ScriptEditors.ToString();
                     
                     // colocar no startup do gibbo
@@ -228,6 +229,7 @@ namespace Gibbo.Editor.WPF
         private bool automaticProjectLoad;
         private bool startOnFullScreen;
         private bool showDebugView;
+        private bool reduceConsumption;
         private ScriptingEditors scriptEditors;
 
         [Category("General")]
@@ -236,6 +238,14 @@ namespace Gibbo.Editor.WPF
         {
             get { return showDebugView; }
             set { showDebugView = value; }
+        }
+
+        [Category("General")]
+        [DisplayName("Reduce CPU Consumption")]
+        public bool ReduceConsumption
+        {
+            get { return reduceConsumption; }
+            set { reduceConsumption = value; }
         }
 
         [Category("General")]

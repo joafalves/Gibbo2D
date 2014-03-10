@@ -154,5 +154,17 @@ namespace Gibbo.Editor.WPF.Properties {
                 this["secundaryExtension"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ReduceConsumption {
+            get {
+                return ((bool)(this["ReduceConsumption"]));
+            }
+            set {
+                this["ReduceConsumption"] = value;
+            }
+        }
     }
 }

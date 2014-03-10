@@ -247,7 +247,7 @@ namespace Gibbo.Editor.WPF
         }
 
         const float IDLE_PAINT_ELAPSED = 400;
-        const float FOCUSED_PAINT_ELAPSED = 15;
+        const float FOCUSED_PAINT_ELAPSED = 0;
         float elapsed = IDLE_PAINT_ELAPSED;
 
         /// <summary>
@@ -258,20 +258,29 @@ namespace Gibbo.Editor.WPF
             TimeSpan currentTime = stopWatch.Elapsed;
             TimeSpan elapsedTime = currentTime - lastTime;
            
-            elapsed += elapsedTime.Milliseconds;
             lastTime = currentTime;
 
             string beginDrawError = BeginDraw();
 
             if (string.IsNullOrEmpty(beginDrawError))
             {
-                // Draw the control using the GraphicsDevice.
-                if (elapsed > (this.Focused ? FOCUSED_PAINT_ELAPSED : IDLE_PAINT_ELAPSED)) // cpu memory leak fix
+                if (Properties.Settings.Default.ReduceConsumption)
                 {
-                    elapsed = 0;
+                    elapsed += elapsedTime.Milliseconds;
+
+                    // Draw the control using the GraphicsDevice.
+                    if (elapsed > (this.Focused ? FOCUSED_PAINT_ELAPSED : IDLE_PAINT_ELAPSED)) // cpu memory leak fix
+                    {
+                        elapsed = 0;
+                        Draw();
+                        EndDraw();
+                    }
+                }
+                else
+                {
                     Draw();
                     EndDraw();
-                }
+                }   
             }
             else
             {

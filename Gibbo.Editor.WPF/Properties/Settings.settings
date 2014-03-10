@@ -35,5 +35,8 @@
     <Setting Name="secundaryExtension" Type="System.String" Scope="User">
       <Value Profile="(Default)">animatedsprite</Value>
     </Setting>
+    <Setting Name="ReduceConsumption" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

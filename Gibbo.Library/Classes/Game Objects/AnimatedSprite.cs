@@ -358,10 +358,10 @@ namespace Gibbo.Library
 
                             if (currentRow >= totalRows)
                             {
+                                currentRow = 0;
+
                                 if (!loop)
-                                    isPlaying = false;
-                                else
-                                    currentRow = 0;
+                                    isPlaying = false;                                    
                             }
                         }
                         else
