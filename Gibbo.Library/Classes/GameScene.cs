@@ -388,6 +388,8 @@ namespace Gibbo.Library
         /// <param name="gameTime">The Gametime</param>
         public void Draw(GameTime gameTime)
         {
+            SceneManager.drawPass = 0;
+
             if (renderViews.Count == 0)
             {
                 for (int i = 0; i < gameObjects.Count; i++)
@@ -403,13 +405,17 @@ namespace Gibbo.Library
                 {
                     SceneManager.GraphicsDevice.Viewport = v.Viewport;
                     SceneManager.ActiveScene.camera = v.Camera;
+                    SceneManager.ActiveCamera = v.Camera;
 
                     for (int i = 0; i < gameObjects.Count; i++)
                         gameObjects[i].Draw(gameTime, this.SpriteBatch);
+
+                    SceneManager.drawPass++;
                 }
 
                 // load defaults
                 SceneManager.GraphicsDevice.Viewport = defaultViewport;
+                SceneManager.ActiveScene.camera = defaultCamera;
                 SceneManager.ActiveCamera = defaultCamera;
             }
 

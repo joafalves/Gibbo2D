@@ -30,6 +30,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using FarseerPhysics.Dynamics;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+
 
 namespace Gibbo.Editor.WPF
 {
@@ -210,7 +214,7 @@ namespace Gibbo.Editor.WPF
         /// </summary>
         private void LoadContent()
         {
-            
+
         }
 
         /// <summary>
@@ -565,7 +569,7 @@ namespace Gibbo.Editor.WPF
                     {
                         spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, null, null, SceneManager.ActiveCamera.ObjectTransform(gameObject));
                         Primitives.DrawBox(spriteBatch, measure, Color.CornflowerBlue, 3);
-                        spriteBatch.End();                       
+                        spriteBatch.End();
                     }
                 }
             }
@@ -662,6 +666,70 @@ namespace Gibbo.Editor.WPF
             mouseLastPosition = new Vector2(mouseWorldPosition.X, mouseWorldPosition.Y);
         }
 
+        private void Screenshot()
+        {
+            RenderTarget2D renderTarget = new RenderTarget2D(
+                     SceneManager.GraphicsDevice,
+                     SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth,
+                     SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight);
+
+            SceneManager.GraphicsDevice.SetRenderTarget(renderTarget);
+
+            Draw(new GameTime());
+
+            SceneManager.GraphicsDevice.SetRenderTarget(null);
+
+            if (!Directory.Exists("Screenshots"))
+                Directory.CreateDirectory("Screenshots");
+
+            var path = AppDomain.CurrentDomain.BaseDirectory + "Screenshots\\screenshot " + DateTime.Now.ToString("dd-MM-yy  H_mm_ss") + ".png";
+
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                int width = renderTarget.Width;
+                int height = renderTarget.Height;
+                byte[] data = null;
+                GCHandle? handle = null;
+                System.Drawing.Bitmap bitmap = null;
+                try
+                {
+                    data = new byte[width * height * 4];
+                    handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+                    renderTarget.GetData(data);
+
+                    // internal structure is BGR while bitmap expects RGB
+                    for (int i = 0; i < data.Length; i += 4)
+                    {
+                        byte temp = data[i + 0];
+                        data[i + 0] = data[i + 2];
+                        data[i + 2] = temp;
+                    }
+
+                    bitmap = new System.Drawing.Bitmap(width, height, width * 4,
+                        System.Drawing.Imaging.PixelFormat.Format32bppRgb,
+                        handle.Value.AddrOfPinnedObject());
+                    // System.Drawing.Imaging.PixelFormat.Format32bppArgb // does not save alpha properly
+
+                    bitmap.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
+                }
+                finally
+                {
+                    if (bitmap != null)
+                    {
+                        bitmap.Dispose();
+                    }
+                    if (handle.HasValue)
+                    {
+                        handle.Value.Free();
+                    }
+                    if (data != null)
+                    {
+                        data = null;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -672,6 +740,14 @@ namespace Gibbo.Editor.WPF
             //    CompilerWindow cf = new CompilerWindow();
             //    cf.Show();
             //}
+
+            if (GameInput.IsKeyPressed(Keys.F9))
+            {
+                lock (this)
+                {
+                    Screenshot();
+                }
+            }
 
             if (TileSetMode)
             {
@@ -1229,7 +1305,7 @@ namespace Gibbo.Editor.WPF
         private bool ChildrenOfSelected(GameObject obj)
         {
             Transform o = obj.Transform.Parent;
-            while(o != null)
+            while (o != null)
             {
                 if (EditorHandler.SelectedGameObjects.Contains(o.GameObject))
                     return true;

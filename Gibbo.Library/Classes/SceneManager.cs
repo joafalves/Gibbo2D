@@ -55,6 +55,7 @@ namespace Gibbo.Library
         private static bool isEditor = true;
         private static Tileset activeTileset = null;
 
+        internal static int drawPass = 0;
         private static int fpsCount = 0;
         private static int fps = 0;
         private static float deltaFPSTime = 0f;
@@ -62,6 +63,14 @@ namespace Gibbo.Library
         #endregion
 
         #region properties
+
+        /// <summary>
+        /// The current Draw Pass Index
+        /// </summary>
+        public static int DrawPass
+        {
+            get { return SceneManager.drawPass; }
+        }
 
         /// <summary>
         /// The active game window.

@@ -297,21 +297,28 @@ namespace Gibbo.Editor.WPF
 
         void SetNewPath(string srcPath, string destFolder, string specificFolder, string filename, DependencyObject parentDO, bool overwrite = false)
         {
-            bool fileOnDirectory = srcPath.StartsWith(Gibbo.Library.SceneManager.GameProject.ProjectPath);
+            try
+            {
+                bool fileOnDirectory = srcPath.StartsWith(Gibbo.Library.SceneManager.GameProject.ProjectPath);
 
-            if (!fileOnDirectory)
-                System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
+                if (!fileOnDirectory)
+                    System.IO.File.Copy(srcPath, destFolder + filename, overwrite);
 
-            string relativePath = (@"\Content\" + specificFolder + filename).Trim();
-            if (fileOnDirectory)
-                relativePath = srcPath.Replace(Gibbo.Library.SceneManager.GameProject.ProjectPath, string.Empty);
+                string relativePath = (@"\Content\" + specificFolder + filename).Trim();
+                if (fileOnDirectory)
+                    relativePath = srcPath.Replace(Gibbo.Library.SceneManager.GameProject.ProjectPath, string.Empty);
 
-            if (relativePath.StartsWith("\\"))
-                relativePath = relativePath.Substring(1, relativePath.Length - 1);
+                if (relativePath.StartsWith("\\"))
+                    relativePath = relativePath.Substring(1, relativePath.Length - 1);
 
-            (parentDO as TextBox).Text = relativePath;
+                (parentDO as TextBox).Text = relativePath;
 
-            EditorUtils.SelectAnotherElement<TextBox>(parentDO);
+                EditorUtils.SelectAnotherElement<TextBox>(parentDO);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -228,7 +228,8 @@ namespace Gibbo.Library
 #endif
         public Texture2D Texture
         {
-            get { return this.texture; }
+            get { return this.texture; }  
+            set { this.texture = value; }
         }
 
         /// <summary>
