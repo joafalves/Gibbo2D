@@ -278,6 +278,8 @@ namespace Gibbo.Library
         {
             if (Body != null)
                 Body = null;
+            
+            transform.GameObject = this;
 
             this.components = new List<ObjectComponent>();
             foreach (string name in componentReferences)
@@ -347,8 +349,6 @@ namespace Gibbo.Library
 
             // initialize collision model
             //collisionModel.Initialize(this.transform);
-
-            transform.GameObject = this;
 
             CheckAllAttributes();
         }
@@ -670,7 +670,7 @@ namespace Gibbo.Library
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -744,7 +744,7 @@ namespace Gibbo.Library
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -1023,7 +1023,6 @@ namespace Gibbo.Library
         public object Clone()
         {
             //return this.MemberwiseClone(); // old not functional way
-
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new MemoryStream();
             using (stream)

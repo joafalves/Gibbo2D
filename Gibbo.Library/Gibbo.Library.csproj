@@ -79,6 +79,9 @@
     <Compile Include="Attributes\Info.cs" />
     <Compile Include="Attributes\RequireComponent.cs" />
     <Compile Include="Attributes\Unique.cs" />
+    <Compile Include="Classes\Animation\ITween.cs" />
+    <Compile Include="Classes\Animation\Tween.cs" />
+    <Compile Include="Classes\Components\Animator.cs" />
     <Compile Include="Classes\Components\CircleBody.cs" />
     <Compile Include="Classes\Components\PhysicalBody.cs" />
     <Compile Include="Classes\Components\RectangleBody.cs" />

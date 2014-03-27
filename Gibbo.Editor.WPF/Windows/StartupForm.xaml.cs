@@ -76,8 +76,9 @@ namespace Gibbo.Editor.WPF
         #region constructors
 
         public StartupForm()
-        {            
-            new SplashWindow().ShowDialog();
+        {
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+                new SplashWindow().ShowDialog(); // display splash only on releases
 
             while (Gibbo.Editor.WPF.Properties.Settings.Default.UserEmail.Equals(string.Empty))
                 new FirstLoginWindow().ShowDialog();

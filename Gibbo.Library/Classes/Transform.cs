@@ -188,14 +188,14 @@ namespace Gibbo.Library
         public Vector2 Position
         {
             get
-            {
-                if (gameObject.Body == null)
+            {                
+                if (gameObject != null && gameObject.Body != null)
                 {
-                    return position;
+                    return ConvertUnits.ToDisplayUnits(gameObject.Body.Position);
                 }
                 else
                 {
-                    return ConvertUnits.ToDisplayUnits(gameObject.Body.Position);
+                    return position;
                 }
             }
             set
@@ -204,7 +204,7 @@ namespace Gibbo.Library
 
                 position = value;
 
-                if (gameObject.Body != null)
+                if (gameObject != null && gameObject.Body != null)
                 {
                     desiredPosition = ConvertUnits.ToSimUnits(value);
                     gameObject.Body.Position = desiredPosition;
@@ -215,18 +215,21 @@ namespace Gibbo.Library
 
         private void TranslateChildren(GameObject obj, Vector2 dif, Vector2 difSim)
         {
-            foreach (GameObject _obj in obj.Children)
+            if (obj != null)
             {
-                _obj.Transform.position += dif;
-
-                if (_obj.Body != null)
+                foreach (GameObject _obj in obj.Children)
                 {
-                    _obj.Body.Position += difSim;
-                    if (!SceneManager.IsEditor)
-                        _obj.Body.Awake = true; //wake the body for physics detection
-                }
+                    _obj.Transform.position += dif;
 
-                TranslateChildren(_obj, dif, difSim);
+                    if (_obj.Body != null)
+                    {
+                        _obj.Body.Position += difSim;
+                        if (!SceneManager.IsEditor)
+                            _obj.Body.Awake = true; //wake the body for physics detection
+                    }
+
+                    TranslateChildren(_obj, dif, difSim);
+                }
             }
         }
 
@@ -239,20 +242,20 @@ namespace Gibbo.Library
         public float Rotation
         {
             get
-            {
-                if (gameObject.Body == null)
-                {
-                    if (parent != null)
-                        return rotation + parent.Rotation;
-                    else
-                        return rotation;
-                }
-                else
+            {                
+                if (gameObject != null && gameObject.Body != null)
                 {
                     //if (parent != null)
                     //    return gameObject.Body.Rotation + parent.Rotation;
                     //else
                     return gameObject.Body.Rotation;
+                }
+                else
+                {
+                    if (parent != null)
+                        return rotation + parent.Rotation;
+                    else
+                        return rotation;
                 }
             }
             set
@@ -261,7 +264,7 @@ namespace Gibbo.Library
 
                 rotation = value;
 
-                if (gameObject.Body != null)
+                if (gameObject != null && gameObject.Body != null)
                 {
                     gameObject.Body.Rotation = rotation;
                     gameObject.Body.Awake = true;
@@ -271,14 +274,17 @@ namespace Gibbo.Library
 
         private void RotateChildren(GameObject obj, float dif)
         {
-            foreach (GameObject _obj in obj.Children)
+            if (obj != null)
             {
-                //if (_obj.Body != null)
-                //    _obj.Body.Rotation = _obj.Body.Rotation + _obj.Transform.rotation;
+                foreach (GameObject _obj in obj.Children)
+                {
+                    //if (_obj.Body != null)
+                    //    _obj.Body.Rotation = _obj.Body.Rotation + _obj.Transform.rotation;
 
-                _obj.Transform.RelativePosition = _obj.Transform.RelativePosition.Rotate(dif);
+                    _obj.Transform.RelativePosition = _obj.Transform.RelativePosition.Rotate(dif);
 
-                RotateChildren(_obj, dif);
+                    RotateChildren(_obj, dif);
+                }
             }
         }
 
@@ -294,15 +300,18 @@ namespace Gibbo.Library
             get { return scale; }
             set
             {
-                // scale children along
-                foreach (GameObject go in gameObject.Children)
+                if (gameObject != null)
                 {
-                    go.Transform.Scale = value;
+                    // scale children along
+                    foreach (GameObject go in gameObject.Children)
+                    {
+                        go.Transform.Scale = value;
+                    }
                 }
 
                 scale = value;
 
-                if (gameObject.Body != null && gameObject.physicalBody != null)
+                if (gameObject != null && gameObject.Body != null && gameObject.physicalBody != null)
                 {
                     gameObject.physicalBody.ResetBody();
                     gameObject.Body.Awake = true;
@@ -386,11 +395,14 @@ namespace Gibbo.Library
         /// 
         /// </summary>
         /// <returns></returns>
-        public Transform DeepCopy()
+        public Transform DeepCopy(bool copyGameObject = false)
         {
             Transform result = Clone() as Transform;
 
+            result.gameObject = (copyGameObject ? gameObject.Copy() : gameObject);
             result.Position = new Vector2(this.Position.X, this.Position.Y);
+            result.scale = new Vector2(this.scale.X, this.scale.Y);
+            result.rotation = this.rotation;
 
             return result;
         }
