@@ -108,7 +108,7 @@ namespace Gibbo.Library
         private string tag = string.Empty;
 
         [DataMember]
-        private bool disabled = true;
+        private bool disabled = false;
 
         #endregion
 
