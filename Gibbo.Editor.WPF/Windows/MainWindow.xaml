@@ -167,6 +167,13 @@
                     <MenuItem Header="Reset to Default" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
                     <MenuItem Header="Debug Reset" Click="DebugResetClick" Visibility="Collapsed" />
                 </MenuItem>
+                <MenuItem Header="View" Foreground="#FF212121" >
+                    <MenuItem x:Name="SceneHierarchyMenuItem" Header="Scene Hierarchy"/>
+                    <MenuItem x:Name="ProjectExplorerMenuItem" Header="Project Explorer" />
+                    <MenuItem x:Name="InspectorMenuItem" Header="Inspector"/>
+                    <MenuItem x:Name="TilesetMenuItem" Header="Tileset" />
+                    <MenuItem x:Name="SceneViewMenuItem" Header="Scene View" />
+                </MenuItem>
                 <MenuItem Header="Tools" Foreground="#FF212121" Visibility="Collapsed">
                     <MenuItem Header="Visual Scripting.." HorizontalAlignment="Left" Width="200" />
                 </MenuItem>
