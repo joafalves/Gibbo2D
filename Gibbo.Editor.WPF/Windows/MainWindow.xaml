@@ -283,7 +283,7 @@
                     <!-- Scene View and Output Group -->
                     <avalonDock:LayoutPanel x:Name="SceneViewOGroup" Orientation="Vertical" DockWidth="*">
                         <avalonDock:LayoutAnchorablePane DockWidth="*" DockHeight="*">
-                            <avalonDock:LayoutAnchorable ContentId="SceneView" Title="SceneView">
+                            <avalonDock:LayoutAnchorable ContentId="SceneView" Title="Scene View">
                                 <Grid x:Name="SceneViewContainer">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="22"/>
@@ -323,6 +323,9 @@
                                     <Border Grid.Row="1" BorderBrush="{DynamicResource BorderDark}" BorderThickness="1, 0, 1, 1" x:Name="SceneViewFormContainerHolder">
                                         <winformsIntegration:WindowsFormsHost  x:Name="SceneViewFormContainer" Margin="0"/>
                                     </Border>
+                                    
+                                    
+                                   
                                     <GridSplitter Grid.Row="2" Height="7" VerticalAlignment="Center" HorizontalAlignment="Stretch" ShowsPreview="True" Style="{DynamicResource GridSplitterStyle}"/>
                                     <Border x:Name="OutputExpanderBorder" MinHeight="20" Height="Auto" Grid.Row="3" BorderThickness="1" Margin="0,0,0,0" BorderBrush="{DynamicResource BorderDark}">
                                         <Expander x:Name="OutputExpander" Header="Output" Style="{StaticResource ExpanderStyleNoPadding}" IsExpanded="False" Collapsed="OutputExpander_Collapsed" Expanded="OutputExpander_Expanded" >
