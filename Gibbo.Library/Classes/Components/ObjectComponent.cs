@@ -29,6 +29,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 #if WINRT
 using System.Runtime.Serialization;
@@ -50,14 +51,16 @@ namespace Gibbo.Library
 #endif
     {
         #region fields
-#if WINRT
+
         [DataMember]
-#endif
         private string name = string.Empty;
-#if WINRT
+
         [DataMember]
-#endif
         private bool editorExpanded = false;
+
+        [DataMember]
+        private bool disabled = false;
+
 
 #if WINDOWS
         [NonSerialized]
@@ -67,6 +70,18 @@ namespace Gibbo.Library
         #endregion
 
         #region properties
+
+        /// <summary>
+        /// Determines if the component is disabled
+        /// </summary>
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public bool Disabled
+        {
+            get { return disabled; }
+            set { disabled = value; }
+        }
 
         /// <summary>
         /// The name of the component

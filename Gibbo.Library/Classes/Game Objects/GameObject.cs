@@ -107,9 +107,21 @@ namespace Gibbo.Library
         [DataMember]
         private string tag = string.Empty;
 
+        [DataMember]
+        private bool disabled = true;
+
         #endregion
 
         #region properties
+#if WINDOWS
+        [Category("Object Properties")]
+        [DisplayName("Disabled"), Description("Determines if the object is disabled or not")]
+#endif
+        public bool Disabled
+        {
+            get { return disabled; }
+            set { disabled = value; }
+        }
 
         /// <summary>
         /// The attached body  
@@ -278,7 +290,7 @@ namespace Gibbo.Library
         {
             if (Body != null)
                 Body = null;
-            
+
             transform.GameObject = this;
 
             this.components = new List<ObjectComponent>();
@@ -629,7 +641,7 @@ namespace Gibbo.Library
 
         /// <summary>
         /// Updates the logic of this game object.
-        /// Components and children are notified to update.
+        /// Components and children are notified to \.
         /// </summary>
         /// <param name="gameTime"></param>
         public virtual void Update(GameTime gameTime)
@@ -638,11 +650,14 @@ namespace Gibbo.Library
             {
                 // Update this object children
                 for (int i = 0; i < children.Count; i++)
-                    children[i].Update(gameTime);
+                    if (!children[i].Disabled)
+                        children[i].Update(gameTime);
 
                 // Update this object components
                 foreach (ObjectComponent component in components)
                 {
+                    if (component.Disabled) continue;
+
                     if (SceneManager.IsEditor && component is ExtendedObjectComponent)
                     {
                         component.Update(gameTime);
@@ -702,11 +717,14 @@ namespace Gibbo.Library
                 {
                     // Draw this object children
                     for (int i = 0; i < children.Count; i++)
-                        children[i].Draw(gameTime, spriteBatch);
+                        if (!children[i].Disabled)
+                            children[i].Draw(gameTime, spriteBatch);
 
                     // Draw this object components
                     foreach (ObjectComponent component in components)
                     {
+                        if (component.Disabled) continue;
+
                         if (SceneManager.IsEditor && component is ExtendedObjectComponent)
                         {
                             component.Draw(gameTime, spriteBatch);
@@ -716,7 +734,6 @@ namespace Gibbo.Library
                             component.Draw(gameTime, spriteBatch);
                         }
                     }
-
 
                     //if (CollisionModel.CollisionBoundry.Intersects(SceneManager.ActiveCamera.BoundingBox))
                     //{
@@ -926,7 +943,8 @@ namespace Gibbo.Library
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnMouseDown(buttonPressed);
+                    if (!component.Disabled)
+                        component.OnMouseDown(buttonPressed);
         }
 
         /// <summary>
@@ -938,7 +956,8 @@ namespace Gibbo.Library
             // Send notification to components that this object was clicked
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnMouseClick(buttonPressed);
+                    if (!component.Disabled)
+                        component.OnMouseClick(buttonPressed);
         }
 
         /// <summary>
@@ -949,7 +968,8 @@ namespace Gibbo.Library
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnMouseMove();
+                    if (!component.Disabled)
+                        component.OnMouseMove();
         }
 
         /// <summary>
@@ -959,7 +979,8 @@ namespace Gibbo.Library
         {
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnMouseEnter();
+                    if (!component.Disabled)
+                        component.OnMouseEnter();
         }
 
         /// <summary>
@@ -970,7 +991,8 @@ namespace Gibbo.Library
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnMouseUp();
+                    if (!component.Disabled)
+                        component.OnMouseUp();
         }
 
         /// <summary>
@@ -981,7 +1003,8 @@ namespace Gibbo.Library
             // send notification to components that this object has a mouse moving
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnMouseOut();
+                    if (!component.Disabled)
+                        component.OnMouseOut();
         }
 
         /// <summary>
@@ -993,7 +1016,8 @@ namespace Gibbo.Library
             // send notification to components that this object collided with other
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnCollisionEnter(other);
+                    if (!component.Disabled)
+                        component.OnCollisionEnter(other);
         }
 
         /// <summary>
@@ -1004,7 +1028,8 @@ namespace Gibbo.Library
             // send notification to components
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    component.OnCollisionFree();
+                    if (!component.Disabled) 
+                        component.OnCollisionFree();
         }
 
         /// <summary>

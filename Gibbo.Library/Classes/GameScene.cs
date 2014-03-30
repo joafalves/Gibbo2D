@@ -369,7 +369,8 @@ namespace Gibbo.Library
             }
 
             for (int i = 0; i < gameObjects.Count; i++)
-                gameObjects[i].Update(gameTime);
+                if (!gameObjects[i].Disabled)
+                    gameObjects[i].Update(gameTime);
 
             if (SceneManager.IsEditor)
                 world.Step(0);
@@ -393,7 +394,8 @@ namespace Gibbo.Library
             if (renderViews.Count == 0)
             {
                 for (int i = 0; i < gameObjects.Count; i++)
-                    gameObjects[i].Draw(gameTime, this.SpriteBatch);
+                    if (!gameObjects[i].Disabled)
+                        gameObjects[i].Draw(gameTime, this.SpriteBatch);
             }
             else
             {
@@ -408,7 +410,8 @@ namespace Gibbo.Library
                     SceneManager.ActiveCamera = v.Camera;
 
                     for (int i = 0; i < gameObjects.Count; i++)
-                        gameObjects[i].Draw(gameTime, this.SpriteBatch);
+                        if (!gameObjects[i].Disabled)
+                            gameObjects[i].Draw(gameTime, this.SpriteBatch);
 
                     SceneManager.drawPass++;
                 }
