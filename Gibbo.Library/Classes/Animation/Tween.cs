@@ -145,7 +145,6 @@ namespace Gibbo.Library
             //target.Position = initialPosition + (currentElapsed * (destination - initialPosition) / duration);
 
             target.Transform.Rotation = initialTransform.rotation + ((currentElapsed * (targetTransform.rotation - initialTransform.rotation)) / duration);
-
             target.Transform.Scale = initialTransform.scale + ((currentElapsed * (targetTransform.scale - initialTransform.scale)) / duration);
         }
 

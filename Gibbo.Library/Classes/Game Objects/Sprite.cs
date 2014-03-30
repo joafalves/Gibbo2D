@@ -290,7 +290,7 @@ namespace Gibbo.Library
         {
             base.Draw(gameTime, spriteBatch);
 
-            if (texture != null && Visible) // && (CollisionModel.CollisionBoundry.Intersects(SceneManager.ActiveCamera.BoundingBox) || displayMode == DisplayModes.Fill || displayMode == DisplayModes.Tile || displayMode == DisplayModes.PositionTile))
+            if (texture != null && Visible && (MeasureDimension().Intersects(SceneManager.ActiveCamera.BoundingBox) || displayMode == DisplayModes.Fill || displayMode == DisplayModes.Tile || displayMode == DisplayModes.PositionTile))
             {
                 Vector2 _orgx = Vector2.Zero;
 
