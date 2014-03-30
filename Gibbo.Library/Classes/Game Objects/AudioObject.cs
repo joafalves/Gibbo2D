@@ -64,6 +64,9 @@ namespace Gibbo.Library
         [DataMember]
         private float volume = 1.0f;
 
+        [NonSerialized]
+        private string lastLoadedPath = string.Empty;
+
         #endregion
 
         #region properties
@@ -99,12 +102,24 @@ namespace Gibbo.Library
         /// 
         /// </summary>
 #if WINDOWS
+        [Category("Audio Properties")]
         [DisplayName("Volume"), Description("Audio Volume")]
 #endif
         public float Volume
         {
             get { return volume; }
-            set { volume = value; }
+            set
+            {
+                volume = value;
+
+                if (volume > 1) volume = 1;
+                else if (volume < 0) volume = 0;
+
+                if (IsPlaying)
+                {
+                    mainOutputStream.Volume = volume;
+                }
+            }
         }
 
         /// <summary>
@@ -117,8 +132,7 @@ namespace Gibbo.Library
 #endif
         public bool IsPlaying
         {
-            get { return isPlaying; }
-            set { isPlaying = value; }
+            get { return (waveOutDevice.PlaybackState == PlaybackState.Playing ? true : false); }
         }
 
         /// <summary>
@@ -161,29 +175,60 @@ namespace Gibbo.Library
             string _filePath = SceneManager.GameProject.ProjectPath + "//" + filePath;
 
             if (SceneManager.IsEditor) return;
+
 #if WINDOWS
-            if (!File.Exists(filePath)) return;
-
-            WaveChannel32 stream = Audio.CreateInputStream(_filePath, volume, false);
-
-            if (stream != null)
+            if (_filePath != lastLoadedPath || waveOutDevice == null)
             {
-                mainOutputStream = new LoopStream(stream);
-                mainOutputStream.EnableLooping = loop;
 
-                try
-                {
-                    waveOutDevice.Init(mainOutputStream);
-                }
-                catch (Exception initException)
-                {
-                    Console.WriteLine(String.Format("{0}", initException.Message), "Error Initializing Output");
-                    return;
-                }
+                if (!File.Exists(filePath)) return;
 
+                WaveChannel32 stream = Audio.CreateInputStream(_filePath, volume, false);
+
+                if (stream != null)
+                {
+                    mainOutputStream = new LoopStream(stream);
+                    mainOutputStream.EnableLooping = loop;
+
+                    try
+                    {
+                        waveOutDevice.Init(mainOutputStream);
+                    }
+                    catch (Exception initException)
+                    {
+                        Console.WriteLine(String.Format("{0}", initException.Message), "Error Initializing Output");
+                        return;
+                    }
+
+                    waveOutDevice.Play();
+
+                    lastLoadedPath = _filePath;
+                }
+            }
+            else
+            {
                 waveOutDevice.Play();
             }
 #endif
+        }
+
+        /// <summary>
+        /// Pauses the selected audio file
+        /// </summary>
+        public void Pause()
+        {
+            if (waveOutDevice != null) waveOutDevice.Pause();
+        }
+
+        /// <summary>
+        /// Stops the selected audio file
+        /// </summary>
+        public void Stop()
+        {
+            if (waveOutDevice != null)
+            {
+                waveOutDevice.Stop();
+                mainOutputStream.Position = 0;
+            }
         }
 
         #endregion
