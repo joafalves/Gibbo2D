@@ -123,6 +123,30 @@ namespace Gibbo.Library
         }
 
         /// <summary>
+        /// The audio position of the current track
+        /// </summary>
+#if WINDOWS
+        [Category("Audio Properties")]
+        [DisplayName("Position"), Description("The audio position of the current track")]
+        [Browsable(false)]
+#endif
+        public long Position
+        {
+            get
+            {
+                if (mainOutputStream != null)
+                    return mainOutputStream.Position;
+                else
+                    return -1;
+            }
+            set
+            {
+                if (mainOutputStream != null)
+                    mainOutputStream.Position = value;
+            }
+        }
+
+        /// <summary>
         /// Determine if the audio is playing
         /// </summary>
 #if WINDOWS
