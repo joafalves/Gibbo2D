@@ -168,13 +168,23 @@
                     <MenuItem Header="Reset to Default" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
                     <MenuItem Header="Debug Reset" Click="DebugResetClick" Visibility="Collapsed" />
                 </MenuItem>
+<<<<<<< HEAD
                 <!--<MenuItem Header="View" Foreground="#FF212121" >
                     <MenuItem x:Name="SceneHierarchyMenuItem" Header="Scene Hierarchy"/>
+=======
+                <MenuItem Header="View" Foreground="#FF212121" Click="MenuItem_Click_4" >
+                    <MenuItem x:Name="SceneHierarchyMenuItem" Header="Scene Hierarchy" Width="200"/>
+>>>>>>> mySets
                     <MenuItem x:Name="ProjectExplorerMenuItem" Header="Project Explorer" />
                     <MenuItem x:Name="InspectorMenuItem" Header="Inspector"/>
                     <MenuItem x:Name="TilesetMenuItem" Header="Tileset" />
                     <MenuItem x:Name="SceneViewMenuItem" Header="Scene View" />
+<<<<<<< HEAD
                 </MenuItem>-->
+=======
+                    <MenuItem x:Name="VisualScriptingMenuItem" Header="Visual Scripting" Click="VisualScriptingMenuItem_Click"  />
+                </MenuItem>
+>>>>>>> mySets
                 <MenuItem Header="Tools" Foreground="#FF212121" Visibility="Collapsed">
                     <MenuItem Header="Visual Scripting.." HorizontalAlignment="Left" Width="200" />
                 </MenuItem>
@@ -227,7 +237,7 @@
                 <avalonDock:LayoutPanel x:Name="GLOBALPANEL" Orientation="Horizontal">
                     <avalonDock:LayoutPanel x:Name="SceneHPGroup" Orientation="Vertical" DockWidth="*" >
                         <avalonDock:LayoutAnchorablePane DockWidth="*">
-                            <avalonDock:LayoutAnchorable ContentId="SceneHierarchyPanel" Title="Scene Hierarchy" >
+                            <avalonDock:LayoutAnchorable ContentId="SceneHierarchyPanel" Title="Scene Hierarchy" x:Name="SceneHiearchyPanelAnchorable" >
                                 <Border BorderBrush="{DynamicResource BorderDark}" BorderThickness="1">
                                     <Grid>
                                         <DockPanel LastChildFill="True">
@@ -372,6 +382,11 @@
                                             </Grid>
                                         </Expander>
                                     </Border>
+                                </Grid>
+                            </avalonDock:LayoutAnchorable>
+                            <avalonDock:LayoutAnchorable x:Name="VisualScriptingAnchorable" ContentId="VisualScriptingView" Title="Scene View" >
+                                <Grid x:Name="VisualScriptingViewContainer" MinWidth="100" MinHeight="100">
+                         
                                 </Grid>
                             </avalonDock:LayoutAnchorable>
                         </avalonDock:LayoutAnchorablePane>

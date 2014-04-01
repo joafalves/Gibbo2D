@@ -1482,6 +1482,18 @@ namespace Gibbo.Editor.WPF
             EditorHandler.SceneViewControl.TakeScreenshot();
         }
 
+<<<<<<< HEAD
         #endregion
+=======
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(SceneHiearchyPanelAnchorable.IsVisible);
+        }
+
+        private void VisualScriptingMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            VisualScriptingAnchorable.Show();
+        }
+>>>>>>> mySets
     }
 }
