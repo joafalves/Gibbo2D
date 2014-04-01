@@ -120,7 +120,13 @@ namespace Gibbo.Library
         public bool Disabled
         {
             get { return disabled; }
-            set { disabled = value; }
+            set { 
+                disabled = value;
+                if (disabled && this is AudioObject)
+                {
+                    (this as AudioObject).Stop();
+                }
+            }
         }
 
         /// <summary>
