@@ -32,6 +32,12 @@ namespace Gibbo.Library
             Rotation = 0;
         }
 
+        public RotatedRectangle(int x, int y, int width, int height, float theInitialRotation = 0)
+        {
+            CollisionRectangle = new Rectangle(x, y, width, height);
+            Rotation = theInitialRotation;
+        }
+
         public RotatedRectangle(Rectangle theRectangle, float theInitialRotation = 0)
         {
             CollisionRectangle = theRectangle;

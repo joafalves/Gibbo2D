@@ -33,6 +33,7 @@ using FarseerPhysics.Dynamics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 
 namespace Gibbo.Editor.WPF
@@ -52,6 +53,7 @@ namespace Gibbo.Editor.WPF
         private bool usingXAxis = false;
         private bool hoverYAxis = false;
         private bool hoverXAxis = false;
+        private bool takingScreenshot = false;
 
         private ContentManager content;
         private SpriteBatch spriteBatch;
@@ -666,12 +668,40 @@ namespace Gibbo.Editor.WPF
             mouseLastPosition = new Vector2(mouseWorldPosition.X, mouseWorldPosition.Y);
         }
 
-        private void Screenshot()
+        internal string TakeScreenshot(int captureWidth = 0, int captureHeight = 0)
+        {
+            var path = Screenshot(captureWidth, captureHeight);
+
+            // screenshot
+            if (path != string.Empty)
+            {
+                System.Windows.MessageBoxResult r = 
+                    System.Windows.MessageBox.Show("Screenshot saved on " + path + ". Open Directory?", "Success", 
+                    System.Windows.MessageBoxButton.YesNo);
+
+                if (r == System.Windows.MessageBoxResult.Yes)
+                {
+                    ProcessStartInfo runExplorer = new ProcessStartInfo();
+                    runExplorer.FileName = "explorer.exe";
+                    runExplorer.Arguments = System.IO.Path.GetDirectoryName(path);
+                    Process.Start(runExplorer);
+                }
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Error while taking screenshot", "Error", 
+                    System.Windows.MessageBoxButton.OK);
+            }
+
+            return path;
+        }
+
+        internal string Screenshot(int captureWidth = 0, int captureHeight = 0)
         {
             RenderTarget2D renderTarget = new RenderTarget2D(
                      SceneManager.GraphicsDevice,
-                     SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth,
-                     SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight);
+                     (captureWidth == 0 ? SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth : captureWidth),
+                     (captureHeight == 0 ? SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight : captureHeight));
 
             SceneManager.GraphicsDevice.SetRenderTarget(renderTarget);
 
@@ -682,7 +712,7 @@ namespace Gibbo.Editor.WPF
             if (!Directory.Exists("Screenshots"))
                 Directory.CreateDirectory("Screenshots");
 
-            var path = AppDomain.CurrentDomain.BaseDirectory + "Screenshots\\screenshot " + DateTime.Now.ToString("dd-MM-yy  H_mm_ss") + ".png";
+            var path = AppDomain.CurrentDomain.BaseDirectory + "Screenshots\\screenshot " + DateTime.Now.ToString("yy-MM-dd  H_mm_ss") + ".png";
 
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
@@ -712,6 +742,10 @@ namespace Gibbo.Editor.WPF
 
                     bitmap.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
                 }
+                catch (Exception)
+                {
+                    return string.Empty;
+                }
                 finally
                 {
                     if (bitmap != null)
@@ -726,8 +760,11 @@ namespace Gibbo.Editor.WPF
                     {
                         data = null;
                     }
+                   
                 }
             }
+
+            return path;
         }
 
         /// <summary>
@@ -741,13 +778,29 @@ namespace Gibbo.Editor.WPF
             //    cf.Show();
             //}
 
-            if (GameInput.IsKeyPressed(Keys.F9))
+            if (GameInput.IsKeyDown(Keys.LeftControl) && GameInput.IsKeyPressed(Keys.F9))
             {
                 lock (this)
                 {
-                    Screenshot();
+                    if (EditorHandler.SelectedGameObjects != null && EditorHandler.SelectedGameObjects.Count > 0
+                        && !takingScreenshot)
+                    {
+                        takingScreenshot = true;
+                        RotatedRectangle r = EditorHandler.SelectedGameObjects[0].MeasureDimension();
+                        TakeScreenshot(r.Width, r.Height);
+                        takingScreenshot = false;
+                    }
                 }
             }
+            else if (GameInput.IsKeyPressed(Keys.F9) && !takingScreenshot)
+            {
+                lock (this)
+                {
+                    takingScreenshot = true;
+                    TakeScreenshot();
+                    takingScreenshot = false;
+                }
+            }          
 
             if (TileSetMode)
             {

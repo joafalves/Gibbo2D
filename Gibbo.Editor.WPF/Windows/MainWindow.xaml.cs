@@ -1477,7 +1477,11 @@ namespace Gibbo.Editor.WPF
             }
         }
 
-        #endregion
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            EditorHandler.SceneViewControl.TakeScreenshot();
+        }
 
+        #endregion
     }
 }

@@ -1061,6 +1061,17 @@ namespace Gibbo.Library
             return result;
         }
 
+        /// <summary>
+        /// Measures the dimension of this object
+        /// </summary>
+        /// <returns></returns>
+        public override RotatedRectangle MeasureDimension()
+        {
+            int halfSizeWidth = (int)((tileWidth * Width) / 2.0f);
+            int halfSizeHeight = (int)((tileHeight * Height) / 2.0f);
+            return new RotatedRectangle(-halfSizeWidth, -halfSizeHeight, (int)tileWidth * Width, (int)tileHeight * Height);          
+        }
+
         #endregion
     }
 }
