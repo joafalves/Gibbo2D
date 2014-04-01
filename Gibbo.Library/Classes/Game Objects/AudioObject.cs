@@ -172,6 +172,20 @@ namespace Gibbo.Library
             set { playOnStart = value; }
         }
 
+#if WINDOWS
+        [Category("Object Properties")]
+        [DisplayName("Disabled"), Description("Determines if the object is disabled or not")]
+#endif
+        public override bool Disabled
+        {
+            get { return disabled; }
+            set
+            {
+                disabled = value;
+                if (disabled) this.Stop();
+            }
+        }
+
         #endregion
 
         #region methods

@@ -108,7 +108,7 @@ namespace Gibbo.Library
         private string tag = string.Empty;
 
         [DataMember]
-        private bool disabled = false;
+        protected bool disabled = false;
 
         #endregion
 
@@ -117,16 +117,10 @@ namespace Gibbo.Library
         [Category("Object Properties")]
         [DisplayName("Disabled"), Description("Determines if the object is disabled or not")]
 #endif
-        public bool Disabled
+        public virtual bool Disabled
         {
             get { return disabled; }
-            set { 
-                disabled = value;
-                if (disabled && this is AudioObject)
-                {
-                    (this as AudioObject).Stop();
-                }
-            }
+            set { disabled = value; }
         }
 
         /// <summary>
