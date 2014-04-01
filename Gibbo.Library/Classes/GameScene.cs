@@ -406,7 +406,7 @@ namespace Gibbo.Library
                 foreach (RenderView v in renderViews)
                 {
                     SceneManager.GraphicsDevice.Viewport = v.Viewport;
-                    SceneManager.ActiveScene.camera = v.Camera;
+                    SceneManager.ActiveScene.Camera = v.Camera;
                     SceneManager.ActiveCamera = v.Camera;
 
                     for (int i = 0; i < gameObjects.Count; i++)

@@ -290,7 +290,7 @@ namespace Gibbo.Library
         {
             base.Draw(gameTime, spriteBatch);
 
-            if (texture != null && Visible && (MeasureDimension().Intersects(SceneManager.ActiveCamera.BoundingBox) || displayMode == DisplayModes.Fill || displayMode == DisplayModes.Tile || displayMode == DisplayModes.PositionTile))
+            if (texture != null && Visible) // && (MeasureDimension().Intersects(SceneManager.ActiveCamera.BoundingBox) || displayMode == DisplayModes.Fill || displayMode == DisplayModes.Tile || displayMode == DisplayModes.PositionTile))
             {
                 Vector2 _orgx = Vector2.Zero;
 
@@ -381,6 +381,10 @@ namespace Gibbo.Library
             }
         }
 
+        /// <summary>
+        /// Measures the dimension of this object
+        /// </summary>
+        /// <returns></returns>
         public override RotatedRectangle MeasureDimension()
         {
             if (texture != null && Body == null)

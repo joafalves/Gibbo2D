@@ -116,7 +116,14 @@ namespace Gibbo.Library
                     return SceneManager.activeCamera;
                 }
             }
-            set { SceneManager.activeCamera = value; }
+            set { 
+                SceneManager.activeCamera = value;
+
+                if (!IsEditor && ActiveScene != null)
+                {
+                    ActiveScene.Camera = value;
+                }
+            }
         }
 
         /// <summary>
