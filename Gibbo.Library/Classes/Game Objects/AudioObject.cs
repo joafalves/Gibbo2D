@@ -196,6 +196,8 @@ namespace Gibbo.Library
         /// </summary>
         public void Play()
         {
+            if (this.Disabled) return;
+
             string _filePath = SceneManager.GameProject.ProjectPath + "//" + filePath;
 
             if (SceneManager.IsEditor) return;
