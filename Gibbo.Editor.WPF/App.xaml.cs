@@ -32,6 +32,7 @@ using System.Reflection;
 using System.Windows;
 using System.Threading.Tasks;
 using System.Net;
+using System.Windows.Shell;
 
 namespace Gibbo.Editor.WPF
 {
@@ -43,7 +44,40 @@ namespace Gibbo.Editor.WPF
         public App()
         {
             Startup += App_Startup;
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;                     
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            CreateJumpList();        
+        }
+
+        private void CreateJumpList()
+        {
+            JumpList jumpList = new JumpList();
+            //jumpList.ShowRecentCategory = true;
+            JumpList.SetJumpList(Application.Current, jumpList);
+
+            string[] projects = Gibbo.Editor.WPF.Properties.Settings.Default.LastLoadedProjects.Split('|');
+
+            int c = 0;
+
+            foreach (string path in projects)
+            {
+                if (path.Trim() != string.Empty && File.Exists(path))
+                {
+                    JumpTask task = new JumpTask();
+                    task.CustomCategory = "Recent";
+
+                    task.Title = System.IO.Path.GetFileNameWithoutExtension(path);
+                    task.Description = task.Title + " (" + path.Split('.')[0] + ")";
+                    task.ApplicationPath = path;
+
+                    jumpList.JumpItems.Add(task);
+                    //JumpList.AddToRecentCategory(task);
+                    c++;
+                    if (c == 8)
+                        break;
+                }
+            }
+
+            jumpList.Apply();
         }
 
         void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
