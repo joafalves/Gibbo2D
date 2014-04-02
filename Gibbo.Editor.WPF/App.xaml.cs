@@ -45,7 +45,7 @@ namespace Gibbo.Editor.WPF
         {
             Startup += App_Startup;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            CreateJumpList();        
+            CreateJumpList();
         }
 
         private void CreateJumpList()

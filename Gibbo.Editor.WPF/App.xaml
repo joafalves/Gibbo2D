@@ -19,10 +19,10 @@
 
     <!--<JumpList.JumpList>
         <JumpList ShowRecentCategory="True"  >
-            <JumpPath CustomCategory="Recent" Path="C:\Users\LApidcloud\Documents\Gibbo\CITY RIDGE\CityRidge.gibbo" />
+            --><!--<JumpPath CustomCategory="Recent" Path="C:\Users\LApidcloud\Documents\Gibbo\CITY RIDGE\CityRidge.gibbo" />--><!--
             <JumpTask  CustomCategory="Recent" Title="CityRidge"
                       Description="CityRidge (C:\Users\LApidcloud\Documents\Gibbo\CITY RIDGE\CityRidge)" 
-                      ApplicationPath="C:\Users\LApidcloud\Documents\Gibbo\CITY RIDGE\CityRidge.gibbo"
+                      ApplicationPath="C:\Users\LApidcloud\Documents\Gibbo\CITYRIDGE\CityRidge.gibbo"
                       IconResourcePath="C:\Windows\notepad.exe"/>
         </JumpList>
     </JumpList.JumpList>-->

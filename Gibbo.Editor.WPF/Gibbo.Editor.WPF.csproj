@@ -213,6 +213,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Image1.png" />
+    <Resource Include="Gibbo.Content\screenshot.png" />
     <Content Include="Tutorials\01 - User Interface\Pictures\1_gibbo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -706,7 +707,9 @@
     <Content Include="Project Templates\settings.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Gibbo.Content\editorBMFont.fnt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

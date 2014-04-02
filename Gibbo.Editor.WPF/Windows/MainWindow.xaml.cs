@@ -1482,11 +1482,18 @@ namespace Gibbo.Editor.WPF
             EditorHandler.SceneViewControl.TakeScreenshot();
         }
 
+        private void ThumbScreenshotButton_Click(object sender, EventArgs e)
+        {
+            EditorHandler.SceneViewControl.TakeScreenshot();
+        }
+
         private void VisualScriptingMenuItem_Click(object sender, RoutedEventArgs e)
         {
             VisualScriptingAnchorable.Show();
         }
 
         #endregion
+
+        
     }
 }
