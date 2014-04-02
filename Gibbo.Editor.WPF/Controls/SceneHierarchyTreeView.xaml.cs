@@ -127,9 +127,9 @@ namespace Gibbo.Editor.WPF
             contextMenu.Items.Add(deleteItem);
             contextMenu.Items.Add(new Separator());
             contextMenu.Items.Add(renameItem);
-            contextMenu.Items.Add(new Separator());
-            contextMenu.Items.Add(moveUpItem);
-            contextMenu.Items.Add(moveDownItem);
+            //contextMenu.Items.Add(new Separator());
+            //contextMenu.Items.Add(moveUpItem);
+            //contextMenu.Items.Add(moveDownItem);
 
             panelContextMenu.Items.Add(panelCreateObjectItem);
             panelContextMenu.Items.Add(new Separator());

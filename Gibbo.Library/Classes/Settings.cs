@@ -50,6 +50,11 @@ namespace Gibbo.Library
 #endif
         private IniFile settingsFile;
 
+#if WINDOWS
+        [NonSerialized]
+#endif
+        private int virtualScreenWidth = 0, virtualScreenHeight = 0;
+
         #endregion
 
         #region properties
@@ -70,10 +75,25 @@ namespace Gibbo.Library
 #endif
         public int ScreenHeight { get; set; }
 
+        /// <summary>
+        /// The virtual screen width
+        /// </summary>
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public int VirtualScreenWidth { get { return virtualScreenWidth; } set { virtualScreenWidth = value; } }
+
+        /// <summary>
+        /// The virtual screen height
+        /// </summary>
+#if WINDOWS
+        [Browsable(false)] 
+#endif
+        public int VirtualScreenHeight { get { return virtualScreenHeight; } set { virtualScreenHeight = value; } }
+
         #endregion
 
         #region constructors
-
 
         #endregion
 

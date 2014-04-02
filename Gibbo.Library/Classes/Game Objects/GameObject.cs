@@ -511,7 +511,14 @@ namespace Gibbo.Library
                 this.componentValues[component.GetType().FullName][label] = propInfo.GetValue(component, null);
             }
 
-            component.Initialize();
+            if (!SceneManager.IsEditor)
+            {
+                component.Initialize();
+            }
+            else if (SceneManager.IsEditor && component is ExtendedObjectComponent)
+            {
+                component.Initialize();
+            }
 
             return true;
         }
@@ -685,7 +692,7 @@ namespace Gibbo.Library
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message + "\n" + ex.StackTrace.ToString());
             }
         }
 
@@ -713,27 +720,27 @@ namespace Gibbo.Library
         {
             try
             {
+                // Draw this object components
+                foreach (ObjectComponent component in components)
+                {
+                    if (component.Disabled) continue;
+
+                    if (SceneManager.IsEditor && component is ExtendedObjectComponent)
+                    {
+                        component.Draw(gameTime, spriteBatch);
+                    }
+                    else if (!SceneManager.IsEditor)
+                    {
+                        component.Draw(gameTime, spriteBatch);
+                    }
+                }
+
                 if (visible)
                 {
                     // Draw this object children
                     for (int i = 0; i < children.Count; i++)
                         if (!children[i].Disabled)
                             children[i].Draw(gameTime, spriteBatch);
-
-                    // Draw this object components
-                    foreach (ObjectComponent component in components)
-                    {
-                        if (component.Disabled) continue;
-
-                        if (SceneManager.IsEditor && component is ExtendedObjectComponent)
-                        {
-                            component.Draw(gameTime, spriteBatch);
-                        }
-                        else if (!SceneManager.IsEditor)
-                        {
-                            component.Draw(gameTime, spriteBatch);
-                        }
-                    }
 
                     //if (CollisionModel.CollisionBoundry.Intersects(SceneManager.ActiveCamera.BoundingBox))
                     //{
@@ -761,7 +768,7 @@ namespace Gibbo.Library
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message + "\n" + ex.StackTrace.ToString());
             }
         }
 

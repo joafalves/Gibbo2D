@@ -170,9 +170,17 @@ namespace Gibbo.Library
             Vector3 scalingFactor = Vector3.One;
             if (!SceneManager.IsEditor)
             {
+                float width = (SceneManager.GameProject.Settings.VirtualScreenWidth != 0 ? 
+                    SceneManager.GameProject.Settings.VirtualScreenWidth : 
+                    SceneManager.GameProject.Settings.ScreenWidth);
+
+                float height = (SceneManager.GameProject.Settings.VirtualScreenHeight != 0 ?
+                    SceneManager.GameProject.Settings.VirtualScreenHeight :
+                    SceneManager.GameProject.Settings.ScreenHeight);
+
                 // make sure we keep the real scale (user input):
-                float widthScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth / (float)SceneManager.GameProject.Settings.ScreenWidth;
-                float heightScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight / (float)SceneManager.GameProject.Settings.ScreenHeight;
+                float widthScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth / width;
+                float heightScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight / height;
                 scalingFactor = new Vector3((float)Math.Round(widthScale, 1), (float)Math.Round(heightScale, 1), 1);
             }
 
