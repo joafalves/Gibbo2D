@@ -51,7 +51,7 @@ namespace Gibbo.Library
     [DataContract]
     public class Transform
 #if WINDOWS
- : ICloneable, ISerializable
+        : ICloneable
 #endif
     {
         #region fields
@@ -248,7 +248,10 @@ namespace Gibbo.Library
                     //if (parent != null)
                     //    return gameObject.Body.Rotation + parent.Rotation;
                     //else
-                    return gameObject.Body.Rotation;
+                    if (parent != null)
+                        return gameObject.Body.Rotation + parent.Rotation;
+                    else
+                        return gameObject.Body.Rotation;
                 }
                 else
                 {
@@ -278,8 +281,8 @@ namespace Gibbo.Library
             {
                 foreach (GameObject _obj in obj.Children)
                 {
-                    //if (_obj.Body != null)
-                    //    _obj.Body.Rotation = _obj.Body.Rotation + _obj.Transform.rotation;
+                    if (_obj.Body != null && _obj.Body.BodyType != BodyType.Dynamic)
+                        _obj.Body.Rotation = _obj.Body.Rotation + _obj.Transform.rotation;
 
                     _obj.Transform.RelativePosition = _obj.Transform.RelativePosition.Rotate(dif);
 
@@ -363,6 +366,24 @@ namespace Gibbo.Library
 
 
         #region methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        public void SetPositionX(float x)
+        {
+            Position = new Vector2(x, Position.Y);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="y"></param>
+        public void SetPositionY(float y)
+        {
+            position = new Vector2(Position.X, y);
+        }
 
         /// <summary>
         /// Translates an object

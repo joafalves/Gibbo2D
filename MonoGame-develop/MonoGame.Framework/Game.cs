@@ -307,6 +307,7 @@ namespace Microsoft.Xna.Framework
 
         public GraphicsDevice GraphicsDevice
         {
+            
             get
             {
                 if (_graphicsDeviceService == null)

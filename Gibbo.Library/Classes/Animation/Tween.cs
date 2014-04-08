@@ -37,7 +37,7 @@ namespace Gibbo.Library
         private Transform targetTransform;
         private bool paused = true;
         private bool waitingForDelay = false;
-        private bool loop = false;       
+        private bool loop = false;
 
         #endregion
 
@@ -135,17 +135,47 @@ namespace Gibbo.Library
 
         private void SetTransform()
         {
-            target.Transform.Position = new Vector2()
+            if (targetTransform.position.X != initialTransform.position.X)
+                target.Transform.SetPositionX(initialTransform.Position.X + ((currentElapsed * (targetTransform.Position.X - initialTransform.Position.X)) / duration));
+
+            if (targetTransform.position.Y != initialTransform.position.Y)
             {
-                X = initialTransform.Position.X + ((currentElapsed * (targetTransform.Position.X - initialTransform.Position.X)) / duration),
-                Y = initialTransform.Position.Y + ((currentElapsed * (targetTransform.Position.Y - initialTransform.Position.Y)) / duration)
-            };
+                target.Transform.SetPositionY(initialTransform.Position.Y + ((currentElapsed * (targetTransform.Position.Y - initialTransform.Position.Y)) / duration));
+                Console.WriteLine("entreiy");
+            }
+            //if(targetTransform.position != initialTransform.position)
+            //    target.Transform.Position = new Vector2()
+            //    {
+            //        X = initialTransform.Position.X + ((currentElapsed * (targetTransform.Position.X - initialTransform.Position.X)) / duration),
+            //        Y = initialTransform.Position.Y + ((currentElapsed * (targetTransform.Position.Y - initialTransform.Position.Y)) / duration)
+            //    };
 
             //or: (untested)
             //target.Position = initialPosition + (currentElapsed * (destination - initialPosition) / duration);
 
-            target.Transform.Rotation = initialTransform.rotation + ((currentElapsed * (targetTransform.rotation - initialTransform.rotation)) / duration);
-            target.Transform.Scale = initialTransform.scale + ((currentElapsed * (targetTransform.scale - initialTransform.scale)) / duration);
+            if (targetTransform.Rotation != initialTransform.rotation)
+                target.Transform.Rotation = initialTransform.rotation + ((currentElapsed * (targetTransform.rotation - initialTransform.rotation)) / duration);
+
+            if (targetTransform.scale != initialTransform.scale)
+                target.Transform.Scale = initialTransform.scale + ((currentElapsed * (targetTransform.scale - initialTransform.scale)) / duration);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="duration"></param>
+        /// <param name="initialDelay"></param>
+        public void To(Vector2 position, float duration, float initialDelay = 0)
+        {
+            Transform t = new Transform()
+            {
+                position = position,
+                scale = new Vector2(target.Transform.scale.X, target.Transform.scale.Y),
+                rotation = target.Transform.rotation
+            };
+
+            this.To(t, duration, initialDelay);
         }
 
         /// <summary>

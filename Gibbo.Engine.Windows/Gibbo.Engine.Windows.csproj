@@ -61,6 +61,7 @@
     <StartupObject>Gibbo.Engine.Windows.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MyTextWriter.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

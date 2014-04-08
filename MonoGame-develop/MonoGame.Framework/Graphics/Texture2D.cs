@@ -107,23 +107,23 @@ namespace Microsoft.Xna.Framework.Graphics
 {
     public class Texture2D : Texture
     {
-		protected int width;
-		protected int height;
+        protected int width;
+        protected int height;
 
 #if PSM
 		internal PssTexture2D _texture2D;
 
 #elif OPENGL
-		PixelInternalFormat glInternalFormat;
-		GLPixelFormat glFormat;
-		PixelType glType;
+        PixelInternalFormat glInternalFormat;
+        GLPixelFormat glFormat;
+        PixelType glType;
 #endif
-	
+
         public Rectangle Bounds
         {
             get
             {
-				return new Rectangle(0, 0, this.width, this.height);
+                return new Rectangle(0, 0, this.width, this.height);
             }
         }
 
@@ -131,9 +131,9 @@ namespace Microsoft.Xna.Framework.Graphics
             : this(graphicsDevice, width, height, mipmap, format, false)
         {
         }
-		
-		internal Texture2D(GraphicsDevice graphicsDevice, int width, int height, bool mipmap, SurfaceFormat format, bool renderTarget)
-		{
+
+        internal Texture2D(GraphicsDevice graphicsDevice, int width, int height, bool mipmap, SurfaceFormat format, bool renderTarget)
+        {
             if (graphicsDevice == null)
                 throw new ArgumentNullException("Graphics Device Cannot Be Null");
 
@@ -181,7 +181,7 @@ namespace Microsoft.Xna.Framework.Graphics
 #else
 
             this.glTarget = TextureTarget.Texture2D;
-            
+
             Threading.BlockOnUIThread(() =>
             {
                 // Store the current bound texture.
@@ -225,10 +225,10 @@ namespace Microsoft.Xna.Framework.Graphics
                     GL.TexImage2D(TextureTarget.Texture2D, 0,
 #if IOS || ANDROID
                         (int)glInternalFormat,
-#else				           
-					    glInternalFormat,
+#else
+ glInternalFormat,
 #endif
-                        this.width, this.height, 0,
+ this.width, this.height, 0,
                         glFormat, glType, IntPtr.Zero);
                     GraphicsExtensions.CheckGLError();
                 }
@@ -252,11 +252,11 @@ namespace Microsoft.Xna.Framework.Graphics
             this.levelCount = 1;
         }
 #endif
-				
-		public Texture2D(GraphicsDevice graphicsDevice, int width, int height)
+
+        public Texture2D(GraphicsDevice graphicsDevice, int width, int height)
             : this(graphicsDevice, width, height, false, SurfaceFormat.Color, false)
-		{			
-		}
+        {
+        }
 
         public int Width
         {
@@ -274,10 +274,10 @@ namespace Microsoft.Xna.Framework.Graphics
             }
         }
 
-        public void SetData<T>(int level, Rectangle? rect, T[] data, int startIndex, int elementCount) where T : struct 
+        public void SetData<T>(int level, Rectangle? rect, T[] data, int startIndex, int elementCount) where T : struct
         {
             if (data == null)
-				throw new ArgumentNullException("data");
+                throw new ArgumentNullException("data");
 
 #if OPENGL
             Threading.BlockOnUIThread(() =>
@@ -352,9 +352,9 @@ namespace Microsoft.Xna.Framework.Graphics
 #if GLES
                                                     glInternalFormat,
 #else
-                                                    glFormat,
+ glFormat,
 #endif
-                                                    data.Length - startBytes, dataPtr);
+ data.Length - startBytes, dataPtr);
                         GraphicsExtensions.CheckGLError();
                     }
                     else
@@ -380,9 +380,9 @@ namespace Microsoft.Xna.Framework.Graphics
 #if GLES
                                   (int)glInternalFormat,
 #else
-                                  glInternalFormat,
+ glInternalFormat,
 #endif
-                                  w, h, 0, glFormat, glType, dataPtr);
+ w, h, 0, glFormat, glType, dataPtr);
                         GraphicsExtensions.CheckGLError();
                     }
                     // Return to default pixel alignment
@@ -412,18 +412,18 @@ namespace Microsoft.Xna.Framework.Graphics
             });
 #endif
         }
-		
-		public void SetData<T>(T[] data, int startIndex, int elementCount) where T : struct
+
+        public void SetData<T>(T[] data, int startIndex, int elementCount) where T : struct
         {
             this.SetData(0, null, data, startIndex, elementCount);
         }
-		
-		public void SetData<T>(T[] data) where T : struct
+
+        public void SetData<T>(T[] data) where T : struct
         {
-			this.SetData(0, null, data, 0, data.Length);
+            this.SetData(0, null, data, 0, data.Length);
         }
-		
-		public void GetData<T>(int level, Rectangle? rect, T[] data, int startIndex, int elementCount) where T : struct
+
+        public void GetData<T>(int level, Rectangle? rect, T[] data, int startIndex, int elementCount) where T : struct
         {
             if (data == null || data.Length == 0)
                 throw new ArgumentException("data cannot be null");
@@ -651,33 +651,37 @@ namespace Microsoft.Xna.Framework.Graphics
 
 #else
 
-			GL.BindTexture(TextureTarget.Texture2D, this.glTexture);
+            GL.BindTexture(TextureTarget.Texture2D, this.glTexture);
 
-			if (rect.HasValue) {
-				throw new NotImplementedException();
-			}
+            if (rect.HasValue)
+            {
+                throw new NotImplementedException();
+            }
 
-			if (glFormat == (GLPixelFormat)All.CompressedTextureFormats) {
-				throw new NotImplementedException();
-			} else {
-				GL.GetTexImage(TextureTarget.Texture2D, level, this.glFormat, this.glType, data);
-			}
+            if (glFormat == (GLPixelFormat)All.CompressedTextureFormats)
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                GL.GetTexImage(TextureTarget.Texture2D, level, this.glFormat, this.glType, data);
+            }
 
 #endif
         }
 
-		public void GetData<T>(T[] data, int startIndex, int elementCount) where T : struct
-		{
-			this.GetData(0, null, data, startIndex, elementCount);
-		}
-		
-		public void GetData<T> (T[] data) where T : struct
-		{
-			this.GetData(0, null, data, 0, data.Length);
-		}
-		
-		public static Texture2D FromStream(GraphicsDevice graphicsDevice, Stream stream)
-		{
+        public void GetData<T>(T[] data, int startIndex, int elementCount) where T : struct
+        {
+            this.GetData(0, null, data, startIndex, elementCount);
+        }
+
+        public void GetData<T>(T[] data) where T : struct
+        {
+            this.GetData(0, null, data, 0, data.Length);
+        }
+
+        public static Texture2D FromStream(GraphicsDevice graphicsDevice, Stream stream)
+        {
             //todo: partial classes would be cleaner
 #if IOS || MONOMAC
             
@@ -1143,6 +1147,6 @@ namespace Microsoft.Xna.Framework.Graphics
             return imageInfo;
 		}
 #endif
-	}
+    }
 }
 

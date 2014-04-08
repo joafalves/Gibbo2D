@@ -33,11 +33,11 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Xna.Framework
 {
-    #if WINRT
+#if WINRT
     [DataContract]
-    #else
+#else
     [Serializable]
-    #endif
+#endif
     public struct Vector4 : IEquatable<Vector4>
     {
         #region Private Fields
@@ -471,7 +471,7 @@ namespace Microsoft.Xna.Framework
 
         public static void Negate(ref Vector4 value, out Vector4 result)
         {
-            result = new Vector4(-value.X, -value.Y, -value.Z,-value.W);
+            result = new Vector4(-value.X, -value.Y, -value.Z, -value.W);
         }
 
         public void Normalize()

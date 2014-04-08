@@ -66,7 +66,6 @@ namespace Microsoft.Xna.Framework
 
         #endregion Public Fields
 
-
         #region Constructors
 
         public Plane(Vector4 value)

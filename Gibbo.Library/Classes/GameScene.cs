@@ -379,7 +379,6 @@ namespace Gibbo.Library
                 world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
                 //Console.WriteLine((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
             }
-
         }
 
         /// <summary>
@@ -396,6 +395,8 @@ namespace Gibbo.Library
                 for (int i = 0; i < gameObjects.Count; i++)
                     if (!gameObjects[i].Disabled)
                         gameObjects[i].Draw(gameTime, this.SpriteBatch);
+
+                DrawCollisionView(SceneManager.GraphicsDevice.Viewport, SceneManager.ActiveCamera);
             }
             else
             {
@@ -413,6 +414,9 @@ namespace Gibbo.Library
                         if (!gameObjects[i].Disabled)
                             gameObjects[i].Draw(gameTime, this.SpriteBatch);
 
+                    if(v.Camera != null)
+                        DrawCollisionView(v.Viewport, v.Camera);
+
                     SceneManager.drawPass++;
                 }
 
@@ -420,23 +424,30 @@ namespace Gibbo.Library
                 SceneManager.GraphicsDevice.Viewport = defaultViewport;
                 SceneManager.ActiveScene.camera = defaultCamera;
                 SceneManager.ActiveCamera = defaultCamera;
-            }
+            }         
+        }
 
+        private void DrawCollisionView(Viewport viewport, Camera camera)
+        {
             if ((SceneManager.IsEditor && SceneManager.GameProject.EditorSettings.ShowCollisions)
-                || (!SceneManager.IsEditor && SceneManager.GameProject.Debug && SceneManager.GameProject.EditorSettings.ShowCollisions))
+             || (!SceneManager.IsEditor && SceneManager.GameProject.Debug && SceneManager.GameProject.EditorSettings.ShowCollisions))
             {
                 var projection = Matrix.CreateOrthographicOffCenter(
                    0f,
-                   ConvertUnits.ToSimUnits(SceneManager.GraphicsDevice.Viewport.Width),
-                   ConvertUnits.ToSimUnits(SceneManager.GraphicsDevice.Viewport.Height), 0f, 0f,
+                   ConvertUnits.ToSimUnits(viewport.Width),
+                   ConvertUnits.ToSimUnits(viewport.Height), 0f, 0f,
                    1f);
 
-                var view = Matrix.CreateTranslation(-ConvertUnits.ToSimUnits(SceneManager.ActiveCamera.Position.X), -ConvertUnits.ToSimUnits(SceneManager.ActiveCamera.Position.Y), 0.0f) *
-                    Matrix.CreateRotationZ(SceneManager.ActiveCamera.Rotation) *
-                    Matrix.CreateScale(new Vector3((float)SceneManager.ActiveCamera.Zoom, (float)SceneManager.ActiveCamera.Zoom, 1)) *
-                    Matrix.CreateTranslation(ConvertUnits.ToSimUnits(SceneManager.GraphicsDevice.Viewport.Width / 2), ConvertUnits.ToSimUnits(SceneManager.GraphicsDevice.Viewport.Height / 2), 0.0f);
-
-                //var view = camera.TransformMatrix;
+                var view = Matrix.CreateTranslation(
+                        -ConvertUnits.ToSimUnits(camera.Position.X),
+                        -ConvertUnits.ToSimUnits(camera.Position.Y), 0.0f) *
+                    Matrix.CreateRotationZ(camera.Rotation) *
+                    Matrix.CreateScale(
+                        new Vector3((float)camera.Zoom,
+                            (float)camera.Zoom, 1)) *
+                    Matrix.CreateTranslation(
+                        ConvertUnits.ToSimUnits(viewport.Width / 2),
+                        ConvertUnits.ToSimUnits(viewport.Height / 2), 0.0f);
 
                 debugView.RenderDebugData(ref projection, ref view);
             }

@@ -35,23 +35,23 @@ using System.Runtime.Serialization;
 
 namespace Microsoft.Xna.Framework
 {
-    #if WINRT
+#if WINRT
     [DataContract]
-    #else
+#else
     [Serializable]
-    #endif
+#endif
     public struct Vector3 : IEquatable<Vector3>
     {
         #region Private Fields
 
-        private static  Vector3 zero = new Vector3(0f, 0f, 0f);
-        private static  Vector3 one = new Vector3(1f, 1f, 1f);
-        private static  Vector3 unitX = new Vector3(1f, 0f, 0f);
-        private static  Vector3 unitY = new Vector3(0f, 1f, 0f);
-        private static  Vector3 unitZ = new Vector3(0f, 0f, 1f);
-        private static  Vector3 up = new Vector3(0f, 1f, 0f);
-        private static  Vector3 down = new Vector3(0f, -1f, 0f);
-        private static  Vector3 right = new Vector3(1f, 0f, 0f);
+        private static Vector3 zero = new Vector3(0f, 0f, 0f);
+        private static Vector3 one = new Vector3(1f, 1f, 1f);
+        private static Vector3 unitX = new Vector3(1f, 0f, 0f);
+        private static Vector3 unitY = new Vector3(0f, 1f, 0f);
+        private static Vector3 unitZ = new Vector3(0f, 0f, 1f);
+        private static Vector3 up = new Vector3(0f, 1f, 0f);
+        private static Vector3 down = new Vector3(0f, -1f, 0f);
+        private static Vector3 right = new Vector3(1f, 0f, 0f);
         private static Vector3 left = new Vector3(-1f, 0f, 0f);
         private static Vector3 forward = new Vector3(0f, 0f, -1f);
         private static Vector3 backward = new Vector3(0f, 0f, 1f);
@@ -370,7 +370,7 @@ namespace Microsoft.Xna.Framework
                 MathHelper.Lerp(value1.Y, value2.Y, amount),
                 MathHelper.Lerp(value1.Z, value2.Z, amount));
         }
-                
+
         public static Vector3 Max(Vector3 value1, Vector3 value2)
         {
             return new Vector3(
@@ -465,35 +465,35 @@ namespace Microsoft.Xna.Framework
             result.Z = value.Z * factor;
         }
 
-	public static Vector3 Reflect(Vector3 vector, Vector3 normal)
-	{
-		// I is the original array
-		// N is the normal of the incident plane
-		// R = I - (2 * N * ( DotProduct[ I,N] ))
-		Vector3 reflectedVector;
-		// inline the dotProduct here instead of calling method
-		float dotProduct = ((vector.X * normal.X) + (vector.Y * normal.Y)) + (vector.Z * normal.Z);
-		reflectedVector.X = vector.X - (2.0f * normal.X) * dotProduct;
-		reflectedVector.Y = vector.Y - (2.0f * normal.Y) * dotProduct;
-		reflectedVector.Z = vector.Z - (2.0f * normal.Z) * dotProduct;
+        public static Vector3 Reflect(Vector3 vector, Vector3 normal)
+        {
+            // I is the original array
+            // N is the normal of the incident plane
+            // R = I - (2 * N * ( DotProduct[ I,N] ))
+            Vector3 reflectedVector;
+            // inline the dotProduct here instead of calling method
+            float dotProduct = ((vector.X * normal.X) + (vector.Y * normal.Y)) + (vector.Z * normal.Z);
+            reflectedVector.X = vector.X - (2.0f * normal.X) * dotProduct;
+            reflectedVector.Y = vector.Y - (2.0f * normal.Y) * dotProduct;
+            reflectedVector.Z = vector.Z - (2.0f * normal.Z) * dotProduct;
 
-		return reflectedVector;
-	}
+            return reflectedVector;
+        }
 
-	public static void Reflect(ref Vector3 vector, ref Vector3 normal, out Vector3 result)
-	{
-		// I is the original array
-		// N is the normal of the incident plane
-		// R = I - (2 * N * ( DotProduct[ I,N] ))
+        public static void Reflect(ref Vector3 vector, ref Vector3 normal, out Vector3 result)
+        {
+            // I is the original array
+            // N is the normal of the incident plane
+            // R = I - (2 * N * ( DotProduct[ I,N] ))
 
-		// inline the dotProduct here instead of calling method
-		float dotProduct = ((vector.X * normal.X) + (vector.Y * normal.Y)) + (vector.Z * normal.Z);
-		result.X = vector.X - (2.0f * normal.X) * dotProduct;
-		result.Y = vector.Y - (2.0f * normal.Y) * dotProduct;
-		result.Z = vector.Z - (2.0f * normal.Z) * dotProduct;
+            // inline the dotProduct here instead of calling method
+            float dotProduct = ((vector.X * normal.X) + (vector.Y * normal.Y)) + (vector.Z * normal.Z);
+            result.X = vector.X - (2.0f * normal.X) * dotProduct;
+            result.Y = vector.Y - (2.0f * normal.Y) * dotProduct;
+            result.Z = vector.Z - (2.0f * normal.Z) * dotProduct;
 
-	}
-		
+        }
+
         public static Vector3 SmoothStep(Vector3 value1, Vector3 value2, float amount)
         {
             return new Vector3(
@@ -559,16 +559,16 @@ namespace Microsoft.Xna.Framework
 
             for (var i = 0; i < sourceArray.Length; i++)
             {
-                var position = sourceArray[i];                
+                var position = sourceArray[i];
                 destinationArray[i] =
                     new Vector3(
-                        (position.X*matrix.M11) + (position.Y*matrix.M21) + (position.Z*matrix.M31) + matrix.M41,
-                        (position.X*matrix.M12) + (position.Y*matrix.M22) + (position.Z*matrix.M32) + matrix.M42,
-                        (position.X*matrix.M13) + (position.Y*matrix.M23) + (position.Z*matrix.M33) + matrix.M43);
+                        (position.X * matrix.M11) + (position.Y * matrix.M21) + (position.Z * matrix.M31) + matrix.M41,
+                        (position.X * matrix.M12) + (position.Y * matrix.M22) + (position.Z * matrix.M32) + matrix.M42,
+                        (position.X * matrix.M13) + (position.Y * matrix.M23) + (position.Z * matrix.M33) + matrix.M43);
             }
         }
 
-	/// <summary>
+        /// <summary>
         /// Transforms a vector by a quaternion rotation.
         /// </summary>
         /// <param name="vec">The vector to transform.</param>
@@ -587,19 +587,19 @@ namespace Microsoft.Xna.Framework
         /// <param name="vec">The vector to transform.</param>
         /// <param name="quat">The quaternion to rotate the vector by.</param>
         /// <param name="result">The result of the operation.</param>
-//        public static void Transform(ref Vector3 vec, ref Quaternion quat, out Vector3 result)
-//        {
-//		// Taken from the OpentTK implementation of Vector3
-//            // Since vec.W == 0, we can optimize quat * vec * quat^-1 as follows:
-//            // vec + 2.0 * cross(quat.xyz, cross(quat.xyz, vec) + quat.w * vec)
-//            Vector3 xyz = quat.Xyz, temp, temp2;
-//            Vector3.Cross(ref xyz, ref vec, out temp);
-//            Vector3.Multiply(ref vec, quat.W, out temp2);
-//            Vector3.Add(ref temp, ref temp2, out temp);
-//            Vector3.Cross(ref xyz, ref temp, out temp);
-//            Vector3.Multiply(ref temp, 2, out temp);
-//            Vector3.Add(ref vec, ref temp, out result);
-//        }
+        //        public static void Transform(ref Vector3 vec, ref Quaternion quat, out Vector3 result)
+        //        {
+        //		// Taken from the OpentTK implementation of Vector3
+        //            // Since vec.W == 0, we can optimize quat * vec * quat^-1 as follows:
+        //            // vec + 2.0 * cross(quat.xyz, cross(quat.xyz, vec) + quat.w * vec)
+        //            Vector3 xyz = quat.Xyz, temp, temp2;
+        //            Vector3.Cross(ref xyz, ref vec, out temp);
+        //            Vector3.Multiply(ref vec, quat.W, out temp2);
+        //            Vector3.Add(ref temp, ref temp2, out temp);
+        //            Vector3.Cross(ref xyz, ref temp, out temp);
+        //            Vector3.Multiply(ref temp, 2, out temp);
+        //            Vector3.Add(ref vec, ref temp, out result);
+        //        }
 
         /// <summary>
         /// Transforms a vector by a quaternion rotation.

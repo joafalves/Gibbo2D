@@ -51,7 +51,7 @@ namespace Gibbo.Library
     //[KnownType(typeof(Sprite)), KnownType(typeof(Transform)), KnownType(typeof(BodyType)), KnownType(typeof(PropertyLabel))]
     public class GameObject : SystemObject, IDisposable
 #if WINDOWS
-, ICloneable
+        , ICloneable
 #endif
     {
         #region fields
@@ -294,21 +294,27 @@ namespace Gibbo.Library
             transform.GameObject = this;
 
             this.components = new List<ObjectComponent>();
-            foreach (string name in componentReferences)
-            {
-                //bool scriptsAssembly = true;
+            for (int i = componentReferences.Count - 1; i >= 0; i--) 
+            {     
+                string name = componentReferences[i];
 
                 Type _type = SceneManager.ScriptsAssembly.GetType(name);
 
                 if (_type == null)
                 {
 #if WINDOWS
-                    _type = Assembly.GetExecutingAssembly().GetType(name);
+                    _type = Assembly.GetExecutingAssembly().GetType(name); // system components
 #elif WINRT
                     _type = typeof(GameObject).GetTypeInfo().Assembly.GetType(name);
 #endif
                     //scriptsAssembly = false;
                 }
+
+                // still null? delete reference:
+                //if (_type == null)
+                //{
+                //    componentReferences.RemoveAt(i);
+                //}
 
                 // The reference still exists?
                 // (the user removed the component?)
@@ -329,27 +335,20 @@ namespace Gibbo.Library
 
                         LoadComponentValues(oc);
 
-                        if (oc != null)
-                        {
-                            if (!SceneManager.IsEditor)
-                            {
-                                oc.Initialize();
-                            }
-                            else if (SceneManager.IsEditor && oc is ExtendedObjectComponent)
-                            {
-                                oc.Initialize();
-                            }
-                        }
-
-                        this.components.Add(oc);
+                        this.components.Insert(0, oc);
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        Console.WriteLine(ex.Message + "\n" + ex.StackTrace.ToString());
                     }
                 }
             }
 
+            // initializes components
+            foreach (var cmp in this.components)
+                if (!SceneManager.IsEditor || (SceneManager.IsEditor && cmp is ExtendedObjectComponent))
+                    cmp.Initialize();
+           
             if (children == null)
                 children = new GameObjectCollection(this);
 

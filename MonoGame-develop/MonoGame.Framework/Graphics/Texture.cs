@@ -55,10 +55,10 @@ using TextureUnit = OpenTK.Graphics.ES20.All;
 
 namespace Microsoft.Xna.Framework.Graphics
 {
-	public abstract class Texture : GraphicsResource
-	{
-		protected SurfaceFormat format;
-		protected int levelCount;
+    public abstract class Texture : GraphicsResource
+    {
+        protected SurfaceFormat format;
+        protected int levelCount;
 
 #if DIRECTX
 
@@ -67,21 +67,21 @@ namespace Microsoft.Xna.Framework.Graphics
         private SharpDX.Direct3D11.ShaderResourceView _resourceView;
 
 #elif OPENGL
-		internal int glTexture = -1;
-		internal TextureTarget glTarget;
+        internal int glTexture = -1;
+        internal TextureTarget glTarget;
         internal TextureUnit glTextureUnit = TextureUnit.Texture0;
         internal SamplerState glLastSamplerState = null;
 #endif
-		
-		public SurfaceFormat Format
-		{
-			get { return format; }
-		}
-		
-		public int LevelCount
-		{
-			get { return levelCount; }
-		}
+
+        public SurfaceFormat Format
+        {
+            get { return format; }
+        }
+
+        public int LevelCount
+        {
+            get { return levelCount; }
+        }
 
         internal static int CalculateMipLevels(int width, int height = 0, int depth = 0)
         {
@@ -151,7 +151,7 @@ namespace Microsoft.Xna.Framework.Graphics
                     break;
 
                 default:
-                    throw new NotImplementedException( "Unexpected format!" );
+                    throw new NotImplementedException("Unexpected format!");
             };
 
             return pitch;
@@ -178,7 +178,7 @@ namespace Microsoft.Xna.Framework.Graphics
         }
 
         protected override void Dispose(bool disposing)
-		{
+        {
             if (!IsDisposed)
             {
 #if DIRECTX
@@ -208,8 +208,8 @@ namespace Microsoft.Xna.Framework.Graphics
 #endif
             }
             base.Dispose(disposing);
-		}
-		
-	}
+        }
+
+    }
 }
 

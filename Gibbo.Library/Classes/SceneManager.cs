@@ -253,7 +253,7 @@ namespace Gibbo.Library
 
             if (activeScene != null)
             {
-                activeScene.Update(gameTime);
+                 activeScene.Update(gameTime);
             }
         }
 
@@ -319,7 +319,7 @@ namespace Gibbo.Library
             }
             catch (Exception exception)
             {
-                Debug.WriteLine("Error loading scene: " + exception.Message + "\n>" + exception.ToString());
+                Console.WriteLine("Error loading scene: " + exception.Message + "\n>" + exception.ToString());
                 // Not loaded, notify:
                 return false;
             }

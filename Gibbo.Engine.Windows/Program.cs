@@ -25,6 +25,7 @@ THE SOFTWARE.
 #region Using Statements
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 #endregion
 
@@ -35,16 +36,38 @@ namespace Gibbo.Engine.Windows
     /// The main class.
     /// </summary>
     public static class Program
-    {
+    {        
+        //static MyTextWriter textWritter;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            try
+            {
+                //textWritter = new MyTextWriter();
+                //Console.SetOut(textWritter);
+                //textWritter.ConsoleOutput += textWritter_ConsoleOutput;
+
+                using (var game = new Game1())
+                    game.Run();
+            } 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message, "error");
+                Console.ReadLine();
+            }
         }
+
+        //static void textWritter_ConsoleOutput(object sender, EventArgs e)
+        //{
+        //    using (StreamWriter w = File.AppendText("log.txt"))
+        //    {
+        //        w.WriteLine((e as MyTextWriterArgs).Text);
+        //    }
+        //}
     }
 #endif
 }
