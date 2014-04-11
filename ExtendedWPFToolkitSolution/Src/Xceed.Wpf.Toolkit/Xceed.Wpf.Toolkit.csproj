@@ -41,10 +41,6 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Gibbo.Editor.WPF\Project Templates\libs\MonoGame.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -716,6 +712,12 @@
     <Resource Include="Themes\Generic\Images\restore_inactive.png" />
     <Resource Include="Themes\Generic\Images\restore_normal.png" />
     <Resource Include="Themes\Generic\Images\restore_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
+      <Project>{77ebd3fc-0d63-4fab-8db9-29b3528184b3}</Project>
+      <Name>MonoGame.Framework.WindowsGL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

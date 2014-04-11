@@ -141,7 +141,7 @@ namespace Gibbo.Library
             if (targetTransform.position.Y != initialTransform.position.Y)
             {
                 target.Transform.SetPositionY(initialTransform.Position.Y + ((currentElapsed * (targetTransform.Position.Y - initialTransform.Position.Y)) / duration));
-                Console.WriteLine("entreiy");
+                //Console.WriteLine("entreiy");
             }
             //if(targetTransform.position != initialTransform.position)
             //    target.Transform.Position = new Vector2()

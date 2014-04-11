@@ -56,12 +56,17 @@ namespace Gibbo.Editor.WPF
         /// </summary>
         GraphicsDeviceService(IntPtr windowHandle, int width, int height)
         {
-            graphicsDevice = new GraphicsDevice();
-            graphicsDevice.PresentationParameters.DeviceWindowHandle = windowHandle;
-            graphicsDevice.PresentationParameters.BackBufferWidth = Math.Max(width, 1);
-            graphicsDevice.PresentationParameters.BackBufferHeight = Math.Max(height, 1);
-            graphicsDevice.PresentationParameters.PresentationInterval = PresentInterval.Two;
-          
+            PresentationParameters pp = new PresentationParameters();
+            pp.DeviceWindowHandle = windowHandle;
+            pp.BackBufferWidth = Math.Max(width, 1);
+            pp.BackBufferHeight = Math.Max(height, 1);
+            pp.PresentationInterval = PresentInterval.Two;
+
+            graphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter, GraphicsProfile.HiDef, pp);
+            //graphicsDevice.PresentationParameters.DeviceWindowHandle = windowHandle;
+            //graphicsDevice.PresentationParameters.BackBufferWidth = Math.Max(width, 1);
+            //graphicsDevice.PresentationParameters.BackBufferHeight = Math.Max(height, 1);
+            //graphicsDevice.PresentationParameters.PresentationInterval = PresentInterval.Two;
         }
 
 

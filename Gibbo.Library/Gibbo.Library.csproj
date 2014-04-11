@@ -272,8 +272,8 @@
     <None Include="Gibbo.Editor.Model.licenseheader" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonoGame-develop\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
-      <Project>{7de47032-a904-4c29-bd22-2d235e8d91ba}</Project>
+    <ProjectReference Include="..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
+      <Project>{77ebd3fc-0d63-4fab-8db9-29b3528184b3}</Project>
       <Name>MonoGame.Framework.WindowsGL</Name>
     </ProjectReference>
   </ItemGroup>

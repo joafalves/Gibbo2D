@@ -382,7 +382,7 @@ namespace Gibbo.Library
         /// <param name="y"></param>
         public void SetPositionY(float y)
         {
-            position = new Vector2(Position.X, y);
+            Position = new Vector2(Position.X, y);
         }
 
         /// <summary>

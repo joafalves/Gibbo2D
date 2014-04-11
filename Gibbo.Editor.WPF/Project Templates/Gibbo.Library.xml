@@ -4,6 +4,17 @@
         <name>Gibbo.Library</name>
     </assembly>
     <members>
+        <member name="T:Gibbo.Library.Info">
+            <summary>
+            Attribute that adds an information attribute to the component.
+            </summary>
+        </member>
+        <member name="M:Gibbo.Library.Info.#ctor(System.String)">
+            <summary>
+            Creates a new Info
+            </summary>
+            <param name="info">The information you want to be displayed</param>
+        </member>
         <member name="T:Gibbo.Library.RequireComponent">
             <summary>
             Attribute that adds one or more component requirements to the object.
@@ -36,6 +47,75 @@
             <summary>
             'Explicit' is the component type itself.
             'AssinableFrom' can be assigned from parent too (for example, is subclass of the component).
+            </summary>
+        </member>
+        <member name="T:Gibbo.Library.ITween">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gibbo.Library.ITween.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="T:Gibbo.Library.Tween">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gibbo.Library.Tween.#ctor(Gibbo.Library.GameObject)">
+            <summary>
+            
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:Gibbo.Library.Tween.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:Gibbo.Library.Tween.To(Microsoft.Xna.Framework.Vector2,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="duration"></param>
+            <param name="initialDelay"></param>
+        </member>
+        <member name="M:Gibbo.Library.Tween.To(Gibbo.Library.Transform,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="targetTransform"></param>
+            <param name="duration"></param>
+            <param name="initialDelay"></param>
+        </member>
+        <member name="E:Gibbo.Library.Tween.TweenCompleted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Gibbo.Library.Tween.TweenStarted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.Tween.Loop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.Tween.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gibbo.Library.CircleBody">
+            <summary>
+            Circle Body
             </summary>
         </member>
         <member name="T:Gibbo.Library.PhysicalBody">
@@ -134,6 +214,11 @@
             Clone this object
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Gibbo.Library.ObjectComponent.Disabled">
+            <summary>
+            Determines if the component is disabled
+            </summary>
         </member>
         <member name="P:Gibbo.Library.ObjectComponent.Name">
             <summary>
@@ -255,12 +340,17 @@
             The Height of the body shape
             </summary>
         </member>
+        <member name="T:Gibbo.Library.TextureBody">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Gibbo.Library.TextureBody.Initialize">
             <summary>
             Initializes the body
             </summary>
         </member>
-        <member name="P:Gibbo.Library.TextureBody.TexturePath">
+        <member name="P:Gibbo.Library.TextureBody.ImageName">
             <summary>
             The relative path to the texture
             </summary>
@@ -362,6 +452,14 @@
             <param name="angle"></param>
             <returns></returns>
         </member>
+        <member name="M:Gibbo.Library.ExtensionMethods.Intersects(Microsoft.Xna.Framework.Rectangle,Gibbo.Library.RotatedRectangle)">
+            <summary>
+            
+            </summary>
+            <param name="r"></param>
+            <param name="rectangle"></param>
+            <returns></returns>
+        </member>
         <member name="T:Gibbo.Library.FontLoader">
             <summary>
             Font Loader
@@ -405,19 +503,19 @@
             The available font renderers
             </summary>
         </member>
-        <member name="T:Gibbo.Library.FontRenderer">
+        <member name="T:Gibbo.Library.BitmapFontRenderer">
             <summary>
             Font Renderer
             </summary>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.#ctor(Gibbo.Library.FontFile,Microsoft.Xna.Framework.Graphics.Texture2D)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.#ctor(Gibbo.Library.FontFile,Microsoft.Xna.Framework.Graphics.Texture2D)">
             <summary>
             Instantiates this instance
             </summary>
             <param name="fontFile">The font file</param>
             <param name="fontTexture">The font texture</param>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.String)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.String)">
             <summary>
             Draws Text
             </summary>
@@ -425,7 +523,7 @@
             <param name="position">The position</param>
             <param name="text">The text to be drawn</param>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.String,Microsoft.Xna.Framework.Color)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.String,Microsoft.Xna.Framework.Color)">
             <summary>
             
             </summary>
@@ -434,7 +532,7 @@
             <param name="text"></param>
             <param name="color"></param>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.String,System.Single)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,System.String,System.Single)">
             
             <summary>
             Draws Text
@@ -444,7 +542,7 @@
             <param name="text">The text to be drawn</param>
             <param name="scale">The scale</param>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.String)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.String)">
             <summary>
             Draws Text
             </summary>
@@ -453,7 +551,7 @@
             <param name="y">Position Y</param>
             <param name="text">The text to be drawn</param>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.String,System.Single,Microsoft.Xna.Framework.Color,System.Int32,Gibbo.Library.TextAlignModes)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.DrawText(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.String,System.Single,Microsoft.Xna.Framework.Color,System.Int32,Gibbo.Library.TextAlignModes)">
             <summary>
             
             </summary>
@@ -465,7 +563,7 @@
             <param name="color"></param>
             <param name="lineSpacing"></param>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.MeasureString(System.String,System.Single,System.Int32)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.MeasureString(System.String,System.Single,System.Int32)">
             <summary>
             
             </summary>
@@ -474,7 +572,7 @@
             <param name="lineSpacing"></param>
             <returns></returns>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.MeasureString(System.String[],System.Single,System.Int32)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.MeasureString(System.String[],System.Single,System.Int32)">
             <summary>
             Measure all lines resulting in the max size
             </summary>
@@ -483,19 +581,19 @@
             <param name="lineSpacing"></param>
             <returns></returns>
         </member>
-        <member name="M:Gibbo.Library.FontRenderer.MeasureString(System.String,System.Single)">
+        <member name="M:Gibbo.Library.BitmapFontRenderer.MeasureString(System.String,System.Single)">
             <summary>
             Measure a string (width and height)
             </summary>
             <returns></returns>
         </member>
-        <member name="P:Gibbo.Library.FontRenderer.FontFile">
+        <member name="P:Gibbo.Library.BitmapFontRenderer.FontFile">
             <summary>
             
             </summary>
             
         </member>
-        <member name="P:Gibbo.Library.FontRenderer.Texture">
+        <member name="P:Gibbo.Library.BitmapFontRenderer.Texture">
             <summary>
             
             </summary>
@@ -553,7 +651,7 @@
         <member name="M:Gibbo.Library.GameObject.Update(Microsoft.Xna.Framework.GameTime)">
             <summary>
             Updates the logic of this game object.
-            Components and children are notified to update.
+            Components and children are notified to \.
             </summary>
             <param name="gameTime"></param>
         </member>
@@ -574,10 +672,10 @@
         </member>
         <member name="M:Gibbo.Library.GameObject.Remove(Gibbo.Library.GameObject)">
             <summary>
-            Removes the gameobject in the active scene by its name
+            Removes a game object by it's reference
             </summary>
-            <param name="src">object</param>
-            <returns>null if not found</returns>
+            <param name="gameObject">The object to remove</param>
+            <returns></returns>
         </member>
         <member name="M:Gibbo.Library.GameObject.Find(System.String,Gibbo.Library.SearchOptions)">
             <summary>
@@ -607,6 +705,7 @@
             <summary>
             Event thrown when there is a mouse click collision
             </summary>
+            <param name="buttonPressed">The button that was pressed</param>
         </member>
         <member name="M:Gibbo.Library.GameObject.OnMouseMove">
             <summary>
@@ -648,6 +747,12 @@
         <member name="M:Gibbo.Library.GameObject.Clone">
             <summary>
             Clone the game object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.GameObject.Copy">
+            <summary>
+            Clone de game object 
             </summary>
             <returns></returns>
         </member>
@@ -720,6 +825,11 @@
             </summary>
             <param name="gameTime">The gametime</param>
             <param name="spriteBatch">The spriteBatch</param>
+        </member>
+        <member name="P:Gibbo.Library.AnimatedSprite.ResetOnStart">
+            <summary>
+            Determines if the current row/colum should reset on start
+            </summary>
         </member>
         <member name="P:Gibbo.Library.AnimatedSprite.Texture">
             <summary>
@@ -849,6 +959,16 @@
             Plays the selected audio file
             </summary>
         </member>
+        <member name="M:Gibbo.Library.AudioObject.Pause">
+            <summary>
+            Pauses the selected audio file
+            </summary>
+        </member>
+        <member name="M:Gibbo.Library.AudioObject.Stop">
+            <summary>
+            Stops the selected audio file
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.AudioObject.FilePath">
             <summary>
             The relative path to the audio file
@@ -862,6 +982,11 @@
         <member name="P:Gibbo.Library.AudioObject.Volume">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.AudioObject.Position">
+            <summary>
+            The audio position of the current track
             </summary>
         </member>
         <member name="P:Gibbo.Library.AudioObject.IsPlaying">
@@ -890,11 +1015,23 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Gibbo.Library.Camera.ObjectTransform(Gibbo.Library.GameObject)">
+            <summary>
+            Calculates the transformation matrix of the camera for a given game object
+            </summary>
+            <param name="obj">The game object</param>
+            <returns></returns>
+        </member>
         <member name="M:Gibbo.Library.Camera.ToString">
             <summary>
             
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Gibbo.Library.Camera.Rotation">
+            <summary>
+            
+            </summary>
         </member>
         <member name="P:Gibbo.Library.Camera.Position">
             <summary>
@@ -905,6 +1042,7 @@
             <summary>
             Camera zoom
             </summary>
+            
         </member>
         <member name="P:Gibbo.Library.Camera.TransformMatrix">
             <summary>
@@ -914,17 +1052,6 @@
         <member name="P:Gibbo.Library.Camera.BoundingBox">
             <summary>
             The bounding box of the tile
-            </summary>
-        </member>
-        <member name="T:Gibbo.Library.CollisionModel">
-            <summary>
-            The Collision model.
-            This model can be attached to game objects and it will be used by the default collision manager
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.CollisionModel.Initialize(Gibbo.Library.Transform)">
-            <summary>
-            Initializes the collision model
             </summary>
         </member>
         <member name="T:Gibbo.Library.BMFont">
@@ -1086,7 +1213,7 @@
         <member name="P:Gibbo.Library.ParticleEmitter.InitialColor1">
             <summary>
             One possible initial color of a particle
-            </summary>
+            </summary>    
         </member>
         <member name="P:Gibbo.Library.ParticleEmitter.InitialColor2">
             <summary>
@@ -1108,7 +1235,7 @@
             Determines if the particles are enabled
             </summary>
         </member>
-        <member name="P:Gibbo.Library.ParticleEmitter.TexturePath">
+        <member name="P:Gibbo.Library.ParticleEmitter.ImageName">
             <summary>
             The relative path to the texture
             </summary>
@@ -1121,6 +1248,23 @@
         <member name="P:Gibbo.Library.ParticleEmitter.RotationStrength">
             <summary>
             The rotation strength of the particles
+            </summary>
+        </member>
+        <member name="T:Gibbo.Library.Path">
+            <summary>
+            Path Object
+            </summary>
+        </member>
+        <member name="M:Gibbo.Library.Path.Draw(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            Draws this instance
+            </summary>
+            <param name="gameTime"></param>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="P:Gibbo.Library.Path.Points">
+            <summary>
+            The points of the path
             </summary>
         </member>
         <member name="T:Gibbo.Library.Tile">
@@ -1310,6 +1454,17 @@
             </summary>
             <returns>A new array of the tiles in this tileset</returns>
         </member>
+        <member name="M:Gibbo.Library.Tileset.MeasureDimension">
+            <summary>
+            Measures the dimension of this object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gibbo.Library.Tileset.UseRenderTarget">
+            <summary>
+            Determine if in game mode it should use a render target
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.Tileset.Tiles">
             <summary>
             
@@ -1325,7 +1480,7 @@
             The tile size (height)
             </summary>
         </member>
-        <member name="P:Gibbo.Library.Tileset.ImagePath">
+        <member name="P:Gibbo.Library.Tileset.ImageName">
             <summary>
             The relative path to the image
             </summary>
@@ -1354,92 +1509,6 @@
             <summary>
             
             </summary>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.#ctor(Gibbo.Library.GameObject)">
-            <summary>
-            
-            </summary>
-            <param name="owner"></param>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.IndexOf(Gibbo.Library.GameObject)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.Add(Gibbo.Library.GameObject)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.Remove(Gibbo.Library.GameObject)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.Remove(Gibbo.Library.GameObject,System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.CopyTo(System.Array,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="array"></param>
-            <param name="index"></param>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.AddRange(Gibbo.Library.GameObjectCollection)">
-            <summary>
-            
-            </summary>
-            <param name="collection"></param>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.AddRange(Gibbo.Library.GameObject[])">
-            <summary>
-            
-            </summary>
-            <param name="collection"></param>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.Contains(Gibbo.Library.GameObject)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.Insert(System.Int32,Gibbo.Library.GameObject)">
-            <summary>
-            
-            </summary>
-            <param name="index"></param>
-            <param name="item"></param>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.Find(System.Predicate{Gibbo.Library.GameObject})">
-            <summary>
-            
-            </summary>
-            <param name="match"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Gibbo.Library.GameObjectCollection.FindIndex(System.Predicate{Gibbo.Library.GameObject})">
-            <summary>
-            
-            </summary>
-            <param name="match"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Gibbo.Library.GameObjectCollection.Item(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="index"></param>
-            <returns></returns>
         </member>
         <member name="T:Gibbo.Library.Physics">
             <summary>
@@ -1472,6 +1541,56 @@
             it will call Flush to actually submit the draw call to the graphics card, and
             then tell the basic effect to end.
             </summary>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.ChangePosition(System.Int32,System.Int32)">
+            <summary>
+            Used for changing the X and Y position of the RotatedRectangle
+            </summary>
+            <param name="theXPositionAdjustment"></param>
+            <param name="theYPositionAdjustment"></param>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.Intersects(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            This intersects method can be used to check a standard XNA framework Rectangle
+            object and see if it collides with a Rotated Rectangle object
+            </summary>
+            <param name="theRectangle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.Intersects(Gibbo.Library.RotatedRectangle)">
+            <summary>
+            Check to see if two Rotated Rectangls have collided
+            </summary>
+            <param name="theRectangle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.IsAxisCollision(Gibbo.Library.RotatedRectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Determines if a collision has occurred on an Axis of one of the
+            planes parallel to the Rectangle
+            </summary>
+            <param name="theRectangle"></param>
+            <param name="aAxis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.GenerateScalar(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Generates a scalar value that can be used to compare where corners of 
+            a rectangle have been projected onto a particular axis. 
+            </summary>
+            <param name="theRectangleCorner"></param>
+            <param name="theAxis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.RotatedRectangle.RotatePoint(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Rotate a point from a given location and adjust using the Origin we
+            are rotating around
+            </summary>
+            <param name="thePoint"></param>
+            <param name="theOrigin"></param>
+            <param name="theRotation"></param>
+            <returns></returns>
         </member>
         <member name="T:Gibbo.Library.ContentBrowserEditor">
             <summary>
@@ -7304,184 +7423,6 @@
             <param name="restitution2">The restitution2.</param>
             <returns></returns>
         </member>
-        <member name="T:Gibbo.Library.UI.Control">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.#ctor">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.#ctor(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.#ctor(System.String,Gibbo.Library.UI.Control)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="parent"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.#ctor(System.String,Gibbo.Library.UI.Control,Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="parent"></param>
-            <param name="position"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.#ctor(System.String,Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <param name="position"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.InitializeControl">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.Initialize">
-            <summary>
-            Virtual Initialize
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.Update(Microsoft.Xna.Framework.GameTime)">
-            <summary>
-            Virtual Update
-            </summary>
-            <param name="gameTime">The game time</param>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.Draw(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
-            <summary>
-            
-            </summary>
-            <param name="gameTime"></param>
-            <param name="spriteBatch"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.Control.ToString">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.Tag">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.Position">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.Name">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.Width">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.Height">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.Parent">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.Controls">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Control.BoundingBox">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Gibbo.Library.UI.ControlCollection">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.#ctor(Gibbo.Library.UI.Control)">
-            <summary>
-            
-            </summary>
-            <param name="owner"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.IndexOf(Gibbo.Library.UI.Control)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.Add(Gibbo.Library.UI.Control)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.Remove(Gibbo.Library.UI.Control)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.CopyTo(System.Array,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="array"></param>
-            <param name="index"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.AddRange(Gibbo.Library.UI.ControlCollection)">
-            <summary>
-            
-            </summary>
-            <param name="collection"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.AddRange(Gibbo.Library.UI.Control[])">
-            <summary>
-            
-            </summary>
-            <param name="collection"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.Contains(Gibbo.Library.UI.Control)">
-            <summary>
-            
-            </summary>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Gibbo.Library.UI.ControlCollection.Insert(System.Int32,Gibbo.Library.UI.Control)">
-            <summary>
-            
-            </summary>
-            <param name="index"></param>
-            <param name="item"></param>
-        </member>
-        <member name="P:Gibbo.Library.UI.ControlCollection.Item(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="index"></param>
-            <returns></returns>
-        </member>
         <member name="T:Gibbo.Library.IPlugin">
             <summary>
             The plugin interface
@@ -7530,6 +7471,16 @@
             The screen height
             </summary>
         </member>
+        <member name="P:Gibbo.Library.Settings.VirtualScreenWidth">
+            <summary>
+            The virtual screen width
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.Settings.VirtualScreenHeight">
+            <summary>
+            The virtual screen height
+            </summary>
+        </member>
         <member name="T:Gibbo.Library.Sprite">
             <summary>
             Sprite Object
@@ -7553,6 +7504,12 @@
             <param name="gameTime">The gametime</param>
             <param name="spriteBatch">The spriteBatch</param>
         </member>
+        <member name="M:Gibbo.Library.Sprite.MeasureDimension">
+            <summary>
+            Measures the dimension of this object
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Gibbo.Library.Sprite.DisplayMode">
             <summary>
             Determine how this sprite should be displayed
@@ -7561,6 +7518,11 @@
         <member name="P:Gibbo.Library.Sprite.Origin">
             <summary>
             The center point
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.Sprite.SpriteEffect">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:Gibbo.Library.Sprite.BlendMode">
@@ -7591,6 +7553,16 @@
         <member name="T:Gibbo.Library.Sprite.DisplayModes">
             <summary>
             Display Mode
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.RenderView.Camera">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.RenderView.Viewport">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:Gibbo.Library.EditorKeyboard">
@@ -7674,7 +7646,7 @@
         </member>
         <member name="T:Gibbo.Library.BlendModes">
             <summary>
-            
+            Blending Modes
             </summary>
         </member>
         <member name="T:Gibbo.Library.GibboProjectEditorSettings">
@@ -7732,6 +7704,16 @@
             <summary>
             This class provides some math extension methods to make some calculations easy.
             </summary>
+        </member>
+        <member name="M:Gibbo.Library.MathExtension.RotatePoint(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Rotate a point from a given location and adjust using the Origin we
+            are rotating around.
+            </summary>
+            <param name="point"></param>
+            <param name="origin"></param>
+            <param name="rotation"></param>
+            <returns></returns>
         </member>
         <member name="M:Gibbo.Library.MathExtension.CalculateBezierPoint(System.Single,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
             <summary>
@@ -7795,7 +7777,18 @@
             </summary>
             <param name="value1">The current value</param>
             <param name="value2">The final value</param>
-            <param name="lerp">The ammount</param>
+            <param name="lerp">The amount</param>
+            <returns>The calculated angle</returns>
+        </member>
+        <member name="M:Gibbo.Library.MathExtension.AngleLerp(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Angle lerp.
+            Useful for smooth point rotations.
+            </summary>
+            <param name="value1">The current value</param>
+            <param name="value2">The final value</param>
+            <param name="lerp">The amount</param>
+            <param name="error">The maximum error allowed</param>
             <returns>The calculated angle</returns>
         </member>
         <member name="M:Gibbo.Library.MathExtension.Round(Microsoft.Xna.Framework.Vector2)">
@@ -8169,11 +8162,6 @@
             Reloads the settings.ini configurations to memory
             </summary>
         </member>
-        <member name="P:Gibbo.Library.GibboProject.VisualScriptManager">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:Gibbo.Library.GibboProject.Debug">
             <summary>
             Build Mode
@@ -8469,6 +8457,11 @@
             <param name="path">The target path</param>
             <returns></returns>
         </member>
+        <member name="P:Gibbo.Library.SceneManager.DrawPass">
+            <summary>
+            The current Draw Pass Index
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.SceneManager.GameWindow">
             <summary>
             The active game window.
@@ -8574,6 +8567,18 @@
             Transform class
             </summary>
         </member>
+        <member name="M:Gibbo.Library.Transform.SetPositionX(System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Gibbo.Library.Transform.SetPositionY(System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="y"></param>
+        </member>
         <member name="M:Gibbo.Library.Transform.Translate(Microsoft.Xna.Framework.Vector2)">
             <summary>
             Translates an object
@@ -8587,7 +8592,7 @@
             <param name="x"></param>
             <param name="y"></param>
         </member>
-        <member name="M:Gibbo.Library.Transform.DeepCopy">
+        <member name="M:Gibbo.Library.Transform.DeepCopy(System.Boolean)">
             <summary>
             
             </summary>
@@ -8716,70 +8721,6 @@
         <member name="P:Gibbo.Library.LoopStream.Position">
             <summary>
             LoopStream simply passes on positioning to source stream
-            </summary>
-        </member>
-        <member name="T:Gibbo.Library.UI.Label">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Gibbo.Library.UI.SkinnedControl">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.UI.SkinnedControl.ChangeGlobalSkin(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="fileName"></param>
-        </member>
-        <member name="M:Gibbo.Library.UI.SkinnedControl.ChangeSkin(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="fileName"></param>
-        </member>
-        <member name="P:Gibbo.Library.UI.SkinnedControl.GlobalSkinTexture">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.SkinnedControl.SkinTexture">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.SkinnedControl.UseGlobalSkin">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:Gibbo.Library.UI.Window">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Gibbo.Library.UI.Window.Draw(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
-            <summary>
-            
-            </summary>
-            <param name="gameTime"></param>
-            <param name="spriteBatch"></param>
-        </member>
-        <member name="P:Gibbo.Library.UI.Window.AutoSize">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Window.ShowTitle">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Gibbo.Library.UI.Window.Padding">
-            <summary>
-            
             </summary>
         </member>
         <member name="T:Gibbo.Library.VisualScripting.Nodes.EventTypes">

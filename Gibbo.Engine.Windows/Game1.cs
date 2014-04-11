@@ -113,6 +113,17 @@ namespace Gibbo.Engine.Windows
                     ShowWindow(handle, SW_HIDE);
                 }
 
+                bool isBorderLess = settings.IniReadValue("Window", "IsBorderLess").ToLower().Trim().Equals("true") ? true : false;
+                if (isBorderLess)
+                {
+                    Window.IsBorderless = true;
+                    Console.WriteLine("BorderLess mode activated");
+                }
+                else
+                {
+                    Console.WriteLine("No border mode activated");
+                }
+
                 // Cursor
                 bool showCursor = settings.IniReadValue("Mouse", "Visible").ToLower().Trim().Equals("true") ? true : false;
                 if (showCursor)
@@ -133,9 +144,23 @@ namespace Gibbo.Engine.Windows
                     System.Reflection.FieldInfo field = type.GetField("window", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                     OpenTK.GameWindow window = (OpenTK.GameWindow)field.GetValue(Window);
 
-                    window.X = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - graphics.PreferredBackBufferWidth / 2;
-                    window.Y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - graphics.PreferredBackBufferHeight / 2;
-                }
+                    string posx = settings.IniReadValue("Window", "PositionX").Trim();
+                    string posy = settings.IniReadValue("Window", "PositionY").Trim();
+
+                    if (posx != string.Empty) {
+                        int px = int.Parse(posx);
+                        window.X = px;
+                    } else {
+                        window.X = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - graphics.PreferredBackBufferWidth / 2;                     
+                    }
+
+                    if (posy != string.Empty) {
+                        int py = int.Parse(posy);
+                        window.Y = py;
+                    } else {
+                        window.Y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - graphics.PreferredBackBufferHeight / 2;
+                    }
+                  }
 
                 // Update Settings
                 graphics.ApplyChanges();
@@ -226,7 +251,7 @@ namespace Gibbo.Engine.Windows
             if (SceneManager.GameProject.Debug)
             {
                 Console.WriteLine("Gibbo 2D - Game Engine Console");
-                Console.WriteLine("Scene loaded successfully!");
+                Console.WriteLine("Scene loaded with success!");
                 Console.WriteLine("Path: " + SceneManager.GameProject.ProjectPath);
                 Console.WriteLine("Assembly path " + SceneManager.ScriptsAssembly.Location.ToString());
             }
