@@ -43,7 +43,7 @@ namespace Gibbo.Engine.Windows
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             try
             {
@@ -52,7 +52,23 @@ namespace Gibbo.Engine.Windows
                 //textWritter.ConsoleOutput += textWritter_ConsoleOutput;
 
                 using (var game = new Game1())
+                {
+                    if (args.Length > 0)
+                    {
+                        Console.WriteLine("arg count: " + args.Length);
+
+                        if (args.Length == 2)
+                        {
+                            int px = int.Parse(args[0]);
+                            int py = int.Parse(args[1]);
+                            game.preferredPositionX = px;
+                            game.preferredPositionY = py;
+                        }
+                    }
+
                     game.Run();
+
+                }
             } 
             catch (Exception ex)
             {

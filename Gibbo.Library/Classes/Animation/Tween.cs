@@ -46,6 +46,14 @@ namespace Gibbo.Library
         /// <summary>
         /// 
         /// </summary>
+        public Transform InitialTransform
+        {
+            get { return initialTransform.DeepCopy(); }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Loop
         {
             get { return loop; }

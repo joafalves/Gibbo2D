@@ -140,6 +140,33 @@ namespace Gibbo.Engine.Windows.DirectX
                     //System.Reflection.FieldInfo field = type.GetField("window", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                     //OpenTK.GameWindow window = (OpenTK.GameWindow)field.GetValue(Window);
 
+                    string posx = settings.IniReadValue("Window", "PositionX").Trim();
+                    string posy = settings.IniReadValue("Window", "PositionY").Trim();
+
+                    if (posx != string.Empty)
+                    {
+                        int px = int.Parse(posx);
+                        Window.Position = new Point(px, Window.Position.Y);
+                    }
+                    else
+                    {
+                        Window.Position = new Point(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - graphics.PreferredBackBufferWidth / 2, Window.Position.Y);
+                    }
+
+                    if (posy != string.Empty)
+                    {
+                        int py = int.Parse(posy);
+                        Window.Position = new Point(Window.Position.X, py);
+                    }
+                    else
+                    {
+                        Window.Position = new Point(Window.Position.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - graphics.PreferredBackBufferHeight / 2);
+                    }
+
+                    //Type type = typeof(OpenTKGameWindow);
+                    //System.Reflection.FieldInfo field = type.GetField("window", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    //OpenTK.GameWindow window = (OpenTK.GameWindow)field.GetValue(Window);
+
                     //window.X = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - graphics.PreferredBackBufferWidth / 2;
                     //window.Y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - graphics.PreferredBackBufferHeight / 2;
                 }

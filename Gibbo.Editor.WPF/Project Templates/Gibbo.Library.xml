@@ -103,6 +103,11 @@
             
             </summary>
         </member>
+        <member name="P:Gibbo.Library.Tween.InitialTransform">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.Tween.Loop">
             <summary>
             

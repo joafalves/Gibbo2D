@@ -54,19 +54,23 @@ namespace Gibbo.Engine.Windows
         private static extern void SetStdHandle(UInt32 nStdHandle, IntPtr handle);
         [DllImport("kernel32")]
         static extern bool AllocConsole();
-        TimeSpan elapsedTime = TimeSpan.Zero;
+
+        private TimeSpan elapsedTime = TimeSpan.Zero;
 #endif
 
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
-        string projectFilePath;
+        private string projectFilePath;
 
-        string originalTitle;
+        private string originalTitle;
 
         private static int fpsCount = 0;
         private static int fps = 0;
         private static float deltaFPSTime = 0f;
+
+        internal int preferredPositionX = -1;
+        internal int preferredPositionY = -1;
 
         /// <summary>
         /// 
@@ -131,7 +135,7 @@ namespace Gibbo.Engine.Windows
 
                 graphics.PreferredBackBufferWidth = Convert.ToInt32(settings.IniReadValue("Window", "Width").Trim());
                 graphics.PreferredBackBufferHeight = Convert.ToInt32(settings.IniReadValue("Window", "Height").Trim());
-               
+
                 // Full Screen
                 bool fullScreen = settings.IniReadValue("Window", "StartFullScreen").ToLower().Trim().Equals("true") ? true : false;
                 if (fullScreen)
@@ -147,20 +151,34 @@ namespace Gibbo.Engine.Windows
                     string posx = settings.IniReadValue("Window", "PositionX").Trim();
                     string posy = settings.IniReadValue("Window", "PositionY").Trim();
 
-                    if (posx != string.Empty) {
+                    if (preferredPositionX != -1)
+                    {
+                        window.X = preferredPositionX;
+                    }
+                    else if (posx != string.Empty)
+                    {
                         int px = int.Parse(posx);
                         window.X = px;
-                    } else {
-                        window.X = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - graphics.PreferredBackBufferWidth / 2;                     
+                    }
+                    else
+                    {
+                        window.X = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2 - graphics.PreferredBackBufferWidth / 2;
                     }
 
-                    if (posy != string.Empty) {
+                    if (preferredPositionY != -1)
+                    {
+                        window.Y = preferredPositionY;
+                    }
+                    else if (posy != string.Empty)
+                    {
                         int py = int.Parse(posy);
                         window.Y = py;
-                    } else {
+                    }
+                    else
+                    {
                         window.Y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - graphics.PreferredBackBufferHeight / 2;
                     }
-                  }
+                }
 
                 // Update Settings
                 graphics.ApplyChanges();
