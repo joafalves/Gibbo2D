@@ -110,7 +110,21 @@ namespace Gibbo.Library
         [DataMember]
         protected bool disabled = false;
 
+        [DataMember]
+        private bool rotationIndependent = false;
+
+
+
         #endregion
+
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public bool RotationIndependent
+        {
+            get { return rotationIndependent; }
+            set { rotationIndependent = value; }
+        }
 
         #region properties
 #if WINDOWS

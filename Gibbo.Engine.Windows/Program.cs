@@ -37,7 +37,7 @@ namespace Gibbo.Engine.Windows
     /// </summary>
     public static class Program
     {        
-        //static MyTextWriter textWritter;
+        static MyTextWriter textWritter;
 
         /// <summary>
         /// The main entry point for the application.
@@ -47,10 +47,10 @@ namespace Gibbo.Engine.Windows
         {
             try
             {
-                //textWritter = new MyTextWriter();
+                textWritter = new MyTextWriter();
                 //Console.SetOut(textWritter);
-                //textWritter.ConsoleOutput += textWritter_ConsoleOutput;
-
+                textWritter.ConsoleOutput += textWritter_ConsoleOutput;
+                
                 using (var game = new Game1())
                 {
                     if (args.Length > 0)
@@ -66,6 +66,8 @@ namespace Gibbo.Engine.Windows
                         }
                     }
 
+                    Gibbo.Library.SceneManager.GameArgs = args;
+
                     game.Run();
 
                 }
@@ -75,15 +77,18 @@ namespace Gibbo.Engine.Windows
                 Console.WriteLine(ex.Message, "error");
                 Console.ReadLine();
             }
+
+            //Console.WriteLine("DEBUG MODE, PRESS ANY KEY TO EXIT...");
+            //Console.ReadKey();
         }
 
-        //static void textWritter_ConsoleOutput(object sender, EventArgs e)
-        //{
-        //    using (StreamWriter w = File.AppendText("log.txt"))
-        //    {
-        //        w.WriteLine((e as MyTextWriterArgs).Text);
-        //    }
-        //}
+        static void textWritter_ConsoleOutput(object sender, EventArgs e)
+        {
+            using (StreamWriter w = File.AppendText("log.txt"))
+            {
+                w.WriteLine((e as MyTextWriterArgs).Text);
+            }
+        }
     }
 #endif
 }

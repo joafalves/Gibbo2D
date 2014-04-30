@@ -60,9 +60,20 @@ namespace Gibbo.Library
         private static int fps = 0;
         private static float deltaFPSTime = 0f;
 
+        private static string[] gameArgs = new string[1];
+
         #endregion
 
         #region properties
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string[] GameArgs
+        {
+            get { return SceneManager.gameArgs; }
+            set { SceneManager.gameArgs = value; }
+        }
 
         /// <summary>
         /// The current Draw Pass Index

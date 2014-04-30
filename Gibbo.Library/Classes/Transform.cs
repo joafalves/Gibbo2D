@@ -248,14 +248,14 @@ namespace Gibbo.Library
                     //if (parent != null)
                     //    return gameObject.Body.Rotation + parent.Rotation;
                     //else
-                    if (parent != null)
+                    if (parent != null && !gameObject.RotationIndependent)
                         return gameObject.Body.Rotation + parent.Rotation;
                     else
                         return gameObject.Body.Rotation;
                 }
                 else
                 {
-                    if (parent != null)
+                    if (parent != null && !gameObject.RotationIndependent)
                         return rotation + parent.Rotation;
                     else
                         return rotation;
@@ -281,6 +281,8 @@ namespace Gibbo.Library
             {
                 foreach (GameObject _obj in obj.Children)
                 {
+                    if (_obj.RotationIndependent) continue;
+
                     if (_obj.Body != null && _obj.Body.BodyType != BodyType.Dynamic)
                         _obj.Body.Rotation = _obj.Body.Rotation + _obj.Transform.rotation;
 

@@ -8462,6 +8462,11 @@
             <param name="path">The target path</param>
             <returns></returns>
         </member>
+        <member name="P:Gibbo.Library.SceneManager.GameArgs">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.SceneManager.DrawPass">
             <summary>
             The current Draw Pass Index
