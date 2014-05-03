@@ -126,8 +126,7 @@ namespace Gibbo.Library
 
         public void Delete(GameObject item)
         {
-            item.RemoveAllComponents();
-
+            //item.RemoveAllComponents();
             innerList.Remove(item);
         }
 

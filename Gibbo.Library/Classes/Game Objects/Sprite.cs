@@ -288,8 +288,6 @@ namespace Gibbo.Library
         /// <param name="spriteBatch">The spriteBatch</param>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            base.Draw(gameTime, spriteBatch);
-
             if (texture != null && Visible) // && (MeasureDimension().Intersects(SceneManager.ActiveCamera.BoundingBox) || displayMode == DisplayModes.Fill || displayMode == DisplayModes.Tile || displayMode == DisplayModes.PositionTile))
             {
                 Vector2 _orgx = Vector2.Zero;
@@ -379,6 +377,8 @@ namespace Gibbo.Library
 
                 spriteBatch.End();
             }
+
+            base.Draw(gameTime, spriteBatch);
         }
 
         /// <summary>

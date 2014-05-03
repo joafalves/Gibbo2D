@@ -49,6 +49,11 @@
             'AssinableFrom' can be assigned from parent too (for example, is subclass of the component).
             </summary>
         </member>
+        <member name="T:Gibbo.Library.ConstantTween">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Gibbo.Library.ITween">
             <summary>
             
@@ -59,6 +64,59 @@
             
             </summary>
             <param name="gameTime"></param>
+        </member>
+        <member name="M:Gibbo.Library.ConstantTween.#ctor(Gibbo.Library.GameObject)">
+            <summary>
+            
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:Gibbo.Library.ConstantTween.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:Gibbo.Library.ConstantTween.To(Microsoft.Xna.Framework.Vector2,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="rate"></param>
+            <param name="initialDelay"></param>
+        </member>
+        <member name="M:Gibbo.Library.ConstantTween.To(Gibbo.Library.Transform,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="targetTransform"></param>
+            <param name="rate"></param>
+            <param name="initialDelay"></param>
+        </member>
+        <member name="E:Gibbo.Library.ConstantTween.TweenCompleted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Gibbo.Library.ConstantTween.TweenStarted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.ConstantTween.InitialTransform">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.ConstantTween.Loop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.ConstantTween.Target">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Gibbo.Library.Tween">
             <summary>

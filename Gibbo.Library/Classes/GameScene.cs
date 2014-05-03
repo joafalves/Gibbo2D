@@ -362,12 +362,6 @@ namespace Gibbo.Library
         /// <param name="gameTime">The Gametime</param>
         public void Update(GameTime gameTime)
         {
-            for (int i = markedForRemoval.Count - 1; i >= 0; i--)
-            {
-                markedForRemoval[i].Delete();
-                markedForRemoval.RemoveAt(i);
-            }
-
             for (int i = 0; i < gameObjects.Count; i++)
                 if (!gameObjects[i].Disabled)
                     gameObjects[i].Update(gameTime);
@@ -378,6 +372,12 @@ namespace Gibbo.Library
             {
                 world.Step((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
                 //Console.WriteLine((float)gameTime.ElapsedGameTime.TotalMilliseconds * 0.001f);
+            }
+
+            for (int i = markedForRemoval.Count - 1; i >= 0; i--)
+            {
+                markedForRemoval[i].Delete();
+                markedForRemoval.RemoveAt(i);
             }
         }
 
