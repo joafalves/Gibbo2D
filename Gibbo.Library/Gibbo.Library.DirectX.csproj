@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{E806D804-5B17-4C24-8C10-94809977CA0A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gibbo.Library</RootNamespace>
+    <AssemblyName>Gibbo.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86_DirectX\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\x86\Release\Gibbo.Library.XML</DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\References\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="Tao.Sdl, Version=1.2.13.0, Culture=neutral, PublicKeyToken=9c7a200e36c0094e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Tao.Sdl.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\References\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\Info.cs" />
+    <Compile Include="Attributes\RequireComponent.cs" />
+    <Compile Include="Attributes\Unique.cs" />
+    <Compile Include="Classes\Animation\ConstantTween.cs" />
+    <Compile Include="Classes\Animation\ITween.cs" />
+    <Compile Include="Classes\Animation\Tween.cs" />
+    <Compile Include="Classes\Components\Animator.cs" />
+    <Compile Include="Classes\Components\CircleBody.cs" />
+    <Compile Include="Classes\Components\PhysicalBody.cs" />
+    <Compile Include="Classes\Components\RectangleBody.cs" />
+    <Compile Include="Classes\Components\TextureBody.cs" />
+    <Compile Include="Classes\ConvertUnits.cs" />
+    <Compile Include="Classes\DebugView2D.cs" />
+    <Compile Include="Classes\ExtensionMethods.cs" />
+    <Compile Include="Classes\Font.cs" />
+    <Compile Include="Classes\BMFontLoader.cs" />
+    <Compile Include="Classes\BitmapFontRenderer.cs" />
+    <Compile Include="Classes\Game Objects\AnimatedSprite.cs" />
+    <Compile Include="Classes\Audio.cs" />
+    <Compile Include="Classes\Game Objects\AudioObject.cs" />
+    <Compile Include="Classes\Camera.cs" />
+    <Compile Include="Classes\CollisionManager.cs" />
+    <Compile Include="Classes\Game Objects\BMFont.cs" />
+    <Compile Include="Classes\Game Objects\ParticleEmitter.cs" />
+    <Compile Include="Classes\Game Objects\Path.cs" />
+    <Compile Include="Classes\Game Objects\SystemObject.cs" />
+    <Compile Include="Classes\Game Objects\Tileset.cs" />
+    <Compile Include="Classes\GameObjectCollection.cs" />
+    <Compile Include="Classes\Particle.cs" />
+    <Compile Include="Classes\Physics.cs" />
+    <Compile Include="Classes\PrimitiveBatch.cs" />
+    <Compile Include="Classes\RotatedRectangle.cs" />
+    <Compile Include="Design\ContentBrowserEditor.cs" />
+    <Compile Include="Design\LocalResources.cs" />
+    <Compile Include="Design\XNAColorConverter.cs" />
+    <Compile Include="Design\XNAColorEditor.cs" />
+    <Compile Include="Farseer\Collision\Collision.cs" />
+    <Compile Include="Farseer\Collision\Distance.cs" />
+    <Compile Include="Farseer\Collision\DynamicTree.cs" />
+    <Compile Include="Farseer\Collision\DynamicTreeBroadPhase.cs" />
+    <Compile Include="Farseer\Collision\IBroadPhase.cs" />
+    <Compile Include="Farseer\Collision\Shapes\ChainShape.cs" />
+    <Compile Include="Farseer\Collision\Shapes\CircleShape.cs" />
+    <Compile Include="Farseer\Collision\Shapes\EdgeShape.cs" />
+    <Compile Include="Farseer\Collision\Shapes\PolygonShape.cs" />
+    <Compile Include="Farseer\Collision\Shapes\Shape.cs" />
+    <Compile Include="Farseer\Collision\TimeOfImpact.cs" />
+    <Compile Include="Farseer\Common\ConvexHull\ChainHull.cs" />
+    <Compile Include="Farseer\Common\ConvexHull\GiftWrap.cs" />
+    <Compile Include="Farseer\Common\ConvexHull\Melkman.cs" />
+    <Compile Include="Farseer\Common\Decomposition\BayazitDecomposer.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDTDecomposer.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\DelaunayTriangle.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\Sweep\AdvancingFront.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\Sweep\AdvancingFrontNode.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\Sweep\DTSweep.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\Sweep\DTSweepConstraint.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\Sweep\DTSweepContext.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\Sweep\DTSweepPointComparator.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Delaunay\Sweep\PointOnEdgeException.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\ITriangulatable.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Orientation.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Polygon\Polygon.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Polygon\PolygonPoint.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Polygon\PolygonSet.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Sets\ConstrainedPointSet.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Sets\PointSet.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\TriangulationConstraint.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\TriangulationContext.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\TriangulationMode.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\TriangulationPoint.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\TriangulationUtil.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Util\FixedArray3.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Util\FixedBitArray3.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Util\PointGenerator.cs" />
+    <Compile Include="Farseer\Common\Decomposition\CDT\Util\PolygonGenerator.cs" />
+    <Compile Include="Farseer\Common\Decomposition\EarclipDecomposer.cs" />
+    <Compile Include="Farseer\Common\Decomposition\FlipcodeDecomposer.cs" />
+    <Compile Include="Farseer\Common\Decomposition\SeidelDecomposer.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\Edge.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\MonotoneMountain.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\Node.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\Point.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\QueryGraph.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\Sink.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\Trapezoid.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\TrapezoidalMap.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\Triangulator.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\XNode.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Seidel\YNode.cs" />
+    <Compile Include="Farseer\Common\Decomposition\Triangulate.cs" />
+    <Compile Include="Farseer\Common\FixedArray.cs" />
+    <Compile Include="Farseer\Common\LineTools.cs" />
+    <Compile Include="Farseer\Common\Math.cs" />
+    <Compile Include="Farseer\Common\Path.cs" />
+    <Compile Include="Farseer\Common\PathManager.cs" />
+    <Compile Include="Farseer\Common\PhysicsLogic\FilterData.cs" />
+    <Compile Include="Farseer\Common\PhysicsLogic\PhysicsLogic.cs" />
+    <Compile Include="Farseer\Common\PhysicsLogic\RealExplosion.cs" />
+    <Compile Include="Farseer\Common\PhysicsLogic\SimpleExplosion.cs" />
+    <Compile Include="Farseer\Common\PolygonManipulation\CuttingTools.cs" />
+    <Compile Include="Farseer\Common\PolygonManipulation\SimpleCombiner.cs" />
+    <Compile Include="Farseer\Common\PolygonManipulation\SimplifyTools.cs" />
+    <Compile Include="Farseer\Common\PolygonManipulation\YuPengClipper.cs" />
+    <Compile Include="Farseer\Common\PolygonTools.cs" />
+    <Compile Include="Farseer\Common\Serialization.cs" />
+    <Compile Include="Farseer\Common\Stopwatch.cs" />
+    <Compile Include="Farseer\Common\TextureTools\MarchingSquares.cs" />
+    <Compile Include="Farseer\Common\TextureTools\Terrain.cs" />
+    <Compile Include="Farseer\Common\TextureTools\TextureConverter.cs" />
+    <Compile Include="Farseer\Common\Vertices.cs" />
+    <Compile Include="Farseer\Content\BodyContainer.cs" />
+    <Compile Include="Farseer\Content\FarseerBodyContainerReader.cs" />
+    <Compile Include="Farseer\Content\FarseerPolygonContainerReader.cs" />
+    <Compile Include="Farseer\Content\PolygonContainer.cs" />
+    <Compile Include="Farseer\Controllers\AbstractForceController.cs" />
+    <Compile Include="Farseer\Controllers\BuoyancyController.cs" />
+    <Compile Include="Farseer\Controllers\Controller.cs" />
+    <Compile Include="Farseer\Controllers\GravityController.cs" />
+    <Compile Include="Farseer\Controllers\SimpleWindForce.cs" />
+    <Compile Include="Farseer\Controllers\VelocityLimitController.cs" />
+    <Compile Include="Farseer\ConvertUnits.cs" />
+    <Compile Include="Farseer\DebugViewBase.cs" />
+    <Compile Include="Farseer\Dynamics\Body.cs" />
+    <Compile Include="Farseer\Dynamics\BreakableBody.cs" />
+    <Compile Include="Farseer\Dynamics\ContactManager.cs" />
+    <Compile Include="Farseer\Dynamics\Contacts\Contact.cs" />
+    <Compile Include="Farseer\Dynamics\Contacts\ContactSolver.cs" />
+    <Compile Include="Farseer\Dynamics\Fixture.cs" />
+    <Compile Include="Farseer\Dynamics\Island.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\AngleJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\DistanceJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\FixedMouseJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\FrictionJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\GearJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\Joint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\MotorJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\PrismaticJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\PulleyJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\RevoluteJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\RopeJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\WeldJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\WheelJoint.cs" />
+    <Compile Include="Farseer\Dynamics\TimeStep.cs" />
+    <Compile Include="Farseer\Dynamics\World.cs" />
+    <Compile Include="Farseer\Dynamics\WorldCallbacks.cs" />
+    <Compile Include="Farseer\Factories\BodyFactory.cs" />
+    <Compile Include="Farseer\Factories\FixtureFactory.cs" />
+    <Compile Include="Farseer\Factories\JointFactory.cs" />
+    <Compile Include="Farseer\Factories\LinkFactory.cs" />
+    <Compile Include="Farseer\Settings.cs" />
+    <Compile Include="Interfaces\IPlugin.cs" />
+    <Compile Include="Classes\Settings.cs" />
+    <Compile Include="Classes\Game Objects\Sprite.cs" />
+    <Compile Include="RenderView.cs" />
+    <Compile Include="Utils\EditorKeyboard.cs" />
+    <Compile Include="Classes\Components\ExtendedObjectComponent.cs" />
+    <Compile Include="Classes\GibboCompiler.cs" />
+    <Compile Include="Classes\GibboEnums.cs" />
+    <Compile Include="Classes\GibboProjectEditorSettings.cs" />
+    <Compile Include="Classes\MathExtension.cs" />
+    <Compile Include="Classes\GameInput.cs" />
+    <Compile Include="Classes\Game Objects\GameObject.cs" />
+    <Compile Include="Classes\GameScene.cs" />
+    <Compile Include="Classes\GibboHelper.cs" />
+    <Compile Include="Classes\GibboProject.cs" />
+    <Compile Include="Classes\GibboProjectSettings.cs" />
+    <Compile Include="Classes\Components\ObjectComponent.cs" />
+    <Compile Include="Classes\Primitives.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\PropertyLabel.cs" />
+    <Compile Include="Classes\SceneManager.cs" />
+    <Compile Include="Classes\TextureLoader.cs" />
+    <Compile Include="Classes\Transform.cs" />
+    <Compile Include="Classes\IniFile.cs" />
+    <Compile Include="Utils\EditorMouse.cs" />
+    <Compile Include="Utils\LoopStream.cs" />
+    <Compile Include="Visual Scripting\Nodes\Event.cs" />
+    <Compile Include="Visual Scripting\Nodes\SetPosition.cs" />
+    <Compile Include="Visual Scripting\Values\Trigger.cs" />
+    <Compile Include="Visual Scripting\VisualScriptConnection.cs" />
+    <Compile Include="Visual Scripting\VisualScriptConnectionsCollection.cs" />
+    <Compile Include="Visual Scripting\VisualScriptManager.cs" />
+    <Compile Include="Visual Scripting\VisualScriptNodeInterfaceOutput.cs" />
+    <Compile Include="Visual Scripting\VisualScriptInterfacesCollection.cs" />
+    <Compile Include="Visual Scripting\VisualScript.cs" />
+    <Compile Include="Visual Scripting\VisualScriptNode.cs" />
+    <Compile Include="Visual Scripting\VisualScriptNodeInterface.cs" />
+    <Compile Include="Visual Scripting\VisualScriptNodeInterfaceInput.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Visual Scripting\Events\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Gibbo.Editor.Model.licenseheader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.Windows.csproj">
+      <Project>{7de47032-a904-4c29-bd22-2d235e8d91ba}</Project>
+      <Name>MonoGame.Framework.Windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

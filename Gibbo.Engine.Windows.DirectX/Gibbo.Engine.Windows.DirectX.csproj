@@ -11,6 +11,8 @@
     <RootNamespace>Gibbo.Engine.Windows.DirectX</RootNamespace>
     <AssemblyName>Gibbo.Engine.Windows.DirectX</AssemblyName>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -45,39 +47,43 @@
   <ItemGroup>
     <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\Lidgren.Network.dll</HintPath>
+      <HintPath>..\References\SharpDx\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\SharpDX.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct2D1, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\SharpDX.Direct2D1.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\SharpDx\SharpDX.Direct3D11.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct3D9, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\MonoGame-3.2\MonoGame.Framework\bin\Windows\Release\SharpDX.Direct3D9.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.Direct3D9.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.DXGI, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\SharpDX.DXGI.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.DXGI.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.MediaFoundation, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\SharpDX.MediaFoundation.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.MediaFoundation.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.RawInput, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\SharpDX.RawInput.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.RawInput.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.XAudio2, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\SharpDX.XAudio2.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.XAudio2.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.XInput, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\MonoGame\Libs\SharpDX.XInput.dll</HintPath>
+      <HintPath>..\References\SharpDx\SharpDX.XInput.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -91,14 +97,17 @@
     <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gibbo.Library\Gibbo.Library.csproj">
-      <Project>{83a66501-726c-4783-97bf-8c2b88bd0544}</Project>
-      <Name>Gibbo.Library</Name>
+    <ProjectReference Include="..\Gibbo.Library\Gibbo.Library.DirectX.csproj">
+      <Project>{e806d804-5b17-4c24-8c10-94809977ca0a}</Project>
+      <Name>Gibbo.Library.DirectX</Name>
     </ProjectReference>
     <ProjectReference Include="..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.Windows.csproj">
       <Project>{7de47032-a904-4c29-bd22-2d235e8d91ba}</Project>
       <Name>MonoGame.Framework.Windows</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
