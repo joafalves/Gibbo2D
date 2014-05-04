@@ -145,6 +145,9 @@
     <Compile Include="Content\ContentReaders\VertexBufferReader.cs" />
     <Compile Include="Content\ContentReaders\VertexDeclarationReader.cs" />
     <Compile Include="Content\ResourceContentManager.cs" />
+    <Compile Include="Design\ColorConverter.cs" />
+    <Compile Include="Design\RectangleConverter.cs" />
+    <Compile Include="Design\Vector2Converter.cs" />
     <Compile Include="Graphics\GraphicsExtensions.cs" />
     <Compile Include="Graphics\GraphicsCapabilities.cs" />
     <Compile Include="Graphics\IRenderTarget.cs" />

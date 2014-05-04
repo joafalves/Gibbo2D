@@ -29,11 +29,12 @@ using System;
 using System.Text;
 using System.Globalization;
 using System.Runtime.Serialization;
+using System.ComponentModel;
 
 namespace Microsoft.Xna.Framework
 {
     [DataContract]
-    [Serializable]
+    [Serializable, TypeConverter(typeof(Microsoft.Xna.Framework.Design.Vector2Converter))]
     public struct Vector2 : IEquatable<Vector2>
     {
         #region Private Fields
@@ -471,8 +472,8 @@ namespace Microsoft.Xna.Framework
 
         public override string ToString()
         {
-			CultureInfo currentCulture = CultureInfo.CurrentCulture;
-        	return string.Format(currentCulture, "{{X:{0} Y:{1}}}", new object[] { 
+            CultureInfo currentCulture = CultureInfo.CurrentCulture;
+            return string.Format(currentCulture, "{0};{1}", new object[] { 
 				this.X.ToString(currentCulture), this.Y.ToString(currentCulture) });
         }
 

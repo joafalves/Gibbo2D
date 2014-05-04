@@ -33,7 +33,7 @@ using System.Runtime.Serialization;
 namespace Microsoft.Xna.Framework
 {
     [DataContract]
-    [Serializable]
+    [Serializable, TypeConverter(typeof(Microsoft.Xna.Framework.Design.RectangleConverter))]
     public struct Rectangle : IEquatable<Rectangle>
     {
         #region Private Fields
@@ -197,7 +197,7 @@ namespace Microsoft.Xna.Framework
 
         public override string ToString()
         {
-            return string.Format("{{X:{0} Y:{1} Width:{2} Height:{3}}}", X, Y, Width, Height);
+            return string.Format("{0};{1};{2};{3}", X, Y, Width, Height);
         }
 
         public override int GetHashCode()

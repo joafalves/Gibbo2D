@@ -114,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Content\ContentReaders\Texture3DReader.cs" />
+    <Compile Include="Design\ColorConverter.cs" />
+    <Compile Include="Design\RectangleConverter.cs" />
+    <Compile Include="Design\Vector2Converter.cs" />
     <Compile Include="Graphics\IRenderTarget.cs" />
     <Compile Include="Graphics\RenderTargetCube.cs" />
     <Compile Include="Graphics\GraphicsCapabilities.cs" />
