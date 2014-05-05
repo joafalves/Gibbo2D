@@ -48,6 +48,12 @@ namespace Gibbo.Library
     public class ParticleEmitter : GameObject
     {
         #region fields
+
+        private int particleBurstCount = 0;
+
+        [DataMember]
+        private bool burst = false;
+
         [DataMember]
         private int maxParticles;
         [DataMember]
@@ -139,6 +145,19 @@ namespace Gibbo.Library
         #region properties
 
         /// <summary>
+        /// Determines if the particle emitter should burst or play repeatedly
+        /// </summary>
+#if WINDOWS
+        [Category("Emitter Basic Properties")]
+        [DisplayName("Burst"), Description("Determines if the particle emitter should burst or play repeatedly")]
+#endif
+        public bool Burst
+        {
+            get { return burst; }
+            set { burst = value; particleBurstCount = 0; }
+        }
+
+        /// <summary>
         /// The max amount of particles alive in this emmiter
         /// </summary>
         //[PropertyOrder(10)]
@@ -175,7 +194,9 @@ namespace Gibbo.Library
         public float SecondsPerSpawnMax
         {
             get { return secPerSpawnMax; }
-            set { secPerSpawnMax = value; }
+            set {
+                if (value == 0) value = 0.00001f;                
+                secPerSpawnMax = value; }
         }
 
         /// <summary>
@@ -568,6 +589,15 @@ namespace Gibbo.Library
 
                     secElapsed -= nextSpawn;
                     nextSpawn = MathExtension.LinearInterpolate(SecondsPerSpawnMin, SecondsPerSpawnMax, random.NextDouble());
+
+                    if (burst)
+                        particleBurstCount++;
+
+                    if (burst && particleBurstCount >= maxParticles)
+                    {
+                        this.enabled = false;
+                        this.particleBurstCount = 0;
+                    }
                 }
             }
 
