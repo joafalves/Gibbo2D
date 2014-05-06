@@ -60,7 +60,8 @@ namespace Gibbo.Library
         private static int fps = 0;
         private static float deltaFPSTime = 0f;
 
-        private static string[] gameArgs = new string[1];
+        private static string[] gameArgs = new string[0];
+        private static string[] gameExtra = new string[0];
 
         #endregion
 
@@ -73,6 +74,15 @@ namespace Gibbo.Library
         {
             get { return SceneManager.gameArgs; }
             set { SceneManager.gameArgs = value; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string[] GameExtra
+        {
+            get { return SceneManager.gameExtra; }
+            set { SceneManager.gameExtra = value; }
         }
 
         /// <summary>

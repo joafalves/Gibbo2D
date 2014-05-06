@@ -103,7 +103,7 @@ namespace Gibbo.Library
                     EventHandler handler = TweenStarted;
                     if (handler != null)
                     {
-                        handler(this, null); // notify completed
+                        handler(this, null); // notify started
                     }
                 }
             }
@@ -118,8 +118,10 @@ namespace Gibbo.Library
                 //Console.WriteLine(targetTransform.Position + "::" + target.Transform.Position);
 
                 // TODO: check other properties
-                if (targetTransform.Position == target.Transform.Position)
+                if (Vector2.Distance(targetTransform.Position, target.Transform.Position) < 1)
                 {
+                    Console.WriteLine("-------------- COMPLETED");
+
                     if (!loop)
                     {
                         paused = true;
@@ -148,7 +150,7 @@ namespace Gibbo.Library
         {
             //Console.WriteLine("trate: " + trate);
 
-            if (targetTransform.position.X != initialTransform.position.X)
+            if (targetTransform.position.X != initialTransform.position.X && targetTransform.position.X != target.Transform.Position.X)
             {
                 int direction = -1;
                 if (initialTransform.position.X < targetTransform.position.X)
@@ -160,7 +162,7 @@ namespace Gibbo.Library
                     || (direction == -1 && target.Transform.position.X < targetTransform.position.X))
                     target.Transform.SetPositionX(targetTransform.position.X);             
             }
-            if (targetTransform.position.Y != initialTransform.position.Y)
+            if (targetTransform.position.Y != initialTransform.position.Y && targetTransform.position.Y != target.Transform.Position.Y)
             {
                 int direction = -1;
                 if (initialTransform.position.Y < targetTransform.position.Y)

@@ -107,6 +107,20 @@ namespace Gibbo.Engine.Windows
 
             try
             {
+                // arguments
+                string arguments = settings.IniReadValue("Console", "Arguments");
+                if (arguments.Trim() != string.Empty && SceneManager.GameArgs.Length == 0)
+                {
+                    SceneManager.GameArgs = arguments.Trim().Split(',');
+                }
+
+                string extra = settings.IniReadValue("Console", "Extra");
+                Console.WriteLine("Extra: " + extra);
+                if (arguments.Trim() != string.Empty)
+                {
+                    SceneManager.GameExtra = extra.Trim().Split(',');
+                }
+
                 // Console
                 bool showConsole = settings.IniReadValue("Console", "Visible").ToLower().Trim().Equals("true") ? true : false;
                 if (!showConsole)

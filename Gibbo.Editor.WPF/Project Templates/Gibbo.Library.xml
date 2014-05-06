@@ -1198,6 +1198,11 @@
             Clears the active particles
             </summary>
         </member>
+        <member name="P:Gibbo.Library.ParticleEmitter.Burst">
+            <summary>
+            Determines if the particle emitter should burst or play repeatedly
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.ParticleEmitter.MaxParticles">
             <summary>
             The max amount of particles alive in this emmiter
@@ -8521,6 +8526,11 @@
             <returns></returns>
         </member>
         <member name="P:Gibbo.Library.SceneManager.GameArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.SceneManager.GameExtra">
             <summary>
             
             </summary>
