@@ -391,10 +391,11 @@ namespace Microsoft.Xna.Framework
 
         internal void ToggleFullScreen()
         {
-            if (windowState == WindowState.Fullscreen)
-                windowState = WindowState.Normal;
+            //JA
+            if (window.WindowState == WindowState.Fullscreen)
+                window.WindowState = WindowState.Normal;
             else
-                windowState = WindowState.Fullscreen;
+                window.WindowState = WindowState.Fullscreen;
         }
 
         internal void ChangeClientBounds(Rectangle clientBounds)

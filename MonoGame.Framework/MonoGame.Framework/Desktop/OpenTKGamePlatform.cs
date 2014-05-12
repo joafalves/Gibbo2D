@@ -101,7 +101,7 @@ namespace Microsoft.Xna.Framework
         
 		public OpenTKGamePlatform(Game game)
             : base(game)
-        {
+        { 
             _view = new OpenTKGameWindow();
             _view.Game = game;
             this.Window = _view;
@@ -206,15 +206,18 @@ namespace Microsoft.Xna.Framework
 
             if (graphicsDeviceManager.IsFullScreen)
             {
-                bounds = new Rectangle(0, 0,graphicsDeviceManager.PreferredBackBufferWidth,graphicsDeviceManager.PreferredBackBufferHeight);
+                bounds = new Rectangle(0, 0,
+                               graphicsDeviceManager.PreferredBackBufferWidth,
+                               graphicsDeviceManager.PreferredBackBufferHeight);
 
                 if (OpenTK.DisplayDevice.Default.Width != graphicsDeviceManager.PreferredBackBufferWidth ||
                     OpenTK.DisplayDevice.Default.Height != graphicsDeviceManager.PreferredBackBufferHeight)
                 {
-                    OpenTK.DisplayDevice.Default.ChangeResolution(graphicsDeviceManager.PreferredBackBufferWidth,
-                            graphicsDeviceManager.PreferredBackBufferHeight,
-                            OpenTK.DisplayDevice.Default.BitsPerPixel,
-                            OpenTK.DisplayDevice.Default.RefreshRate);
+                    OpenTK.DisplayDevice.Default.ChangeResolution(
+                        graphicsDeviceManager.PreferredBackBufferWidth,
+                        graphicsDeviceManager.PreferredBackBufferHeight,
+                        OpenTK.DisplayDevice.Default.BitsPerPixel,
+                        OpenTK.DisplayDevice.Default.RefreshRate);
                 }
             }
             else

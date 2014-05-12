@@ -397,16 +397,22 @@ namespace Gibbo.Editor.WPF
                 }
 
                 File.Copy(dllpath, SceneManager.GameProject.ProjectPath + "\\libs\\Scripts.dll", true);
-                //}
 
-                Process debug = new Process();
-                debug.StartInfo.WorkingDirectory = SceneManager.GameProject.ProjectPath;
-                debug.StartInfo.FileName = SceneManager.GameProject.ProjectPath + "\\Gibbo.Engine.Windows.exe";
-                debug.StartInfo.Arguments = "";
-                debug.StartInfo.CreateNoWindow = true;
-                debug.Start();
-                debug.WaitForExit();
-                debug.Close();
+                try
+                {
+                    Process debug = new Process();
+                    debug.StartInfo.WorkingDirectory = SceneManager.GameProject.ProjectPath;
+                    debug.StartInfo.FileName = SceneManager.GameProject.ProjectPath + "\\Gibbo.Engine.Windows.exe";
+                    debug.StartInfo.Arguments = "";
+                    debug.StartInfo.CreateNoWindow = true;
+                    debug.Start();
+                    debug.WaitForExit();
+                    debug.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                }
             }
             else
             {

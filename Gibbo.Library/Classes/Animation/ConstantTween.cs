@@ -29,11 +29,12 @@ namespace Gibbo.Library
 
         #region fields
 
-        internal GameObject target;
-        private float currentElapsed;
+        internal GameObject target;       
         internal float rate;
         internal float initialDelay; // milliseconds
+
         private Transform initialTransform;
+        private float currentElapsed;
         private Transform targetTransform;
         private bool paused = true;
         private bool waitingForDelay = false;
@@ -111,16 +112,17 @@ namespace Gibbo.Library
             if (!paused && !waitingForDelay)
             {
                 currentElapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-                //currentElapsed = MathHelper.Clamp(currentElapsed, 0, duration);
 
                 SetTransform(rate * ((float)gameTime.ElapsedGameTime.TotalSeconds));
 
-                //Console.WriteLine(targetTransform.Position + "::" + target.Transform.Position);
-
                 // TODO: check other properties
-                if (Vector2.Distance(targetTransform.Position, target.Transform.Position) < 1)
+                if (Vector2.Distance(targetTransform.Position, target.Transform.Position) <= 1)
                 {
-                    Console.WriteLine("-------------- COMPLETED");
+                    EventHandler handler = TweenCompleted;
+                    if (handler != null)
+                    {
+                        handler(this, null); // notify completed
+                    }
 
                     if (!loop)
                     {
@@ -136,20 +138,12 @@ namespace Gibbo.Library
                     {
                         waitingForDelay = true;
                     }
-
-                    EventHandler handler = TweenCompleted;
-                    if (handler != null)
-                    {
-                        handler(this, null); // notify completed
-                    }
                 }
             }
         }
 
         private void SetTransform(float trate)
         {
-            //Console.WriteLine("trate: " + trate);
-
             if (targetTransform.position.X != initialTransform.position.X && targetTransform.position.X != target.Transform.Position.X)
             {
                 int direction = -1;

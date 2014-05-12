@@ -315,6 +315,32 @@ namespace Microsoft.Xna.Framework
             //
             TouchPanel.DisplayWidth = _graphicsDevice.PresentationParameters.BackBufferWidth;
             TouchPanel.DisplayHeight = _graphicsDevice.PresentationParameters.BackBufferHeight;
+
+            //JA:
+            //Rectangle bounds = new Rectangle();
+             
+            //if (IsFullScreen)
+            //{
+            //    bounds = new Rectangle(0, 0, PreferredBackBufferWidth, PreferredBackBufferHeight);
+
+            //    if (OpenTK.DisplayDevice.Default.Width != PreferredBackBufferWidth ||
+            //        OpenTK.DisplayDevice.Default.Height != PreferredBackBufferHeight)
+            //    {
+            //        OpenTK.DisplayDevice.Default.ChangeResolution(PreferredBackBufferWidth,
+            //                PreferredBackBufferHeight,
+            //                OpenTK.DisplayDevice.Default.BitsPerPixel,
+            //                OpenTK.DisplayDevice.Default.RefreshRate);
+            //    }
+            //}
+            //else
+            //{
+
+            //    // switch back to the normal screen resolution
+            //    OpenTK.DisplayDevice.Default.RestoreResolution();
+            //    // now update the bounds 
+            //    bounds.Width = PreferredBackBufferWidth;
+            //    bounds.Height = PreferredBackBufferHeight;
+            //}
         }
 
         private void Initialize()

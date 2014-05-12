@@ -41,7 +41,8 @@ namespace OpenTK
             if (Configuration.RunningOnWindows) return new WinGLControl(mode, control);
             else if (Configuration.RunningOnMacOS) return new CarbonGLControl(mode, control);
             else if (Configuration.RunningOnX11) return new X11GLControl(mode, control);
-            else throw new PlatformNotSupportedException();
+            else  return new WinGLControl(mode, control);
+            //else throw new PlatformNotSupportedException();
         }
     }
 }
