@@ -18,8 +18,19 @@ namespace Gibbo.Engine.Windows.DirectX
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            try
+            {
+                using (var game = new Game1())
+                    game.Run();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message, "error");
+                Console.ReadLine();
+            }
+
+            //Console.WriteLine("DEBUG MODE, PRESS ANY KEY TO EXIT...");
+            //Console.ReadKey();
         }
     }
 #endif

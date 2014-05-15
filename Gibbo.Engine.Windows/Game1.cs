@@ -72,6 +72,9 @@ namespace Gibbo.Engine.Windows
         internal int preferredPositionX = -1;
         internal int preferredPositionY = -1;
 
+        private bool preferredFullScreenMode = false;
+        private bool fullscreenSet = false;
+
         /// <summary>
         /// 
         /// </summary>
@@ -154,7 +157,10 @@ namespace Gibbo.Engine.Windows
                 bool fullScreen = settings.IniReadValue("Window", "StartFullScreen").ToLower().Trim().Equals("true") ? true : false;
                 if (fullScreen)
                 {
-                    graphics.ToggleFullScreen();
+                    //graphics.ToggleFullScreen();
+                    //graphics.IsFullScreen = true;
+
+                    preferredFullScreenMode = true;
                 }
                 else
                 {
@@ -311,6 +317,8 @@ namespace Gibbo.Engine.Windows
             SceneManager.Graphics = graphics;
             SceneManager.IsEditor = false;
 
+
+
             if (!SceneManager.LoadScene(SceneManager.GameProject.SceneStartPath))
                 Exit();
         }
@@ -332,6 +340,13 @@ namespace Gibbo.Engine.Windows
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (preferredFullScreenMode && !fullscreenSet)
+            {
+                SceneManager.Graphics.IsFullScreen = true;
+                SceneManager.Graphics.ApplyChanges();
+                fullscreenSet = true;
+            }
+
             try
             {
                 if (SceneManager.ActiveScene != null)

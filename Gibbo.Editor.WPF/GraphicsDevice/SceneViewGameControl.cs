@@ -778,16 +778,17 @@ namespace Gibbo.Editor.WPF
             //    cf.Show();
             //}
 
-            if (GameInput.IsKeyDown(Keys.LeftControl) && GameInput.IsKeyPressed(Keys.F9))
+            if (GameInput.IsKeyPressed(Keys.F7))
             {
                 lock (this)
                 {
-                    if (EditorHandler.SelectedGameObjects != null && EditorHandler.SelectedGameObjects.Count > 0
-                        && !takingScreenshot)
+                    if (!takingScreenshot)
                     {
                         takingScreenshot = true;
-                        RotatedRectangle r = EditorHandler.SelectedGameObjects[0].MeasureDimension();
-                        TakeScreenshot(r.Width, r.Height);
+
+                        //RotatedRectangle dimensions = EditorHandler.SelectedGameObjects[0].MeasureDimension();
+                        //TODO: REMOVE COMMENTARY TakeScreenshot(dimensions.Width, dimensions.Height);
+                        TakeScreenshot(6400,6400);
                         takingScreenshot = false;
                     }
                 }

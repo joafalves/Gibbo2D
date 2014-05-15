@@ -288,6 +288,8 @@ namespace Gibbo.Library
         /// <param name="spriteBatch">The spriteBatch</param>
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            base.Draw(gameTime, spriteBatch);
+                       
             if (texture != null && Visible) // && (MeasureDimension().Intersects(SceneManager.ActiveCamera.BoundingBox) || displayMode == DisplayModes.Fill || displayMode == DisplayModes.Tile || displayMode == DisplayModes.PositionTile))
             {
                 Vector2 _orgx = Vector2.Zero;
@@ -365,8 +367,7 @@ namespace Gibbo.Library
                         spriteBatch.Draw(texture, fill, sourceRectangle, Color, 0, _orgx, spriteEffect, 0);
                 }
                 else
-                {
-                    
+                {                    
                     spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, SceneManager.ActiveCamera.TransformMatrix);
 
                     if (sourceRectangle == Rectangle.Empty)
@@ -377,8 +378,6 @@ namespace Gibbo.Library
 
                 spriteBatch.End();
             }
-
-            base.Draw(gameTime, spriteBatch);
         }
 
         /// <summary>
@@ -392,6 +391,7 @@ namespace Gibbo.Library
                Rectangle r = new Rectangle((int)(Transform.position.X - (texture.Width / 2) * Transform.scale.X),
                     (int)(Transform.position.Y - (texture.Height / 2) * Transform.scale.Y), (int)(texture.Width * Transform.scale.X),
                     (int)(texture.Height * Transform.scale.Y));
+
                return new RotatedRectangle(r, Transform.Rotation);
             }
             else

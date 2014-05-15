@@ -79,7 +79,7 @@ namespace Gibbo.Engine.Windows
             }
 
             //Console.WriteLine("DEBUG MODE, PRESS ANY KEY TO EXIT...");
-            //Console.ReadKey();
+            //Console.ReadLine();
         }
 
         static void textWritter_ConsoleOutput(object sender, EventArgs e)
