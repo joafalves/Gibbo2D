@@ -396,6 +396,8 @@ namespace Gibbo.Editor.WPF
                                 File.WriteAllText(destination, script);
                             }
 
+                            // TODO: "refactor" name inside the script itself without deleting the components from the game objects
+                            // issue: https://github.com/Whitebeard86/Gibbo2D/issues/11
                             // script file? change the .csproj:
                             if (System.IO.Path.GetExtension(beforeEditingPath).ToLower().Equals(".cs"))
                             {
