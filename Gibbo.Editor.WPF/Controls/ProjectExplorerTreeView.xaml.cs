@@ -337,13 +337,15 @@ namespace Gibbo.Editor.WPF
                 // update the current name:
                 string newValue = ((selectedForEditing.Header as StackPanel).Children[1] as TextBox).Text;
 
+                // prevent nameless folder
+                if (newValue.Trim() == "")
+                    return false;
+
                 // rename item accordingly 
                 string destination = System.IO.Path.Combine((selectedForEditing.Parent as ExplorerTreeViewItem).FullPath, newValue);
 
                 if (File.Exists(destination))
-                {
                     return false;
-                }
 
                 // trying to change a script name?
                 if (System.IO.Path.GetExtension(beforeEditingPath).ToLower().Equals(".cs"))
