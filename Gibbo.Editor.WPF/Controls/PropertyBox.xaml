@@ -52,6 +52,7 @@
                                 </DataTemplate>
                             </xceed:EditorDefinition.EditorTemplate>
                         </xceed:EditorDefinition>
+                        <!-- TODO: add global extension file import. Any property starting with Path_-->
                         <xceed:EditorDefinition TargetType="{x:Type sys:String}">
                             <xceed:EditorDefinition.PropertiesDefinitions>
                                 <xceed:PropertyDefinition Name="FilePath"/>

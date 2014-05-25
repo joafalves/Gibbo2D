@@ -237,6 +237,9 @@ namespace Gibbo.Editor.WPF
             EditorUtils.SelectAnotherElement<TextBox>(parent);
         }
 
+
+        // TODO: add global extension file import. Any property starting with Path_
+
         void TexturePathMouseDown(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
