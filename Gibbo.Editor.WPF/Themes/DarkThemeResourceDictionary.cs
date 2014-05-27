@@ -240,6 +240,35 @@ namespace Gibbo.Editor.WPF
 
         // TODO: add global extension file import. Any property starting with Path_
 
+        void GlobalPathMouseDown(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.Title = "Set Misc File Path";
+
+            // split every accepted extension
+            string[] extensions = Properties.Settings.Default.AcceptedExtensions.Split('|');
+
+            // set initial filter content
+            string filter = "Accepted Extensions|";
+           
+            // loop through every extension and add all of them to the same category (accepted extensions)
+            foreach (var extension in extensions)
+            {
+                filter += "*" + extension + ";";
+            }
+
+            // remove last character (;)
+            filter = filter.Remove(filter.Length - 1);
+
+            // Add an all file category
+            filter += "|All Files (*.*)|*.*";
+
+            // assign the string to open file dialog filter
+            ofd.Filter = filter;
+
+            this.ProcessDialog(sender, e, ofd, "Misc\\");
+        }
+
         void TexturePathMouseDown(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
