@@ -57,19 +57,25 @@ namespace Gibbo.Engine.Windows
                     {
                         Console.WriteLine("arg count: " + args.Length);
 
-                        if (args.Length == 2)
+                        if (args.Length >= 2)
                         {
                             int px = int.Parse(args[0]);
                             int py = int.Parse(args[1]);
                             game.preferredPositionX = px;
                             game.preferredPositionY = py;
                         }
+
+                        int cnt = 0;
+                        foreach (var arg in args)
+                        {
+                            cnt++;
+                            Console.WriteLine("ARG[" + cnt + "]: " + arg);
+                        }
                     }
 
                     Gibbo.Library.SceneManager.GameArgs = args;
 
                     game.Run();
-
                 }
             } 
             catch (Exception ex)

@@ -112,6 +112,7 @@ namespace Gibbo.Engine.Windows
             {
                 // arguments
                 string arguments = settings.IniReadValue("Console", "Arguments");
+                //Console.WriteLine("arguments: " + arguments);
                 if (arguments.Trim() != string.Empty && SceneManager.GameArgs.Length == 0)
                 {
                     SceneManager.GameArgs = arguments.Trim().Split(',');
@@ -378,7 +379,7 @@ namespace Gibbo.Engine.Windows
 
             base.Update(gameTime);
         }
-
+        private bool roll = false;
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>

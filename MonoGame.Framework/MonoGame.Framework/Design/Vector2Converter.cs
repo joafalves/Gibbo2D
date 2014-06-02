@@ -37,9 +37,11 @@ namespace Microsoft.Xna.Framework.Design
                 }
                 catch
                 {
-                    throw new InvalidCastException(
+                   Console.WriteLine(
                         "Cannot convert the string '" +
                         value.ToString() + "' into a Vector2, values: " + fields[0] + "::" + fields[1]);
+
+                   return Vector2.Zero;
                 }
             }
             else

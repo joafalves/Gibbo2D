@@ -70,22 +70,22 @@ namespace Gibbo.Editor.WPF
 
                 foreach (var obj in EditorHandler.SelectedGameObjects)
                     obj.SaveComponentValues();
-                
+
                 if (EditorHandler.SelectedGameObjects != null && EditorHandler.SelectedGameObjects.Count > 0)
                     Clipboard.SetData("GameObjects", new List<GameObject>(EditorHandler.SelectedGameObjects));
             }
         }
 
-       
+
         internal static void PasteSelectedObjects()
         {
             lock (lockPaste)
             {
                 List<GameObject> list = (List<GameObject>)Clipboard.GetData("GameObjects");
                 Clipboard.Clear();
-               
+
                 if (list == null || list.Count == 0) return;
-                
+
                 EditorHandler.SelectedGameObjects.Clear();
                 // verificar se tem um pai
                 foreach (var obj in list)
@@ -262,7 +262,7 @@ namespace Gibbo.Editor.WPF
             if (SceneManager.GameProject == null) return false;
 
             string path = SceneManager.GameProject.ProjectPath + "\\" + SceneManager.GameProject.EditorSettings.LastOpenScenePath;
-           
+
             if (!path.Trim().Equals(string.Empty) && File.Exists(path))
             {
                 SceneManager.LoadScene(path, true);
@@ -348,6 +348,7 @@ namespace Gibbo.Editor.WPF
                     if (UserPreferences.Instance != null)
                         GibboHelper.SerializeObject(SceneManager.GameProject.ProjectPath + "\\_userPrefs.pgb", UserPreferences.Instance);
                 });
+
                 EditorCommands.ShowOutputMessage("Project Saved");
                 saveThread.Start();
             }

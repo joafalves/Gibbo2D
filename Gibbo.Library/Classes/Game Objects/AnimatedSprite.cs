@@ -85,6 +85,20 @@ namespace Gibbo.Library
 
         #endregion
 
+        #region events
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public event EventHandler RowCompleted;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public event EventHandler AnimationCompleted;
+
+        #endregion
+
         #region properties
 
         /// <summary>
@@ -356,18 +370,42 @@ namespace Gibbo.Library
                         {
                             currentRow++;
 
+                            EventHandler handler = RowCompleted;
+                            if (handler != null)
+                            {
+                                handler(this, null); // notify completed
+                            }
+
                             if (currentRow >= totalRows)
                             {
                                 currentRow = 0;
 
                                 if (!loop)
-                                    isPlaying = false;                                    
+                                    isPlaying = false;
+
+                                handler = AnimationCompleted;
+                                if (handler != null)
+                                {
+                                    handler(this, null); // notify completed
+                                }
                             }
                         }
                         else
                         {
                             if (!loop)
                                 isPlaying = false;
+
+                            EventHandler handler = RowCompleted;
+                            if (handler != null)
+                            {
+                                handler(this, null); // notify completed
+                            }
+
+                            handler = AnimationCompleted;
+                            if (handler != null)
+                            {
+                                handler(this, null); // notify completed
+                            }
                         }
                     }
                     else if (currentColumn < 0)
