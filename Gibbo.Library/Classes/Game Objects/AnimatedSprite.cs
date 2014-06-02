@@ -126,6 +126,30 @@ namespace Gibbo.Library
             set { texture = value; }
         }
 
+        /// <summary>
+        /// The active texture frame width
+        /// </summary>
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public int FrameWidth
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// The active texture frame width
+        /// </summary>
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public int FrameHeight
+        {
+            get;
+            set;
+        }
+
         ///// <summary>
         ///// Automatically calculates the collision boundries based on the texture size
         ///// </summary>
@@ -209,7 +233,7 @@ namespace Gibbo.Library
         public int TotalFramesPerRow
         {
             get { return totalFramesPerRow; }
-            set { totalFramesPerRow = value; }
+            set { totalFramesPerRow = value; SetFrameSize(); }
         }
 
         /// <summary>
@@ -222,7 +246,7 @@ namespace Gibbo.Library
         public int TotalRows
         {
             get { return totalRows; }
-            set { totalRows = value; }
+            set { totalRows = value; SetFrameSize(); }
         }
 
         /// <summary>
@@ -266,6 +290,7 @@ namespace Gibbo.Library
             {
                 imageName = value;
                 LoadTexture();
+                SetFrameSize();
             }
         }
 
@@ -274,7 +299,7 @@ namespace Gibbo.Library
         /// </summary>
 #if WINDOWS
         [Category("Sprite Properties")]
-        [DisplayName("Loop"), Description("Determines if the animation should repeat after all collumns for the current row are played")]
+        [DisplayName("Loop"), Description("Determines if the animation should repeat after all columns for the current row are played")]
 #endif
         public bool Loop
         {
@@ -317,8 +342,24 @@ namespace Gibbo.Library
                 currentColumn = 0;
             }
 
+            if (texture == null && imageName != null && imageName.Trim() != "")
+            {
+                LoadTexture();
+                SetFrameSize();
+            }
+
             LoadState();
-            LoadTexture();
+      
+        }
+
+        private void SetFrameSize()
+        {
+            if (totalFramesPerRow != 0)
+                FrameWidth = texture.Width / totalFramesPerRow;
+
+            if (totalRows != 0)
+                FrameHeight = texture.Height / totalRows;
+            
         }
 
         private void LoadTexture()
@@ -443,12 +484,9 @@ namespace Gibbo.Library
 
             if (texture != null && totalFramesPerRow > 0 && totalRows > 0 && Visible) //  && CollisionModel.CollisionBoundry.Intersects(SceneManager.ActiveCamera.BoundingBox)
             {
-                int width = texture.Width / totalFramesPerRow;
-                int height = texture.Height / totalRows;
-
                 spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
 
-                spriteBatch.Draw(texture, Transform.Position, new Rectangle(currentColumn * width, currentRow * height, width, height), Color, Transform.Rotation, new Vector2(width / 2, height / 2), Transform.Scale, spriteEffect, 1);
+                spriteBatch.Draw(texture, Transform.Position, new Rectangle(currentColumn * FrameWidth, currentRow * FrameHeight, FrameWidth, FrameHeight), Color, Transform.Rotation, new Vector2(FrameWidth / 2, FrameHeight / 2), Transform.Scale, spriteEffect, 1);
 
                 spriteBatch.End();
             }
@@ -458,9 +496,9 @@ namespace Gibbo.Library
         {
             if (texture != null && Body == null && totalRows != 0 && totalFramesPerRow != 0)
             {
-                Rectangle r = new Rectangle((int)(Transform.position.X - (texture.Width / totalFramesPerRow / 2) * Transform.scale.X),
-                    (int)(Transform.position.Y - (texture.Height / totalRows / 2) * Transform.scale.Y), (int)(texture.Width / totalFramesPerRow * Transform.scale.X),
-                    (int)(texture.Height / totalRows * Transform.scale.Y));
+                Rectangle r = new Rectangle((int)(Transform.position.X - (FrameWidth / 2) * Transform.scale.X),
+                    (int)(Transform.position.Y - (FrameHeight / 2) * Transform.scale.Y), (int)(FrameWidth * Transform.scale.X),
+                    (int)(FrameHeight * Transform.scale.Y));
                 return new RotatedRectangle(r, Transform.Rotation);
             }
             else

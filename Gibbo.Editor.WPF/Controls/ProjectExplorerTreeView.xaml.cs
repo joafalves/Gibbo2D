@@ -337,13 +337,15 @@ namespace Gibbo.Editor.WPF
                 // update the current name:
                 string newValue = ((selectedForEditing.Header as StackPanel).Children[1] as TextBox).Text;
 
+                // prevent nameless folder
+                if (newValue.Trim() == "")
+                    return false;
+
                 // rename item accordingly 
                 string destination = System.IO.Path.Combine((selectedForEditing.Parent as ExplorerTreeViewItem).FullPath, newValue);
 
                 if (File.Exists(destination))
-                {
                     return false;
-                }
 
                 // trying to change a script name?
                 if (System.IO.Path.GetExtension(beforeEditingPath).ToLower().Equals(".cs"))
@@ -394,6 +396,8 @@ namespace Gibbo.Editor.WPF
                                 File.WriteAllText(destination, script);
                             }
 
+                            // TODO: "refactor" name inside the script itself without deleting the components from the game objects
+                            // issue: https://github.com/Whitebeard86/Gibbo2D/issues/11
                             // script file? change the .csproj:
                             if (System.IO.Path.GetExtension(beforeEditingPath).ToLower().Equals(".cs"))
                             {

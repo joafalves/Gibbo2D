@@ -52,6 +52,7 @@
                                 </DataTemplate>
                             </xceed:EditorDefinition.EditorTemplate>
                         </xceed:EditorDefinition>
+                        <!-- TODO: add global extension file import. Any property starting with Path_-->
                         <xceed:EditorDefinition TargetType="{x:Type sys:String}">
                             <xceed:EditorDefinition.PropertiesDefinitions>
                                 <xceed:PropertyDefinition Name="FilePath"/>
@@ -79,6 +80,16 @@
                             <xceed:EditorDefinition.EditorTemplate>
                                 <DataTemplate>
                                     <TextBox Height="18" Foreground="#e6e6e6" Style="{DynamicResource IgniteTexturePathTextBox}" Text="{Binding Value}" />
+                                </DataTemplate>
+                            </xceed:EditorDefinition.EditorTemplate>
+                        </xceed:EditorDefinition>
+                        <xceed:EditorDefinition TargetType="{x:Type sys:String}">
+                            <xceed:EditorDefinition.PropertiesDefinitions>
+                                <xceed:PropertyDefinition Name="GlobalFilePath"/>
+                            </xceed:EditorDefinition.PropertiesDefinitions>
+                            <xceed:EditorDefinition.EditorTemplate>
+                                <DataTemplate>
+                                    <TextBox Height="18" Foreground="#e6e6e6" Style="{DynamicResource IgniteGlobalPath}" Text="{Binding Value}" />
                                 </DataTemplate>
                             </xceed:EditorDefinition.EditorTemplate>
                         </xceed:EditorDefinition>

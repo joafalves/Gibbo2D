@@ -355,7 +355,7 @@ namespace Gibbo.Library
                 {
                     Rectangle fill = new Rectangle(
                          (int)SceneManager.ActiveScene.Camera.Position.X,
-                         (int)SceneManager.ActiveScene.Camera.Position.Y,
+                         (int)SceneManager.ActiveScene.Camera.Position.Y-1,
                          (int)SceneManager.GameProject.Settings.ScreenWidth,
                          (int)SceneManager.GameProject.Settings.ScreenHeight);
 
