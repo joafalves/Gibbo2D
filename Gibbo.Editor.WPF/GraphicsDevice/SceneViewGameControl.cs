@@ -985,8 +985,9 @@ namespace Gibbo.Editor.WPF
             {
                 if (editorMode == EditorModes.Select)
                     SelectTool();
-
-                SelectedObjectInput();
+                else
+                    if (!SelectedObjectInput()) // if not object was handled, select:
+                        SelectTool();
             }
 
             //if (GameInput.IsKeyDown(Keys.LeftControl) && GameInput.IsKeyPressed(Keys.S)) SceneManager.SaveActiveScene();
@@ -1466,14 +1467,14 @@ namespace Gibbo.Editor.WPF
         /// <summary>
         /// 
         /// </summary>
-        private void SelectedObjectInput()
+        private bool SelectedObjectInput()
         {
             if (EditorHandler.SelectedGameObjects.Count == 0)
             {
                 if (!panStarted)
                     Cursor = Cursors.Default;
 
-                return;
+                return false;
             }
 
             foreach (GameObject gameObject in EditorHandler.SelectedGameObjects)
@@ -1572,6 +1573,8 @@ namespace Gibbo.Editor.WPF
             {
                 HandleTransformations();
             }
+
+            return objectHandled;
         }
 
         private void SaveState()
