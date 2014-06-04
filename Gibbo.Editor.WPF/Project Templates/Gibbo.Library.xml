@@ -889,6 +889,16 @@
             <param name="gameTime">The gametime</param>
             <param name="spriteBatch">The spriteBatch</param>
         </member>
+        <member name="E:Gibbo.Library.AnimatedSprite.RowCompleted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Gibbo.Library.AnimatedSprite.AnimationCompleted">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.AnimatedSprite.ResetOnStart">
             <summary>
             Determines if the current row/colum should reset on start
@@ -897,6 +907,16 @@
         <member name="P:Gibbo.Library.AnimatedSprite.Texture">
             <summary>
             The active texture of the animated sprite
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.AnimatedSprite.FrameWidth">
+            <summary>
+            The active texture frame width
+            </summary>
+        </member>
+        <member name="P:Gibbo.Library.AnimatedSprite.FrameHeight">
+            <summary>
+            The active texture frame width
             </summary>
         </member>
         <member name="P:Gibbo.Library.AnimatedSprite.BlendMode">

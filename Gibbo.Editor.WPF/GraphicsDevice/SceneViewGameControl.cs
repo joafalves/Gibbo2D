@@ -986,7 +986,7 @@ namespace Gibbo.Editor.WPF
                 if (editorMode == EditorModes.Select)
                     SelectTool();
                 else
-                    if (!SelectedObjectInput()) // if not object was handled, select:
+                    if (!SelectedObjectInput()) // if no object was handled, select:
                         SelectTool();
             }
 
@@ -1499,6 +1499,7 @@ namespace Gibbo.Editor.WPF
                     {
                         intersects = true;
                         hoverYAxis = true;
+
                         CheckCursor(); //
 
                         if (leftMouseKeyDown)
@@ -1514,6 +1515,7 @@ namespace Gibbo.Editor.WPF
                     {
                         intersects = true;
                         hoverXAxis = true;
+
                         CheckCursor(); //
 
                         if (leftMouseKeyDown)

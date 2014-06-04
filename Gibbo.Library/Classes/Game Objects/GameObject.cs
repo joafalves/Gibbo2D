@@ -51,7 +51,7 @@ namespace Gibbo.Library
     //[KnownType(typeof(Sprite)), KnownType(typeof(Transform)), KnownType(typeof(BodyType)), KnownType(typeof(PropertyLabel))]
     public class GameObject : SystemObject, IDisposable
 #if WINDOWS
-        , ICloneable
+, ICloneable
 #endif
     {
         #region fields
@@ -308,8 +308,8 @@ namespace Gibbo.Library
             transform.GameObject = this;
 
             this.components = new List<ObjectComponent>();
-            for (int i = componentReferences.Count - 1; i >= 0; i--) 
-            {     
+            for (int i = componentReferences.Count - 1; i >= 0; i--)
+            {
                 string name = componentReferences[i];
 
                 Type _type = SceneManager.ScriptsAssembly.GetType(name);
@@ -362,7 +362,7 @@ namespace Gibbo.Library
             foreach (var cmp in this.components)
                 if (!SceneManager.IsEditor || (SceneManager.IsEditor && cmp is ExtendedObjectComponent))
                     cmp.Initialize();
-           
+
             if (children == null)
                 children = new GameObjectCollection(this);
 
@@ -641,17 +641,24 @@ namespace Gibbo.Library
         {
             foreach (ObjectComponent component in this.components)
             {
-#if WINDOWS
-                List<PropertyInfo> props = new List<PropertyInfo>(component.GetType().GetProperties());
-#elif WINRT
-                List<PropertyInfo> props = new List<PropertyInfo>(component.GetType().GetRuntimeProperties());
-#endif
-                foreach (PropertyInfo propInfo in props)
+                try
                 {
-                    PropertyLabel label = new PropertyLabel(propInfo.PropertyType.FullName, propInfo.Name);
+#if WINDOWS
+                    List<PropertyInfo> props = new List<PropertyInfo>(component.GetType().GetProperties());
+#elif WINRT
+                    List<PropertyInfo> props = new List<PropertyInfo>(component.GetType().GetRuntimeProperties());
+#endif
+                    foreach (PropertyInfo propInfo in props)
+                    {
+                        PropertyLabel label = new PropertyLabel(propInfo.PropertyType.FullName, propInfo.Name);
 
-                    //if(propInfo.GetValue(component, null).GetType().IsSerializable)
-                    componentValues[component.GetType().FullName][label] = propInfo.GetValue(component, null);
+                        //if(propInfo.GetValue(component, null).GetType().IsSerializable)
+                        componentValues[component.GetType().FullName][label] = propInfo.GetValue(component, null);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("SaveComponentValues(): " + ex.Message);
                 }
             }
 
@@ -1048,7 +1055,7 @@ namespace Gibbo.Library
             // send notification to components
             foreach (ObjectComponent component in components)
                 if ((SceneManager.IsEditor && component is ExtendedObjectComponent) || !SceneManager.IsEditor)
-                    if (!component.Disabled) 
+                    if (!component.Disabled)
                         component.OnCollisionFree();
         }
 
