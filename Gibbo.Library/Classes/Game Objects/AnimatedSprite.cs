@@ -354,6 +354,9 @@ namespace Gibbo.Library
 
         private void SetFrameSize()
         {
+            if (texture == null)
+                return;
+
             if (totalFramesPerRow != 0)
                 FrameWidth = texture.Width / totalFramesPerRow;
 
