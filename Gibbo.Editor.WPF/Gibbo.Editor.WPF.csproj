@@ -104,6 +104,10 @@
       <HintPath>..\References\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Project Templates\MonoGame.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.dll</HintPath>
@@ -768,10 +772,6 @@
     <ProjectReference Include="..\Gibbo.Library\Gibbo.Library.csproj">
       <Project>{83a66501-726c-4783-97bf-8c2b88bd0544}</Project>
       <Name>Gibbo.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
-      <Project>{77ebd3fc-0d63-4fab-8db9-29b3528184b3}</Project>
-      <Name>MonoGame.Framework.WindowsGL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

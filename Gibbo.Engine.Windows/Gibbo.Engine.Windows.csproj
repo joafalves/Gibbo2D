@@ -71,6 +71,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Lidgren.Network.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Gibbo.Editor.WPF\Project Templates\MonoGame.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.dll</HintPath>
@@ -97,10 +101,6 @@
     <ProjectReference Include="..\Gibbo.Library\Gibbo.Library.csproj">
       <Project>{83A66501-726C-4783-97BF-8C2B88BD0544}</Project>
       <Name>Gibbo.Library</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
-      <Project>{77ebd3fc-0d63-4fab-8db9-29b3528184b3}</Project>
-      <Name>MonoGame.Framework.WindowsGL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

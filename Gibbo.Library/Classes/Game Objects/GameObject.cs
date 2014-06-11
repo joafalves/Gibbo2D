@@ -107,15 +107,25 @@ namespace Gibbo.Library
         [DataMember]
         private string tag = string.Empty;
 
+        private object objectTag = null;
+
         [DataMember]
         protected bool disabled = false;
 
         [DataMember]
         private bool rotationIndependent = false;
 
-
-
         #endregion
+
+        #region properties
+#if WINDOWS
+        [Browsable(false)]
+#endif
+        public object ObjectTag
+        {
+            get { return objectTag; }
+            set { objectTag = value; }
+        }
 
 #if WINDOWS
         [Browsable(false)]
@@ -126,7 +136,6 @@ namespace Gibbo.Library
             set { rotationIndependent = value; }
         }
 
-        #region properties
 #if WINDOWS
         [Category("Object Properties")]
         [DisplayName("Disabled"), Description("Determines if the object is disabled or not")]

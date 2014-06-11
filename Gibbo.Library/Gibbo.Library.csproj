@@ -47,6 +47,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Lidgren.Network.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Gibbo.Editor.WPF\Project Templates\MonoGame.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="NAudio">
       <HintPath>..\References\NAudio.dll</HintPath>
     </Reference>
@@ -271,12 +275,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Gibbo.Editor.Model.licenseheader" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
-      <Project>{77ebd3fc-0d63-4fab-8db9-29b3528184b3}</Project>
-      <Name>MonoGame.Framework.WindowsGL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
