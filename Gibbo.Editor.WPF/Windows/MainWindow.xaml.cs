@@ -337,7 +337,6 @@ namespace Gibbo.Editor.WPF
         {
             InitializeComponent();
 
-
             SetFullScreen(Properties.Settings.Default.StartOnFullScreen);
 
             Initialize();

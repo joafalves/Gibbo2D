@@ -167,9 +167,11 @@ namespace Gibbo.Editor.WPF
             {
                 foreach (GameObject obj in gameObjects)
                 {
-                    AddGameObject(obj, string.Empty);
+                    AddGameObject(obj, string.Empty, true, true);
                 }
             }
+
+            EditorHandler.ChangeSelectedObjects();
         }
 
         private void SelectOnClick(MouseButtonEventArgs e)
@@ -193,7 +195,7 @@ namespace Gibbo.Editor.WPF
             }
         }
 
-        internal void AddGameObject(GameObject gameObject, string type, bool autoselect = true)
+        internal void AddGameObject(GameObject gameObject, string type, bool autoselect = true, bool addToSelectedParent = false)
         {
             if (gameObject == null)
             {
@@ -253,13 +255,35 @@ namespace Gibbo.Editor.WPF
             }
             else
             {
-                GameObject _gameObject = (GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
-                _gameObject.Children.Add(gameObject);
+                if (addToSelectedParent)
+                {
+                    GameObject _gameObject = (GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
+                    if (_gameObject.Transform.Parent == null)
+                        SceneManager.ActiveScene.GameObjects.Add(gameObject);
+                    else
+                        _gameObject.Transform.Parent.GameObject.Children.Add(gameObject);
+                }
+                else
+                {
+                    GameObject _gameObject = (GameObject)(SelectedItem as DragDropTreeViewItem).Tag;
+                    _gameObject.Children.Add(gameObject);
+                }
             }
 
             if (gameObject != null)
             {
-                DragDropTreeViewItem node = AddNode(SelectedItem as DragDropTreeViewItem, gameObject, GameObjectImageSource(gameObject));
+                DragDropTreeViewItem _parent = SelectedItem as DragDropTreeViewItem;
+                if (addToSelectedParent)
+                {
+                    var tmp = EditorUtils.FindVisualParent<DragDropTreeViewItem>(_parent);
+
+                    if (tmp != null)
+                        _parent = tmp;
+                    else
+                        _parent = null;
+                }
+
+                DragDropTreeViewItem node = AddNode(_parent, gameObject, GameObjectImageSource(gameObject));
                 node.ContextMenu = contextMenu;
                 // AddNodes(gameObject);
                 //node.IsSelected = true;
@@ -270,6 +294,7 @@ namespace Gibbo.Editor.WPF
 
                 if (autoselect)
                 {
+                    node.IsSelected = true;
                     EditorHandler.SelectedGameObjects = new List<GameObject>();
                     EditorHandler.SelectedGameObjects.Add(gameObject);
                 }
@@ -375,7 +400,9 @@ namespace Gibbo.Editor.WPF
             else
             {
                 parent.Items.Insert(0, node);
-            }
+                parent.ExpandSubtree();
+                parent.IsExpanded = true;
+            }           
 
             return node;
         }

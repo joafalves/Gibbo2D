@@ -954,6 +954,9 @@ namespace Gibbo.Library
 
         internal void Delete()
         {
+            if (body != null)
+                body.Dispose();
+
             if (this.transform.Parent == null)
                 SceneManager.ActiveScene.GameObjects.Delete(this);
             else

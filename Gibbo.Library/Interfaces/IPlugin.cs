@@ -53,5 +53,6 @@ namespace Gibbo.Library
     public class PluginContext
     {
         // OPTIONAL: add properties
+        
     }
 }

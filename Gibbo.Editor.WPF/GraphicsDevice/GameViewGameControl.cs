@@ -95,7 +95,5 @@ namespace Gibbo.Editor.WPF
         }
 
         #endregion
-
-
     }
 }

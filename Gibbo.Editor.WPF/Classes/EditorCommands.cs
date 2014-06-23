@@ -82,7 +82,7 @@ namespace Gibbo.Editor.WPF
             lock (lockPaste)
             {
                 List<GameObject> list = (List<GameObject>)Clipboard.GetData("GameObjects");
-                Clipboard.Clear();
+                //Clipboard.Clear();
 
                 if (list == null || list.Count == 0) return;
 
@@ -101,7 +101,7 @@ namespace Gibbo.Editor.WPF
                     else
                     {
                         var selected = EditorHandler.SceneTreeView.SelectedItem as DragDropTreeViewItem;
-                        EditorHandler.SceneTreeView.AddGameObject(obj, string.Empty, false);
+                        EditorHandler.SceneTreeView.AddGameObject(obj, string.Empty, false, true);
                     }
 
                     EditorHandler.SelectedGameObjects.Add(obj);
@@ -115,7 +115,8 @@ namespace Gibbo.Editor.WPF
         {
             EditorHandler.PropertyGridContainer.Children.Clear();
 
-            if (EditorHandler.SelectedGameObjects.Count > 0)
+            // TODO: handle multiple selection
+            if (EditorHandler.SelectedGameObjects.Count == 1)
             {
                 PropertyBox properties;
 
@@ -127,23 +128,20 @@ namespace Gibbo.Editor.WPF
 
                 EditorHandler.PropertyGridContainer.Children.Add(properties);
 
-                for (int i = 0; i < EditorHandler.SelectedGameObjects.Count; i++)
+                if (EditorHandler.SelectedGameObjects[0] is GameObject)
                 {
-                    if (EditorHandler.SelectedGameObjects[i] is GameObject)
+                    foreach (ObjectComponent component in EditorHandler.SelectedGameObjects[0].GetComponents())
                     {
-                        foreach (ObjectComponent component in EditorHandler.SelectedGameObjects[i].GetComponents())
-                        {
-                            properties = new PropertyBox();
-                            properties.SelectedObject = component;
-                            properties.Title.Content += " (Component)";
+                        properties = new PropertyBox();
+                        properties.SelectedObject = component;
+                        properties.Title.Content += " (Component)";
 
-                            if (component.EditorExpanded)
-                                properties.ToggleExpand();
+                        if (component.EditorExpanded)
+                            properties.ToggleExpand();
 
-                            EditorHandler.PropertyGridContainer.Children.Add(properties);
-                        }
+                        EditorHandler.PropertyGridContainer.Children.Add(properties);
                     }
-                }
+                }                
             }
         }
 
