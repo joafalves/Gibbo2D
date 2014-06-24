@@ -230,5 +230,10 @@ namespace Gibbo.Library
         {
             get { return collisionRectangle.Height; }
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0};{1};{2};{3}", X, Y, Width, Height);
+        }
     }
 }

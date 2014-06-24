@@ -213,7 +213,7 @@ namespace Gibbo.Library
             }
         }
 
-        private void TranslateChildren(GameObject obj, Vector2 dif, Vector2 difSim)
+        internal void TranslateChildren(GameObject obj, Vector2 dif, Vector2 difSim)
         {
             if (obj != null)
             {

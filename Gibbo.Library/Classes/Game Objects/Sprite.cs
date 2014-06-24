@@ -45,7 +45,7 @@ namespace Gibbo.Library
 #if WINDOWS
     [Serializable]
 #endif
-    [DataContract(IsReference=true)]
+    [DataContract(IsReference = true)]
     [KnownType(typeof(Sprite))]
     public class Sprite : GameObject
     {
@@ -289,7 +289,7 @@ namespace Gibbo.Library
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             base.Draw(gameTime, spriteBatch);
-                       
+
             if (texture != null && Visible) // && (MeasureDimension().Intersects(SceneManager.ActiveCamera.BoundingBox) || displayMode == DisplayModes.Fill || displayMode == DisplayModes.Tile || displayMode == DisplayModes.PositionTile))
             {
                 Vector2 _orgx = Vector2.Zero;
@@ -332,7 +332,7 @@ namespace Gibbo.Library
                     //spriteBatch.Draw(texture, dispRect, null, Color, 0, Vector2.Zero, spriteEffect, 1);
 
                     spriteBatch.Draw(texture, new Vector2(lBorder, tBorder), new Rectangle((int)SceneManager.ActiveCamera.Position.X,
-                             (int)SceneManager.ActiveCamera.Position.Y, dispRect.Width, dispRect.Height), Color, 0, Vector2.Zero, Transform.Scale, spriteEffect, 1);  
+                             (int)SceneManager.ActiveCamera.Position.Y, dispRect.Width, dispRect.Height), Color, 0, Vector2.Zero, Transform.Scale, spriteEffect, 1);
                 }
                 else if (displayMode == DisplayModes.PositionTile)
                 {
@@ -355,7 +355,7 @@ namespace Gibbo.Library
                 {
                     Rectangle fill = new Rectangle(
                          (int)SceneManager.ActiveScene.Camera.Position.X,
-                         (int)SceneManager.ActiveScene.Camera.Position.Y-1,
+                         (int)SceneManager.ActiveScene.Camera.Position.Y - 1,
                          (int)SceneManager.GameProject.Settings.ScreenWidth,
                          (int)SceneManager.GameProject.Settings.ScreenHeight);
 
@@ -367,7 +367,7 @@ namespace Gibbo.Library
                         spriteBatch.Draw(texture, fill, sourceRectangle, Color, 0, _orgx, spriteEffect, 0);
                 }
                 else
-                {                    
+                {
                     spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, SceneManager.ActiveCamera.TransformMatrix);
 
                     //Console.WriteLine("rr: " + Transform.Rotation);
@@ -388,18 +388,18 @@ namespace Gibbo.Library
         /// <returns></returns>
         public override RotatedRectangle MeasureDimension()
         {
-            if (texture != null && Body == null)
-            {
-               Rectangle r = new Rectangle((int)(Transform.position.X - (texture.Width / 2) * Transform.scale.X),
-                    (int)(Transform.position.Y - (texture.Height / 2) * Transform.scale.Y), (int)(texture.Width * Transform.scale.X),
-                    (int)(texture.Height * Transform.scale.Y));
+            //if (texture != null && Body == null)
+            //{
+            Rectangle r = new Rectangle((int)(Transform.Position.X - (texture.Width / 2) * Transform.scale.X),
+                 (int)(Transform.Position.Y - (texture.Height / 2) * Transform.scale.Y), (int)(texture.Width * Transform.scale.X),
+                 (int)(texture.Height * Transform.scale.Y));
 
-               return new RotatedRectangle(r, Transform.Rotation);
-            }
-            else
-            {
-                return base.MeasureDimension();
-            }
+            return new RotatedRectangle(r, Transform.Rotation);
+            //}
+            //else
+            //{
+            //    return base.MeasureDimension();
+            //}
         }
 
         #endregion
