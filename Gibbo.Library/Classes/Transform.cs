@@ -366,7 +366,6 @@ namespace Gibbo.Library
 #endif
         #endregion
 
-
         #region methods
 
         /// <summary>
@@ -428,6 +427,20 @@ namespace Gibbo.Library
             result.rotation = this.rotation;
 
             return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="point"></param>
+        public void LookAt(Vector2 point)
+        {
+            Vector2 direction = point - Position;
+            direction.Normalize();
+
+            float _rotation = (float)Math.Atan2(direction.Y, direction.X);
+            if (_rotation != Rotation)
+                Rotation = _rotation;
         }
 
         /// <summary>

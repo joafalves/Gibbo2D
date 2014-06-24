@@ -259,6 +259,7 @@ namespace Gibbo.Library
         public static void Update(GameTime gameTime)
         {
             GameInput.Update();
+            Log.Update(gameTime);
 
             deltaFPSTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (deltaFPSTime >= 1)

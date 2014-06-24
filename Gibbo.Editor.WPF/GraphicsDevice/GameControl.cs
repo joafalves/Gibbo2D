@@ -86,17 +86,17 @@ namespace Gibbo.Editor.WPF
 
         void GameControl_MouseUp(object sender, MouseEventArgs e)
         {
-            EditorMouse.UpdateState(e.X, e.X, (e.Button == System.Windows.Forms.MouseButtons.Left), (e.Button == System.Windows.Forms.MouseButtons.Middle), (e.Button == System.Windows.Forms.MouseButtons.Right));
+            EditorMouse.UpdateState(e.X, e.Y, (e.Button == System.Windows.Forms.MouseButtons.Left), (e.Button == System.Windows.Forms.MouseButtons.Middle), (e.Button == System.Windows.Forms.MouseButtons.Right));
         }
 
         void GameControl_MouseDown(object sender, MouseEventArgs e)
         {
-            EditorMouse.UpdateState(e.X, e.X, (e.Button == System.Windows.Forms.MouseButtons.Left), (e.Button == System.Windows.Forms.MouseButtons.Middle), (e.Button == System.Windows.Forms.MouseButtons.Right));
+            EditorMouse.UpdateState(e.X, e.Y, (e.Button == System.Windows.Forms.MouseButtons.Left), (e.Button == System.Windows.Forms.MouseButtons.Middle), (e.Button == System.Windows.Forms.MouseButtons.Right));
         }
 
         void GameControl_MouseMove(object sender, MouseEventArgs e)
         {
-            EditorMouse.UpdateState(e.X, e.X, (e.Button == System.Windows.Forms.MouseButtons.Left), (e.Button == System.Windows.Forms.MouseButtons.Middle), (e.Button == System.Windows.Forms.MouseButtons.Right));
+            EditorMouse.UpdateState(e.X, e.Y, (e.Button == System.Windows.Forms.MouseButtons.Left), (e.Button == System.Windows.Forms.MouseButtons.Middle), (e.Button == System.Windows.Forms.MouseButtons.Right));
         }
 
         protected override void Draw()

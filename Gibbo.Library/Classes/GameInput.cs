@@ -74,7 +74,10 @@ namespace Gibbo.Library
         {
             get
             {
-                return Vector2.Transform(new Vector2(mouseState.X, mouseState.Y), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix));
+                if (SceneManager.IsEditor)
+                    return new Vector2(mouseState.X, mouseState.Y);
+                else
+                    return Vector2.Transform(new Vector2(mouseState.X, mouseState.Y), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix));
             }
         }
 

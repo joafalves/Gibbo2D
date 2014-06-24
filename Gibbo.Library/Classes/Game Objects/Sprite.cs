@@ -370,6 +370,8 @@ namespace Gibbo.Library
                 {                    
                     spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, SceneManager.ActiveCamera.TransformMatrix);
 
+                    //Console.WriteLine("rr: " + Transform.Rotation);
+
                     if (sourceRectangle == Rectangle.Empty)
                         spriteBatch.Draw(texture, Transform.Position, null, color, Transform.Rotation, _orgx, Transform.Scale, spriteEffect, 1);
                     else
