@@ -7643,6 +7643,11 @@
             Display Mode
             </summary>
         </member>
+        <member name="P:Gibbo.Library.Log.OutputTimeout">
+            <summary>
+            Gets or Sets the Output Timeout. Default: 1000 = 1 second
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.RenderView.Camera">
             <summary>
             
@@ -8695,6 +8700,12 @@
             
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.Transform.LookAt(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            
+            </summary>
+            <param name="point"></param>
         </member>
         <member name="M:Gibbo.Library.Transform.Clone">
             <summary>
