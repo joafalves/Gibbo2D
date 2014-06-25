@@ -92,6 +92,8 @@ namespace Gibbo.Library
         public void Clear()
         {
             innerList.Clear();
+            //foreach (var obj in innerList)
+            //    SceneManager.ActiveScene.markedForRemoval.Add(obj);
         }
 
         public void Insert(int index, GameObject item)
