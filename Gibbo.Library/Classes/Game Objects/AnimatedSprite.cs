@@ -269,11 +269,11 @@ namespace Gibbo.Library
         }
 
         /// <summary>
-        /// The total frames available in each texture
+        /// The total rows available in each texture
         /// </summary>
 #if WINDOWS
         [Category("Sprite Properties")]
-        [DisplayName("Total Row"), Description("The total rows available in each image")]
+        [DisplayName("Total Rows"), Description("The total rows available in each image")]
 #endif
         public int TotalRows
         {
