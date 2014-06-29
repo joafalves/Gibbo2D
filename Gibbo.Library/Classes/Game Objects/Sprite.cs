@@ -388,18 +388,18 @@ namespace Gibbo.Library
         /// <returns></returns>
         public override RotatedRectangle MeasureDimension()
         {
-            //if (texture != null && Body == null)
-            //{
-            Rectangle r = new Rectangle((int)(Transform.Position.X - (texture.Width / 2) * Transform.scale.X),
-                 (int)(Transform.Position.Y - (texture.Height / 2) * Transform.scale.Y), (int)(texture.Width * Transform.scale.X),
-                 (int)(texture.Height * Transform.scale.Y));
+            if (texture != null)
+            {
+                Rectangle r = new Rectangle((int)(Transform.Position.X - (texture.Width / 2) * Transform.scale.X),
+                     (int)(Transform.Position.Y - (texture.Height / 2) * Transform.scale.Y), (int)(texture.Width * Transform.scale.X),
+                     (int)(texture.Height * Transform.scale.Y));
 
-            return new RotatedRectangle(r, Transform.Rotation);
-            //}
-            //else
-            //{
-            //    return base.MeasureDimension();
-            //}
+                return new RotatedRectangle(r, Transform.Rotation);
+            }
+            else
+            {
+                return base.MeasureDimension();
+            }
         }
 
         #endregion
