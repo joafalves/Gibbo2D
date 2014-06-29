@@ -179,9 +179,10 @@ namespace Gibbo.Library
                     SceneManager.GameProject.Settings.ScreenHeight);
 
                 // make sure we keep the real scale (user input):
-                float widthScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferWidth / width;
-                float heightScale = (float)SceneManager.GraphicsDevice.PresentationParameters.BackBufferHeight / height;
-                scalingFactor = new Vector3((float)Math.Round(widthScale, 1), (float)Math.Round(heightScale, 1), 1);
+                float widthScale = (float)SceneManager.GraphicsDevice.Viewport.Width / width;
+                float heightScale = (float)SceneManager.GraphicsDevice.Viewport.Height / height;
+
+                scalingFactor = new Vector3(widthScale, heightScale, 1);
             }
 
             Vector2 target = Position;
