@@ -75,6 +75,9 @@ namespace Gibbo.Library
     {
         #region fields
 
+        [DataMember]
+        private Color color = Color.White;
+
         bool useRenderTarget = false;
 
         [NonSerialized]
@@ -121,6 +124,19 @@ namespace Gibbo.Library
 
         #region properties
 
+        /// <summary>
+        /// The fill color
+        /// </summary>
+#if WINDOWS
+        [Category("Tileset Properties")]
+        [DisplayName("Color"), Description("The fill color")]
+#endif
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+        
         /// <summary>
         /// Determine if in game mode it should use a render target
         /// </summary>
@@ -459,7 +475,7 @@ namespace Gibbo.Library
                                         Rectangle nsrc = tiles[x, y].Source;
 
                                         // normal mode (everything has the same focus)
-                                        tilesetBatch.Draw(this.texture, worldPos, nsrc, Color.White);
+                                        tilesetBatch.Draw(this.texture, worldPos, nsrc, this.color);
                                     }
                                 }
                             }
@@ -488,7 +504,7 @@ namespace Gibbo.Library
                         //}
                         //else
                         //{
-                            spriteBatch.Draw(tilesetRender, drawPosition, Color.White);
+                        spriteBatch.Draw(tilesetRender, drawPosition, this.color);
                         //}
 
                         spriteBatch.End();
@@ -518,7 +534,7 @@ namespace Gibbo.Library
                                     {
                                         if (SceneManager.ActiveTileset == this)
                                         {
-                                            spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, Color.White);
+                                            spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, this.color);
                                         }
                                         else
                                         {
@@ -528,7 +544,7 @@ namespace Gibbo.Library
                                     else
                                     {
                                         // normal mode (everything has the same focus)
-                                        spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, Color.White);
+                                        spriteBatch.Draw(this.texture, worldPos, tiles[x, y].Source, this.color);
                                     }
                                 }
                             }
