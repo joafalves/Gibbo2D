@@ -34,6 +34,15 @@ using System.Runtime.Serialization;
 
 namespace Gibbo.Library
 {
+#if WINDOWS
+    [Serializable]
+#endif
+    [DataContract]
+    public enum PlayMode
+    {
+        Normal, Reverse, YoYo
+    }
+
     /// <summary>
     /// Animated Sprite Object
     /// </summary>
@@ -44,6 +53,11 @@ namespace Gibbo.Library
     public class AnimatedSprite : GameObject
     {
         #region fields
+
+        private bool reverse = false;
+
+        [DataMember]
+        private PlayMode playMode = PlayMode.Normal;
         [DataMember]
         private bool playAllRows = false;
         [DataMember]
@@ -100,6 +114,24 @@ namespace Gibbo.Library
         #endregion
 
         #region properties
+
+        /// <summary>
+        /// Determines the animated sprite play mode
+        /// </summary>
+#if WINDOWS
+        [Category("Sprite Properties")]
+        [DisplayName("Play Mode"), Description("Determines the animated sprite play mode")]
+#endif
+        public PlayMode PlayMode
+        {
+            get { return playMode; }
+            set
+            {
+                playMode = value;
+
+                UpdatePlayMode();
+            }
+        }
 
         /// <summary>
         /// Determines if the current row/colum should reset on start
@@ -237,11 +269,11 @@ namespace Gibbo.Library
         }
 
         /// <summary>
-        /// The total frames available in each texture
+        /// The total rows available in each texture
         /// </summary>
 #if WINDOWS
         [Category("Sprite Properties")]
-        [DisplayName("Total Row"), Description("The total rows available in each image")]
+        [DisplayName("Total Rows"), Description("The total rows available in each image")]
 #endif
         public int TotalRows
         {
@@ -348,8 +380,20 @@ namespace Gibbo.Library
                 SetFrameSize();
             }
 
+            UpdatePlayMode();
             LoadState();
-      
+        }
+
+        private void UpdatePlayMode()
+        {
+            if (playMode == Library.PlayMode.Normal)
+            {
+                reverse = false;
+            }
+            else if (playMode == Library.PlayMode.Reverse)
+            {
+                reverse = true;
+            }
         }
 
         private void SetFrameSize()
@@ -362,7 +406,7 @@ namespace Gibbo.Library
 
             if (totalRows != 0)
                 FrameHeight = texture.Height / totalRows;
-            
+
         }
 
         private void LoadTexture()
@@ -404,15 +448,23 @@ namespace Gibbo.Library
                 {
                     totalMillisecondsPassed = 0;
 
-                    CurrentColumn++;
+                    CurrentColumn += (reverse ? -1 : 1);
 
-                    if (currentColumn >= totalFramesPerRow)
+                    if (currentColumn >= totalFramesPerRow || currentColumn < 0)
                     {
-                        currentColumn = 0;
+                        if (playMode == Library.PlayMode.YoYo && !playAllRows)
+                        {
+                            reverse = !reverse;
+                            currentColumn = (reverse ? totalFramesPerRow - 2 : 1);
+                        }
+                        else 
+                        {
+                            currentColumn = (reverse ? totalFramesPerRow - 1 : 0);
+                        }                     
 
                         if (playAllRows)
                         {
-                            currentRow++;
+                            currentRow += (reverse ? -1 : 1);
 
                             EventHandler handler = RowCompleted;
                             if (handler != null)
@@ -420,12 +472,21 @@ namespace Gibbo.Library
                                 handler(this, null); // notify completed
                             }
 
-                            if (currentRow >= totalRows)
+                            if (currentRow >= totalRows || currentRow < 0)
                             {
-                                currentRow = 0;
+                                if (playMode == Library.PlayMode.YoYo)
+                                {
+                                    reverse = !reverse;
+                                    currentRow = (reverse ? totalRows - 1 : 0);
+                                    currentColumn = (reverse ? totalFramesPerRow - 2 : 1);
+                                }
+                                else
+                                {
+                                    currentRow = (reverse ? totalRows - 1 : 0);
+                                }
 
                                 if (!loop)
-                                    isPlaying = false;
+                                    isPlaying = false;                             
 
                                 handler = AnimationCompleted;
                                 if (handler != null)
@@ -438,6 +499,9 @@ namespace Gibbo.Library
                         {
                             if (!loop)
                                 isPlaying = false;
+
+                            //if (PlayMode == Library.PlayMode.YoYo)
+                            //    reverse = !reverse;
 
                             EventHandler handler = RowCompleted;
                             if (handler != null)
@@ -452,13 +516,13 @@ namespace Gibbo.Library
                             }
                         }
                     }
-                    else if (currentColumn < 0)
-                    {
-                        currentColumn = totalFramesPerRow - 1;
+                    //else if (currentColumn < 0)
+                    //{
+                    //    currentColumn = totalFramesPerRow - 1;
 
-                        if (!loop)
-                            isPlaying = false;
-                    }
+                    //    if (!loop)
+                    //        isPlaying = false;
+                    //}
 
                     CurrentColumn = (int)MathHelper.Clamp(CurrentColumn, 0, totalFramesPerRow);
                 }
