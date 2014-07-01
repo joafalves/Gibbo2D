@@ -151,7 +151,6 @@ namespace Gibbo.Editor.WPF
             panelCreateObjectItem.Click += createObjectItem_Click;
             panelAddFromStateItem.Click += addFromStateItem_Click;
             panelPasteItem.Click += panelPasteItem_Click;
-
         }
 
         void panelPasteItem_Click(object sender, RoutedEventArgs e)
@@ -167,7 +166,7 @@ namespace Gibbo.Editor.WPF
             {
                 foreach (GameObject obj in gameObjects)
                 {
-                    AddGameObject(obj, string.Empty, true, true);
+                    AddGameObject(obj, string.Empty, true, false);
                 }
             }
 
