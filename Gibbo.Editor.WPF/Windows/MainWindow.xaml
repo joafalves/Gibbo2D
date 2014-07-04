@@ -113,7 +113,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="0, 0, 0, 0" >
-            <Menu Height="22" VerticalAlignment="Center" Style="{DynamicResource MenuStyle}" FontSize="12">
+            <Menu Height="24" VerticalAlignment="Center" Style="{DynamicResource MenuStyle}" FontSize="12">
                 <Menu.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FFF6F6F6" Offset="0.25"/>
@@ -122,7 +122,7 @@
                         <GradientStop Color="#FF6C6C6C" Offset="1"/>
                     </LinearGradientBrush>
                 </Menu.Background>
-                <MenuItem Header="File" Foreground="#FF212121" PreviewMouseLeftButtonDown="MenuItem_PreviewMouseLeftButtonDown_1"  >
+                <MenuItem Header="File" Foreground="#C7C7C7" PreviewMouseLeftButtonDown="MenuItem_PreviewMouseLeftButtonDown_1">
                     <MenuItem x:Name="newProjectMenuItem" Header="New Project" HorizontalAlignment="Left" Width="200" Click="newProjectMenuItem_Click"/>
                     <MenuItem x:Name="loadMenuItem" Header="Load Project"  Width="200" Click="loadMenuItem_Click" Icon=""/>
                     <MenuItem x:Name="loadRecentMenuItem" Header="Load Recent Project" Width="200" Icon=""/>
@@ -133,7 +133,7 @@
                     <Separator HorizontalAlignment="Left"  Width="200"/>
                     <MenuItem x:Name="exitBtn" Header="Exit" HorizontalAlignment="Left"  Width="200" Click="exitBtn_Click"/>
                 </MenuItem>
-                <MenuItem Header="Edit" Foreground="#FF212121">
+                <MenuItem Header="Edit" Foreground="#C7C7C7">
                     <MenuItem x:Name="undoBtn" Header="Undo" HorizontalAlignment="Left" Width="200" Click="undoBtn_Click"  InputGestureText="Ctrl+Z"/>
                     <MenuItem x:Name="redoBtn" Header="Redo" HorizontalAlignment="Left" Width="200" Click="redoBtn_Click"  InputGestureText="Ctrl+Y"/>
                     <Separator HorizontalAlignment="Left" Width="200"/>
@@ -142,14 +142,14 @@
                     <MenuItem Header="Settings" HorizontalAlignment="Left" Width="200" x:Name="projectSettingsBtn" Click="projectSettingsBtn_Click" />
                     <MenuItem x:Name="sceneSettingsBtn" Header="Scene Settings" HorizontalAlignment="Left" Width="200" Click="sceneSettingsBtn_Click" />
                 </MenuItem>
-                <MenuItem Header="Run" Foreground="#FF212121">
+                <MenuItem Header="Run" Foreground="#C7C7C7">
                     <MenuItem Header="Compile Scripts" HorizontalAlignment="Left"  Width="200" InputGestureText="F6" Click="compileBtn_Click"/>
                     <MenuItem Header="Debug Game" HorizontalAlignment="Left"  Width="200" InputGestureText="F5" Click="debugBtn_Click"/>
                     <MenuItem Header="Full Debug Game" HorizontalAlignment="Left"  Width="200" InputGestureText="Ctrl+F5" Click="MenuItem_Click_2"/>
                     <Separator HorizontalAlignment="Left"  Width="200"/>
                     <MenuItem Header="Clear Texture Buffer" HorizontalAlignment="Left" Width="200" Click="clearTextureBuffBtn_Click"/>
                 </MenuItem>
-                <MenuItem Header="Tools" Foreground="#FF212121">
+                <MenuItem Header="Tools" Foreground="#C7C7C7">
                     <MenuItem Header="Selection"  Width="200" Icon="">
                         <MenuItem Header="To Collision Block" HorizontalAlignment="Left" Width="200" InputGestureText="Ctrl+B" Click="convertToCollision_Click"/>
                         <Separator HorizontalAlignment="Left"  Width="200"/>
@@ -174,7 +174,7 @@
                     <MenuItem Header="BMFont" HorizontalAlignment="Left" Width="200" Click="bmFont_Click" />
                     <MenuItem Header="Screenshot" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_4" InputGestureText="F9"/>
                 </MenuItem>
-                <MenuItem Header="Layout" Foreground="#FF212121" PreviewMouseDown="LayoutMenuItem_PreviewMouseDown">
+                <MenuItem Header="Layout" Foreground="#C7C7C7" PreviewMouseDown="LayoutMenuItem_PreviewMouseDown">
                     <MenuItem x:Name="CurrentLayoutMenuItem" IsEnabled="False" HorizontalAlignment="Center" Visibility="Collapsed"/>
                     <MenuItem Template="{DynamicResource SimpleMenuItem}" />
                     <MenuItem Header="Reset to Default" HorizontalAlignment="Left" Width="200" Click="ResetLayoutClick" />
@@ -192,7 +192,7 @@
                <MenuItem Header="Tools" Foreground="#FF212121" Visibility="Collapsed">
                     <MenuItem Header="Visual Scripting.." HorizontalAlignment="Left" Width="200" />
                 </MenuItem>
-                <MenuItem Header="Help" Foreground="#FF212121">
+                <MenuItem Header="Help" Foreground="#C7C7C7">
                     <MenuItem Header="Documentation" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_1" />
                     <MenuItem Header="GitHub Page" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_3" />
                     <Separator HorizontalAlignment="Left" Width="200"/>
@@ -211,7 +211,7 @@
             <StatusBar Foreground="WhiteSmoke" Background="{DynamicResource BackgroundBrush}"/>
         </Border>
 
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid Grid.Column="1" Grid.Row="1" Margin="0,4,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -233,7 +233,7 @@
                 <local:RoundedButton x:Name="fullScreenBtn" ToolTip="Toggle FullScreen, Shortcut Key: [F11]" Style="{DynamicResource RoundedButtonStyle}" Foreground="{DynamicResource ForegroundGray}" Width="120" Cursor="Hand" FontSize="11" Click="fullScreenBtn_Click" Height="26" VerticalAlignment="Top" CornerRadius="4,4,4,4" />
             </DockPanel>
         </Grid>
-        <avalonDock:DockingManager x:Name="dockManager" Grid.Row="2" Grid.ColumnSpan="3" AllowMixedOrientation="True" Background="#FF282828">
+        <avalonDock:DockingManager x:Name="dockManager" Grid.Row="2" Grid.ColumnSpan="3" AllowMixedOrientation="True" Background="#FF282828" Margin="0,0,0,10" Grid.RowSpan="2">
             <avalonDock:DockingManager.Theme>
                 <avalonDock:IgniteDarkTheme/>
             </avalonDock:DockingManager.Theme>

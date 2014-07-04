@@ -1275,11 +1275,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Menu}">
-                    <Border Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true" CornerRadius="0" Margin="0" BorderThickness="0,0,0,1" BorderBrush="#FF151515">
+                    <Border Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true" CornerRadius="0" Margin="0" BorderThickness="0,0,0,1" BorderBrush="#181818">
                         <Border.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFE4E4E4" Offset="0"/>
-                                <GradientStop Color="#FFA2A2A2" Offset="1"/>
+                                <GradientStop Color="#444" Offset="0"/>
+                                <GradientStop Color="#343434" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                         <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
@@ -1829,7 +1829,7 @@
         <Border Name="Border">
             <Grid>
                 <ContentPresenter 
-                    Margin="6,3,6,3" 
+                    Margin="8,4,8,4" 
                     ContentSource="Header"
                     RecognizesAccessKey="True" />
                 <Popup 

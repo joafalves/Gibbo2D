@@ -166,7 +166,7 @@ namespace Gibbo.Editor.WPF
             {
                 foreach (GameObject obj in gameObjects)
                 {
-                    AddGameObject(obj, string.Empty, true, false);
+                    AddGameObject(obj, string.Empty, true, false, true);
                 }
             }
 
@@ -194,7 +194,7 @@ namespace Gibbo.Editor.WPF
             }
         }
 
-        internal void AddGameObject(GameObject gameObject, string type, bool autoselect = true, bool addToSelectedParent = false)
+        internal void AddGameObject(GameObject gameObject, string type, bool autoselect = true, bool addToSelectedParent = false, bool expand = false)
         {
             if (gameObject == null)
             {
@@ -283,6 +283,13 @@ namespace Gibbo.Editor.WPF
                 }
 
                 DragDropTreeViewItem node = AddNode(_parent, gameObject, GameObjectImageSource(gameObject));
+
+                if (_parent != null && expand)
+                {
+                    //_parent.ExpandSubtree();
+                    _parent.IsExpanded = true;
+                }
+
                 node.ContextMenu = contextMenu;
                 // AddNodes(gameObject);
                 //node.IsSelected = true;
@@ -399,8 +406,8 @@ namespace Gibbo.Editor.WPF
             else
             {
                 parent.Items.Insert(0, node);
-                parent.ExpandSubtree();
-                parent.IsExpanded = true;
+                //parent.ExpandSubtree();
+                //parent.IsExpanded = true;
             }           
 
             return node;

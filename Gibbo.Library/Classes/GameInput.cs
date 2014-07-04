@@ -199,6 +199,9 @@ namespace Gibbo.Library
         {
             if (SceneManager.ActiveScene != null)
             {
+                //List<GameObject> detectedObj = new List<GameObject>();
+
+                // using the physics body:
                 Fixture detected = SceneManager.ActiveScene.World.TestPoint(ConvertUnits.ToSimUnits(MousePosition));
 
                 if (detected != null)
@@ -208,6 +211,8 @@ namespace Gibbo.Library
 
                     detected.Body.GameObject.mouseOver = true;
                     detected.Body.GameObject.OnMouseMove();
+
+                    //detectedObj.Add(detected.Body.GameObject);
 
                     bool mouseDown = false;
 
