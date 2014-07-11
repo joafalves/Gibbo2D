@@ -143,7 +143,11 @@ namespace Gibbo.Library
         public virtual bool Disabled
         {
             get { return disabled; }
-            set { disabled = value; }
+            set
+            {
+                disabled = value;
+                if (body != null) body.Enabled = !value;
+            }
         }
 
         /// <summary>
@@ -684,6 +688,13 @@ namespace Gibbo.Library
         {
             try
             {
+                if (body != null)
+                {
+                    Vector2 bodyPos = ConvertUnits.ToDisplayUnits(body.Position);
+                    if (bodyPos != transform.position)
+                        transform.Position = bodyPos;
+                }
+
                 // Update this object children
                 for (int i = 0; i < children.Count; i++)
                     if (!children[i].Disabled)

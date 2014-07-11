@@ -54,6 +54,11 @@ namespace Gibbo.Library
 #endif
         private Texture2D texture;
 
+#if WINDOWS
+        [NonSerialized]
+#endif
+        private uint[] data;
+
         #endregion
 
         #region properties
@@ -94,15 +99,21 @@ namespace Gibbo.Library
 
         #region methods
 
-#if WINDOWS
-        [NonSerialized]
-#endif
-        private uint[] data;
+        public void SetTexture(Texture2D texture)
+        {
+            this.texture = texture;
+            UpdateTextureData();
+        }
 
         private void LoadTexture()
         {
             texture = TextureLoader.FromContent(texturePath);
 
+            UpdateTextureData();
+        }
+
+        private void UpdateTextureData()
+        {
             if (texture != null)
             {
                 data = new uint[texture.Width * texture.Height];
