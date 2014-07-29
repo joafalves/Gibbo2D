@@ -84,7 +84,7 @@ namespace Gibbo.Library
             if (this.owner != null)
                 item.Transform.Parent = this.owner.Transform;
             else
-                item.Transform.Parent = null;
+                item.Transform.Parent = null;  
 
             innerList.Add(item);
         }
