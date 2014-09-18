@@ -603,7 +603,10 @@ namespace Gibbo.Editor.WPF
             }
 
             if (!e.Cancel)
+            {
+                LimeScriptEditor.Instance.Close();
                 Application.Current.Shutdown();
+            }
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
