@@ -1,0 +1,13 @@
+﻿<Window x:Class="Gibbo.Editor.WPF.FacebookLoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Log in with Facebook" WindowStyle="ToolWindow" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Gibbo.Editor.WPF;component/Gibbo.Content/logo_modern.png" Height="526" Width="607">
+    <Grid Background="{DynamicResource BackgroundBrush}" Width="{Binding ActualWidth,RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Height="{Binding ActualHeight,RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
+        <Label Content="Welcome to Gibbo 2D!" FontSize="14" Foreground="{DynamicResource ForegroundGray}" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Height="26" Width="404" FontWeight="SemiBold" />
+        <TextBlock  TextWrapping="WrapWithOverflow" FontSize="14" Foreground="{DynamicResource ForegroundGray}" Height="24" HorizontalAlignment="Left" Margin="16,42,0,0" VerticalAlignment="Top" Width="513" ClipToBounds="True" ><Run Text="Want to share your work? Just log in with your Facebook account"/></TextBlock>
+        <Button x:Name="continueBtn" IsCancel="True" Content="Cancel" HorizontalAlignment="Left" Margin="484,448,0,0" VerticalAlignment="Top" Width="89" Style="{DynamicResource ButtonStyle}" />
+        
+        <WebBrowser x:Name="webBrowser" Navigated="webBrowser_Navigated" Margin="16,76,35,89"  />
+        
+    </Grid>
+</Window>

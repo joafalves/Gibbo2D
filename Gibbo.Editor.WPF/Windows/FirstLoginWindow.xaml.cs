@@ -20,6 +20,7 @@ of the license is available, in which case the most recent copy of the license s
 */
 #endregion
 
+using Facebook;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,6 +85,55 @@ namespace Gibbo.Editor.WPF
             return System.Text.RegularExpressions.Regex.IsMatch(strIn,
                     @"^(?("")(""[^""]+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" +
                     @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+        }
+
+        private void fbBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var fbLoginDialog = new FacebookLoginWindow(Properties.Settings.Default.AppID, Properties.Settings.Default.ExtendedPermissions);
+            fbLoginDialog.ShowDialog();
+
+            if (fbLoginDialog.DialogResult.HasValue && fbLoginDialog.DialogResult.Value)
+                DisplayAppropriateMessage(fbLoginDialog.FacebookOAuthResult);
+        }
+
+        private void DisplayAppropriateMessage(FacebookOAuthResult facebookOAuthResult)
+        {
+            if (facebookOAuthResult != null)
+            {
+                if (facebookOAuthResult.IsSuccess)
+                {
+                    Properties.Settings.Default.AccessToken = facebookOAuthResult.AccessToken;
+                    Properties.Settings.Default.Save();
+
+                    var fb = new FacebookClient(facebookOAuthResult.AccessToken);
+
+                    dynamic result = fb.Get("/me");
+                    var name = result.name;
+
+                    // Note, even if you request the email permission it is not guaranteed you will get an email address. 
+                    // For example, if someone signed up for Facebook with a phone number instead of an email address, the email field may be empty.
+                    var email = result.email;
+                    if (IsValidEmail(email))
+                    {
+                        Properties.Settings.Default.UserEmail = email;
+                        Properties.Settings.Default.Save();
+                    }
+
+                    // TODO set logout button visibility (mainwindow) to visible
+                    // btnLogout = true;
+
+                    canClose = true;
+                    this.Close();
+
+                    // for .net 3.5
+                    //var result = (IDictionary<string, object>)fb.Get("/me");
+                    //var name = (string)result["name"];
+                }
+                else
+                {
+                    MessageBox.Show(facebookOAuthResult.ErrorDescription);
+                }
+            }
         }
     }
 }

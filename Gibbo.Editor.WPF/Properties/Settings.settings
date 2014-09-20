@@ -38,5 +38,14 @@
     <Setting Name="ReduceConsumption" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="AppID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">289035847958584</Value>
+    </Setting>
+    <Setting Name="ExtendedPermissions" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">email</Value>
+    </Setting>
+    <Setting Name="AccessToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

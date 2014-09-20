@@ -45,6 +45,7 @@ using System.Windows.Controls;
 using Xceed.Wpf.AvalonDock;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Facebook;
 
 namespace Gibbo.Editor.WPF
 {
@@ -304,6 +305,12 @@ namespace Gibbo.Editor.WPF
 
         #endregion
 
+        #region facebook
+        //private const string AppId = "289035847958584";
+        //private const string ExtendedPermissions = "user_about_me,read_stream";
+        private string _accessToken;
+        #endregion
+
         #region fields
         string lastLatestProjects = string.Empty;
         string projectPathToLoad = string.Empty;
@@ -527,6 +534,15 @@ namespace Gibbo.Editor.WPF
         #endregion
 
         #region events
+        // Logout from Facebook Account
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            var webBrowser = new WebBrowser();
+            var fb = new FacebookClient();
+            var logouUrl = fb.GetLogoutUrl(new { access_token = Properties.Settings.Default.AccessToken, next = "https://www.facebook.com/connect/login_success.html" });
+            webBrowser.Navigate(logouUrl);
+            btnLogout.Visibility = Visibility.Hidden;
+        }
 
         // TODO: add invalidate at the end so the inspector refreshes
         private void manageTagsBtn_Click(object sender, RoutedEventArgs e)
@@ -536,7 +552,7 @@ namespace Gibbo.Editor.WPF
             window.ShowDialog();
         }
 
-        // Attemps to Reset the Layout by setting Gibbo's default layout as current
+        // Attempts to Reset the Layout by setting Gibbo's default layout as current
         private void ResetLayoutClick(object sender, RoutedEventArgs e)
         {
             EditorCommands.ShowOutputMessage("Attempting to reset the layout");
@@ -1495,7 +1511,5 @@ namespace Gibbo.Editor.WPF
         }
 
         #endregion
-
-        
     }
 }

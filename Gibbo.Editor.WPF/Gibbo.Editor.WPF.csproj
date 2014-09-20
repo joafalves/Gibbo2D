@@ -100,6 +100,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.8.0\lib\net40-client\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.AvalonEdit">
       <HintPath>..\References\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
@@ -198,6 +201,9 @@
     <Compile Include="Model\ResizeBasedVisibility.cs" />
     <Compile Include="Windows\DeploymentWindow.xaml.cs">
       <DependentUpon>DeploymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FacebookLoginWindow.xaml.cs">
+      <DependentUpon>FacebookLoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\FirstLoginWindow.xaml.cs">
       <DependentUpon>FirstLoginWindow.xaml</DependentUpon>
@@ -485,6 +491,10 @@
     <Page Include="Windows\DeploymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FacebookLoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\FirstLoginWindow.xaml">
       <SubType>Designer</SubType>
