@@ -264,14 +264,19 @@ namespace Gibbo.Library
         /// </summary>
         public void Stop()
         {
-            if (waveOutDevice != null && IsPlaying)
+            if (waveOutDevice != null && mainOutputStream != null)
             {
                 // DO NOT USE waveOut Stop method!!
-                waveOutDevice.Pause();
-                mainOutputStream.Position = 0;
+                if (waveOutDevice.PlaybackState == PlaybackState.Playing)
+                    waveOutDevice.Pause();
+                
+                mainOutputStream.Position = -1;
             }
         }
 
+        /// <summary>
+        /// Restarts the selected audio file
+        /// </summary>
         public void Restart()
         {
             Stop();
