@@ -102,7 +102,7 @@ namespace Gibbo.Editor.WPF
                 // The url is the result of OAuth 2.0 authentication
                 FacebookOAuthResult = oauthResult;
 
-                this.DialogResult = FacebookOAuthResult.IsSuccess ? true : false;
+                //this.DialogResult = FacebookOAuthResult.IsSuccess ? true : false;
             }
             else
             {

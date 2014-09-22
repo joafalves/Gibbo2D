@@ -165,6 +165,7 @@
     <Compile Include="Classes\BraceFoldingStrategy.cs" />
     <Compile Include="Classes\CommandBindings.cs" />
     <Compile Include="Classes\DragDropHelper.cs" />
+    <Compile Include="Classes\FacebookHelper.cs" />
     <Compile Include="Classes\InsertionAdorner.cs" />
     <Compile Include="Classes\LayoutHelper.cs" />
     <Compile Include="Classes\LeftMarginMultiplierConverter.cs" />
