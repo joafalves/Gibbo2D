@@ -21,9 +21,13 @@ of the license is available, in which case the most recent copy of the license s
 #endregion
 
 using Gibbo.Editor.Model;
+using Gibbo.Library;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -87,14 +91,40 @@ namespace Gibbo.Editor.WPF
                 Gibbo.Library.SceneManager.GameProject.Debug = false;
                 Gibbo.Library.SceneManager.GameProject.Save();
 
-                if (GlobalCommands.DeployProject(Gibbo.Library.SceneManager.GameProject.ProjectPath, dialog.SelectedPath, selectedOption))
+                // Encryption Key
+                string secretKey = Encryption.GenerateKey();
+                // For additional security Pin the key.
+                GCHandle gch = GCHandle.Alloc(secretKey, GCHandleType.Pinned);
+
+                List<string> extensions = new List<string>(Properties.Settings.Default.AcceptedExtensions.Split('|'));
+                extensions.AddRange(Properties.Settings.Default.secundaryExtension.Split('|'));
+
+                if (GlobalCommands.DeployProject(Gibbo.Library.SceneManager.GameProject.ProjectPath, dialog.SelectedPath, selectedOption, secretKey, extensions))
                 {
+                    // store secret key if deployment was successful
+                    //Console.WriteLine("key::" + Convert.ToBase64String(Encoding.Default.GetBytes(secretKey)));
+                    //SceneManager.SecretKey = secretKey;
+
+                    // saves encrypted private key inside the deployed folder
+                    string fullPath = System.IO.Path.Combine(dialog.SelectedPath, "Data.dat");
+
+                    FileStream fStream = new FileStream(fullPath, FileMode.OpenOrCreate);
+
+                    // Encrypt a copy of the data to the stream; no need for entropy, hence sending null
+                    Encryption.EncryptDataToStreamWithoutEntropy(Encoding.Default.GetBytes(secretKey), DataProtectionScope.CurrentUser, fStream);
+
+                    fStream.Close();
+
                     // deployed with success!
                     if (System.Windows.Forms.MessageBox.Show("Deployed successfully!\n\nOpen output directory?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
                     {
                         System.Diagnostics.Process.Start(dialog.SelectedPath);
                     }
                 }
+
+                // Remove the Key from memory. 
+                Encryption.ZeroMemory(gch.AddrOfPinnedObject(), secretKey.Length * 2);
+                gch.Free();
 
                 Gibbo.Library.SceneManager.GameProject.Debug = previousDebugMode;
                 Gibbo.Library.SceneManager.GameProject.Save();

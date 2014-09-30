@@ -40,7 +40,7 @@ namespace Gibbo.Editor.Model
             }
         }
 
-        public static bool DeployProject(string projectPath, string destinationPath, string platform)
+        public static bool DeployProject(string projectPath, string destinationPath, string platform, string secretKey, List<string> acceptedExtensions)
         {
             List<string> blockedDirs = new List<string>();
             blockedDirs.Add("bin");
@@ -73,16 +73,23 @@ namespace Gibbo.Editor.Model
                     {
                         string filename = System.IO.Path.GetFileName(path);
                         string ext = System.IO.Path.GetExtension(path);
+                        string destPath = path.Replace(projectPath, destinationPath);
                         if (!blockedFileExtensions.Contains(ext) &&
-                            Directory.Exists(System.IO.Path.GetDirectoryName(path.Replace(projectPath, destinationPath))))
+                            Directory.Exists(System.IO.Path.GetDirectoryName(destPath)))
                         {
+                            
+
                             if (filename.ToLower().Equals("gibbo.engine.windows.exe"))
                             {
-                                File.Copy(path, System.IO.Path.GetDirectoryName(path.Replace(projectPath, destinationPath)) + "\\" + SceneManager.GameProject.ProjectName + ".exe", true);
+                                File.Copy(path, System.IO.Path.GetDirectoryName(destPath) + "\\" + SceneManager.GameProject.ProjectName + ".exe", true);
+                            }
+                            else if (ext.Contains(".png"))//(acceptedExtensions.Contains(ext))
+                            {
+                                EncryptionHelper.EncryptFile(path, destPath + ".encry", secretKey);
                             }
                             else
                             {
-                                File.Copy(path, path.Replace(projectPath, destinationPath), true);
+                                File.Copy(path, destPath, true);
                             }
                         }
                     }

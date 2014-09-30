@@ -26,6 +26,9 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Security.Cryptography;
+using System.Text;
+using System;
 
 namespace Gibbo.Library
 {
@@ -62,6 +65,33 @@ namespace Gibbo.Library
 #endif
         }
 
+        private static byte[] DecryptDataFromStreamWithoutEntropy(DataProtectionScope Scope, Stream S, int Length)
+        {
+            if (S == null)
+                throw new ArgumentNullException("S");
+            if (Length <= 0)
+                throw new ArgumentException("Length");
+
+            byte[] inBuffer = new byte[Length];
+            byte[] outBuffer;
+
+            // Read the encrypted data from a stream.
+            if (S.CanRead)
+            {
+                S.Read(inBuffer, 0, Length);
+
+                outBuffer = ProtectedData.Unprotect(inBuffer, new byte[0], Scope);
+            }
+            else
+            {
+                throw new IOException("Could not read the stream.");
+            }
+
+            // Return the length that was written to the stream. 
+            return outBuffer;
+
+        }
+
         /// <summary>
         /// Loads a texture from a file.
         /// </summary>
@@ -71,31 +101,123 @@ namespace Gibbo.Library
         {
             if (SceneManager.GraphicsDevice == null) return null;
 
+            //#if WINDOWS
+
             // The image was already loaded to memory?
             if (!textures.ContainsKey(filename) || SceneManager.IsEditor)
             {
-#if WINDOWS
+
                 FileInfo aTexturePath = new FileInfo(filename);
+                string encryFilename = filename + ".encry";
+                FileInfo aEncryptedTexture = new FileInfo(encryFilename);
 
                 // The file exists?
-                if (!aTexturePath.Exists) return null;
+                if (!aTexturePath.Exists && !aEncryptedTexture.Exists) return null;
 
-                FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
-                Texture2D texture = Texture2D.FromStream(SceneManager.GraphicsDevice, fs);
-                fs.Close();
-
-                // Store in the dictionary the loaded texture
-                textures[filename] = texture;
-#elif WINRT
-                if(!MetroHelper.AppDataFileExists(filename)) return null;
-
-                using (Stream stream = Windows.ApplicationModel.Package.Current.InstalledLocation.OpenStreamForReadAsync(filename).Result)
+                if (aEncryptedTexture.Exists)
                 {
-                    Texture2D texture = Texture2D.FromStream(SceneManager.GraphicsDevice, stream);
+                    //Through the des decryption
+                    DESCryptoServiceProvider des = new DESCryptoServiceProvider();
 
+                    //Read through the documents flow
+                    FileStream fs = File.OpenRead(encryFilename);
+
+                    //Get file binary characters
+                    byte[] inputByteArray = new byte[fs.Length];
+
+                    //Reading the stream file
+                    fs.Read(inputByteArray, 0, (int)fs.Length);
+
+                    //Close the stream
+                    fs.Close();
+
+                    // Secret Key Retrieval
+                    // Open the file.
+                    string projectPath = System.IO.Path.Combine(SceneManager.GameProject.ProjectPath, "Data.dat");
+                    FileStream fStream = new FileStream(projectPath, FileMode.Open);
+
+                    // Read from the stream and decrypt the data.
+                    byte[] decryptedArray = DecryptDataFromStreamWithoutEntropy(DataProtectionScope.CurrentUser, fStream, 230);
+                    
+                    fStream.Close();
+
+                    //A key array
+                    byte[] keyByteArray = decryptedArray; //("P0dpPz8OPwM=");
+
+                    //Define hash variables
+                    SHA1 ha = new SHA1Managed();
+
+                    //Calculation of the specified byte group designated area hash value
+                    byte[] hb = ha.ComputeHash(keyByteArray);
+
+                    //The encryption key array
+                    byte[] sKey = new byte[8];
+
+                    //Encryption variables
+                    byte[] sIV = new byte[8];
+
+                    for (int i = 0; i < 8; i++)
+                        sKey[i] = hb[i];
+
+                    for (int i = 8; i < 16; i++)
+                        sIV[i - 8] = hb[i];
+
+                    //Access to the encryption key
+                    des.Key = sKey;
+
+                    //Encryption variables
+                    des.IV = sIV;
+
+                    MemoryStream ms = new MemoryStream();
+
+                    CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(), CryptoStreamMode.Write);
+
+                    cs.Write(inputByteArray, 0, inputByteArray.Length);
+
+                    cs.FlushFinalBlock();
+
+                    //fs = File.OpenWrite(filename + ".decrypt.png");
+
+                    //foreach (byte b in ms.ToArray())
+                    //{
+
+                    //    fs.WriteByte(b);
+
+                    //}
+
+                    //FileStream ffs = new FileStream(filename + ".decrypt.png", FileMode.Open, FileAccess.Read);
+                    Texture2D texture = Texture2D.FromStream(SceneManager.GraphicsDevice, ms);
+
+                    fs.Close();
+                    cs.Close();
+                    ms.Close();
+                    
+
+                    // Store in the dictionary the loaded texture
                     textures[filename] = texture;
                 }
-#endif
+                else
+                {
+                    FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+                    Texture2D texture = Texture2D.FromStream(SceneManager.GraphicsDevice, fs);
+                    fs.Close();
+
+                    // Store in the dictionary the loaded texture
+                    textures[filename] = texture;
+                }
+
+
+
+                //#elif WINRT
+                //                if(!MetroHelper.AppDataFileExists(filename)) return null;
+
+                //                using (Stream stream = Windows.ApplicationModel.Package.Current.InstalledLocation.OpenStreamForReadAsync(filename).Result)
+                //                {
+                //                    Texture2D texture = Texture2D.FromStream(SceneManager.GraphicsDevice, stream);
+
+                //                    textures[filename] = texture;
+                //                }
+                //#endif
             }
 
             return textures[filename];
@@ -109,7 +231,7 @@ namespace Gibbo.Library
         public static Texture2D GetColorTexture(Color color)
         {
             if (SceneManager.GraphicsDevice == null) return null;
-            
+
             // The color texture was already loaded to memory?
             if (!colorTextures.ContainsKey(color))
             {

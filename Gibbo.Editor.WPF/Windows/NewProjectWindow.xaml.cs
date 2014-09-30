@@ -110,6 +110,8 @@ namespace Gibbo.Editor.WPF
                 GibboHelper.CopyDirectory("Project Templates\\libs", path + "", true);
                 GibboHelper.CopyDirectory("Project Templates\\samples", path + "\\samples", true);
 
+                
+
                 ProjectPath = gp.ProjectFilePath;
                 DialogResult = true;
                 this.Close();

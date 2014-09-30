@@ -70,6 +70,11 @@ namespace Gibbo.Library
         /// <summary>
         /// 
         /// </summary>
+        public static string SecretKey { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static string[] GameArgs
         {
             get { return SceneManager.gameArgs; }
