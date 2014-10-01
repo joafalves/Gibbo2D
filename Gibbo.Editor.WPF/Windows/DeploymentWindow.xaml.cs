@@ -92,7 +92,7 @@ namespace Gibbo.Editor.WPF
                 Gibbo.Library.SceneManager.GameProject.Save();
 
                 // Encryption Key
-                string secretKey = Encryption.GenerateKey();
+                string secretKey = Gibbo.Library.Encryption.GenerateKey();
                 // For additional security Pin the key.
                 GCHandle gch = GCHandle.Alloc(secretKey, GCHandleType.Pinned);
 
@@ -111,7 +111,7 @@ namespace Gibbo.Editor.WPF
                     FileStream fStream = new FileStream(fullPath, FileMode.OpenOrCreate);
 
                     // Encrypt a copy of the data to the stream; no need for entropy, hence sending null
-                    Encryption.EncryptDataToStreamWithoutEntropy(Encoding.Default.GetBytes(secretKey), DataProtectionScope.CurrentUser, fStream);
+                    Gibbo.Library.Encryption.EncryptDataToStreamWithoutEntropy(Encoding.Default.GetBytes(secretKey), fStream);
 
                     fStream.Close();
 
@@ -123,7 +123,7 @@ namespace Gibbo.Editor.WPF
                 }
 
                 // Remove the Key from memory. 
-                Encryption.ZeroMemory(gch.AddrOfPinnedObject(), secretKey.Length * 2);
+                Gibbo.Library.Encryption.ZeroMemory(gch.AddrOfPinnedObject(), secretKey.Length * 2);
                 gch.Free();
 
                 Gibbo.Library.SceneManager.GameProject.Debug = previousDebugMode;

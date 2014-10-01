@@ -83,9 +83,9 @@ namespace Gibbo.Editor.Model
                             {
                                 File.Copy(path, System.IO.Path.GetDirectoryName(destPath) + "\\" + SceneManager.GameProject.ProjectName + ".exe", true);
                             }
-                            else if (ext.Contains(".png"))//(acceptedExtensions.Contains(ext))
+                            else if (acceptedExtensions.Contains(ext)) // (ext.Contains(".png"))
                             {
-                                EncryptionHelper.EncryptFile(path, destPath + ".encry", secretKey);
+                                Gibbo.Library.Encryption.EncryptFile(path, destPath + ".encry", secretKey);
                             }
                             else
                             {

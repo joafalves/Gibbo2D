@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Gibbo.Editor.WPF
+namespace Gibbo.Library
 {
     public static class Encryption
     {
@@ -211,7 +213,7 @@ namespace Gibbo.Editor.WPF
 
         #region Encrypt & Decrypt Private Key
 
-        public static int EncryptDataToStreamWithoutEntropy(byte[] Buffer, DataProtectionScope Scope, Stream S)
+        public static int EncryptDataToStreamWithoutEntropy(byte[] Buffer, Stream S)
         {
             if (Buffer.Length <= 0)
                 throw new ArgumentException("Buffer");
@@ -224,7 +226,7 @@ namespace Gibbo.Editor.WPF
             int length = 0;
 
             // Encrypt the data in memory. The result is stored in the same same array as the original data.
-            byte[] encrptedData = ProtectedData.Protect(Buffer, new byte[0], Scope);
+            byte[] encrptedData = ProtectedData.Protect(Buffer, null, DataProtectionScope.CurrentUser);
 
             // Write the encrypted data to a stream.
             if (S.CanWrite && encrptedData != null)
@@ -239,7 +241,7 @@ namespace Gibbo.Editor.WPF
 
         }
 
-        public static byte[] DecryptDataFromStream(byte[] Entropy, DataProtectionScope Scope, Stream S, int Length)
+        public static byte[] DecryptDataFromStreamWithoutEntropy(DataProtectionScope Scope, Stream S, int Length)
         {
             if (S == null)
                 throw new ArgumentNullException("S");
@@ -254,7 +256,7 @@ namespace Gibbo.Editor.WPF
             {
                 S.Read(inBuffer, 0, Length);
 
-                outBuffer = ProtectedData.Unprotect(inBuffer, new byte[0], Scope);
+                outBuffer = ProtectedData.Unprotect(inBuffer, null, Scope);
             }
             else
             {
@@ -265,6 +267,7 @@ namespace Gibbo.Editor.WPF
             return outBuffer;
 
         }
+
 
         #endregion
     }

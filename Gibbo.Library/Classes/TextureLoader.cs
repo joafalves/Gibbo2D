@@ -65,32 +65,7 @@ namespace Gibbo.Library
 #endif
         }
 
-        private static byte[] DecryptDataFromStreamWithoutEntropy(DataProtectionScope Scope, Stream S, int Length)
-        {
-            if (S == null)
-                throw new ArgumentNullException("S");
-            if (Length <= 0)
-                throw new ArgumentException("Length");
-
-            byte[] inBuffer = new byte[Length];
-            byte[] outBuffer;
-
-            // Read the encrypted data from a stream.
-            if (S.CanRead)
-            {
-                S.Read(inBuffer, 0, Length);
-
-                outBuffer = ProtectedData.Unprotect(inBuffer, new byte[0], Scope);
-            }
-            else
-            {
-                throw new IOException("Could not read the stream.");
-            }
-
-            // Return the length that was written to the stream. 
-            return outBuffer;
-
-        }
+        
 
         /// <summary>
         /// Loads a texture from a file.
@@ -137,7 +112,7 @@ namespace Gibbo.Library
                     FileStream fStream = new FileStream(projectPath, FileMode.Open);
 
                     // Read from the stream and decrypt the data.
-                    byte[] decryptedArray = DecryptDataFromStreamWithoutEntropy(DataProtectionScope.CurrentUser, fStream, 230);
+                    byte[] decryptedArray = Encryption.DecryptDataFromStreamWithoutEntropy(DataProtectionScope.CurrentUser, fStream, 230);
                     
                     fStream.Close();
 

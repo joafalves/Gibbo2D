@@ -83,7 +83,6 @@
     <Compile Include="Commands\ScaleCommand.cs" />
     <Compile Include="Commands\TilesetCommand.cs" />
     <Compile Include="Commands\UndoRedo.cs" />
-    <Compile Include="EncryptionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

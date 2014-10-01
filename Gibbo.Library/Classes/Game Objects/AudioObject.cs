@@ -214,13 +214,13 @@ namespace Gibbo.Library
 
             string _filePath = SceneManager.GameProject.ProjectPath + "//" + filePath;
 
-            if (SceneManager.IsEditor) return;
+            //if (SceneManager.IsEditor) return;
 
 #if WINDOWS
             if (_filePath != lastLoadedPath || waveOutDevice == null)
             {
 
-                if (!File.Exists(filePath)) return;
+                //if (!File.Exists(filePath)) return;
 
                 WaveChannel32 stream = Audio.CreateInputStream(_filePath, volume, false);
 
@@ -243,6 +243,8 @@ namespace Gibbo.Library
 
                     lastLoadedPath = _filePath;
                 }
+                else
+                    return;
             }
             else
             {

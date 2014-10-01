@@ -27,9 +27,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-#if WINDOWS
 using NAudio.Wave;
-#endif
+using System.IO;
+using System.Security.Cryptography;
+
 
 namespace Gibbo.Library
 {
@@ -243,7 +244,18 @@ namespace Gibbo.Library
             PlayAudio(filePath, false);
         }
 
-#if WINDOWS
+        static byte[] ConvertNonSeekableStreamToByteArray(Stream NonSeekableStream)
+        {
+            MemoryStream ms = new MemoryStream();
+            byte[] buffer = new byte[1024];
+            int bytes;
+            while ((bytes = NonSeekableStream.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                ms.Write(buffer, 0, bytes);
+            }
+            byte[] output = ms.ToArray();
+            return output;
+        }
         /// <summary>
         /// Creates a wave stream from a selected file
         /// </summary>
@@ -257,18 +269,125 @@ namespace Gibbo.Library
         WaveOffsetStream offset;
         WaveChannel32 channel;
 
-        if (fileName.ToLower().EndsWith(".wav"))
+        FileInfo aAudioPath = new FileInfo(fileName);
+        string encryFilename = fileName + ".encry";
+        FileInfo aEncryptedAudio = new FileInfo(encryFilename);
+
+        // The file exists?
+        if (!aAudioPath.Exists && !aEncryptedAudio.Exists) return null;
+
+        if (aEncryptedAudio.Exists) // !SceneManager.IsEditor
         {
-            stream = new WaveFileReader(fileName);
-        }
-        else if (fileName.ToLower().EndsWith(".mp3"))
-        {
-            stream = new Mp3FileReader(fileName);
+            //Through the des decryption
+            DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+
+            //Read through the documents flow
+            FileStream fs = File.OpenRead(encryFilename);
+
+            //Get file binary characters
+            byte[] inputByteArray = new byte[fs.Length];
+
+            //Reading the stream file
+            fs.Read(inputByteArray, 0, (int)fs.Length);
+
+            //Close the stream
+            fs.Close();
+
+            // Secret Key Retrieval
+            // Open the file.
+            string projectPath = System.IO.Path.Combine(SceneManager.GameProject.ProjectPath, "Data.dat");
+
+            FileStream fStream = new FileStream(projectPath, FileMode.Open);
+
+            // Read from the stream and decrypt the data.
+            byte[] decryptedArray = Encryption.DecryptDataFromStreamWithoutEntropy(DataProtectionScope.CurrentUser, fStream, 230);
+
+            fStream.Close();
+
+            //A key array
+            byte[] keyByteArray = decryptedArray;
+
+            //Define hash variables
+            SHA1 ha = new SHA1Managed();
+
+            //Calculation of the specified byte group designated area hash value
+            byte[] hb = ha.ComputeHash(keyByteArray);
+
+            //The encryption key array
+            byte[] sKey = new byte[8];
+
+            //Encryption variables
+            byte[] sIV = new byte[8];
+
+            for (int i = 0; i < 8; i++)
+                sKey[i] = hb[i];
+
+            for (int i = 8; i < 16; i++)
+                sIV[i - 8] = hb[i];
+
+            //Access to the encryption key
+            des.Key = sKey;
+
+            //Encryption variables
+            des.IV = sIV;
+
+            MemoryStream ms = new MemoryStream();
+
+            CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(), CryptoStreamMode.Write);
+
+            cs.Write(inputByteArray, 0, inputByteArray.Length);
+
+            cs.FlushFinalBlock();
+
+            //fs = File.OpenWrite(fileName + ".decrypt.mp3");
+
+            //foreach (byte b in ms.ToArray())
+            //{
+
+            //    fs.WriteByte(b);
+
+            //}
+
+            //fs.Close();
+
+            // Read Decrypted file
+            //FileStream ffs = new FileStream(fileName + ".decrypt.mp3", FileMode.Open, FileAccess.Read);
+
+            Stream myStream = new MemoryStream(ms.ToArray());
+
+            if (fileName.ToLower().EndsWith(".wav"))
+            {
+                stream = new WaveFileReader(myStream);
+            }
+            else if (fileName.ToLower().EndsWith(".mp3"))
+            {
+                stream = new Mp3FileReader(myStream);
+            }
+            else
+            {
+                Console.WriteLine("Audio format not supported");
+                return null;
+            }
+            
+            //fs.Close();
+            //cs.Close();
+            //ms.Close();
         }
         else
         {
-            Console.WriteLine("Audio format not supported");
-            return null;
+            if (fileName.ToLower().EndsWith(".wav"))
+            {
+                stream = new WaveFileReader(fileName);
+            }
+            else if (fileName.ToLower().EndsWith(".mp3"))
+            {
+                stream = new Mp3FileReader(fileName);
+            }
+            else
+            {
+                Console.WriteLine("Audio format not supported");
+                return null;
+            }
         }
 
         stream = new WaveFormatConversionStream(new WaveFormat(44100, 1), stream);
@@ -281,8 +400,8 @@ namespace Gibbo.Library
 
         return channel;
     }
-#endif
-
         #endregion
     }
+
+
 }

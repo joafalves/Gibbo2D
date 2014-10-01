@@ -258,6 +258,7 @@
     <Compile Include="Classes\Transform.cs" />
     <Compile Include="Classes\IniFile.cs" />
     <Compile Include="Utils\EditorMouse.cs" />
+    <Compile Include="Utils\Encryption.cs" />
     <Compile Include="Utils\LoopStream.cs" />
     <Compile Include="Visual Scripting\Nodes\Event.cs" />
     <Compile Include="Visual Scripting\Nodes\SetPosition.cs" />
