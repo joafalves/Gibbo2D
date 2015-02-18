@@ -71,33 +71,34 @@ namespace Gibbo.Editor.WPF
             if (Properties.Settings.Default.LastDeploymentFolder != string.Empty)
                 dialog.SelectedPath = Properties.Settings.Default.LastDeploymentFolder;
 
-            dialog.ShowDialog();
-
-            // path is fine?
-            if (dialog.SelectedPath == Gibbo.Library.SceneManager.GameProject.ProjectPath)
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                System.Windows.Forms.MessageBox.Show("You cannot select the folder of your project.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Properties.Settings.Default.LastDeploymentFolder = dialog.SelectedPath;
-            Properties.Settings.Default.Save();
-
-            bool previousDebugMode = Gibbo.Library.SceneManager.GameProject.Debug;
-            Gibbo.Library.SceneManager.GameProject.Debug = false;
-            Gibbo.Library.SceneManager.GameProject.Save();
-
-            if (GlobalCommands.DeployProject(Gibbo.Library.SceneManager.GameProject.ProjectPath, dialog.SelectedPath, selectedOption))
-            {
-                // deployed with success!
-                if (System.Windows.Forms.MessageBox.Show("Deployed successfully!\n\nOpen output directory?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                // path is fine?
+                if (dialog.SelectedPath == Gibbo.Library.SceneManager.GameProject.ProjectPath)
                 {
-                    System.Diagnostics.Process.Start(dialog.SelectedPath);
+                    System.Windows.Forms.MessageBox.Show("You cannot select the folder of your project.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-            }
 
-            Gibbo.Library.SceneManager.GameProject.Debug = previousDebugMode;
-            Gibbo.Library.SceneManager.GameProject.Save();
+                Properties.Settings.Default.LastDeploymentFolder = dialog.SelectedPath;
+                Properties.Settings.Default.Save();
+
+                bool previousDebugMode = Gibbo.Library.SceneManager.GameProject.Debug;
+                Gibbo.Library.SceneManager.GameProject.Debug = false;
+                Gibbo.Library.SceneManager.GameProject.Save();
+
+                if (GlobalCommands.DeployProject(Gibbo.Library.SceneManager.GameProject.ProjectPath, dialog.SelectedPath, selectedOption))
+                {
+                    // deployed with success!
+                    if (System.Windows.Forms.MessageBox.Show("Deployed successfully!\n\nOpen output directory?", "Success", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(dialog.SelectedPath);
+                    }
+                }
+
+                Gibbo.Library.SceneManager.GameProject.Debug = previousDebugMode;
+                Gibbo.Library.SceneManager.GameProject.Save();
+            }
         }
 
         private void cancelBtn_Click(object sender, RoutedEventArgs e)

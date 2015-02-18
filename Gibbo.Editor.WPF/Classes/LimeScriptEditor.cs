@@ -33,7 +33,7 @@ namespace Gibbo.Editor.WPF
     {
         #region fields
 
-        private static ScriptingEditorWindow instance;
+        private static ScriptingEditorWindow _instance;
 
         #endregion
 
@@ -42,19 +42,27 @@ namespace Gibbo.Editor.WPF
         public static ScriptingEditorWindow Instance
         {
             get {
-                if (instance == null || !instance.IsVisible )
+                if (_instance == null || !_instance.IsVisible )
                 {
-                    instance = new ScriptingEditorWindow();
-                    instance.Show(); 
+                    _instance = new ScriptingEditorWindow();
+                    _instance.Show(); 
                 }
 
-                return instance;
+                return _instance;
             }
         }
 
         #endregion
 
         #region methods
+
+        public static void Close()
+        {
+            if (_instance != null)
+	        {
+		        _instance.Close();
+	        }
+        }
 
         public static void OpenScript(string path)
         {
