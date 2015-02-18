@@ -899,6 +899,11 @@
             
             </summary>
         </member>
+        <member name="P:Gibbo.Library.AnimatedSprite.PlayMode">
+            <summary>
+            Determines the animated sprite play mode
+            </summary>
+        </member>
         <member name="P:Gibbo.Library.AnimatedSprite.ResetOnStart">
             <summary>
             Determines if the current row/colum should reset on start
@@ -946,7 +951,7 @@
         </member>
         <member name="P:Gibbo.Library.AnimatedSprite.TotalRows">
             <summary>
-            The total frames available in each texture
+            The total rows available in each texture
             </summary>
         </member>
         <member name="P:Gibbo.Library.AnimatedSprite.IsPlaying">
@@ -1547,6 +1552,11 @@
             Measures the dimension of this object
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Gibbo.Library.Tileset.Color">
+            <summary>
+            The fill color
+            </summary>
         </member>
         <member name="P:Gibbo.Library.Tileset.UseRenderTarget">
             <summary>
