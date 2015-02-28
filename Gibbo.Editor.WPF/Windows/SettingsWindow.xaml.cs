@@ -95,6 +95,7 @@ namespace Gibbo.Editor.WPF
                 case "game_debug":
                     settings = new GameDebugDynamic();
                     (settings as GameDebugDynamic).ShowConsole = iniSettings.IniReadValue("Console", "Visible").ToLower().Trim().Equals("true") ? true : false;
+                    (settings as GameDebugDynamic).Attach = Properties.Settings.Default.AttachVisualStudio;
 
                     try
                     {
@@ -191,6 +192,8 @@ namespace Gibbo.Editor.WPF
 
                 case "game_debug":
                     iniSettings.IniWriteValue("Console", "Visible", (propertyGrid.SelectedObject as GameDebugDynamic).ShowConsole.ToString());
+                    Properties.Settings.Default.AttachVisualStudio = (propertyGrid.SelectedObject as GameDebugDynamic).Attach;
+                    Properties.Settings.Default.Save();
                     SceneManager.GameProject.Debug = (propertyGrid.SelectedObject as GameDebugDynamic).DebugMode == GameDebugDynamic.DebugModes.Debug ? true : false;
                     break;
 
@@ -344,23 +347,33 @@ namespace Gibbo.Editor.WPF
     {
         public enum DebugModes { Debug, Release }
 
-        private DebugModes debugMode;
-        private bool showConsole;
+        private DebugModes _debugMode;
+        private bool _showConsole;
+        private bool _attach;
 
         [Category("Debug")]
         [DisplayName("Debug Mode")]
         public DebugModes DebugMode
         {
-            get { return debugMode; }
-            set { debugMode = value; }
+            get { return _debugMode; }
+            set { _debugMode = value; }
         }
 
         [Category("Debug")]
         [DisplayName("Show Console")]
         public bool ShowConsole
         {
-            get { return showConsole; }
-            set { showConsole = value; }
+            get { return _showConsole; }
+            set { _showConsole = value; }
+        }
+
+        [Category("Debug")]
+        [DisplayName("Debug with Visual Studio")]
+        [Description("Will atempt to attach solution if the corresponding visual studio instance is found")]
+        public bool Attach
+        {
+            get { return _attach; }
+            set { _attach = value; }
         }
     }
 

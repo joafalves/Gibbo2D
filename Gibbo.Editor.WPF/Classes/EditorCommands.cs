@@ -405,11 +405,14 @@ namespace Gibbo.Editor.WPF
                     debug.StartInfo.Arguments = "";
                     debug.StartInfo.CreateNoWindow = true;
                     debug.Start();
-                    
-                    EnvDTE.DTE instance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
-                    if (instance != null)
+
+                    if (Properties.Settings.Default.AttachVisualStudio)
                     {
-                        debug.Attach(instance); // Attach visual studio dte
+                        EnvDTE.DTE instance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
+                        if (instance != null)
+                        {
+                            debug.Attach(instance); // Attach visual studio dte
+                        }
                     }
 
                     debug.WaitForExit();
