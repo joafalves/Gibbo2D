@@ -37,7 +37,7 @@ namespace Gibbo.Library
     /// <summary>
     /// Search options Enumeration
     /// </summary>
-    public enum SearchOptions { Hash, Name }
+    public enum SearchOptions { Hash, Name, Tag }
 
     /// <summary>
     /// Mouse event button Enumeration

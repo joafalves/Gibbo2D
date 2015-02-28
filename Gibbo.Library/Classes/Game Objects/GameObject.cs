@@ -930,6 +930,10 @@ namespace Gibbo.Library
                     if (gameObject.name == src)
                         return gameObject;
                     break;
+                case SearchOptions.Tag:
+                    if (gameObject.Tag == src)
+                        return gameObject;
+                    break;
             }
 
             return null;
