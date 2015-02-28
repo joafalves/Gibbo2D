@@ -991,7 +991,7 @@ namespace Gibbo.Editor.WPF
 
         private void aboutBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.gibbo2d.com/index.php/main/display/about");
+            System.Diagnostics.Process.Start("http://gibbo2d.anlagehub.com/index.php/main/display/about");
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
@@ -1001,7 +1001,7 @@ namespace Gibbo.Editor.WPF
 
         private void websiteBtn_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.gibbo2d.com/");
+            System.Diagnostics.Process.Start("http://anlagehub.com/gibbo2d/");
         }
 
         private void ToCollisionBlock()
