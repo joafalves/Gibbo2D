@@ -405,6 +405,13 @@ namespace Gibbo.Editor.WPF
                     debug.StartInfo.Arguments = "";
                     debug.StartInfo.CreateNoWindow = true;
                     debug.Start();
+                    
+                    EnvDTE.DTE instance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
+                    if (instance != null)
+                    {
+                        debug.Attach(instance); // Attach visual studio dte
+                    }
+
                     debug.WaitForExit();
                     debug.Close();
                 }
@@ -438,5 +445,105 @@ namespace Gibbo.Editor.WPF
         {
             win.Effect = null;
         }
+    }
+
+    public static class Extensions
+    {
+
+        internal static void Attach(this System.Diagnostics.Process process, EnvDTE.DTE dte)
+        {
+            //Reference Visual Studio core
+            //EnvDTE.DTE dte;
+            //try
+            //{
+            //    dte = (EnvDTE.DTE)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.12.0");
+                
+            //}
+            //catch (System.Runtime.InteropServices.COMException)
+            //{
+            //    Debug.WriteLine(String.Format(@"Visual studio not found."));
+            //    return;
+            //}
+
+            // Try loop - Visual Studio may not respond the first time.
+
+            //foreach (EnvDTE.DTE dte in GetInstances())
+            //{
+                int tryCount = 5;
+                while (tryCount-- > 0)
+                {
+                    try
+                    {
+                        EnvDTE.Processes processes = dte.Debugger.LocalProcesses;
+
+                        foreach (EnvDTE.Process proc in processes.Cast<EnvDTE.Process>().Where(
+                          proc => proc.Name.IndexOf(process.ProcessName) != -1))
+                        {
+                            proc.Attach();
+                            Debug.WriteLine(String.Format
+                            ("Attached to process {0} successfully.", process.ProcessName));
+                            break;
+                        }
+                        break;
+                    }
+                    catch (System.Runtime.InteropServices.COMException)
+                    {
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                }
+            //}
+            
+        }
+
+        internal static EnvDTE.DTE GetInstance(string displayName)
+        {
+            //List<string> names = new List<string>();
+            //names.AddRange(from i in GetVisualStudioInstances() select i.Solution.FullName);
+            IEnumerable<EnvDTE.DTE> instances = GetVisualStudioInstances();
+
+            bool exists = instances.Any(x => x.Solution.FullName.Equals(displayName));
+            if (exists)
+                return instances.Single(x => x.Solution.FullName.Equals(displayName));
+            
+
+            return null;
+        }
+
+        internal static IEnumerable<EnvDTE.DTE> GetVisualStudioInstances()
+        {
+            System.Runtime.InteropServices.ComTypes.IRunningObjectTable rot;
+            System.Runtime.InteropServices.ComTypes.IEnumMoniker enumMoniker;
+            int retVal = GetRunningObjectTable(0, out rot);
+
+            if (retVal == 0)
+            {
+                rot.EnumRunning(out enumMoniker);
+
+                IntPtr fetched = IntPtr.Zero;
+                System.Runtime.InteropServices.ComTypes.IMoniker[] moniker = new System.Runtime.InteropServices.ComTypes.IMoniker[1];
+                while (enumMoniker.Next(1, moniker, fetched) == 0)
+                {
+                    System.Runtime.InteropServices.ComTypes.IBindCtx bindCtx;
+                    CreateBindCtx(0, out bindCtx);
+                    string displayName;
+                    moniker[0].GetDisplayName(bindCtx, null, out displayName);
+                    //Console.WriteLine("Display Name: {0}", displayName);
+                    bool isVisualStudio = displayName.StartsWith("!VisualStudio");
+                    if (isVisualStudio)
+                    {
+                       object obj;
+                       rot.GetObject(moniker[0], out obj);
+                       var dte = obj as EnvDTE.DTE;
+                       yield return dte;
+                    }
+                }
+            }
+        }
+
+        [System.Runtime.InteropServices.DllImport("ole32.dll")]
+        private static extern void CreateBindCtx(int reserved, out System.Runtime.InteropServices.ComTypes.IBindCtx ppbc);
+
+        [System.Runtime.InteropServices.DllImport("ole32.dll")]
+        private static extern int GetRunningObjectTable(int reserved, out System.Runtime.InteropServices.ComTypes.IRunningObjectTable prot);
     }
 }
