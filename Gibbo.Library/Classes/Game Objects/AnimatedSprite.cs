@@ -111,10 +111,14 @@ namespace Gibbo.Library
         /// </summary>
         public event EventHandler AnimationCompleted;
 
+        /// <summary>
+        /// Triggers an event when the animation is at the last row frame
+        /// </summary>
+        public event EventHandler IsAtLastRowFrame;
+
         #endregion
 
         #region properties
-
         /// <summary>
         /// Determines the animated sprite play mode
         /// </summary>
@@ -450,6 +454,19 @@ namespace Gibbo.Library
 
                     CurrentColumn += (reverse ? -1 : 1);
 
+                    if (TotalFramesPerRow > 0) // if has at least one frame
+                    {
+                        if ((!reverse && CurrentColumn == TotalFramesPerRow - 1) || (reverse && CurrentColumn == 0)) // if last frame
+                        {
+                            if (IsAtLastRowFrame != null)
+                            {
+                                IsAtLastRowFrame(this, null); // trigger last frame
+                            }
+                        }
+
+                    }
+
+
                     if (currentColumn >= totalFramesPerRow || currentColumn < 0)
                     {
                         if (playMode == Library.PlayMode.YoYo && !playAllRows)
@@ -457,10 +474,10 @@ namespace Gibbo.Library
                             reverse = !reverse;
                             currentColumn = (reverse ? totalFramesPerRow - 2 : 1);
                         }
-                        else 
+                        else
                         {
                             currentColumn = (reverse ? totalFramesPerRow - 1 : 0);
-                        }                     
+                        }
 
                         if (playAllRows)
                         {
@@ -486,7 +503,7 @@ namespace Gibbo.Library
                                 }
 
                                 if (!loop)
-                                    isPlaying = false;                             
+                                    isPlaying = false;
 
                                 handler = AnimationCompleted;
                                 if (handler != null)
