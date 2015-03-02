@@ -29,26 +29,34 @@ namespace Gibbo.Library
 
         #region fields
 
-        internal Transform target;
-        private float currentElapsed;
+        [Obsolete("Target property should be used instead", true)]
+        internal GameObject target;
+
+        [Obsolete("Not used anymore", true)]
         internal float duration; // milliseconds
+        
+        [Obsolete("Not used anymore", true)]
         internal float initialDelay; // milliseconds
-        private Transform initialTransform;
-        private Transform targetTransform;
-        private bool paused = true;
-        private bool waitingForDelay = false;
-        private bool loop = false;
+
+        private float _duration;
+        private float _initialDelay;
+        private float _currentElapsed;
+        private Transform _initialTransform;
+        private Transform _targetTransform;
+        private bool _paused = true;
+        private bool _waitingForDelay = false;
+        private bool _loop = false;
+        private bool _inverse = false;
 
         #endregion
 
         #region properties
-
         /// <summary>
-        /// 
+        /// Deep Copy of initial transform
         /// </summary>
         public Transform InitialTransform
         {
-            get { return initialTransform.DeepCopy(); }
+            get { return _initialTransform.DeepCopy(); }
         }
 
         /// <summary>
@@ -56,17 +64,26 @@ namespace Gibbo.Library
         /// </summary>
         public bool Loop
         {
-            get { return loop; }
-            set { loop = value; }
+            get { return _loop; }
+            set { _loop = value; }
         }
 
         /// <summary>
-        /// 
+        /// Transform as Target
         /// </summary>
         public Transform Target
         {
-            get { return target; }
+            get;
+            private set;
         }
+
+        //[Obsolete("Transform should be used instead", true)]
+        //public GameObject Target
+        //{
+        //    get;
+        //    private set;
+        //}
+        
 
         #endregion
 
@@ -78,12 +95,12 @@ namespace Gibbo.Library
         /// <param name="target"></param>
         public Tween(Transform target)
         {
-            this.target = target;
+            Target = target;
         }
 
         public Tween(GameObject target)
         {
-            this.target = target.Transform;
+            Target = target.Transform;
         }
 
         #endregion
@@ -96,14 +113,14 @@ namespace Gibbo.Library
         /// <param name="gameTime"></param>
         public void Update(GameTime gameTime)
         {
-            if (waitingForDelay)
+            if (_waitingForDelay)
             {
-                currentElapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                _currentElapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-                if (currentElapsed > initialDelay)
+                if (_currentElapsed > _initialDelay)
                 {
-                    currentElapsed = 0;
-                    waitingForDelay = false;
+                    _currentElapsed = 0;
+                    _waitingForDelay = false;
 
                     EventHandler handler = TweenStarted;
                     if (handler != null)
@@ -113,28 +130,28 @@ namespace Gibbo.Library
                 }
             }
 
-            if (!paused && !waitingForDelay)
+            if (!_paused && !_waitingForDelay)
             {
-                currentElapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-                currentElapsed = MathHelper.Clamp(currentElapsed, 0, duration);
+                _currentElapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                _currentElapsed = MathHelper.Clamp(_currentElapsed, 0, _duration);
 
                 SetTransform();
 
-                if (currentElapsed == duration)
+                if (_currentElapsed == _duration)
                 {
-                    if (!loop)
+                    if (!_loop)
                     {
-                        paused = true;
+                        _paused = true;
                     }
                     else
                     {
-                        currentElapsed = 0;
+                        _currentElapsed = 0;
                         SetTransform();
                     }
 
-                    if (initialDelay != 0)
+                    if (_initialDelay != 0)
                     {
-                        waitingForDelay = true;
+                        _waitingForDelay = true;
                     }
 
                     EventHandler handler = TweenCompleted;
@@ -146,16 +163,14 @@ namespace Gibbo.Library
             }
         }
 
-        private bool _inverse = false;
-
         private void SetTransform()
         {
-            if (targetTransform.position.X != initialTransform.position.X)
-                target.SetPositionX(initialTransform.Position.X + ((currentElapsed * (targetTransform.Position.X - initialTransform.Position.X)) / duration));
+            if (_targetTransform.position.X != _initialTransform.position.X)
+                Target.SetPositionX(_initialTransform.Position.X + ((_currentElapsed * (_targetTransform.Position.X - _initialTransform.Position.X)) / _duration));
 
-            if (targetTransform.position.Y != initialTransform.position.Y)
+            if (_targetTransform.position.Y != _initialTransform.position.Y)
             {
-                target.SetPositionY(initialTransform.Position.Y + ((currentElapsed * (targetTransform.Position.Y - initialTransform.Position.Y)) / duration));
+                Target.SetPositionY(_initialTransform.Position.Y + ((_currentElapsed * (_targetTransform.Position.Y - _initialTransform.Position.Y)) / _duration));
                 //Console.WriteLine("entreiy");
             }
             //if(targetTransform.position != initialTransform.position)
@@ -170,18 +185,18 @@ namespace Gibbo.Library
 
             if (!_inverse)
             {
-                if (targetTransform.Rotation != initialTransform.rotation)
-                    target.Rotation = initialTransform.rotation + ((currentElapsed * (targetTransform.rotation - initialTransform.rotation)) / duration);
+                if (_targetTransform.Rotation != _initialTransform.rotation)
+                    Target.Rotation = _initialTransform.rotation + ((_currentElapsed * (_targetTransform.rotation - _initialTransform.rotation)) / _duration);
             }
             else
             {
                 // inversed rotation
-                if (targetTransform.Rotation != initialTransform.rotation)
-                    target.Rotation = initialTransform.rotation + ((currentElapsed * (-1 * targetTransform.rotation - initialTransform.rotation)) / duration);
+                if (_targetTransform.Rotation != _initialTransform.rotation)
+                    Target.Rotation = _initialTransform.rotation + ((_currentElapsed * (-1 * _targetTransform.rotation - _initialTransform.rotation)) / _duration);
             }
 
-            if (targetTransform.scale != initialTransform.scale)
-                target.Scale = initialTransform.scale + ((currentElapsed * (targetTransform.scale - initialTransform.scale)) / duration);
+            if (_targetTransform.scale != _initialTransform.scale)
+                Target.Scale = _initialTransform.scale + ((_currentElapsed * (_targetTransform.scale - _initialTransform.scale)) / _duration);
         }
 
         /// <summary>
@@ -195,13 +210,25 @@ namespace Gibbo.Library
             Transform t = new Transform()
             {
                 position = position,
-                scale = new Vector2(target.scale.X, target.scale.Y),
-                rotation = target.rotation
+                scale = new Vector2(Target.scale.X, Target.scale.Y),
+                rotation = Target.rotation
             };
 
             _inverse = inverseRotation;
 
             this.To(t, duration, inverseRotation, initialDelay);
+        }
+
+        public void To(Vector2 position, float duration, float initialDelay = 0)
+        {
+            Transform t = new Transform()
+            {
+                position = position,
+                scale = new Vector2(Target.scale.X, Target.scale.Y),
+                rotation = Target.rotation
+            };
+
+            this.To(t, duration, false, initialDelay);
         }
 
         /// <summary>
@@ -210,23 +237,34 @@ namespace Gibbo.Library
         /// <param name="targetTransform"></param>
         /// <param name="duration"></param>
         /// <param name="initialDelay"></param>
+        public void To(Transform targetTransform, float duration, float initialDelay = 0)
+        {
+            this.To(targetTransform, duration, false, initialDelay);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="targetTransform"></param>
+        /// <param name="duration"></param>
         /// <param name="inverseRotation"></param>
+        /// <param name="initialDelay"></param>
         public void To(Transform targetTransform, float duration, bool inverseRotation = false, float initialDelay = 0)
         {
-            this.targetTransform = targetTransform.DeepCopy();
-            this.initialTransform = target.DeepCopy();
+            this._targetTransform = targetTransform.DeepCopy();
+            this._initialTransform = Target.DeepCopy();
 
-            _inverse = inverseRotation;
+            this._inverse = inverseRotation;
 
-            this.duration = duration;
-            this.currentElapsed = 0;
-            this.paused = false;
-            this.initialDelay = initialDelay;
+            this._duration = duration;
+            this._currentElapsed = 0;
+            this._paused = false;
+            this._initialDelay = initialDelay;
 
             if (initialDelay != 0)
-                waitingForDelay = true;
+                _waitingForDelay = true;
             else
-                waitingForDelay = false;
+                _waitingForDelay = false;
         }
 
         #endregion
