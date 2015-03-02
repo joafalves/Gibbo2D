@@ -880,13 +880,106 @@ namespace Gibbo.Library
             return gameObject;
         }
 
+
         /// <summary>
-        /// Searches for the gameobject in the active scene 
+        /// Searches for the game object in the active scene 
         /// </summary>
         /// <param name="src">search parameter</param>
         /// <param name="searchOption">what to look for</param>
         /// <returns>null if not found</returns>
+        [Obsolete("Other find functions should be used instead", false)]
         public static GameObject Find(string src, SearchOptions searchOption = SearchOptions.Name)
+        {
+            return FindSingle(src, searchOption);
+        }
+
+        /// <summary>
+        /// Searches and returns the first game object using the specified Tag
+        /// </summary>
+        /// <param name="src"></param>
+        /// <returns></returns>
+        public static GameObject FindByTag(string src)
+        {
+            return FindSingle(src, SearchOptions.Tag);
+        }
+
+        /// <summary>
+        /// Searches for the game object using the specified Hash
+        /// </summary>
+        /// <param name="src"></param>
+        /// <returns></returns>
+        public static GameObject FindByHash(string src)
+        {
+            return FindSingle(src, SearchOptions.Hash);
+        }
+
+        /// <summary>
+        /// Searches and returns the first game object using the specified Name
+        /// </summary>
+        /// <param name="src"></param>
+        /// <returns></returns>
+        public static GameObject FindByName(string src)
+        {
+            return FindSingle(src, SearchOptions.Name);
+        }
+
+        /// <summary>
+        /// Searches for every game object using the specified Tag
+        /// </summary>
+        /// <param name="src"></param>
+        /// <returns></returns>
+        public static List<GameObject> FindAllByTag(string src)
+        {
+            return FindAll(src, SearchOptions.Tag);
+        }
+
+        /// <summary>
+        /// Searches for every game object using the specified Name
+        /// </summary>
+        /// <param name="src"></param>
+        /// <returns></returns>
+        public static List<GameObject> FindAllByName(string src)
+        {
+            return FindAll(src, SearchOptions.Name);
+        }
+
+        // Search in ActiveScene GameObjects
+        private static List<GameObject> FindAll(string src, SearchOptions searchOption)
+        {
+            if (SceneManager.ActiveScene == null) return null;
+
+            List<GameObject> found = new List<GameObject>();
+
+            foreach (GameObject gameObject in SceneManager.ActiveScene.GameObjects)
+            {
+                // Recursive Call
+                List<GameObject> result = FindAll(gameObject, src, searchOption);
+
+                found.AddRange(result);
+            }
+
+            // found list
+            return found;
+        }
+
+        // Search in GameObject children
+        private static List<GameObject> FindAll(GameObject gameObject, string src, SearchOptions searchOption)
+        {
+            List<GameObject> found = new List<GameObject>();
+
+            if (FindComparer(gameObject, src, searchOption) != null) found.Add(gameObject);
+
+            foreach (GameObject _gameObject in gameObject.Children)
+            {
+                List<GameObject> result = FindAll(_gameObject, src, searchOption);
+
+                found.AddRange(result);
+            }
+
+            return found;
+        }
+
+        private static GameObject FindSingle(string src, SearchOptions searchOption)
         {
             if (SceneManager.ActiveScene == null) return null;
 
