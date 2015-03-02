@@ -366,7 +366,9 @@ namespace Gibbo.Library
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message + "\n" + ex.StackTrace.ToString());
+                        Console.WriteLine(
+                            "Error trying to Activate " + name + " on " + Name + " : " +                            
+                            ex.Message + "\n" + ex.StackTrace.ToString());
                     }
                 }
             }
