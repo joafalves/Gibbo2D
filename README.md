@@ -9,7 +9,7 @@ With Gibbo 2D we can simplify Game Development. With your imagination, this tool
 
 It's supported by MonoGame, also an open source project.
 
-![log](https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-frc3/1381791_627507960603801_1010829352_n.png)
+![log](http://anlagehub.com/wp-content/uploads/2015/02/gibbo2d-2.png)
 
 ## Features
 
