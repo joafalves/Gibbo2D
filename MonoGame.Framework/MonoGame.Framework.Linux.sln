@@ -1,26 +1,52 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lidgren.Network.Linux", "ThirdParty\Lidgren.Network\Lidgren.Network.Linux.csproj", "{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGCB.Linux", "Tools\MGCB\MGCB.Linux.csproj", "{4243474D-4C2E-6E69-7578-4D4743422E4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.Content.Pipeline.Linux", "MonoGame.Framework.Content.Pipeline\MonoGame.Framework.Content.Pipeline.Linux.csproj", "{57696462-CE5E-4BC5-80AB-1B959E2420EA}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.Linux", "MonoGame.Framework\MonoGame.Framework.Linux.csproj", "{35253CE1-C864-4CD3-8249-4D1319748E8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lidgren.Network.Linux", "ThirdParty\Lidgren.Network\Lidgren.Network.Linux.csproj", "{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.Net.Linux", "MonoGame.Framework\MonoGame.Framework.Net.Linux.csproj", "{1B738549-0449-4504-B978-7BFC347E3F3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Tests.Linux", "Test\MonoGame.Tests.Linux.csproj", "{E7E3DDB6-6147-656D-2E54-657374732E4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipeline.Linux", "Tools\Pipeline\Pipeline.Linux.csproj", "{65706950-696C-656E-2E4C-696E75785069}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x86.ActiveCfg = Debug|x86
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|x86.Build.0 = Debug|x86
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x86.ActiveCfg = Release|x86
-		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|x86.Build.0 = Release|x86
-		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Debug|x86.Build.0 = Debug|Any CPU
-		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Release|x86.ActiveCfg = Release|Any CPU
-		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Release|x86.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = MonoGame.Framework\MonoGame.Framework.Linux.csproj
+		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{758CB33D-6EBD-41EA-BB0C-55B1C97A325F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4243474D-4C2E-6E69-7578-4D4743422E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4243474D-4C2E-6E69-7578-4D4743422E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4243474D-4C2E-6E69-7578-4D4743422E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4243474D-4C2E-6E69-7578-4D4743422E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57696462-CE5E-4BC5-80AB-1B959E2420EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57696462-CE5E-4BC5-80AB-1B959E2420EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57696462-CE5E-4BC5-80AB-1B959E2420EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57696462-CE5E-4BC5-80AB-1B959E2420EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35253CE1-C864-4CD3-8249-4D1319748E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B738549-0449-4504-B978-7BFC347E3F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B738549-0449-4504-B978-7BFC347E3F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B738549-0449-4504-B978-7BFC347E3F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B738549-0449-4504-B978-7BFC347E3F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E3DDB6-6147-656D-2E54-657374732E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E3DDB6-6147-656D-2E54-657374732E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E3DDB6-6147-656D-2E54-657374732E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E3DDB6-6147-656D-2E54-657374732E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65706950-696C-656E-2E4C-696E75785069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65706950-696C-656E-2E4C-696E75785069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65706950-696C-656E-2E4C-696E75785069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65706950-696C-656E-2E4C-696E75785069}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

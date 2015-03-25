@@ -104,13 +104,13 @@
       <HintPath>..\References\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Project Templates\MonoGame.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\OpenTK.GLControl.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -237,6 +237,16 @@
     </Content>
     <Resource Include="Image1.png" />
     <Resource Include="Gibbo.Content\screenshot.png" />
+    <Content Include="OpenTK.GLControl.dll" />
+    <Content Include="Project Templates\Gibbo.Library.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\MonoGame.Framework.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Templates\OpenTK.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Tutorials\01 - User Interface\Pictures\1_gibbo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -437,7 +447,7 @@
     <Resource Include="gibbo.ico" />
     <Resource Include="Gibbo.Content\_game_object_particle.png" />
     <Content Include="Project Templates\Gibbo.Library.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Project Templates\libs\Xceed.Wpf.Toolkit.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -773,6 +783,10 @@
       <Project>{83a66501-726c-4783-97bf-8c2b88bd0544}</Project>
       <Name>Gibbo.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MonoGame.Framework\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
+      <Project>{77ebd3fc-0d63-4fab-8db9-29b3528184b3}</Project>
+      <Name>MonoGame.Framework.WindowsGL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Project Templates\GameProject.csproj">
@@ -788,19 +802,10 @@
     <Content Include="Project Templates\libs\Lidgren.Network.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Project Templates\libs\MonoGame.Framework.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Project Templates\libs\NAudio.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Project Templates\libs\OpenAL32.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Project Templates\libs\OpenTK.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Project Templates\libs\OpenTK.GLControl.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Project Templates\libs\SDL.dll">

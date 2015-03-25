@@ -123,7 +123,7 @@
             
             </summary>
         </member>
-        <member name="M:Gibbo.Library.Tween.#ctor(Gibbo.Library.GameObject)">
+        <member name="M:Gibbo.Library.Tween.#ctor(Gibbo.Library.Transform)">
             <summary>
             
             </summary>
@@ -135,7 +135,7 @@
             </summary>
             <param name="gameTime"></param>
         </member>
-        <member name="M:Gibbo.Library.Tween.To(Microsoft.Xna.Framework.Vector2,System.Single,System.Single)">
+        <member name="M:Gibbo.Library.Tween.To(Microsoft.Xna.Framework.Vector2,System.Single,System.Boolean,System.Single)">
             <summary>
             
             </summary>
@@ -151,6 +151,15 @@
             <param name="duration"></param>
             <param name="initialDelay"></param>
         </member>
+        <member name="M:Gibbo.Library.Tween.To(Gibbo.Library.Transform,System.Single,System.Boolean,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="targetTransform"></param>
+            <param name="duration"></param>
+            <param name="inverseRotation"></param>
+            <param name="initialDelay"></param>
+        </member>
         <member name="E:Gibbo.Library.Tween.TweenCompleted">
             <summary>
             
@@ -163,7 +172,7 @@
         </member>
         <member name="P:Gibbo.Library.Tween.InitialTransform">
             <summary>
-            
+            Deep Copy of initial transform
             </summary>
         </member>
         <member name="P:Gibbo.Library.Tween.Loop">
@@ -173,7 +182,7 @@
         </member>
         <member name="P:Gibbo.Library.Tween.Target">
             <summary>
-            
+            Transform as Target
             </summary>
         </member>
         <member name="T:Gibbo.Library.CircleBody">
@@ -742,11 +751,46 @@
         </member>
         <member name="M:Gibbo.Library.GameObject.Find(System.String,Gibbo.Library.SearchOptions)">
             <summary>
-            Searches for the gameobject in the active scene 
+            Searches for the game object in the active scene 
             </summary>
             <param name="src">search parameter</param>
             <param name="searchOption">what to look for</param>
             <returns>null if not found</returns>
+        </member>
+        <member name="M:Gibbo.Library.GameObject.FindByTag(System.String)">
+            <summary>
+            Searches and returns the first game object using the specified Tag
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.GameObject.FindByHash(System.String)">
+            <summary>
+            Searches for the game object using the specified Hash
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.GameObject.FindByName(System.String)">
+            <summary>
+            Searches and returns the first game object using the specified Name
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.GameObject.FindAllByTag(System.String)">
+            <summary>
+            Searches for every game object using the specified Tag
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gibbo.Library.GameObject.FindAllByName(System.String)">
+            <summary>
+            Searches for every game object using the specified Name
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
         </member>
         <member name="M:Gibbo.Library.GameObject.GetAllGameObjects">
             <summary>
@@ -897,6 +941,11 @@
         <member name="E:Gibbo.Library.AnimatedSprite.AnimationCompleted">
             <summary>
             
+            </summary>
+        </member>
+        <member name="E:Gibbo.Library.AnimatedSprite.IsAtLastRowFrame">
+            <summary>
+            Triggers an event when the animation is at the last row frame
             </summary>
         </member>
         <member name="P:Gibbo.Library.AnimatedSprite.PlayMode">

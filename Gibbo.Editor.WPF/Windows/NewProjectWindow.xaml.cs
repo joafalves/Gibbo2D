@@ -98,6 +98,7 @@ namespace Gibbo.Editor.WPF
                 File.Copy("Project Templates\\GameProject.csproj", path + "\\Scripts.csproj", true);
                 File.Copy("Project Templates\\settings.ini", path + "\\settings.ini", true);
 
+
                 // Solution Preparations
                 string slnFile = File.ReadAllText("Project Templates\\GameProject.sln");
                 slnFile = slnFile.Replace("{%P_NAME%}", nameTxt.Text);
@@ -105,10 +106,13 @@ namespace Gibbo.Editor.WPF
                 // Solution Save
                 File.WriteAllText(path + "\\Scripts.sln", slnFile);
 
-                File.Copy("Gibbo.Library.dll", path + "\\Gibbo.Library.dll", true);
+                File.Copy("Gibbo.Library.dll", path + "\\Gibbo.Library.dll", true);               
 
                 GibboHelper.CopyDirectory("Project Templates\\libs", path + "", true);
                 GibboHelper.CopyDirectory("Project Templates\\samples", path + "\\samples", true);
+
+                File.Copy("MonoGame.Framework.dll", path + "\\MonoGame.Framework.dll", true);
+                File.Copy("OpenTK.dll", path + "\\OpenTK.dll", true);
 
                 ProjectPath = gp.ProjectFilePath;
                 DialogResult = true;

@@ -192,7 +192,8 @@ namespace Gibbo.Editor.WPF
                     File.Copy("Project Templates\\Gibbo.Library.xml", SceneManager.GameProject.ProjectPath + "\\Gibbo.Library.xml", true);
                     File.Copy("Project Templates\\Gibbo.Engine.Windows.exe", SceneManager.GameProject.ProjectPath + "\\Gibbo.Engine.Windows.exe", true);
                     GibboHelper.CopyDirectory("Project Templates\\libs", SceneManager.GameProject.ProjectPath + "", true);
-
+                    File.Copy("MonoGame.Framework.dll", SceneManager.GameProject.ProjectPath + "\\MonoGame.Framework.dll", true);
+                    File.Copy("OpenTK.dll", SceneManager.GameProject.ProjectPath + "\\OpenTK.dll", true);
                     // load user settings: 
                     if (!File.Exists(SceneManager.GameProject.ProjectPath + "\\_userPrefs.pgb"))
                     {

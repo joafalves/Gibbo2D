@@ -62,7 +62,9 @@ namespace Gibbo.Editor.WPF
             pp.BackBufferHeight = Math.Max(height, 1);
             pp.PresentationInterval = PresentInterval.Two;
 
-            graphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter, GraphicsProfile.HiDef, pp);
+
+            var adapter = GraphicsAdapter.DefaultAdapter;
+            graphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter, GraphicsProfile.HiDef, pp, windowHandle);
             //graphicsDevice.PresentationParameters.DeviceWindowHandle = windowHandle;
             //graphicsDevice.PresentationParameters.BackBufferWidth = Math.Max(width, 1);
             //graphicsDevice.PresentationParameters.BackBufferHeight = Math.Max(height, 1);

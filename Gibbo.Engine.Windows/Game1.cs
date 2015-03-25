@@ -165,6 +165,7 @@ namespace Gibbo.Engine.Windows
                 }
                 else
                 {
+                    /*
                     Type type = typeof(OpenTKGameWindow);
                     System.Reflection.FieldInfo field = type.GetField("window", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
                     OpenTK.GameWindow window = (OpenTK.GameWindow)field.GetValue(Window);
@@ -198,7 +199,7 @@ namespace Gibbo.Engine.Windows
                     else
                     {
                         window.Y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2 - graphics.PreferredBackBufferHeight / 2;
-                    }
+                    }*/
                 }
 
                 // Update Settings
