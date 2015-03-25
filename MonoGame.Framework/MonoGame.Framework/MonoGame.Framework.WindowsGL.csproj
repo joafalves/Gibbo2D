@@ -19,7 +19,7 @@
     <Optimize>false</Optimize>
     <DebugType>full</DebugType>
     <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
-    <OutputPath>bin\WindowsGL\AnyCPU\Debug</OutputPath>
+    <OutputPath>..\..\Gibbo.Editor.WPF\Project Templates\</OutputPath>
     <IntermediateOutputPath>obj\WindowsGL\AnyCPU\Debug</IntermediateOutputPath>
     <DocumentationFile>bin\WindowsGL\AnyCPU\Debug\MonoGame.Framework.xml</DocumentationFile>
     <DefineConstants>DEBUG;OPENGL;OPENAL;TRACE;WINDOWS</DefineConstants>
