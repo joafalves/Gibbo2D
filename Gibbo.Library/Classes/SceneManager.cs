@@ -366,11 +366,16 @@ namespace Gibbo.Library
         /// </summary>
         /// <param name="path">The target path</param>
         /// <returns></returns>
-        public static bool SaveActiveScene(string path)
+        public static bool SaveActiveScene(string path, bool xml)
         {
             if (ActiveScene == null) return false;
 
-            GibboHelper.SerializeObject(path, ActiveScene);
+            activeScene.SaveComponentValues();
+
+            if (!xml)
+                GibboHelper.SerializeObject(path, ActiveScene);
+            else
+                GibboHelper.SerializeObjectXML(path, activeScene);
 
             return true;
         }

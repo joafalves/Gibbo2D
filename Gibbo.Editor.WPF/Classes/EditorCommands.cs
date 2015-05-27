@@ -328,7 +328,7 @@ namespace Gibbo.Editor.WPF
             }
             else
             {
-                SceneManager.ActiveScene.SaveComponentValues();
+                //SceneManager.ActiveScene.SaveComponentValues();
                 SceneManager.SaveActiveScene();
             }
         }

@@ -808,6 +808,21 @@ namespace Gibbo.Editor.WPF
             EditorCommands.SaveScene(false);
         }
 
+        private void exportSceneXMLBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditorCommands.SaveProject();
+
+            System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog();
+            sfd.InitialDirectory = SceneManager.GameProject.ProjectPath;
+            sfd.Filter = "(*.xml)|*.xml";
+            System.Windows.Forms.DialogResult dr = sfd.ShowDialog();
+
+            if (dr == System.Windows.Forms.DialogResult.Yes|| dr == System.Windows.Forms.DialogResult.OK)
+            {
+                SceneManager.SaveActiveScene(sfd.FileName, true);
+            }
+        }
+
         private void saveSceneBtn_Click(object sender, RoutedEventArgs e)
         {
             SceneManager.SaveActiveScene();
