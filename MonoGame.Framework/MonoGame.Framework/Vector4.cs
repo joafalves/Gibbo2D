@@ -12,8 +12,8 @@ namespace Microsoft.Xna.Framework
 #if WINDOWS
     [System.ComponentModel.TypeConverter(typeof(Microsoft.Xna.Framework.Design.Vector4TypeConverter))]
 #endif
-    [DataContract]
     [Serializable]
+    [DataContract]
     [DebuggerDisplay("{DebugDisplayString,nq}")]
     public struct Vector4 : IEquatable<Vector4>
     {
@@ -569,7 +569,17 @@ namespace Microsoft.Xna.Framework
 
         public override string ToString()
         {
-            return X + "," + Y + "," + Z + "," + W;
+            StringBuilder sb = new StringBuilder(32);
+            sb.Append("{X:");
+            sb.Append(this.X);
+            sb.Append(" Y:");
+            sb.Append(this.Y);
+            sb.Append(" Z:");
+            sb.Append(this.Z);
+            sb.Append(" W:");
+            sb.Append(this.W);
+            sb.Append("}");
+            return sb.ToString();
         }
 
         #endregion Public Methods

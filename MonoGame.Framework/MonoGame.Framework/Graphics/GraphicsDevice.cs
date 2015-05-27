@@ -44,6 +44,9 @@ namespace Microsoft.Xna.Framework.Graphics
         private Rectangle _scissorRectangle;
         private bool _scissorRectangleDirty;
 
+        private IntPtr windowsHandle;
+        private bool windowsHandleSet = false;
+
         private VertexBuffer _vertexBuffer;
         private bool _vertexBufferDirty;
 
@@ -92,9 +95,6 @@ namespace Microsoft.Xna.Framework.Graphics
         {
             get { return _pixelShaderDirty; }
         }
-
-        private IntPtr windowsHandle;
-        private bool windowsHandleSet = false;
 
         private readonly ConstantBufferCollection _vertexConstantBuffers = new ConstantBufferCollection(ShaderStage.Vertex, 16);
         private readonly ConstantBufferCollection _pixelConstantBuffers = new ConstantBufferCollection(ShaderStage.Pixel, 16);
@@ -173,7 +173,7 @@ namespace Microsoft.Xna.Framework.Graphics
             Initialize();
         }
 
-        public GraphicsDevice ()
+        internal GraphicsDevice ()
 		{
             PresentationParameters = new PresentationParameters();
             PresentationParameters.DepthStencilFormat = DepthFormat.Depth24;
@@ -203,6 +203,7 @@ namespace Microsoft.Xna.Framework.Graphics
             Initialize();
         }
 
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphicsDevice" /> class.
         /// </summary>
@@ -217,7 +218,7 @@ namespace Microsoft.Xna.Framework.Graphics
             windowsHandle = hnw;
             windowsHandleSet = true;
 
-            Adapter = adapter;
+            Adapter = adapter; 
             if (presentationParameters == null)
                 throw new ArgumentNullException("presentationParameters");
             PresentationParameters = presentationParameters;
@@ -226,6 +227,7 @@ namespace Microsoft.Xna.Framework.Graphics
             GraphicsProfile = graphicsProfile;
             Initialize();
         }
+
 
         private void Setup()
         {
@@ -319,6 +321,9 @@ namespace Microsoft.Xna.Framework.Graphics
                 // Don't set the same state twice!
                 if (_rasterizerState == value)
                     return;
+
+                if (!value.DepthClipEnable && !GraphicsCapabilities.SupportsDepthClamp)
+                    throw new InvalidOperationException("Cannot set RasterizerState.DepthClipEnable to false on this graphics device");
 
                 _rasterizerState = value;
 

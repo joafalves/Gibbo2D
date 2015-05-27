@@ -22,7 +22,24 @@ namespace Microsoft.Xna.Framework.Design
 
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
-            if (destinationType == typeof(string)) return value.ToString();
+            var vec = (Vector4)value;
+
+            if (VectorConversion.CanConvertTo(context, destinationType))
+            {
+                return VectorConversion.ConvertToFromVector4(context, culture, vec, destinationType);
+            }
+
+            if (destinationType == typeof(string))
+            {
+                var terms = new string[4];
+                terms[0] = vec.X.ToString("R", culture);
+                terms[1] = vec.Y.ToString("R", culture);
+                terms[2] = vec.Z.ToString("R", culture);
+                terms[3] = vec.W.ToString("R", culture);
+
+                return string.Join(culture.TextInfo.ListSeparator + " ", terms);
+            }
+
             return base.ConvertTo(context, culture, value, destinationType);
         }
 

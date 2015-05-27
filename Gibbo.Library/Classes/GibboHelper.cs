@@ -43,6 +43,7 @@ using System.Threading.Tasks;
 #if WINDOWS
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
+using System.Xml.Serialization;
 #endif
 
 namespace Gibbo.Library
@@ -253,12 +254,17 @@ namespace Gibbo.Library
             try
             {
                 MemoryStream stream = new MemoryStream();
-                DataContractSerializer serializer = new DataContractSerializer(objectToSerialize.GetType());
+                DataContractSerializer serializer = new DataContractSerializer(objectToSerialize.GetType(), null, int.MaxValue, false, true, null);
+
                 var settings = new XmlWriterSettings()
                 {
                     Indent = true,
                     IndentChars = "\t"
                 };
+
+                settings.NamespaceHandling = NamespaceHandling.OmitDuplicates;
+                //settings.OutputMethod = XmlOutputMethod.Xml;
+                settings.ConformanceLevel = ConformanceLevel.Fragment;
 
                 using (XmlDictionaryWriter writer = XmlDictionaryWriter.CreateDictionaryWriter(XmlWriter.Create(stream, settings)))
                 {
@@ -267,6 +273,23 @@ namespace Gibbo.Library
 
                 byte[] serializedData = stream.ToArray();
                 File.WriteAllBytes(filename, serializedData);
+
+                //var emptyNamepsaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+                //var serializer = new XmlSerializer(objectToSerialize.GetType());
+                //var settings = new XmlWriterSettings();
+                //settings.Indent = true;
+                //settings.OmitXmlDeclaration = true;
+
+                //MemoryStream stream = new MemoryStream();
+                //using (var writer = XmlWriter.Create(stream, settings))
+                //{
+                //    serializer.Serialize(writer, objectToSerialize, emptyNamepsaces);
+                //}
+
+                //byte[] serializedData = stream.ToArray();
+                //File.WriteAllBytes(filename, serializedData);
+
+                //stream.Dispose();
             }
             catch (Exception ex)
             {

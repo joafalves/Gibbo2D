@@ -92,6 +92,10 @@ namespace Microsoft.Xna.Framework.Graphics
         {
 #if WINDOWS || LINUX || ANGLE
             GraphicsMode mode = GraphicsMode.Default;
+            
+            
+            
+            //var wnd = (Game.Instance.Window as OpenTKGameWindow).Window.WindowInfo;
 
             // JA - Windows Handle fix
             OpenTK.Platform.IWindowInfo wnd = null;
@@ -99,7 +103,7 @@ namespace Microsoft.Xna.Framework.Graphics
             {
                 wnd = (Game.Instance.Window as OpenTKGameWindow).Window.WindowInfo;
             }
-            else if(windowsHandleSet)
+            else if (windowsHandleSet)
             {
                 wnd = OpenTK.Platform.Utilities.CreateWindowsWindowInfo(windowsHandle);
             }

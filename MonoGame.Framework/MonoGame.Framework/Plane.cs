@@ -36,7 +36,6 @@ namespace Microsoft.Xna.Framework
     }
 	
     [DataContract]
-    [Serializable]
     [DebuggerDisplay("{DebugDisplayString,nq}")]
     public struct Plane : IEquatable<Plane>
     {

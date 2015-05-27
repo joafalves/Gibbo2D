@@ -48,7 +48,7 @@ namespace Gibbo.Library
     [ExpandableObject]
     [Serializable, TypeConverter(typeof(ExpandableObjectConverter))]
 #endif
-    [DataContract]
+    [DataContract(Namespace = "")]
     public class Transform
 #if WINDOWS
         : ICloneable

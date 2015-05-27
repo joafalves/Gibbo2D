@@ -189,6 +189,20 @@ namespace Microsoft.Xna.Framework
             this.Height = height;
         }
 
+        /// <summary>
+        /// Creates a new instance of <see cref="Rectangle"/> struct, with the specified
+        /// location and size.
+        /// </summary>
+        /// <param name="location">The x and y coordinates of the top-left corner of the created <see cref="Rectangle"/>.</param>
+        /// <param name="size">The width and height of the created <see cref="Rectangle"/>.</param>
+        public Rectangle(Point location,Point size)
+        {
+            this.X = location.X;
+            this.Y = location.Y;
+            this.Width = size.X;
+            this.Height = size.Y;
+        }
+
         #endregion
 
         #region Operators
@@ -467,7 +481,7 @@ namespace Microsoft.Xna.Framework
         /// <returns><see cref="String"/> representation of this <see cref="Rectangle"/>.</returns>
         public override string ToString()
         {
-            return string.Format("{0},{1},{2},{3}", X, Y, Width, Height);
+            return "{X:" + X + " Y:" + Y + " Width:" + Width + " Height:" + Height + "}";
         }
 
         /// <summary>

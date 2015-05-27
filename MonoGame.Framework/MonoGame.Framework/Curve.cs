@@ -13,7 +13,6 @@ namespace Microsoft.Xna.Framework
     /// </summary>
     // TODO : [TypeConverter(typeof(ExpandableObjectConverter))]
     [DataContract]
-    [Serializable]
     public class Curve
     {
         #region Private Fields

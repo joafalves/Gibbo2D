@@ -37,6 +37,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 #endif
 
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 
 namespace Gibbo.Library
@@ -47,7 +48,7 @@ namespace Gibbo.Library
 #if WINDOWS
     [Serializable]
 #endif
-    [DataContract]
+    [DataContract(Namespace = "")]
     public class GameScene : IDisposable
     //#if WINDOWS
     //, ISerializable
@@ -71,42 +72,46 @@ namespace Gibbo.Library
 #if WINDOWS
         [NonSerialized]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         private List<RenderView> renderViews = new List<RenderView>();
 
 #if WINDOWS
         [NonSerialized]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         internal List<GameObject> markedForRemoval;
 
 #if WINDOWS
         [NonSerialized]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         private DebugView2D debugView;
 
 
 #if WINDOWS
         [NonSerialized]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         private World world;
 
 
 #if WINDOWS
         [NonSerialized]
+      
 #endif
+        [IgnoreDataMember, XmlIgnore]
         protected ContentManager content;
 
 #if WINDOWS
-        [NonSerialized]
-#elif WINRT
-        [IgnoreDataMember]
+        [NonSerialized]     
 #endif
+        [IgnoreDataMember, XmlIgnore]
         protected SpriteBatch spriteBatch;
 
 #if WINDOWS
-        [NonSerialized]
-#elif WINRT
-        [IgnoreDataMember]
+        [NonSerialized]       
 #endif
+        [IgnoreDataMember, XmlIgnore]
         protected GraphicsDeviceManager graphics;
 
         #endregion
@@ -137,6 +142,7 @@ namespace Gibbo.Library
 #if WINDOWS
         [Browsable(false)]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         public ContentManager Content
         {
             get { return content; }
@@ -149,6 +155,7 @@ namespace Gibbo.Library
 #if WINDOWS
         [Browsable(false)]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         public SpriteBatch SpriteBatch
         {
             get { return spriteBatch; }
@@ -161,6 +168,7 @@ namespace Gibbo.Library
 #if WINDOWS
         [Browsable(false)]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         public GraphicsDeviceManager Graphics
         {
             get { return graphics; }
@@ -241,6 +249,7 @@ namespace Gibbo.Library
 #if WINDOWS
         [Browsable(false)]
 #endif
+        [IgnoreDataMember, XmlIgnore]
         public World World
         {
             get { return world; }

@@ -347,7 +347,7 @@ namespace Microsoft.Xna.Framework
 #endif
 
             GraphicsContext.ShareContexts = true;
-            
+
             window = new NativeWindow();
             window.Closing += new EventHandler<CancelEventArgs>(OpenTkGameWindow_Closing);
             window.Resize += OnResize;

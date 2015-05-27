@@ -569,7 +569,15 @@ namespace Microsoft.Xna.Framework
 
         public override string ToString()
         {
-            return X + "," + Y + "," + Z;
+            StringBuilder sb = new StringBuilder(32);
+            sb.Append("{X:");
+            sb.Append(this.X);
+            sb.Append(" Y:");
+            sb.Append(this.Y);
+            sb.Append(" Z:");
+            sb.Append(this.Z);
+            sb.Append("}");
+            return sb.ToString();
         }
 
         public static Vector3 Transform(Vector3 position, Matrix matrix)

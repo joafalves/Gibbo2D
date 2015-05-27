@@ -12,6 +12,229 @@
             <returns>A bounding box that encapsulates the given point cloud.</returns>
             <exception cref="T:System.ArgumentException">Thrown if the given list has no points.</exception>
         </member>
+        <member name="T:Microsoft.Xna.Framework.BoundingFrustum">
+            <summary>
+            Defines a viewing frustum for intersection operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.BoundingFrustum.PlaneCount">
+            <summary>
+            The number of planes in the frustum.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.BoundingFrustum.CornerCount">
+            <summary>
+            The number of corner points in the frustum.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.#ctor(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> class.
+            </summary>
+            <param name="value">Combined matrix which usually is (View * Projection).</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.op_Equality(Microsoft.Xna.Framework.BoundingFrustum,Microsoft.Xna.Framework.BoundingFrustum)">
+            <summary>
+            Compares whether two <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> instances are equal.
+            </summary>
+            <param name="a"><see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> instance on the left of the equal sign.</param>
+            <param name="b"><see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> instance on the right of the equal sign.</param>
+            <returns><c>true</c> if the instances are equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.op_Inequality(Microsoft.Xna.Framework.BoundingFrustum,Microsoft.Xna.Framework.BoundingFrustum)">
+            <summary>
+            Compares whether two <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> instances are not equal.
+            </summary>
+            <param name="a"><see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> instance on the left of the not equal sign.</param>
+            <param name="b"><see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> instance on the right of the not equal sign.</param>
+            <returns><c>true</c> if the instances are not equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Contains(Microsoft.Xna.Framework.BoundingBox)">
+            <summary>
+            Containment test between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/>.
+            </summary>
+            <param name="box">A <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> for testing.</param>
+            <returns>Result of testing for containment between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Contains(Microsoft.Xna.Framework.BoundingBox@,Microsoft.Xna.Framework.ContainmentType@)">
+            <summary>
+            Containment test between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/>.
+            </summary>
+            <param name="box">A <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> for testing.</param>
+            <param name="result">Result of testing for containment between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Contains(Microsoft.Xna.Framework.BoundingFrustum)">
+            <summary>
+            Containment test between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="frustum">A <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> for testing.</param>
+            <returns>Result of testing for containment between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Contains(Microsoft.Xna.Framework.BoundingSphere)">
+            <summary>
+            Containment test between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/>.
+            </summary>
+            <param name="sphere">A <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> for testing.</param>
+            <returns>Result of testing for containment between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Contains(Microsoft.Xna.Framework.BoundingSphere@,Microsoft.Xna.Framework.ContainmentType@)">
+            <summary>
+            Containment test between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/>.
+            </summary>
+            <param name="sphere">A <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> for testing.</param>
+            <param name="result">Result of testing for containment between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Contains(Microsoft.Xna.Framework.Vector3)">
+            <summary>
+            Containment test between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.Vector3"/>.
+            </summary>
+            <param name="point">A <see cref="T:Microsoft.Xna.Framework.Vector3"/> for testing.</param>
+            <returns>Result of testing for containment between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.Vector3"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Contains(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.ContainmentType@)">
+            <summary>
+            Containment test between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.Vector3"/>.
+            </summary>
+            <param name="point">A <see cref="T:Microsoft.Xna.Framework.Vector3"/> for testing.</param>
+            <param name="result">Result of testing for containment between this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> and specified <see cref="T:Microsoft.Xna.Framework.Vector3"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Equals(Microsoft.Xna.Framework.BoundingFrustum)">
+            <summary>
+            Compares whether current instance is equal to specified <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="other">The <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> to compare.</param>
+            <returns><c>true</c> if the instances are equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Equals(System.Object)">
+            <summary>
+            Compares whether current instance is equal to specified <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare.</param>
+            <returns><c>true</c> if the instances are equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.GetCorners">
+            <summary>
+            Returns a copy of internal corners array.
+            </summary>
+            <returns>The array of corners.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.GetCorners(Microsoft.Xna.Framework.Vector3[])">
+            <summary>
+            Returns a copy of internal corners array.
+            </summary>
+            <param name="corners">The array which values will be replaced to corner values of this instance. It must have size of <see cref="F:Microsoft.Xna.Framework.BoundingFrustum.CornerCount"/>.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.GetHashCode">
+            <summary>
+            Gets the hash code of this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <returns>Hash code of this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.BoundingBox)">
+            <summary>
+            Gets whether or not a specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="box">A <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> for intersection test.</param>
+            <returns><c>true</c> if specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.BoundingBox@,System.Boolean@)">
+            <summary>
+            Gets whether or not a specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="box">A <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> for intersection test.</param>
+            <param name="result"><c>true</c> if specified <see cref="T:Microsoft.Xna.Framework.BoundingBox"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>; <c>false</c> otherwise as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.BoundingFrustum)">
+            <summary>
+            Gets whether or not a specified <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="frustum">An other <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> for intersection test.</param>
+            <returns><c>true</c> if other <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.BoundingSphere)">
+            <summary>
+            Gets whether or not a specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="sphere">A <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> for intersection test.</param>
+            <returns><c>true</c> if specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.BoundingSphere@,System.Boolean@)">
+            <summary>
+            Gets whether or not a specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="sphere">A <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> for intersection test.</param>
+            <param name="result"><c>true</c> if specified <see cref="T:Microsoft.Xna.Framework.BoundingSphere"/> intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>; <c>false</c> otherwise as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.Plane)">
+            <summary>
+            Gets type of intersection between specified <see cref="T:Microsoft.Xna.Framework.Plane"/> and this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="plane">A <see cref="T:Microsoft.Xna.Framework.Plane"/> for intersection test.</param>
+            <returns>A plane intersection type.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.Plane@,Microsoft.Xna.Framework.PlaneIntersectionType@)">
+            <summary>
+            Gets type of intersection between specified <see cref="T:Microsoft.Xna.Framework.Plane"/> and this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.
+            </summary>
+            <param name="plane">A <see cref="T:Microsoft.Xna.Framework.Plane"/> for intersection test.</param>
+            <param name="result">A plane intersection type as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.Ray)">
+            <summary>
+            Gets the distance of intersection of <see cref="T:Microsoft.Xna.Framework.Ray"/> and this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> or null if no intersection happens.
+            </summary>
+            <param name="ray">A <see cref="T:Microsoft.Xna.Framework.Ray"/> for intersection test.</param>
+            <returns>Distance at which ray intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> or null if no intersection happens.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.Intersects(Microsoft.Xna.Framework.Ray@,System.Nullable{System.Single}@)">
+            <summary>
+            Gets the distance of intersection of <see cref="T:Microsoft.Xna.Framework.Ray"/> and this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> or null if no intersection happens.
+            </summary>
+            <param name="ray">A <see cref="T:Microsoft.Xna.Framework.Ray"/> for intersection test.</param>
+            <param name="result">Distance at which ray intersects with this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> or null if no intersection happens as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.BoundingFrustum.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/> in the format:
+            {Near:[nearPlane] Far:[farPlane] Left:[leftPlane] Right:[rightPlane] Top:[topPlane] Bottom:[bottomPlane]}
+            </summary>
+            <returns><see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Xna.Framework.BoundingFrustum"/>.</returns>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.BoundingFrustum.Matrix">
+            <summary>
+            Gets or sets the <see cref="P:Microsoft.Xna.Framework.BoundingFrustum.Matrix"/> of the frustum.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.BoundingFrustum.Near">
+            <summary>
+            Gets the near plane of the frustum.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.BoundingFrustum.Far">
+            <summary>
+            Gets the far plane of the frustum.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.BoundingFrustum.Left">
+            <summary>
+            Gets the left plane of the frustum.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.BoundingFrustum.Right">
+            <summary>
+            Gets the right plane of the frustum.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.BoundingFrustum.Top">
+            <summary>
+            Gets the top plane of the frustum.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.BoundingFrustum.Bottom">
+            <summary>
+            Gets the bottom plane of the frustum.
+            </summary>
+        </member>
         <member name="T:Microsoft.Xna.Framework.Color">
             <summary>
             Describes a 32-bit packed color.
@@ -672,6 +895,11 @@
         <member name="P:Microsoft.Xna.Framework.Color.Moccasin">
             <summary>
             Moccasin color (R:255,G:228,B:181,A:255).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Color.MonoGameOrange">
+            <summary>
+            MonoGame orange theme color (R:231,G:60,B:0,A:255).
             </summary>
         </member>
         <member name="P:Microsoft.Xna.Framework.Color.NavajoWhite">
@@ -1551,26 +1779,868 @@
             <param name="value">A value.</param>
             <returns><c>true</c> if <c>value</c> is powered by two; otherwise <c>false</c>.</returns>
         </member>
+        <member name="T:Microsoft.Xna.Framework.Matrix">
+            <summary>
+            Represents the right-handed 4x4 floating point matrix, which can store translation, scale and rotation information.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructs a matrix.
+            </summary>
+            <param name="m11">A first row and first column value.</param>
+            <param name="m12">A first row and second column value.</param>
+            <param name="m13">A first row and third column value.</param>
+            <param name="m14">A first row and fourth column value.</param>
+            <param name="m21">A second row and first column value.</param>
+            <param name="m22">A second row and second column value.</param>
+            <param name="m23">A second row and third column value.</param>
+            <param name="m24">A second row and fourth column value.</param>
+            <param name="m31">A third row and first column value.</param>
+            <param name="m32">A third row and second column value.</param>
+            <param name="m33">A third row and third column value.</param>
+            <param name="m34">A third row and fourth column value.</param>
+            <param name="m41">A fourth row and first column value.</param>
+            <param name="m42">A fourth row and second column value.</param>
+            <param name="m43">A fourth row and third column value.</param>
+            <param name="m44">A fourth row and fourth column value.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.#ctor(Microsoft.Xna.Framework.Vector4,Microsoft.Xna.Framework.Vector4,Microsoft.Xna.Framework.Vector4,Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Constructs a matrix.
+            </summary>
+            <param name="row1">A first row of the created matrix.</param>
+            <param name="row2">A second row of the created matrix.</param>
+            <param name="row3">A third row of the created matrix.</param>
+            <param name="row4">A fourth row of the created matrix.</param>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M11">
+            <summary>
+            A first row and first column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M12">
+            <summary>
+            A first row and second column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M13">
+            <summary>
+            A first row and third column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M14">
+            <summary>
+            A first row and fourth column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M21">
+            <summary>
+            A second row and first column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M22">
+            <summary>
+            A second row and second column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M23">
+            <summary>
+            A second row and third column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M24">
+            <summary>
+            A second row and fourth column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M31">
+            <summary>
+            A third row and first column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M32">
+            <summary>
+            A third row and second column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M33">
+            <summary>
+            A third row and third column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M34">
+            <summary>
+            A third row and fourth column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M41">
+            <summary>
+            A fourth row and first column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M42">
+            <summary>
+            A fourth row and second column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M43">
+            <summary>
+            A fourth row and third column value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Matrix.M44">
+            <summary>
+            A fourth row and fourth column value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Add(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains sum of two matrixes.
+            </summary>
+            <param name="matrix1">The first matrix to add.</param>
+            <param name="matrix2">The second matrix to add.</param>
+            <returns>The result of the matrix addition.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Add(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains sum of two matrixes.
+            </summary>
+            <param name="matrix1">The first matrix to add.</param>
+            <param name="matrix2">The second matrix to add.</param>
+            <param name="result">The result of the matrix addition as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateBillboard(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3,System.Nullable{Microsoft.Xna.Framework.Vector3})">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> for spherical billboarding that rotates around specified object position.
+            </summary>
+            <param name="objectPosition">Position of billboard object. It will rotate around that vector.</param>
+            <param name="cameraPosition">The camera position.</param>
+            <param name="cameraUpVector">The camera up vector.</param>
+            <param name="cameraForwardVector">Optional camera forward vector.</param>
+            <returns>The <see cref="T:Microsoft.Xna.Framework.Matrix"/> for spherical billboarding.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateBillboard(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,System.Nullable{Microsoft.Xna.Framework.Vector3},Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> for spherical billboarding that rotates around specified object position.
+            </summary>
+            <param name="objectPosition">Position of billboard object. It will rotate around that vector.</param>
+            <param name="cameraPosition">The camera position.</param>
+            <param name="cameraUpVector">The camera up vector.</param>
+            <param name="cameraForwardVector">Optional camera forward vector.</param>
+            <param name="result">The <see cref="T:Microsoft.Xna.Framework.Matrix"/> for spherical billboarding as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateConstrainedBillboard(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3,System.Nullable{Microsoft.Xna.Framework.Vector3},System.Nullable{Microsoft.Xna.Framework.Vector3})">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> for cylindrical billboarding that rotates around specified axis.
+            </summary>
+            <param name="objectPosition">Object position the billboard will rotate around.</param>
+            <param name="cameraPosition">Camera position.</param>
+            <param name="rotateAxis">Axis of billboard for rotation.</param>
+            <param name="cameraForwardVector">Optional camera forward vector.</param>
+            <param name="objectForwardVector">Optional object forward vector.</param>
+            <returns>The <see cref="T:Microsoft.Xna.Framework.Matrix"/> for cylindrical billboarding.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateConstrainedBillboard(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,System.Nullable{Microsoft.Xna.Framework.Vector3},System.Nullable{Microsoft.Xna.Framework.Vector3},Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> for cylindrical billboarding that rotates around specified axis.
+            </summary>
+            <param name="objectPosition">Object position the billboard will rotate around.</param>
+            <param name="cameraPosition">Camera position.</param>
+            <param name="rotateAxis">Axis of billboard for rotation.</param>
+            <param name="cameraForwardVector">Optional camera forward vector.</param>
+            <param name="objectForwardVector">Optional object forward vector.</param>
+            <param name="result">The <see cref="T:Microsoft.Xna.Framework.Matrix"/> for cylindrical billboarding as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateFromAxisAngle(Microsoft.Xna.Framework.Vector3,System.Single)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains the rotation moment around specified axis.
+            </summary>
+            <param name="axis">The axis of rotation.</param>
+            <param name="angle">The angle of rotation in radians.</param>
+            <returns>The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateFromAxisAngle(Microsoft.Xna.Framework.Vector3@,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains the rotation moment around specified axis.
+            </summary>
+            <param name="axis">The axis of rotation.</param>
+            <param name="angle">The angle of rotation in radians.</param>
+            <param name="result">The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateFromQuaternion(Microsoft.Xna.Framework.Quaternion)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> from a <see cref="T:Microsoft.Xna.Framework.Quaternion"/>.
+            </summary>
+            <param name="quaternion"><see cref="T:Microsoft.Xna.Framework.Quaternion"/> of rotation moment.</param>
+            <returns>The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateFromQuaternion(Microsoft.Xna.Framework.Quaternion@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> from a <see cref="T:Microsoft.Xna.Framework.Quaternion"/>.
+            </summary>
+            <param name="quaternion"><see cref="T:Microsoft.Xna.Framework.Quaternion"/> of rotation moment.</param>
+            <param name="result">The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> from the specified yaw, pitch and roll values.
+            </summary>
+            <param name="yaw">The yaw rotation value in radians.</param>
+            <param name="pitch">The pitch rotation value in radians.</param>
+            <param name="roll">The roll rotation value in radians.</param>
+            <returns>The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+            <remarks>For more information about yaw, pitch and roll visit http://en.wikipedia.org/wiki/Euler_angles.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateFromYawPitchRoll(System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> from the specified yaw, pitch and roll values.
+            </summary>
+            <param name="yaw">The yaw rotation value in radians.</param>
+            <param name="pitch">The pitch rotation value in radians.</param>
+            <param name="roll">The roll rotation value in radians.</param>
+            <param name="result">The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+            <remarks>For more information about yaw, pitch and roll visit http://en.wikipedia.org/wiki/Euler_angles.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateLookAt(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)">
+            <summary>
+            Creates a new viewing <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="cameraPosition">Position of the camera.</param>
+            <param name="cameraTarget">Lookup vector of the camera.</param>
+            <param name="cameraUpVector">The direction of the upper edge of the camera.</param>
+            <returns>The viewing <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateLookAt(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new viewing <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="cameraPosition">Position of the camera.</param>
+            <param name="cameraTarget">Lookup vector of the camera.</param>
+            <param name="cameraUpVector">The direction of the upper edge of the camera.</param>
+            <param name="result">The viewing <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateOrthographic(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for orthographic view.
+            </summary>
+            <param name="width">Width of the viewing volume.</param>
+            <param name="height">Height of the viewing volume.</param>
+            <param name="zNearPlane">Depth of the near plane.</param>
+            <param name="zFarPlane">Depth of the far plane.</param>
+            <returns>The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for orthographic view.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateOrthographic(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for orthographic view.
+            </summary>
+            <param name="width">Width of the viewing volume.</param>
+            <param name="height">Height of the viewing volume.</param>
+            <param name="zNearPlane">Depth of the near plane.</param>
+            <param name="zFarPlane">Depth of the far plane.</param>
+            <param name="result">The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for orthographic view as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateOrthographicOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized orthographic view.
+            </summary>
+            <param name="left">Lower x-value at the near plane.</param>
+            <param name="right">Upper x-value at the near plane.</param>
+            <param name="bottom">Lower y-coordinate at the near plane.</param>
+            <param name="top">Upper y-value at the near plane.</param>
+            <param name="zNearPlane">Depth of the near plane.</param>
+            <param name="zFarPlane">Depth of the far plane.</param>
+            <returns>The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized orthographic view.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateOrthographicOffCenter(Microsoft.Xna.Framework.Rectangle,System.Single,System.Single)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized orthographic view.
+            </summary>
+            <param name="viewingVolume">The viewing volume.</param>
+            <param name="zNearPlane">Depth of the near plane.</param>
+            <param name="zFarPlane">Depth of the far plane.</param>
+            <returns>The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized orthographic view.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateOrthographicOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized orthographic view.
+            </summary>
+            <param name="left">Lower x-value at the near plane.</param>
+            <param name="right">Upper x-value at the near plane.</param>
+            <param name="bottom">Lower y-coordinate at the near plane.</param>
+            <param name="top">Upper y-value at the near plane.</param>
+            <param name="zNearPlane">Depth of the near plane.</param>
+            <param name="zFarPlane">Depth of the far plane.</param>
+            <param name="result">The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized orthographic view as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreatePerspective(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view.
+            </summary>
+            <param name="width">Width of the viewing volume.</param>
+            <param name="height">Height of the viewing volume.</param>
+            <param name="nearPlaneDistance">Distance to the near plane.</param>
+            <param name="farPlaneDistance">Distance to the far plane.</param>
+            <returns>The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreatePerspective(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view.
+            </summary>
+            <param name="width">Width of the viewing volume.</param>
+            <param name="height">Height of the viewing volume.</param>
+            <param name="nearPlaneDistance">Distance to the near plane.</param>
+            <param name="farPlaneDistance">Distance to the far plane.</param>
+            <param name="result">The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view with field of view.
+            </summary>
+            <param name="fieldOfView">Field of view in the y direction in radians.</param>
+            <param name="aspectRatio">Width divided by height of the viewing volume.</param>
+            <param name="nearPlaneDistance">Distance to the near plane.</param>
+            <param name="farPlaneDistance">Distance to the far plane.</param>
+            <returns>The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view with FOV.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view with field of view.
+            </summary>
+            <param name="fieldOfView">Field of view in the y direction in radians.</param>
+            <param name="aspectRatio">Width divided by height of the viewing volume.</param>
+            <param name="nearPlaneDistance">Distance of the near plane.</param>
+            <param name="farPlaneDistance">Distance of the far plane.</param>
+            <param name="result">The new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for perspective view with FOV as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreatePerspectiveOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized perspective view.
+            </summary>
+            <param name="left">Lower x-value at the near plane.</param>
+            <param name="right">Upper x-value at the near plane.</param>
+            <param name="bottom">Lower y-coordinate at the near plane.</param>
+            <param name="top">Upper y-value at the near plane.</param>
+            <param name="nearPlaneDistance">Distance to the near plane.</param>
+            <param name="farPlaneDistance">Distance to the far plane.</param>
+            <returns>The new <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized perspective view.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreatePerspectiveOffCenter(Microsoft.Xna.Framework.Rectangle,System.Single,System.Single)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized perspective view.
+            </summary>
+            <param name="viewingVolume">The viewing volume.</param>
+            <param name="nearPlaneDistance">Distance to the near plane.</param>
+            <param name="farPlaneDistance">Distance to the far plane.</param>
+            <returns>The new <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized perspective view.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreatePerspectiveOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new projection <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized perspective view.
+            </summary>
+            <param name="left">Lower x-value at the near plane.</param>
+            <param name="right">Upper x-value at the near plane.</param>
+            <param name="bottom">Lower y-coordinate at the near plane.</param>
+            <param name="top">Upper y-value at the near plane.</param>
+            <param name="nearPlaneDistance">Distance to the near plane.</param>
+            <param name="farPlaneDistance">Distance to the far plane.</param>
+            <param name="result">The new <see cref="T:Microsoft.Xna.Framework.Matrix"/> for customized perspective view as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateRotationX(System.Single)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around X axis.
+            </summary>
+            <param name="radians">Angle in radians.</param>
+            <returns>The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around X axis.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateRotationX(System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around X axis.
+            </summary>
+            <param name="radians">Angle in radians.</param>
+            <param name="result">The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around X axis as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateRotationY(System.Single)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Y axis.
+            </summary>
+            <param name="radians">Angle in radians.</param>
+            <returns>The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Y axis.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateRotationY(System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Y axis.
+            </summary>
+            <param name="radians">Angle in radians.</param>
+            <param name="result">The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Y axis as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateRotationZ(System.Single)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Z axis.
+            </summary>
+            <param name="radians">Angle in radians.</param>
+            <returns>The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Z axis.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateRotationZ(System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Z axis.
+            </summary>
+            <param name="radians">Angle in radians.</param>
+            <param name="result">The rotation <see cref="T:Microsoft.Xna.Framework.Matrix"/> around Z axis as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateScale(System.Single)">
+            <summary>
+            Creates a new scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="scale">Scale value for all three axises.</param>
+            <returns>The scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateScale(System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="scale">Scale value for all three axises.</param>
+            <param name="result">The scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateScale(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="xScale">Scale value for X axis.</param>
+            <param name="yScale">Scale value for Y axis.</param>
+            <param name="zScale">Scale value for Z axis.</param>
+            <returns>The scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateScale(System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="xScale">Scale value for X axis.</param>
+            <param name="yScale">Scale value for Y axis.</param>
+            <param name="zScale">Scale value for Z axis.</param>
+            <param name="result">The scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateScale(Microsoft.Xna.Framework.Vector3)">
+            <summary>
+            Creates a new scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="scales"><see cref="T:Microsoft.Xna.Framework.Vector3"/> representing x,y and z scale values.</param>
+            <returns>The scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateScale(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="scales"><see cref="T:Microsoft.Xna.Framework.Vector3"/> representing x,y and z scale values.</param>
+            <param name="result">The scaling <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
         <member name="M:Microsoft.Xna.Framework.Matrix.CreateShadow(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Plane)">
             <summary>
-            Creates a Matrix that flattens geometry into a specified Plane as if casting a shadow from a specified light source. 
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that flattens geometry into a specified <see cref="T:Microsoft.Xna.Framework.Plane"/> as if casting a shadow from a specified light source. 
             </summary>
-            <param name="lightDirection">A Vector3 specifying the direction from which the light that will cast the shadow is coming.</param>
-            <param name="plane">The Plane onto which the new matrix should flatten geometry so as to cast a shadow.</param>
-            <returns>A Matrix that can be used to flatten geometry onto the specified plane from the specified direction. </returns>
+            <param name="lightDirection">A vector specifying the direction from which the light that will cast the shadow is coming.</param>
+            <param name="plane">The plane onto which the new matrix should flatten geometry so as to cast a shadow.</param>
+            <returns>A <see cref="T:Microsoft.Xna.Framework.Matrix"/> that can be used to flatten geometry onto the specified plane from the specified direction. </returns>
         </member>
         <member name="M:Microsoft.Xna.Framework.Matrix.CreateShadow(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Plane@,Microsoft.Xna.Framework.Matrix@)">
             <summary>
-            Creates a Matrix that flattens geometry into a specified Plane as if casting a shadow from a specified light source. 
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that flattens geometry into a specified <see cref="T:Microsoft.Xna.Framework.Plane"/> as if casting a shadow from a specified light source. 
             </summary>
-            <param name="lightDirection">A Vector3 specifying the direction from which the light that will cast the shadow is coming.</param>
-            <param name="plane">The Plane onto which the new matrix should flatten geometry so as to cast a shadow.</param>
-            <param name="result">A Matrix that can be used to flatten geometry onto the specified plane from the specified direction. </param>
+            <param name="lightDirection">A vector specifying the direction from which the light that will cast the shadow is coming.</param>
+            <param name="plane">The plane onto which the new matrix should flatten geometry so as to cast a shadow.</param>
+            <param name="result">A <see cref="T:Microsoft.Xna.Framework.Matrix"/> that can be used to flatten geometry onto the specified plane from the specified direction as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateTranslation(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new translation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="xPosition">X coordinate of translation.</param>
+            <param name="yPosition">Y coordinate of translation.</param>
+            <param name="zPosition">Z coordinate of translation.</param>
+            <returns>The translation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateTranslation(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new translation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="position">X,Y and Z coordinates of translation.</param>
+            <param name="result">The translation <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateTranslation(Microsoft.Xna.Framework.Vector3)">
+            <summary>
+            Creates a new translation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="position">X,Y and Z coordinates of translation.</param>
+            <returns>The translation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateTranslation(System.Single,System.Single,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new translation <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="xPosition">X coordinate of translation.</param>
+            <param name="yPosition">Y coordinate of translation.</param>
+            <param name="zPosition">Z coordinate of translation.</param>
+            <param name="result">The translation <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateReflection(Microsoft.Xna.Framework.Plane)">
+            <summary>
+            Creates a new reflection <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="value">The plane that used for reflection calculation.</param>
+            <returns>The reflection <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateReflection(Microsoft.Xna.Framework.Plane@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new reflection <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="value">The plane that used for reflection calculation.</param>
+            <param name="result">The reflection <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateWorld(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)">
+            <summary>
+            Creates a new world <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="position">The position vector.</param>
+            <param name="forward">The forward direction vector.</param>
+            <param name="up">The upward direction vector. Usually <see cref="P:Microsoft.Xna.Framework.Vector3.Up"/>.</param>
+            <returns>The world <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.CreateWorld(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new world <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="position">The position vector.</param>
+            <param name="forward">The forward direction vector.</param>
+            <param name="up">The upward direction vector. Usually <see cref="P:Microsoft.Xna.Framework.Vector3.Up"/>.</param>
+            <param name="result">The world <see cref="T:Microsoft.Xna.Framework.Matrix"/> as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Decompose(Microsoft.Xna.Framework.Vector3@,Microsoft.Xna.Framework.Quaternion@,Microsoft.Xna.Framework.Vector3@)">
+            <summary>
+            Decomposes this matrix to translation, rotation and scale elements. Returns <c>true</c> if matrix can be decomposed; <c>false</c> otherwise.
+            </summary>
+            <param name="scale">Scale vector as an output parameter.</param>
+            <param name="rotation">Rotation quaternion as an output parameter.</param>
+            <param name="translation">Translation vector as an output parameter.</param>
+            <returns><c>true</c> if matrix can be decomposed; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Determinant">
+            <summary>
+            Returns a determinant of this <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <returns>Determinant of this <see cref="T:Microsoft.Xna.Framework.Matrix"/></returns>
+            <remarks>See more about determinant here - http://en.wikipedia.org/wiki/Determinant.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Divide(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Divides the elements of a <see cref="T:Microsoft.Xna.Framework.Matrix"/> by the elements of another matrix.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">Divisor <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <returns>The result of dividing the matrix.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Divide(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Divides the elements of a <see cref="T:Microsoft.Xna.Framework.Matrix"/> by the elements of another matrix.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">Divisor <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="result">The result of dividing the matrix as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Divide(Microsoft.Xna.Framework.Matrix,System.Single)">
+            <summary>
+            Divides the elements of a <see cref="T:Microsoft.Xna.Framework.Matrix"/> by a scalar.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="divider">Divisor scalar.</param>
+            <returns>The result of dividing a matrix by a scalar.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Divide(Microsoft.Xna.Framework.Matrix@,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Divides the elements of a <see cref="T:Microsoft.Xna.Framework.Matrix"/> by a scalar.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="divider">Divisor scalar.</param>
+            <param name="result">The result of dividing a matrix by a scalar as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Equals(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Compares whether current instance is equal to specified <see cref="T:Microsoft.Xna.Framework.Matrix"/> without any tolerance.
+            </summary>
+            <param name="other">The <see cref="T:Microsoft.Xna.Framework.Matrix"/> to compare.</param>
+            <returns><c>true</c> if the instances are equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Equals(System.Object)">
+            <summary>
+            Compares whether current instance is equal to specified <see cref="T:System.Object"/> without any tolerance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare.</param>
+            <returns><c>true</c> if the instances are equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.GetHashCode">
+            <summary>
+            Gets the hash code of this <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <returns>Hash code of this <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Invert(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains inversion of the specified matrix. 
+            </summary>
+            <param name="matrix">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <returns>The inverted matrix.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Invert(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains inversion of the specified matrix. 
+            </summary>
+            <param name="matrix">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="result">The inverted matrix as output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Lerp(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix,System.Single)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains linear interpolation of the values in specified matrixes.
+            </summary>
+            <param name="matrix1">The first <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">The second <see cref="T:Microsoft.Xna.Framework.Vector2"/>.</param>
+            <param name="amount">Weighting value(between 0.0 and 1.0).</param>
+            <returns>&gt;The result of linear interpolation of the specified matrixes.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Lerp(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains linear interpolation of the values in specified matrixes.
+            </summary>
+            <param name="matrix1">The first <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">The second <see cref="T:Microsoft.Xna.Framework.Vector2"/>.</param>
+            <param name="amount">Weighting value(between 0.0 and 1.0).</param>
+            <param name="result">The result of linear interpolation of the specified matrixes as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains a multiplication of two matrix.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <returns>Result of the matrix multiplication.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Multiply(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains a multiplication of two matrix.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="result">Result of the matrix multiplication as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Multiply(Microsoft.Xna.Framework.Matrix,System.Single)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains a multiplication of <see cref="T:Microsoft.Xna.Framework.Matrix"/> and a scalar.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="scaleFactor">Scalar value.</param>
+            <returns>Result of the matrix multiplication with a scalar.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Multiply(Microsoft.Xna.Framework.Matrix@,System.Single,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains a multiplication of <see cref="T:Microsoft.Xna.Framework.Matrix"/> and a scalar.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="scaleFactor">Scalar value.</param>
+            <param name="result">Result of the matrix multiplication with a scalar as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.ToFloatArray(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Copy the values of specified <see cref="T:Microsoft.Xna.Framework.Matrix"/> to the float array.
+            </summary>
+            <param name="matrix">The source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <returns>The array which matrix values will be stored.</returns>
+            <remarks>
+            Required for OpenGL 2.0 projection matrix stuff.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Negate(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Returns a matrix with the all values negated.
+            </summary>
+            <param name="matrix">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <returns>Result of the matrix negation.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Negate(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Returns a matrix with the all values negated.
+            </summary>
+            <param name="matrix">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="result">Result of the matrix negation as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Addition(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Adds two matrixes.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the add sign.</param>
+            <param name="matrix2">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the right of the add sign.</param>
+            <returns>Sum of the matrixes.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Division(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Divides the elements of a <see cref="T:Microsoft.Xna.Framework.Matrix"/> by the elements of another <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the div sign.</param>
+            <param name="matrix2">Divisor <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the right of the div sign.</param>
+            <returns>The result of dividing the matrixes.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Division(Microsoft.Xna.Framework.Matrix,System.Single)">
+            <summary>
+            Divides the elements of a <see cref="T:Microsoft.Xna.Framework.Matrix"/> by a scalar.
+            </summary>
+            <param name="matrix">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the div sign.</param>
+            <param name="divider">Divisor scalar on the right of the div sign.</param>
+            <returns>The result of dividing a matrix by a scalar.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Equality(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Compares whether two <see cref="T:Microsoft.Xna.Framework.Matrix"/> instances are equal without any tolerance.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the equal sign.</param>
+            <param name="matrix2">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the right of the equal sign.</param>
+            <returns><c>true</c> if the instances are equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Inequality(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Compares whether two <see cref="T:Microsoft.Xna.Framework.Matrix"/> instances are not equal without any tolerance.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the not equal sign.</param>
+            <param name="matrix2">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the right of the not equal sign.</param>
+            <returns><c>true</c> if the instances are not equal; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Multiply(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Multiplies two matrixes.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the mul sign.</param>
+            <param name="matrix2">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the right of the mul sign.</param>
+            <returns>Result of the matrix multiplication.</returns>
+            <remarks>
+            Using matrix multiplication algorithm - see http://en.wikipedia.org/wiki/Matrix_multiplication.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Multiply(Microsoft.Xna.Framework.Matrix,System.Single)">
+            <summary>
+            Multiplies the elements of matrix by a scalar.
+            </summary>
+            <param name="matrix">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the mul sign.</param>
+            <param name="scaleFactor">Scalar value on the right of the mul sign.</param>
+            <returns>Result of the matrix multiplication with a scalar.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_Subtraction(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Subtracts the values of one <see cref="T:Microsoft.Xna.Framework.Matrix"/> from another <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="matrix1">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the left of the sub sign.</param>
+            <param name="matrix2">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the right of the sub sign.</param>
+            <returns>Result of the matrix subtraction.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.op_UnaryNegation(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Inverts values in the specified <see cref="T:Microsoft.Xna.Framework.Matrix"/>.
+            </summary>
+            <param name="matrix">Source <see cref="T:Microsoft.Xna.Framework.Matrix"/> on the right of the sub sign.</param>
+            <returns>Result of the inversion.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Subtract(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains subtraction of one matrix from another.
+            </summary>
+            <param name="matrix1">The first <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">The second <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <returns>The result of the matrix subtraction.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Subtract(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Xna.Framework.Matrix"/> that contains subtraction of one matrix from another.
+            </summary>
+            <param name="matrix1">The first <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="matrix2">The second <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</param>
+            <param name="result">The result of the matrix subtraction as an output parameter.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Xna.Framework.Matrix"/> in the format:
+            {M11:[<see cref="F:Microsoft.Xna.Framework.Matrix.M11"/>] M12:[<see cref="F:Microsoft.Xna.Framework.Matrix.M12"/>] M13:[<see cref="F:Microsoft.Xna.Framework.Matrix.M13"/>] M14:[<see cref="F:Microsoft.Xna.Framework.Matrix.M14"/>]}
+            {M21:[<see cref="F:Microsoft.Xna.Framework.Matrix.M21"/>] M12:[<see cref="F:Microsoft.Xna.Framework.Matrix.M22"/>] M13:[<see cref="F:Microsoft.Xna.Framework.Matrix.M23"/>] M14:[<see cref="F:Microsoft.Xna.Framework.Matrix.M24"/>]}
+            {M31:[<see cref="F:Microsoft.Xna.Framework.Matrix.M31"/>] M32:[<see cref="F:Microsoft.Xna.Framework.Matrix.M32"/>] M33:[<see cref="F:Microsoft.Xna.Framework.Matrix.M33"/>] M34:[<see cref="F:Microsoft.Xna.Framework.Matrix.M34"/>]}
+            {M41:[<see cref="F:Microsoft.Xna.Framework.Matrix.M41"/>] M42:[<see cref="F:Microsoft.Xna.Framework.Matrix.M42"/>] M43:[<see cref="F:Microsoft.Xna.Framework.Matrix.M43"/>] M44:[<see cref="F:Microsoft.Xna.Framework.Matrix.M44"/>]}
+            </summary>
+            <returns>A <see cref="T:System.String"/> representation of this <see cref="T:Microsoft.Xna.Framework.Matrix"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Transpose(Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Swap the matrix rows and columns.
+            </summary>
+            <param name="matrix">The matrix for transposing operation.</param>
+            <returns>The new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains the transposing result.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Matrix.Transpose(Microsoft.Xna.Framework.Matrix@,Microsoft.Xna.Framework.Matrix@)">
+            <summary>
+            Swap the matrix rows and columns.
+            </summary>
+            <param name="matrix">The matrix for transposing operation.</param>
+            <param name="result">The new <see cref="T:Microsoft.Xna.Framework.Matrix"/> which contains the transposing result as an output parameter.</param>
         </member>
         <member name="M:Microsoft.Xna.Framework.Matrix.FindDeterminants(Microsoft.Xna.Framework.Matrix@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
             <summary>
             Helper method for using the Laplace expansion theorem using two rows expansions to calculate major and 
             minor determinants of a 4x4 matrix. This method is used for inverting a matrix.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Backward">
+            <summary>
+            The backward vector formed from the third row M31, M32, M33 elements.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Down">
+            <summary>
+            The down vector formed from the second row -M21, -M22, -M23 elements.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Forward">
+            <summary>
+            The forward vector formed from the third row -M31, -M32, -M33 elements.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Identity">
+            <summary>
+            Returns the identity matrix.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Left">
+            <summary>
+            The left vector formed from the first row -M11, -M12, -M13 elements.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Right">
+            <summary>
+            The right vector formed from the first row M11, M12, M13 elements.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Rotation">
+            <summary>
+            Rotation stored in this matrix.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Translation">
+            <summary>
+            Position stored in this matrix.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Scale">
+            <summary>
+            Scale stored in this matrix.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Matrix.Up">
+            <summary>
+            The upper vector formed from the second row M21, M22, M23 elements.
             </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Input.NamespaceDoc">
@@ -1657,6 +2727,12 @@
             </summary>
             <param name="x">The x coordinate in 2d-space.</param>
             <param name="y">The y coordinate in 2d-space.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Point.#ctor(System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Xna.Framework.Point"/> struct, with the specified position.
+            </summary>
+            <param name="value">The x and y coordinates in 2d-space.</param>
         </member>
         <member name="M:Microsoft.Xna.Framework.Point.op_Addition(Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point)">
             <summary>
@@ -1794,6 +2870,14 @@
             <param name="y">The y coordinate of the top-left corner of the created <see cref="T:Microsoft.Xna.Framework.Rectangle"/>.</param>
             <param name="width">The width of the created <see cref="T:Microsoft.Xna.Framework.Rectangle"/>.</param>
             <param name="height">The height of the created <see cref="T:Microsoft.Xna.Framework.Rectangle"/>.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Rectangle.#ctor(Microsoft.Xna.Framework.Point,Microsoft.Xna.Framework.Point)">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.Xna.Framework.Rectangle"/> struct, with the specified
+            location and size.
+            </summary>
+            <param name="location">The x and y coordinates of the top-left corner of the created <see cref="T:Microsoft.Xna.Framework.Rectangle"/>.</param>
+            <param name="size">The width and height of the created <see cref="T:Microsoft.Xna.Framework.Rectangle"/>.</param>
         </member>
         <member name="M:Microsoft.Xna.Framework.Rectangle.op_Equality(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Rectangle)">
             <summary>
@@ -3724,6 +4808,96 @@
             Create function.
             </param>
         </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.ClearOptions">
+            <summary>
+            Defines the buffers for clearing when calling <see cref="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.Clear(Microsoft.Xna.Framework.Color)"/> operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ClearOptions.Target">
+            <summary>
+            Color buffer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ClearOptions.DepthBuffer">
+            <summary>
+            Depth buffer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ClearOptions.Stencil">
+            <summary>
+            Stencil buffer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.ColorWriteChannels">
+            <summary>
+            Defines the color channels for render target blending operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.None">
+            <summary>
+            No channels selected.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red">
+            <summary>
+            Red channel selected.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green">
+            <summary>
+            Green channel selected.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Blue">
+            <summary>
+            Blue channel selected.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Alpha">
+            <summary>
+            Alpha channel selected.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.All">
+            <summary>
+            All channels selected.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.CubeMapFace">
+            <summary>
+            Defines the faces in a cube map for the <see cref="T:Microsoft.Xna.Framework.Graphics.TextureCube"/> class.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.PositiveX">
+            <summary>
+            Positive X face in the cube map.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.NegativeX">
+            <summary>
+            Negative X face in the cube map.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.PositiveY">
+            <summary>
+            Positive Y face in the cube map.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.NegativeY">
+            <summary>
+            Negative Y face in the cube map.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.PositiveZ">
+            <summary>
+            Positive Z face in the cube map.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CubeMapFace.NegativeZ">
+            <summary>
+            Negative Z face in the cube map.
+            </summary>
+        </member>
         <member name="T:Microsoft.Xna.Framework.GraphicsDeviceInformation">
             <summary>
             The settings used in creation of the graphics device.
@@ -4768,6 +5942,13 @@
             supported.
             </summary>
         </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsCapabilities.SupportsSRgb">
+            <summary>
+            True, if sRGB is supported. On Direct3D platforms, this is always <code>true</code>.
+            On OpenGL platforms, it is <code>true</code> if both framebuffer sRGB
+            and texture sRGB are supported.
+            </summary>
+        </member>
         <member name="F:Microsoft.Xna.Framework.Graphics.GraphicsDevice._vertexShader">
             <summary>
             The active vertex shader.
@@ -4964,6 +6145,71 @@
             Transform of this node from the root of the model not from the parent
             </summary>
         </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.Model">
+            <summary>
+            A basic 3D model with per mesh parent bones.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.Model.#ctor(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.Collections.Generic.List{Microsoft.Xna.Framework.Graphics.ModelBone},System.Collections.Generic.List{Microsoft.Xna.Framework.Graphics.ModelMesh})">
+            <summary>
+            Constructs a model. 
+            </summary>
+            <param name="graphicsDevice">A valid reference to <see cref="T:Microsoft.Xna.Framework.Graphics.GraphicsDevice"/>.</param>
+            <param name="bones">The collection of bones.</param>
+            <param name="meshes">The collection of meshes.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.Model.Draw(Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            Draws the model meshes.
+            </summary>
+            <param name="world">The world transform.</param>
+            <param name="view">The view transform.</param>
+            <param name="projection">The projection transform.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.Model.CopyAbsoluteBoneTransformsTo(Microsoft.Xna.Framework.Matrix[])">
+            <summary>
+            Copies bone transforms relative to all parent bones of the each bone from this model to a given array.
+            </summary>
+            <param name="destinationBoneTransforms">The array receiving the transformed bones.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.Model.CopyBoneTransformsFrom(Microsoft.Xna.Framework.Matrix[])">
+            <summary>
+            Copies bone transforms relative to <see cref="P:Microsoft.Xna.Framework.Graphics.Model.Root"/> bone from a given array to this model.
+            </summary>
+            <param name="sourceBoneTransforms">The array of prepared bone transform data.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.Model.CopyBoneTransformsTo(Microsoft.Xna.Framework.Matrix[])">
+            <summary>
+            Copies bone transforms relative to <see cref="P:Microsoft.Xna.Framework.Graphics.Model.Root"/> bone from this model to a given array.
+            </summary>
+            <param name="destinationBoneTransforms">The array receiving the transformed bones.</param>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.Model.Bones">
+            <summary>
+            A collection of <see cref="T:Microsoft.Xna.Framework.Graphics.ModelBone"/> objects which describe how each mesh in the
+            mesh collection for this model relates to its parent mesh.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.Model.Meshes">
+            <summary>
+            A collection of <see cref="T:Microsoft.Xna.Framework.Graphics.ModelMesh"/> objects which compose the model. Each <see cref="T:Microsoft.Xna.Framework.Graphics.ModelMesh"/>
+            in a model may be moved independently and may be composed of multiple materials
+            identified as <see cref="T:Microsoft.Xna.Framework.Graphics.ModelMeshPart"/> objects.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.Model.Root">
+            <summary>
+            Root bone for this model.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.Model.Tag">
+            <summary>
+            Custom attached object.
+            <remarks>
+            Skinning data is example of attached object for model.
+            </remarks>
+            </summary>
+        </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.ModelMeshCollection">
             <summary>
             Represents a collection of ModelMesh objects.
@@ -5007,6 +6253,66 @@
         <member name="P:Microsoft.Xna.Framework.Graphics.ModelMeshCollection.Enumerator.Current">
             <summary>
             Gets the current element in the ModelMeshCollection.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8">
+            <summary>
+            Packed vector type containing a single 8 bit normalized W values that is ranging from 0 to 1.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.#ctor(System.Single)">
+            <summary>
+            Creates a new instance of Alpha8.
+            </summary>
+            <param name="alpha">The alpha component</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.ToAlpha">
+            <summary>
+            Gets the packed vector in float format.
+            </summary>
+            <returns>The packed vector in Vector3 format</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.Microsoft#Xna#Framework#Graphics#PackedVector#IPackedVector#PackFromVector4(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Sets the packed vector from a Vector4.
+            </summary>
+            <param name="vector">Vector containing the components.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.Microsoft#Xna#Framework#Graphics#PackedVector#IPackedVector#ToVector4">
+            <summary>
+            Gets the packed vector in Vector4 format.
+            </summary>
+            <returns>The packed vector in Vector4 format</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.Equals(System.Object)">
+            <summary>
+            Compares an object with the packed vector.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the object is equal to the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.Equals(Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8)">
+            <summary>
+            Compares another Alpha8 packed vector with the packed vector.
+            </summary>
+            <param name="other">The Alpha8 packed vector to compare.</param>
+            <returns>True if the packed vectors are equal.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.ToString">
+            <summary>
+            Gets a string representation of the packed vector.
+            </summary>
+            <returns>A string representation of the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.GetHashCode">
+            <summary>
+            Gets a hash code of the packed vector.
+            </summary>
+            <returns>The hash code for the packed vector.</returns>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.PackedVector.Alpha8.PackedValue">
+            <summary>
+            Gets and sets the packed value.
             </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.PackedVector.Bgr565">
@@ -5136,6 +6442,72 @@
             <returns>The hash code for the packed vector.</returns>
         </member>
         <member name="P:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra4444.PackedValue">
+            <summary>
+            Gets and sets the packed value.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551">
+            <summary>
+            Packed vector type containing unsigned normalized values ranging from 0 to 1. 
+            The x , y and z components use 5 bits, and the w component uses 1 bit.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new instance of Bgra5551.
+            </summary>
+            <param name="x">The x component</param>
+            <param name="y">The y component</param>
+            <param name="z">The z component</param>
+            <param name="W">The w component</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.#ctor(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Creates a new instance of Bgra5551.
+            </summary>
+            <param name="vector">
+            Vector containing the components for the packed vector.
+            </param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.ToVector4">
+            <summary>
+            Gets the packed vector in Vector4 format.
+            </summary>
+            <returns>The packed vector in Vector4 format</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.Microsoft#Xna#Framework#Graphics#PackedVector#IPackedVector#PackFromVector4(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Sets the packed vector from a Vector4.
+            </summary>
+            <param name="vector">Vector containing the components.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.Equals(System.Object)">
+            <summary>
+            Compares an object with the packed vector.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the object is equal to the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.Equals(Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551)">
+            <summary>
+            Compares another Bgra5551 packed vector with the packed vector.
+            </summary>
+            <param name="other">The Bgra5551 packed vector to compare.</param>
+            <returns>True if the packed vectors are equal.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.ToString">
+            <summary>
+            Gets a string representation of the packed vector.
+            </summary>
+            <returns>A string representation of the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.GetHashCode">
+            <summary>
+            Gets a hash code of the packed vector.
+            </summary>
+            <returns>The hash code for the packed vector.</returns>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.PackedVector.Bgra5551.PackedValue">
             <summary>
             Gets and sets the packed value.
             </summary>
@@ -5313,6 +6685,206 @@
             Directly gets or sets the packed representation of the value.
             </summary>
             <value>The packed representation of the value.</value>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32">
+            <summary>
+            Packed vector type containing two 16-bit unsigned normalized values ranging from 0 to 1.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.#ctor(System.Single,System.Single)">
+            <summary>
+            Creates a new instance of Rg32.
+            </summary>
+            <param name="x">The x component</param>
+            <param name="y">The y component</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.#ctor(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Creates a new instance of Rg32.
+            </summary>
+            <param name="vector">
+            Vector containing the components for the packed vector.
+            </param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.ToVector2">
+            <summary>
+            Gets the packed vector in Vector2 format.
+            </summary>
+            <returns>The packed vector in Vector2 format</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.Microsoft#Xna#Framework#Graphics#PackedVector#IPackedVector#PackFromVector4(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Sets the packed vector from a Vector4.
+            </summary>
+            <param name="vector">Vector containing the components.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.Microsoft#Xna#Framework#Graphics#PackedVector#IPackedVector#ToVector4">
+            <summary>
+            Gets the packed vector in Vector4 format.
+            </summary>
+            <returns>The packed vector in Vector4 format</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.Equals(System.Object)">
+            <summary>
+            Compares an object with the packed vector.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the object is equal to the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.Equals(Microsoft.Xna.Framework.Graphics.PackedVector.Rg32)">
+            <summary>
+            Compares another Rg32 packed vector with the packed vector.
+            </summary>
+            <param name="other">The Rg32 packed vector to compare.</param>
+            <returns>True if the packed vectors are equal.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.ToString">
+            <summary>
+            Gets a string representation of the packed vector.
+            </summary>
+            <returns>A string representation of the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.GetHashCode">
+            <summary>
+            Gets a hash code of the packed vector.
+            </summary>
+            <returns>The hash code for the packed vector.</returns>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.PackedVector.Rg32.PackedValue">
+            <summary>
+            Gets and sets the packed value.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64">
+            <summary>
+            Packed vector type containing four 16-bit unsigned normalized values ranging from 0 to 1. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new instance of Rgba64.
+            </summary>
+            <param name="x">The x component</param>
+            <param name="y">The y component</param>
+            <param name="z">The z component</param>
+            <param name="w">The w component</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.#ctor(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Creates a new instance of Rgba64.
+            </summary>
+            <param name="vector">
+            Vector containing the components for the packed vector.
+            </param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.ToVector4">
+            <summary>
+            Gets the packed vector in Vector4 format.
+            </summary>
+            <returns>The packed vector in Vector4 format</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.Microsoft#Xna#Framework#Graphics#PackedVector#IPackedVector#PackFromVector4(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Sets the packed vector from a Vector4.
+            </summary>
+            <param name="vector">Vector containing the components.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.Equals(System.Object)">
+            <summary>
+            Compares an object with the packed vector.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the object is equal to the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.Equals(Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64)">
+            <summary>
+            Compares another Rgba64 packed vector with the packed vector.
+            </summary>
+            <param name="other">The Rgba64 packed vector to compare.</param>
+            <returns>True if the packed vectors are equal.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.ToString">
+            <summary>
+            Gets a string representation of the packed vector.
+            </summary>
+            <returns>A string representation of the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.GetHashCode">
+            <summary>
+            Gets a hash code of the packed vector.
+            </summary>
+            <returns>The hash code for the packed vector.</returns>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba64.PackedValue">
+            <summary>
+            Gets and sets the packed value.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102">
+            <summary>
+            Packed vector type containing unsigned normalized values ranging from 0 to 1. 
+            The x, y and z components use 10 bits, and the w component uses 2 bits.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new instance of Rgba1010102.
+            </summary>
+            <param name="x">The x component</param>
+            <param name="y">The y component</param>
+            <param name="z">The z component</param>
+            <param name="w">The w component</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.#ctor(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Creates a new instance of Rgba1010102.
+            </summary>
+            <param name="vector">
+            Vector containing the components for the packed vector.
+            </param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.ToVector4">
+            <summary>
+            Gets the packed vector in Vector4 format.
+            </summary>
+            <returns>The packed vector in Vector4 format</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.Microsoft#Xna#Framework#Graphics#PackedVector#IPackedVector#PackFromVector4(Microsoft.Xna.Framework.Vector4)">
+            <summary>
+            Sets the packed vector from a Vector4.
+            </summary>
+            <param name="vector">Vector containing the components.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.Equals(System.Object)">
+            <summary>
+            Compares an object with the packed vector.
+            </summary>
+            <param name="obj">The object to compare.</param>
+            <returns>True if the object is equal to the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.Equals(Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102)">
+            <summary>
+            Compares another Rgba1010102 packed vector with the packed vector.
+            </summary>
+            <param name="other">The Rgba1010102 packed vector to compare.</param>
+            <returns>True if the packed vectors are equal.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.ToString">
+            <summary>
+            Gets a string representation of the packed vector.
+            </summary>
+            <returns>A string representation of the packed vector.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.GetHashCode">
+            <summary>
+            Gets a hash code of the packed vector.
+            </summary>
+            <returns>The hash code for the packed vector.</returns>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.PackedVector.Rgba1010102.PackedValue">
+            <summary>
+            Gets and sets the packed value.
+            </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.PackedVector.Short4">
             <summary>
@@ -6035,6 +7607,115 @@
             Same as <see cref="F:Microsoft.Xna.Framework.Graphics.SpriteSortMode.Deferred"/>, except sprites are sorted by depth in front-to-back order prior to drawing.
             </summary>
         </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.Blend">
+            <summary>
+            Defines a blend mode.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.One">
+            <summary>
+            Each component of the color is multiplied by {1, 1, 1, 1}.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.Zero">
+            <summary>
+            Each component of the color is multiplied by {0, 0, 0, 0}.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.SourceColor">
+            <summary>
+            Each component of the color is multiplied by the source color. 
+            {Rs, Gs, Bs, As}, where Rs, Gs, Bs, As are color source values.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseSourceColor">
+            <summary>
+            Each component of the color is multiplied by the inverse of the source color.
+             {1 − Rs, 1 − Gs, 1 − Bs, 1 − As}, where Rs, Gs, Bs, As are color source values.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.SourceAlpha">
+            <summary>
+            Each component of the color is multiplied by the alpha value of the source. 
+            {As, As, As, As}, where As is the source alpha value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseSourceAlpha">
+            <summary>
+            Each component of the color is multiplied by the inverse of the alpha value of the source. 
+            {1 − As, 1 − As, 1 − As, 1 − As}, where As is the source alpha value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.DestinationColor">
+            <summary>
+            Each component color is multiplied by the destination color. 
+            {Rd, Gd, Bd, Ad}, where Rd, Gd, Bd, Ad are color destination values.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseDestinationColor">
+            <summary>
+            Each component of the color is multiplied by the inversed destination color. 
+            {1 − Rd, 1 − Gd, 1 − Bd, 1 − Ad}, where Rd, Gd, Bd, Ad are color destination values.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.DestinationAlpha">
+            <summary>
+            Each component of the color is multiplied by the alpha value of the destination.
+            {Ad, Ad, Ad, Ad}, where Ad is the destination alpha value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseDestinationAlpha">
+            <summary>
+            Each component of the color is multiplied by the inversed alpha value of the destination. 
+            {1 − Ad, 1 − Ad, 1 − Ad, 1 − Ad}, where Ad is the destination alpha value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.BlendFactor">
+            <summary>
+            Each component of the color is multiplied by a constant in the <see cref="!:GraphicsDevice.BlendFactor"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.InverseBlendFactor">
+            <summary>
+            Each component of the color is multiplied by a inversed constant in the <see cref="!:GraphicsDevice.BlendFactor"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.Blend.SourceAlphaSaturation">
+            <summary>
+            Each component of the color is multiplied by either the alpha of the source color, or the inverse of the alpha of the source color, whichever is greater. 
+            {f, f, f, 1}, where f = min(As, 1 − As), where As is the source alpha value.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.BlendFunction">
+            <summary>
+            Defines a function for color blending.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Add">
+            <summary>
+            The function will adds destination to the source. (srcColor * srcBlend) + (destColor * destBlend)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Subtract">
+            <summary>
+            The function will subtracts destination from source. (srcColor * srcBlend) − (destColor * destBlend)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.ReverseSubtract">
+            <summary>
+            The function will subtracts source from destination. (destColor * destBlend) - (srcColor * srcBlend) 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Min">
+            <summary>
+            The function will extracts minimum of the source and destination. min((srcColor * srcBlend),(destColor * destBlend))
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.BlendFunction.Max">
+            <summary>
+            The function will extracts maximum of the source and destination. max((srcColor * srcBlend),(destColor * destBlend))
+            </summary>
+        </member>
         <member name="P:Microsoft.Xna.Framework.Graphics.BlendState.Item(System.Int32)">
             <summary>
             Returns the target specific blend state.
@@ -6045,6 +7726,71 @@
         <member name="P:Microsoft.Xna.Framework.Graphics.BlendState.IndependentBlendEnable">
             <summary>
             Enables use of the per-target blend states.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.CompareFunction">
+            <summary>
+            The comparison function used for depth, stencil, and alpha tests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Always">
+            <summary>
+            Always passes the test.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Never">
+            <summary>
+            Never passes the test.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Less">
+            <summary>
+            Passes the test when the new pixel value is less than current pixel value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.LessEqual">
+            <summary>
+            Passes the test when the new pixel value is less than or equal to current pixel value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Equal">
+            <summary>
+            Passes the test when the new pixel value is equal to current pixel value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.GreaterEqual">
+            <summary>
+            Passes the test when the new pixel value is greater than or equal to current pixel value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Greater">
+            <summary>
+            Passes the test when the new pixel value is greater than current pixel value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CompareFunction.NotEqual">
+            <summary>
+            Passes the test when the new pixel value does not equal to current pixel value.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.CullMode">
+            <summary>
+            Defines a culling mode for faces in rasterization process.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CullMode.None">
+            <summary>
+            Do not cull faces.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CullMode.CullClockwiseFace">
+            <summary>
+            Cull faces with clockwise order.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.CullMode.CullCounterClockwiseFace">
+            <summary>
+            Cull faces with counter clockwise order.
             </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.DepthFormat">
@@ -6144,12 +7890,17 @@
         </member>
         <member name="F:Microsoft.Xna.Framework.Graphics.TextureAddressMode.Clamp">
             <summary>
-            Texels outside range will be setted to color of 0.0 or 1.0 texel.
+            Texels outside range will be set to color of 0.0 or 1.0 texel.
             </summary>
         </member>
         <member name="F:Microsoft.Xna.Framework.Graphics.TextureAddressMode.Mirror">
             <summary>
             Same as <see cref="F:Microsoft.Xna.Framework.Graphics.TextureAddressMode.Wrap"/> but tiles will also flipped at every integer junction.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.TextureAddressMode.Border">
+            <summary>
+            Texels outside range will be set to the border color.
             </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.TextureFilter">
@@ -6317,6 +8068,36 @@
             For compatibility with WPF D3DImage.
             </summary>
         </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.ColorSRgb">
+            <summary>
+            Unsigned 32-bit RGBA sRGB pixel format that supports 8 bits per channel.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Bgr32SRgb">
+            <summary>
+            Unsigned 32-bit sRGB pixel format that supports 8 bits per channel. 8 bits are unused.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Bgra32SRgb">
+            <summary>
+            Unsigned 32-bit sRGB pixel format that supports 8 bits per channel.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Dxt1SRgb">
+            <summary>
+            DXT1. sRGB texture format with compression. Surface dimensions must be a multiple of 4.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Dxt3SRgb">
+            <summary>
+            DXT3. sRGB texture format with compression. Surface dimensions must be a multiple of 4.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Dxt5SRgb">
+            <summary>
+            DXT5. sRGB texture format with compression. Surface dimensions must be a multiple of 4.
+            </summary>
+        </member>
         <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.RgbPvrtc2Bpp">
             <summary>
             PowerVR texture compression format (iOS and Android).
@@ -6382,6 +8163,21 @@
         <member name="M:Microsoft.Xna.Framework.Graphics.TextureCollection.Dirty">
             <summary>
             Marks all texture slots as dirty.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.BufferUsage">
+            <summary>
+            A usage hint for optimizing memory placement of graphics buffers.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.BufferUsage.None">
+            <summary>
+            No special usage.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xna.Framework.Graphics.BufferUsage.WriteOnly">
+            <summary>
+            The buffer will not be readable and will be optimized for rendering and writing.
             </summary>
         </member>
         <member name="M:Microsoft.Xna.Framework.Graphics.IndexBuffer.SizeForType(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.Type)">
@@ -6934,6 +8730,112 @@
             </summary>
             <param name="obj">An object to compare to this instance.</param>
             <returns>true if <paramref name="obj"/> is a <see cref="T:Microsoft.Xna.Framework.Input.GamePadTriggers"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Input.Joystick">
+            <summary> 
+            Allows interaction with joysticks. Unlike <see cref="T:Microsoft.Xna.Framework.Input.GamePad"/> the number of Buttons/Axes/DPads is not limited.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Input.Joystick.GetCapabilities(System.Int32)">
+            <summary>
+            Gets the capabilites of the joystick.
+            </summary>
+            <param name="index">Index of the joystick you want to access.</param>
+            <returns>The capabilites of the joystick.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Input.Joystick.GetState(System.Int32)">
+            <summary>
+            Gets the current state of the joystick.
+            </summary>
+            <param name="index">Index of the joystick you want to access.</param>
+            <returns>The state of the joystick.</returns>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Input.JoystickCapabilities">
+            <summary>
+            Describes joystick capabilities.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickCapabilities.IsConnected">
+            <summary>
+            Gets a value indicating whether the joystick is connected.
+            </summary>
+            <value><c>true</c> if the joystick is connected; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickCapabilities.AxisCount">
+            <summary>
+            Gets the axis count.
+            </summary>
+            <value>The number of axes that the joystick possesses.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickCapabilities.ButtonCount">
+            <summary>
+            Gets the button count.
+            </summary>
+            <value>The number of buttons that the joystick possesses.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickCapabilities.HatCount">
+            <summary>
+            Gets the hat count.
+            </summary>
+            <value>The number of hats/dpads that the joystick possesses.</value>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Input.JoystickHat">
+            <summary>
+            Describes joystick hat state.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickHat.Down">
+            <summary>
+            Gets if joysticks hat "down" is pressed.
+            </summary>
+            <value><see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Pressed"/> if the button is pressed otherwise, <see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Released"/>.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickHat.Left">
+            <summary>
+            Gets if joysticks hat "left" is pressed.
+            </summary>
+            <value><see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Pressed"/> if the button is pressed otherwise, <see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Released"/>.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickHat.Right">
+            <summary>
+            Gets if joysticks hat "right" is pressed.
+            </summary>
+            <value><see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Pressed"/> if the button is pressed otherwise, <see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Released"/>.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickHat.Up">
+            <summary>
+            Gets if joysticks hat "up" is pressed.
+            </summary>
+            <value><see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Pressed"/> if the button is pressed otherwise, <see cref="F:Microsoft.Xna.Framework.Input.ButtonState.Released"/>.</value>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Input.JoystickState">
+            <summary>
+            Describes current joystick state.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickState.IsConnected">
+            <summary>
+            Gets a value indicating whether the joystick is connected.
+            </summary>
+            <value><c>true</c> if the joystick is connected; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickState.Axes">
+            <summary>
+            Gets the joystick axis values.
+            </summary>
+            <value>An array list of floats that indicate axis values.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickState.Buttons">
+            <summary>
+            Gets the joystick button values.
+            </summary>
+            <value>An array list of ButtonState that indicate button values.</value>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Input.JoystickState.Hats">
+            <summary>
+            Gets the joystick hat values.
+            </summary>
+            <value>An array list of <see cref="T:Microsoft.Xna.Framework.Input.JoystickHat"/> that indicate hat values.</value>
         </member>
         <member name="T:Microsoft.Xna.Framework.Input.Keyboard">
             <summary>
