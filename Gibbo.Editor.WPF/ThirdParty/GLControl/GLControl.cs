@@ -154,6 +154,7 @@ namespace OpenTK
             else
                 implementation = new GLControlFactory().CreateGLControl(format, this);
 
+
             context = implementation.CreateContext(major, minor, flags);
             MakeCurrent();
 

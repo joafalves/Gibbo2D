@@ -605,6 +605,8 @@ namespace Gibbo.Editor.WPF
             if (!e.Cancel)
             {
                 LimeScriptEditor.Instance.Close();
+                // Dispose opengl context (GraphicsDevice.OpenGL.PlatformDispose())
+                sceneViewGameControl.GraphicsDevice.Dispose();
                 Application.Current.Shutdown();
             }
         }
