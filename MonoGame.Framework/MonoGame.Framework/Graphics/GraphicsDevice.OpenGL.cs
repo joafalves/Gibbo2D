@@ -92,13 +92,12 @@ namespace Microsoft.Xna.Framework.Graphics
         {
 #if WINDOWS || LINUX || ANGLE
             GraphicsMode mode = GraphicsMode.Default;
-            
-            
-            
+
             //var wnd = (Game.Instance.Window as OpenTKGameWindow).Window.WindowInfo;
 
             // JA - Windows Handle fix
             OpenTK.Platform.IWindowInfo wnd = null;
+
             if (Game.Instance != null)
             {
                 wnd = (Game.Instance.Window as OpenTKGameWindow).Window.WindowInfo;
@@ -108,44 +107,48 @@ namespace Microsoft.Xna.Framework.Graphics
                 wnd = OpenTK.Platform.Utilities.CreateWindowsWindowInfo(windowsHandle);
             }
 
-            #if GLES
+#if GLES
             // Create an OpenGL ES 2.0 context
             var flags = GraphicsContextFlags.Embedded;
             int major = 2;
             int minor = 0;
-            #else
+#else
             // Create an OpenGL compatibility context
             var flags = GraphicsContextFlags.Default;
             int major = 1;
             int minor = 0;
-            #endif
+#endif
 
             if (Context == null || Context.IsDisposed)
             {
-                var color = PresentationParameters.BackBufferFormat.GetColorFormat();
-                var depth =
-                    PresentationParameters.DepthStencilFormat == DepthFormat.None ? 0 :
-                    PresentationParameters.DepthStencilFormat == DepthFormat.Depth16 ? 16 :
-                    24;
-                var stencil =
-                    PresentationParameters.DepthStencilFormat == DepthFormat.Depth24Stencil8 ? 8 :
-                    0;
-
-                var samples = 0;
                 // JA - Windows Handle fix
-                if ((Game.Instance != null && Game.Instance.graphicsDeviceManager.PreferMultiSampling))
+                if (Game.Instance != null)
                 {
-                    // Use a default of 4x samples if PreferMultiSampling is enabled
-                    // without explicitly setting the desired MultiSampleCount.
-                    if (PresentationParameters.MultiSampleCount == 0)
-                    {
-                        PresentationParameters.MultiSampleCount = 4;
-                    }
+                    var color = PresentationParameters.BackBufferFormat.GetColorFormat();
+                    var depth =
+                        PresentationParameters.DepthStencilFormat == DepthFormat.None ? 0 :
+                        PresentationParameters.DepthStencilFormat == DepthFormat.Depth16 ? 16 :
+                        24;
 
-                    samples = PresentationParameters.MultiSampleCount;
+                    var stencil =
+                        PresentationParameters.DepthStencilFormat == DepthFormat.Depth24Stencil8 ? 8 :
+                        0;
+
+                    var samples = 0;
+
+                    if (Game.Instance.graphicsDeviceManager.PreferMultiSampling)
+                    {
+                        // Use a default of 4x samples if PreferMultiSampling is enabled
+                        // without explicitly setting the desired MultiSampleCount.
+                        if (PresentationParameters.MultiSampleCount == 0)
+                        {
+                            PresentationParameters.MultiSampleCount = 4;
+                        }
+
+                        samples = PresentationParameters.MultiSampleCount;
+                    }
                 }
 
-                mode = new GraphicsMode(color, depth, stencil, samples);
                 try
                 {
                     Context = new GraphicsContext(mode, wnd, major, minor, flags);
