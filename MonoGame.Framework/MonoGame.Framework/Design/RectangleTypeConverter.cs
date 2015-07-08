@@ -30,7 +30,7 @@ namespace Microsoft.Xna.Framework.Design
             {
                 // Split the string separated by commas.
                 string txt = (string)(value);
-                string[] fields = txt.Split(new char[] { ',' });
+                string[] fields = txt.Split(new char[] { ';' });
 
                 try
                 {

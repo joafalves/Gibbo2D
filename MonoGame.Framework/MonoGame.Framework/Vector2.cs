@@ -4,6 +4,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Runtime.Serialization;
 
 namespace Microsoft.Xna.Framework
@@ -12,7 +13,7 @@ namespace Microsoft.Xna.Framework
     /// Describes a 2D-vector.
     /// </summary>
 #if WINDOWS
-    [System.ComponentModel.TypeConverter(typeof(Microsoft.Xna.Framework.Design.Vector2TypeConverter))]
+    [System.ComponentModel.TypeConverter(typeof(Microsoft.Xna.Framework.Design.Vector2Converter))]
 #endif
     [DataContract]
     [Serializable]
@@ -841,7 +842,9 @@ namespace Microsoft.Xna.Framework
         /// <returns>A <see cref="String"/> representation of this <see cref="Vector2"/>.</returns>
         public override string ToString()
         {
-            return "{X:" + X + " Y:" + Y + "}";
+            CultureInfo currentCulture = CultureInfo.CurrentCulture;
+            return string.Format(currentCulture, "{0};{1}", new object[] { 
+				this.X.ToString(currentCulture), this.Y.ToString(currentCulture) });
         }
 
         /// <summary>

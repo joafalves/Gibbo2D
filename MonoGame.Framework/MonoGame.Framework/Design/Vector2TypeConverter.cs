@@ -1,56 +1,81 @@
-﻿// MonoGame - Copyright (C) The MonoGame Team
-// This file is subject to the terms and conditions defined in
-// file 'LICENSE.txt', which is part of this source code package.
-
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Globalization;
 
 namespace Microsoft.Xna.Framework.Design
 {
-    public class Vector2TypeConverter : TypeConverter
+    [Serializable]
+    public class Vector2Converter : ExpandableObjectConverter
     {
+        // Return true if we need to convert from a string.
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        {
+            if (sourceType == typeof(string)) return true;
+            return base.CanConvertFrom(context, sourceType);
+        }
+
+        // Return true if we need to convert into a string.
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
-            if (VectorConversion.CanConvertTo(context, destinationType))
-                return true;
-            if (destinationType == typeof(string))
-                return true;
-
+            if (destinationType == typeof(String)) return true;
             return base.CanConvertTo(context, destinationType);
         }
 
-        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
+        // Convert from a string.
+        public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
         {
+            if (value.GetType() == typeof(string))
+            {
+                // Split the string separated by commas.
+                string txt = (string)(value);
+
+                string[] fields = txt.Split(new char[] { ';' });
+
+                try
+                {
+                    return new Vector2() { X = float.Parse(fields[0]), Y = float.Parse(fields[1]) };
+                }
+                catch
+                {
+                    throw new InvalidCastException(
+                        "Cannot convert the string '" +
+                        value.ToString() + "' into a Vector2, values: " + fields[0] + "::" + fields[1]);
+                }
+            }
+            else
+            {
+                return base.ConvertFrom(context, culture, value);
+            }
+        }
+
+        // Convert the StreetAddress to a string.
+        public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
+        {
+
             if (destinationType == typeof(string)) return value.ToString();
             return base.ConvertTo(context, culture, value, destinationType);
         }
 
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+        // Return true to indicate that the object supports properties.
+        public override bool GetPropertiesSupported(ITypeDescriptorContext context)
         {
-            if (sourceType == typeof(string))
-                return true;
-
-            return base.CanConvertFrom(context, sourceType);
+            return false;
         }
 
-        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
+        // Return a property description collection.
+        public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
         {
-            var sourceType = value.GetType();
-            var vec = Vector2.Zero;
+            return TypeDescriptor.GetProperties(value);
 
-            if (sourceType == typeof(string))
-            {
-                var str = (string)value;
-                var words = str.Split(culture.TextInfo.ListSeparator.ToCharArray());
+            //PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(value, attributes);
 
-                vec.X = float.Parse(words[0], culture);
-                vec.Y = float.Parse(words[1], culture);
+            //string[] sortOrder = new string[2];
 
-                return vec;
-            }
+            //sortOrder[0] = "X";
+            //sortOrder[1] = "Y";
 
-            return base.ConvertFrom(context, culture, value);
+            //// Return a sorted list of properties
+            //return properties.Sort(sortOrder);
         }
     }
 }

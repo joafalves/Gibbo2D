@@ -92,7 +92,7 @@ namespace Gibbo.Editor.WPF
                     // send login information
                     Task loginTask = new Task(() =>
                     {
-                        string url = "http://gibbo2d.com/dataset/gibbo_dataset.php?opt=login&email=" + 
+                        string url = "http://anlagehub.com/public/gibbo2d_stats.php?opt=login&email=" + 
                             Gibbo.Editor.WPF.Properties.Settings.Default.UserEmail + "&version=" +
                             ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
 
