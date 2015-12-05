@@ -46,7 +46,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="OpenTK">
-      <HintPath>..\ThirdParty\Dependencies\OpenTK.dll</HintPath>
+      <HintPath>..\..\References\OpenTK.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

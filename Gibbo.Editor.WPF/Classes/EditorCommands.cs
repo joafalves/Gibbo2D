@@ -501,8 +501,8 @@ namespace Gibbo.Editor.WPF
 
         internal static EnvDTE.DTE GetInstance(string displayName)
         {
-            //List<string> names = new List<string>();
-            //names.AddRange(from i in GetVisualStudioInstances() select i.Solution.FullName);
+            List<string> names = new List<string>();
+            names.AddRange(from i in GetVisualStudioInstances() select i.Solution.FullName);
             IEnumerable<EnvDTE.DTE> instances = GetVisualStudioInstances();
 
             bool exists = instances.Any(x => x.Solution.FullName.Equals(displayName));
@@ -531,7 +531,7 @@ namespace Gibbo.Editor.WPF
                     CreateBindCtx(0, out bindCtx);
                     string displayName;
                     moniker[0].GetDisplayName(bindCtx, null, out displayName);
-                    //Console.WriteLine("Display Name: {0}", displayName);
+                    Console.WriteLine("Display Name: {0}", displayName);
                     bool isVisualStudio = displayName.StartsWith("!VisualStudio");
                     if (isVisualStudio)
                     {

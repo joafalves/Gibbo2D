@@ -595,6 +595,7 @@ namespace Gibbo.Editor.WPF
         [DllImport("user32.dll")]
         static extern bool SetForegroundWindow(IntPtr hWnd);
         EnvDTE80.DTE2 dte;
+
         Process sharpDevelop;
         // TODO behaviour opening .cs files and .sln
         private void HandleOpenFile(ExplorerTreeViewItem explorerTreeViewItem)
@@ -696,6 +697,9 @@ namespace Gibbo.Editor.WPF
                             string editor = Properties.Settings.Default.DefaultScriptEditor;
                             switch (editor)
                             {
+                                case "VisualStudio2015":
+                                    rf = "VisualStudio.DTE.14.0";
+                                    break;
                                 case "VisualStudio2013":
                                     rf = "VisualStudio.DTE.12.0";
                                     break;
@@ -710,17 +714,57 @@ namespace Gibbo.Editor.WPF
                                 //    break;
                             }
 
+                            string uniqueGuid = string.Empty;
+
                             if (dte == null || !dte.MainWindow.Visible)
                             {
                                 Type type = Type.GetTypeFromProgID(rf);
                                 dte = (EnvDTE80.DTE2)Activator.CreateInstance(type);
+
+                                // create an unique guid and set it to dte main window caption, so we can search for it later on
+                                uniqueGuid = Guid.NewGuid().ToString();
+
+                                string originalCaption = dte.ActiveWindow.Caption;
+                                SetWindowText(new System.IntPtr(dte.MainWindow.HWnd), uniqueGuid);
+
+                                //dte.Windows.DTE.ActiveWindow.Caption = uniqueGuid;
+
+                                //dte.Application.DTE.Events.DTEEvents.OnBeginShutdown += Events_OnBeginShutdown;
+                                // works
+                                //dte.Events.SolutionEvents.Opened += SolutionEvents_Opened;
+                                //dte.Events.DTEEvents.
+                                //EnvDTE.DTEEvents events = dte.Events.DTEEvents;
+                                //events.OnBeginShutdown += Events_OnBeginShutdown;
+
+                                //EnvDTE80.Events2 e = dte.Events as EnvDTE80.Events2;
+                                //e.DTEEvents.OnBeginShutdown += Events_OnBeginShutdown;
+
+
+                                //events.OnBeginShutdown += Events_OnBeginShutdown;
+
+                                //events.OnStartupComplete += Events_OnStartupComplete;
+
                                 dte.MainWindow.Visible = true;
+
+                                Process[] pVSList = Process.GetProcessesByName("DEVENV");
+                                int dtePID = -1;
+                                foreach (Process pVS in pVSList)
+                                {
+                                    if (uniqueGuid != string.Empty && pVS.MainWindowTitle.Equals(uniqueGuid))
+                                    {
+                                        dtePID = pVS.Id;
+                                    }
+                                }
+
                                 dte.Solution.Open(UserPreferences.Instance.ProjectSlnFilePath);
                             }
 
+                            // both events work
+                            //dte.Events.DocumentEvents.DocumentOpened += DocumentEvents_DocumentOpened;
+                            //dte.Events.WindowEvents.WindowActivated += WindowEvents_WindowActivated;
                             dte.Documents.Open(explorerTreeViewItem.FullPath);
                         }
-                        catch (Exception)
+                        catch (Exception e)
                         {
                             Properties.Settings.Default.DefaultScriptEditor = "None";
                             Properties.Settings.Default.Save();
@@ -748,6 +792,53 @@ namespace Gibbo.Editor.WPF
             }
         }
 
+        [DllImport("user32.dll")]
+        private static extern bool SetWindowText(IntPtr hWnd, string lpString);
+
+        private void WindowEvents_WindowClosing(EnvDTE.Window Window)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SolutionEvents_BeforeClosing()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SolutionEvents_AfterClosing()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SolutionEvents_Opened()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void WindowEvents_WindowActivated(EnvDTE.Window GotFocus, EnvDTE.Window LostFocus)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DocumentEvents_DocumentOpened(EnvDTE.Document Document)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Events_OnStartupComplete()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Events_ModeChanged(EnvDTE.vsIDEMode LastMode)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Events_OnBeginShutdown()
+        {
+            throw new NotImplementedException();
+        }
 
         internal void BeginEditTextOnSelected()
         {

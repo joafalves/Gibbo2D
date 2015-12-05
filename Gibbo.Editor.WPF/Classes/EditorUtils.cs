@@ -213,18 +213,21 @@ namespace Gibbo.Editor.WPF
                 }
             }
         }
-        
-        
+
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="version">VisualStudio2012, VisualStudio2010, CSExpress2010</param>
+        /// <param name="version">VisualStudio2015, VisualStudio2013, VisualStudio2012, VisualStudio2010</param>
         /// <returns></returns>
         internal static bool CheckVisualStudioExistance(string version)
         {
             string src = string.Empty;
             switch (version)
             {
+                case "VisualStudio2015":
+                   src = @"VisualStudio\14.0";
+                    break;
                 case "VisualStudio2013":
                     src = @"VisualStudio\12.0";
                     break;
