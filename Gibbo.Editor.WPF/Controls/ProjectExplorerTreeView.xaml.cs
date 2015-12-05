@@ -714,54 +714,67 @@ namespace Gibbo.Editor.WPF
                                 //    break;
                             }
 
-                            string uniqueGuid = string.Empty;
-
-                            if (dte == null || !dte.MainWindow.Visible)
+                            // attempts to find a solution
+                            EnvDTE.DTE tmp2DTE;
+                            if (EditorCommands.TryToOpenSolution(out tmp2DTE))
                             {
+                                // assign dte if a solution was found
+                                dte = tmp2DTE as EnvDTE80.DTE2;
+                            }
+
+                            // if instance exists, try to make it visible
+                            if (dte != null)
+                            {
+                                try
+                                {
+                                    // attempts to access main window and make it visible
+                                    dte.MainWindow.Visible = true;
+                                }
+                                catch (Exception)
+                                {
+                                    // if unable, set instance to null in order to create one.
+                                    dte = null;
+                                }
+                            }
+
+                            // if there's no instance, create one
+                            if (dte == null)
+                            {
+                                // store the specified type visual studio instance (2015, 2013, 2012, 2010...)
                                 Type type = Type.GetTypeFromProgID(rf);
+                                // create that type of instance
                                 dte = (EnvDTE80.DTE2)Activator.CreateInstance(type);
 
                                 // create an unique guid and set it to dte main window caption, so we can search for it later on
-                                uniqueGuid = Guid.NewGuid().ToString();
+                                string uniqueGuid = Guid.NewGuid().ToString();
 
-                                string originalCaption = dte.ActiveWindow.Caption;
+                                // change main window title using user32.dll SetWindowText. Unable to change it directly using 'set' » dte.MainWindow.Caption = "x"
                                 SetWindowText(new System.IntPtr(dte.MainWindow.HWnd), uniqueGuid);
 
-                                //dte.Windows.DTE.ActiveWindow.Caption = uniqueGuid;
-
-                                //dte.Application.DTE.Events.DTEEvents.OnBeginShutdown += Events_OnBeginShutdown;
-                                // works
-                                //dte.Events.SolutionEvents.Opened += SolutionEvents_Opened;
-                                //dte.Events.DTEEvents.
-                                //EnvDTE.DTEEvents events = dte.Events.DTEEvents;
-                                //events.OnBeginShutdown += Events_OnBeginShutdown;
-
-                                //EnvDTE80.Events2 e = dte.Events as EnvDTE80.Events2;
-                                //e.DTEEvents.OnBeginShutdown += Events_OnBeginShutdown;
-
-
-                                //events.OnBeginShutdown += Events_OnBeginShutdown;
-
-                                //events.OnStartupComplete += Events_OnStartupComplete;
-
+                                // make the window visible
                                 dte.MainWindow.Visible = true;
 
+                                // get every visual studio process (devenv.exe)
                                 Process[] pVSList = Process.GetProcessesByName("DEVENV");
-                                int dtePID = -1;
+                                // reset visual studio instance PID
+                                EditorCommands.VisualStudioInstancePID = 0;
+                                // iterate through every process and check its title
                                 foreach (Process pVS in pVSList)
                                 {
+                                    // if the title is the Guid we stored previously, then store it
                                     if (uniqueGuid != string.Empty && pVS.MainWindowTitle.Equals(uniqueGuid))
                                     {
-                                        dtePID = pVS.Id;
+                                        // store the visual studio instance PID
+                                        EditorCommands.VisualStudioInstancePID = pVS.Id;
+                                        break;
                                     }
                                 }
 
+                                // open solution
                                 dte.Solution.Open(UserPreferences.Instance.ProjectSlnFilePath);
                             }
 
-                            // both events work
-                            //dte.Events.DocumentEvents.DocumentOpened += DocumentEvents_DocumentOpened;
-                            //dte.Events.WindowEvents.WindowActivated += WindowEvents_WindowActivated;
+                            // open document, which changes the title (which we had set to a Guid) to its name
                             dte.Documents.Open(explorerTreeViewItem.FullPath);
                         }
                         catch (Exception e)
@@ -778,6 +791,25 @@ namespace Gibbo.Editor.WPF
                         MessageBox.Show("You don't have selected a default scripting editor.\nEither select one on the Settings Window or open the scripts solution (.sln file) with other IDE to manage the scripts", "Error!");
                     }
                     break;
+                case ".sln":
+                    // checks if the file is a valid solution file (e.g. one could place a dummy file with .sln extension and try to open it. In that case, there's
+                    // no need to continue)
+                    bool validSolution = UserPreferences.Instance.ProjectSlnFilePath.Equals(explorerTreeViewItem.FullPath);
+
+                    // if it's a valid solution file, check if solution is already opened in order to avoid duplicate instances
+                    EnvDTE.DTE tmpDTE;
+                    if (validSolution && !EditorCommands.TryToOpenSolution(out tmpDTE))
+                    {
+                        // assign instance to field
+                        dte = tmpDTE as EnvDTE80.DTE2;
+                        Process.Start(UserPreferences.Instance.ProjectSlnFilePath);
+                    }
+                    // if it's not a valid solution, pop a message warning the user
+                    else if (!validSolution)
+                    {
+                        MessageBox.Show("Invalid solution file.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    break;
                 default:
                     // Default behaviour, tries to use the default user opening for this type of file:
                     try
@@ -792,53 +824,10 @@ namespace Gibbo.Editor.WPF
             }
         }
 
+        // Method used to change visual studio instance title
         [DllImport("user32.dll")]
         private static extern bool SetWindowText(IntPtr hWnd, string lpString);
 
-        private void WindowEvents_WindowClosing(EnvDTE.Window Window)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SolutionEvents_BeforeClosing()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SolutionEvents_AfterClosing()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SolutionEvents_Opened()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void WindowEvents_WindowActivated(EnvDTE.Window GotFocus, EnvDTE.Window LostFocus)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void DocumentEvents_DocumentOpened(EnvDTE.Document Document)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Events_OnStartupComplete()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Events_ModeChanged(EnvDTE.vsIDEMode LastMode)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Events_OnBeginShutdown()
-        {
-            throw new NotImplementedException();
-        }
 
         internal void BeginEditTextOnSelected()
         {

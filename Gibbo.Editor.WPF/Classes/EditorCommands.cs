@@ -409,11 +409,32 @@ namespace Gibbo.Editor.WPF
 
                     if (Properties.Settings.Default.AttachVisualStudio)
                     {
-                        EnvDTE.DTE instance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
-                        if (instance != null)
+                        EnvDTE.DTE vsInstance;
+
+                        if (VisualStudioInstancePID != 0 && Extensions.TryToRetrieveVSInstance(VisualStudioInstancePID, out vsInstance))
                         {
-                            debug.Attach(instance); // Attach visual studio dte
+                            // restore window, in case the process is only running on background
+                            vsInstance.MainWindow.Visible = true;
+
+                            debug.Attach(vsInstance);
                         }
+                        else // if PID attempt failed, try using the project solution name
+                        {
+                            // reset PID
+                            VisualStudioInstancePID = 0;
+
+                            // try to retrieve instance based on solution name
+                            vsInstance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
+                            if (vsInstance != null)
+                            {
+                                // restore window, in case the process is only running on background
+                                vsInstance.MainWindow.Visible = true;
+
+                                debug.Attach(vsInstance); // Attach visual studio dte
+                            }
+                        }
+
+
                     }
 
                     debug.WaitForExit();
@@ -429,6 +450,24 @@ namespace Gibbo.Editor.WPF
                 MessageBox.Show("Ups!\n\nIt seems there is no engine set up for your game!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        internal static bool TryToOpenSolution(out EnvDTE.DTE instance)
+        {
+            // try to retrieve instance based on solution name
+            EnvDTE.DTE vsInstance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
+            if (vsInstance != null)
+            {
+                // restore window, in case the process is only running on background
+                vsInstance.MainWindow.Visible = true;
+                // assign out instance
+                instance = vsInstance;
+                return true;
+            }
+            instance = null;
+            return false;
+        }
+
+        internal static int VisualStudioInstancePID { get; set; }
 
         /// <summary>
         /// Apply Blur Effect on the window
@@ -453,66 +492,49 @@ namespace Gibbo.Editor.WPF
 
     public static class Extensions
     {
-
         internal static void Attach(this System.Diagnostics.Process process, EnvDTE.DTE dte)
         {
-            //Reference Visual Studio core
-            //EnvDTE.DTE dte;
-            //try
-            //{
-            //    dte = (EnvDTE.DTE)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.12.0");
-                
-            //}
-            //catch (System.Runtime.InteropServices.COMException)
-            //{
-            //    Debug.WriteLine(String.Format(@"Visual studio not found."));
-            //    return;
-            //}
-
-            // Try loop - Visual Studio may not respond the first time.
-
-            //foreach (EnvDTE.DTE dte in GetInstances())
-            //{
-                int tryCount = 5;
-                while (tryCount-- > 0)
+            int tryCount = 5;
+            while (tryCount-- > 0)
+            {
+                try
                 {
-                    try
-                    {
-                        EnvDTE.Processes processes = dte.Debugger.LocalProcesses;
+                    EnvDTE.Processes processes = dte.Debugger.LocalProcesses;
 
-                        foreach (EnvDTE.Process proc in processes.Cast<EnvDTE.Process>().Where(
-                          proc => proc.Name.IndexOf(process.ProcessName) != -1))
-                        {
-                            proc.Attach();
-                            Debug.WriteLine(String.Format
-                            ("Attached to process {0} successfully.", process.ProcessName));
-                            break;
-                        }
+                    foreach (EnvDTE.Process proc in processes.Cast<EnvDTE.Process>().Where(
+                        proc => proc.Name.IndexOf(process.ProcessName) != -1))
+                    {
+                        proc.Attach();
+                        Debug.WriteLine(String.Format
+                        ("Attached to process {0} successfully.", process.ProcessName));
                         break;
                     }
-                    catch (System.Runtime.InteropServices.COMException)
-                    {
-                        System.Threading.Thread.Sleep(1000);
-                    }
+                    break;
                 }
-            //}
-            
+                catch (System.Runtime.InteropServices.COMException)
+                {
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }
         }
 
         internal static EnvDTE.DTE GetInstance(string displayName)
         {
-            List<string> names = new List<string>();
-            names.AddRange(from i in GetVisualStudioInstances() select i.Solution.FullName);
+            //List<string> names = new List<string>();
+            //names.AddRange(from i in GetVisualStudioInstances() select i.Solution.FullName);
             IEnumerable<EnvDTE.DTE> instances = GetVisualStudioInstances();
 
             bool exists = instances.Any(x => x.Solution.FullName.Equals(displayName));
             if (exists)
-                return instances.Single(x => x.Solution.FullName.Equals(displayName));
-            
+                return instances.First(x => x.Solution.FullName.Equals(displayName));
 
             return null;
         }
 
+        /// <summary>
+        /// Retrieve every visual studio instance
+        /// </summary>
+        /// <returns>List of visual studio instances</returns>
         internal static IEnumerable<EnvDTE.DTE> GetVisualStudioInstances()
         {
             System.Runtime.InteropServices.ComTypes.IRunningObjectTable rot;
@@ -535,13 +557,61 @@ namespace Gibbo.Editor.WPF
                     bool isVisualStudio = displayName.StartsWith("!VisualStudio");
                     if (isVisualStudio)
                     {
-                       object obj;
-                       rot.GetObject(moniker[0], out obj);
-                       var dte = obj as EnvDTE.DTE;
-                       yield return dte;
+                        int currentProcessId = int.Parse(displayName.Split(':')[1]);
+
+                        object obj;
+                        rot.GetObject(moniker[0], out obj);
+                        var dte = obj as EnvDTE.DTE;
+                        yield return dte;
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Attempts to retrieve a specific visual studio instance, based on its PID
+        /// </summary>
+        /// <param name="processId">Visual Studio instance PID</param>
+        /// <param name="instance">Visual Studio instance if able to found. Null otherwise.</param>
+        /// <returns>Whether the visual studio instance was found or not.</returns>
+        internal static bool TryToRetrieveVSInstance(int processId, out EnvDTE.DTE instance)
+        {
+            IntPtr numFetched = IntPtr.Zero;
+            System.Runtime.InteropServices.ComTypes.IRunningObjectTable runningObjectTable;
+            System.Runtime.InteropServices.ComTypes.IEnumMoniker monikerEnumerator;
+            System.Runtime.InteropServices.ComTypes.IMoniker[] monikers = new System.Runtime.InteropServices.ComTypes.IMoniker[1];
+
+            GetRunningObjectTable(0, out runningObjectTable);
+            runningObjectTable.EnumRunning(out monikerEnumerator);
+            monikerEnumerator.Reset();
+
+            while (monikerEnumerator.Next(1, monikers, numFetched) == 0)
+            {
+                System.Runtime.InteropServices.ComTypes.IBindCtx ctx;
+                CreateBindCtx(0, out ctx);
+
+                string runningObjectName;
+                monikers[0].GetDisplayName(ctx, null, out runningObjectName);
+
+                object runningObjectVal;
+                runningObjectTable.GetObject(monikers[0], out runningObjectVal);
+
+                if (runningObjectVal is EnvDTE.DTE && runningObjectName.StartsWith("!VisualStudio"))
+                {
+                    // retrieve process id - "process_name:pid"
+                    int currentProcessId = int.Parse(runningObjectName.Split(':')[1]);
+
+                    // if it's a match; meaning, if it's the right gibbo project solution
+                    if (currentProcessId == processId)
+                    {
+                        instance = (EnvDTE.DTE)runningObjectVal;
+                        return true;
+                    }
+                }
+            }
+
+            instance = null;
+            return false;
         }
 
         [System.Runtime.InteropServices.DllImport("ole32.dll")]
