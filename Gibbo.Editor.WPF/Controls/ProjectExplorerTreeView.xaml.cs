@@ -634,61 +634,53 @@ namespace Gibbo.Editor.WPF
                     // TODO: add behaviour for opening .cs files
                     string projectPath = SceneManager.GameProject.ProjectPath;
 
-                    // se o programa que, por defeito abre os ficheiros .cs n for o ddeexec abre com notepad ou algo do género : má solução
-                    //var si = new System.Diagnostics.ProcessStartInfo { UseShellExecute = true, FileName = projectPath + @"\samples\SampleController.cs", Verb = "Open" };
-                    //System.Diagnostics.Process.Start(si);
+                    #region SharpDevelop and Xamarin tries
 
-                    // funciona bastante bem da 1ª vez; pode ser complicado encontrar o caminho do startinfo.filename
-
-                    //if (p == null || p.HasExited)
-                    //    p = new Process();
-                    //p.StartInfo.FileName = @"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.com";
-                    //p.StartInfo.Arguments = projectPath + @"\Scripts.sln /command ""of " + explorerTreeViewItem.FullPath;
-                    //p.Start();
-
-                    //dte = (EnvDTE80.DTE2)System.Runtime.InteropServices.Marshal.GetActiveObject("VisualStudio.DTE.11.0");
-
-                   // MessageBox.Show(@"C:\Program Files (x86)\SharpDevelop\4.3\bin\SharpDevelop.exe :" + SceneManager.GameProject.ProjectPath + "\\Scripts.sln" + " : " + explorerTreeViewItem.FullPath);
+                    // MessageBox.Show(@"C:\Program Files (x86)\SharpDevelop\4.3\bin\SharpDevelop.exe :" + SceneManager.GameProject.ProjectPath + "\\Scripts.sln" + " : " + explorerTreeViewItem.FullPath);
                     //C:\Program Files (x86)\SharpDevelop\4.3\bin\SharpDevelop.exe    
                     // C:\Program Files (x86)\Xamarin Studio\bin\XamarinStudio.exe
-                   // if (sharpDevelop == null || sharpDevelop.HasExited)
-                   // {
-                   //     ProcessStartInfo pinfo = new ProcessStartInfo();
-                   //     pinfo.FileName = @"C:\Program Files (x86)\Xamarin Studio\bin\XamarinStudio.exe";
-                   //     pinfo.Arguments = "-nologo " + "Scripts.sln " + GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath);
-                   //     pinfo.WorkingDirectory = SceneManager.GameProject.ProjectPath;
-                   //     //pinfo.RedirectStandardInput = true;
-                   //     //pinfo.UseShellExecute = false;
-                   //     sharpDevelop = Process.Start(pinfo);
-                   // }
-                   // else
-                   // {
-                   //     SetForegroundWindow(sharpDevelop.MainWindowHandle);
-                   //     //sharpDevelop.
+                    // if (sharpDevelop == null || sharpDevelop.HasExited)
+                    // {
+                    //     ProcessStartInfo pinfo = new ProcessStartInfo();
+                    //     pinfo.FileName = @"C:\Program Files (x86)\Xamarin Studio\bin\XamarinStudio.exe";
+                    //     pinfo.Arguments = "-nologo " + "Scripts.sln " + GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath);
+                    //     pinfo.WorkingDirectory = SceneManager.GameProject.ProjectPath;
+                    //     //pinfo.RedirectStandardInput = true;
+                    //     //pinfo.UseShellExecute = false;
+                    //     sharpDevelop = Process.Start(pinfo);
+                    // }
+                    // else
+                    // {
+                    //     SetForegroundWindow(sharpDevelop.MainWindowHandle);
+                    //     //sharpDevelop.
 
-                   //     //sharpDevelop.StandardInput.WriteLine(GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath));
+                    //     //sharpDevelop.StandardInput.WriteLine(GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath));
 
-                   //     //ProcessStartInfo pinfo = new ProcessStartInfo();
-                   //     //pinfo.FileName = @"C:\Program Files (x86)\SharpDevelop\4.3\bin\SharpDevelop.exe";
-                   //     //pinfo.Arguments = GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath);
-                   //     //sharpDevelop.StartInfo = pinfo;
-                   //     //sharpDevelop.Start();
-                   //     //using (StreamWriter sw = new StreamWriter(sharpDevelop.StandardInput))
-                   //     //{
-                   //     //    if (sw.BaseStream.CanWrite)
-                   //     //    {
-                   //     //        sw.WriteLine(GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath));
-                   //     //    }
-                   //     //}
-                   //}
+                    //     //ProcessStartInfo pinfo = new ProcessStartInfo();
+                    //     //pinfo.FileName = @"C:\Program Files (x86)\SharpDevelop\4.3\bin\SharpDevelop.exe";
+                    //     //pinfo.Arguments = GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath);
+                    //     //sharpDevelop.StartInfo = pinfo;
+                    //     //sharpDevelop.Start();
+                    //     //using (StreamWriter sw = new StreamWriter(sharpDevelop.StandardInput))
+                    //     //{
+                    //     //    if (sw.BaseStream.CanWrite)
+                    //     //    {
+                    //     //        sw.WriteLine(GibboHelper.MakeExclusiveRelativePath(SceneManager.GameProject.ProjectPath, explorerTreeViewItem.FullPath));
+                    //     //    }
+                    //     //}
+                    //}
                     //break;
 
-                   // Process.Start(@"C:\Program Files (x86)\SharpDevelop\4.3\bin\SharpDevelop.exe " + SceneManager.GameProject.ProjectPath + "\\Scripts.sln");
+                    // Process.Start(@"C:\Program Files (x86)\SharpDevelop\4.3\bin\SharpDevelop.exe " + SceneManager.GameProject.ProjectPath + "\\Scripts.sln");
 
+                    #endregion
+
+                    // check if default editor is lime
                     if (Properties.Settings.Default.DefaultScriptEditor.ToLower().Equals("lime"))
                     {
                         LimeScriptEditor.OpenScript(explorerTreeViewItem.FullPath);
                     }
+                    // else, try visual studio
                     else if (EditorUtils.CheckVisualStudioExistance(Properties.Settings.Default.DefaultScriptEditor))
                     {
                         try
@@ -716,12 +708,13 @@ namespace Gibbo.Editor.WPF
 
                             // attempts to find a solution
                             EnvDTE.DTE tmp2DTE;
-                            if (EditorCommands.TryToOpenSolution(out tmp2DTE))
+                            if (EditorCommands.TryToRestoreSolution(out tmp2DTE))
                             {
                                 // assign dte if a solution was found
                                 dte = tmp2DTE as EnvDTE80.DTE2;
                             }
 
+                            /*
                             // if instance exists, try to make it visible
                             if (dte != null)
                             {
@@ -735,7 +728,7 @@ namespace Gibbo.Editor.WPF
                                     // if unable, set instance to null in order to create one.
                                     dte = null;
                                 }
-                            }
+                            }*/
 
                             // if there's no instance, create one
                             if (dte == null)
@@ -798,11 +791,14 @@ namespace Gibbo.Editor.WPF
 
                     // if it's a valid solution file, check if solution is already opened in order to avoid duplicate instances
                     EnvDTE.DTE tmpDTE;
-                    if (validSolution && !EditorCommands.TryToOpenSolution(out tmpDTE))
+                    if (validSolution && !EditorCommands.TryToRestoreSolution(out tmpDTE))
                     {
-                        // assign instance to field
-                        dte = tmpDTE as EnvDTE80.DTE2;
-                        Process.Start(UserPreferences.Instance.ProjectSlnFilePath);
+                        // dte is null, since no visual studion solution instance was found
+                        // start solution process
+                        Process vsProcess = Process.Start(UserPreferences.Instance.ProjectSlnFilePath);
+                        // store its Id
+                        EditorCommands.VisualStudioInstancePID = vsProcess.Id;
+
                     }
                     // if it's not a valid solution, pop a message warning the user
                     else if (!validSolution)

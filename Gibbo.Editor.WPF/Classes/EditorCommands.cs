@@ -411,6 +411,14 @@ namespace Gibbo.Editor.WPF
                     {
                         EnvDTE.DTE vsInstance;
 
+                        // Try to restore the current project visual studio solution instance, returning it if successful
+                        if (TryToRestoreSolution(out vsInstance))
+                        {
+                            // Tries to attach the retrieved instance to the game debug process
+                            debug.Attach(vsInstance);
+                        }
+
+                        /*
                         if (VisualStudioInstancePID != 0 && Extensions.TryToRetrieveVSInstance(VisualStudioInstancePID, out vsInstance))
                         {
                             // restore window, in case the process is only running on background
@@ -432,7 +440,7 @@ namespace Gibbo.Editor.WPF
 
                                 debug.Attach(vsInstance); // Attach visual studio dte
                             }
-                        }
+                        }*/
 
 
                     }
@@ -451,22 +459,70 @@ namespace Gibbo.Editor.WPF
             }
         }
 
-        internal static bool TryToOpenSolution(out EnvDTE.DTE instance)
+        /// <summary>
+        /// Restores the a solution by making it visible
+        /// </summary>
+        /// <param name="instance">the visual studio solution instance</param>
+        /// <returns>Whether the restore happened or not</returns>
+        internal static bool RestoreSolution(EnvDTE.DTE instance)
         {
-            // try to retrieve instance based on solution name
-            EnvDTE.DTE vsInstance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
-            if (vsInstance != null)
+            // if the instance is valid
+            if (instance != null)
             {
                 // restore window, in case the process is only running on background
-                vsInstance.MainWindow.Visible = true;
-                // assign out instance
-                instance = vsInstance;
+                instance.MainWindow.Visible = true;
                 return true;
             }
+            return false;
+        }
+
+        /// <summary>
+        /// Tries to restore a solution, using its PID and then its file path.
+        /// </summary>
+        /// <param name="instance">The visual studio solution instance</param>
+        /// <returns>Whether the restore was successful or not</returns>
+        internal static bool TryToRestoreSolution(out EnvDTE.DTE instance)
+        {
+            // the visual studio instance 
+            EnvDTE.DTE vsInstance;
+
+            // if visual studio instance process Id is valid
+            if (VisualStudioInstancePID != 0)
+            {
+                // if an instance has been found with the provided PID
+                if (Extensions.TryToRetrieveVSInstance(VisualStudioInstancePID, out vsInstance))
+                {
+                    // try to restore the solution
+                    if (RestoreSolution(vsInstance))
+                    {
+                        // assign out instance
+                        instance = vsInstance;
+                        // all done
+                        return true;
+                    }
+                }
+            }
+
+            // if PID attempt failed, try to use solution file path. But first, reset the PID
+            VisualStudioInstancePID = 0;
+            // try to retrieve instance based on solution name
+            vsInstance = Extensions.GetInstance(UserPreferences.Instance.ProjectSlnFilePath);
+
+            // try to restore the solution
+            if (RestoreSolution(vsInstance))
+            {
+                // assign out instance
+                instance = vsInstance;
+                // all done
+                return true;
+            }
+
+            // in case both PID and solution file path attempts failed, set out instance to null
             instance = null;
             return false;
         }
 
+        // Visual Studio Solution Instance Process Id
         internal static int VisualStudioInstancePID { get; set; }
 
         /// <summary>
@@ -553,7 +609,7 @@ namespace Gibbo.Editor.WPF
                     CreateBindCtx(0, out bindCtx);
                     string displayName;
                     moniker[0].GetDisplayName(bindCtx, null, out displayName);
-                    Console.WriteLine("Display Name: {0}", displayName);
+                    //Console.WriteLine("Display Name: {0}", displayName);
                     bool isVisualStudio = displayName.StartsWith("!VisualStudio");
                     if (isVisualStudio)
                     {
