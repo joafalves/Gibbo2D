@@ -11,8 +11,6 @@ Links:
 Gibbo2D - All In One 2D Game Engine
 =======
 
-* NOTICE: We are currently working on a revamped editor, see more at: https://scarlett.anlagehub.com/
-
 * Website: [Click Here](http://gibbo2d.anlagehub.com/)
 * Forum: [Click Here](http://gibbo2d.anlagehub.com/forum/)
 
