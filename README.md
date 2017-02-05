@@ -1,3 +1,13 @@
+IMPORTANT NOTICE
+=======
+
+Altouhgh this project is still available for open source development, the official team is now working with complete focus on the Scarlett Game Studio. 
+
+Links:
+- (Page) https://scarlett.anlagehub.com/
+- (Github) https://github.com/scarlettgamestudio
+
+
 Gibbo2D - All In One 2D Game Engine
 =======
 
