@@ -1,7 +1,7 @@
 IMPORTANT NOTICE
 =======
 
-Altouhgh this project is still available for open source development, the official team is now working with complete focus on the Scarlett Game Studio. 
+Although this project is still available for open source development, the official team is now working with complete focus on the Scarlett Game Studio. 
 
 Links:
 - (Page) https://scarlett.anlagehub.com/
