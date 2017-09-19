@@ -4,7 +4,7 @@ IMPORTANT NOTICE
 Although this project is still available for open source development, the official team is now working with complete focus on the Scarlett Game Studio. 
 
 Links:
-- (Page) https://scarlett.anlagehub.com/
+- (Page) https://scarlett.cothesia.com/
 - (Github) https://github.com/scarlettgamestudio
 
 
