@@ -119,6 +119,13 @@ namespace Gibbo.Library
         #endregion
 
         #region properties
+
+        /// <summary>
+        /// Custom Matrix for drawing (independent from Camera)
+        /// </summary>
+        [Browsable(false)]
+        public Matrix? CustomDrawMatrix { get; set; }
+
         /// <summary>
         /// Determines the animated sprite play mode
         /// </summary>
@@ -372,6 +379,8 @@ namespace Gibbo.Library
         {
             base.Initialize();
 
+            CustomDrawMatrix = null;
+
             if (resetOnStart)
             {
                 currentRow = 0;
@@ -456,7 +465,7 @@ namespace Gibbo.Library
 
                     if (TotalFramesPerRow > 0) // if has at least one frame
                     {
-                        if ((!reverse && CurrentColumn == TotalFramesPerRow - 1) || (reverse && CurrentColumn == 0)) // if last frame
+                        if ((!reverse && CurrentColumn == TotalFramesPerRow - 1) || (reverse && currentColumn == 0)) // if last frame
                         {
                             if (IsAtLastRowFrame != null)
                             {
@@ -568,7 +577,10 @@ namespace Gibbo.Library
 
             if (texture != null && totalFramesPerRow > 0 && totalRows > 0 && Visible) //  && CollisionModel.CollisionBoundry.Intersects(SceneManager.ActiveCamera.BoundingBox)
             {
-                spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                if (CustomDrawMatrix == null)
+                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, null, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                else
+                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, null, null, null, null, (Matrix)CustomDrawMatrix);
 
                 spriteBatch.Draw(texture, Transform.Position, new Rectangle(currentColumn * FrameWidth, currentRow * FrameHeight, FrameWidth, FrameHeight), Color, Transform.Rotation, new Vector2(FrameWidth / 2, FrameHeight / 2), Transform.Scale, spriteEffect, 1);
 

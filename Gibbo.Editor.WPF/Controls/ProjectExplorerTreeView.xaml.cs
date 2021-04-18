@@ -689,6 +689,12 @@ namespace Gibbo.Editor.WPF
                             string editor = Properties.Settings.Default.DefaultScriptEditor;
                             switch (editor)
                             {
+                                case "VisualStudio2019":
+                                    rf = "VisualStudio.DTE.16.0";
+                                    break;
+                                case "VisualStudio2017":
+                                    rf = "VisualStudio.DTE.15.0";
+                                    break;
                                 case "VisualStudio2015":
                                     rf = "VisualStudio.DTE.14.0";
                                     break;

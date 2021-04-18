@@ -227,7 +227,7 @@ namespace Gibbo.Editor.WPF
 
     class GibboGeneralSettingsDynamic : ISettingsChannelA
     {
-        public enum ScriptingEditors { None, Lime, VisualStudio2015, VisualStudio2013, VisualStudio2012, VisualStudio2010 } //CSExpress2010
+        public enum ScriptingEditors { None, Lime, VisualStudio2019, VisualStudio2017, VisualStudio2015, VisualStudio2013, VisualStudio2012, VisualStudio2010 } //CSExpress2010
 
         private bool automaticProjectLoad;
         private bool startOnFullScreen;

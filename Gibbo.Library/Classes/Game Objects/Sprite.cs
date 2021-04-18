@@ -89,6 +89,12 @@ namespace Gibbo.Library
 
         #region properties
 
+        /// <summary>
+        /// Custom Matrix for drawing (independent from Camera)
+        /// </summary>
+        [Browsable(false)]
+        public Matrix? CustomDrawMatrix { get; set; }
+
         ///// <summary>
         ///// Automatically calculates the collision boundries based on the texture size
         ///// </summary>
@@ -219,6 +225,8 @@ namespace Gibbo.Library
         {
             base.Initialize();
 
+            CustomDrawMatrix = null;
+
             if (texture == null && imageName != null && imageName.Trim() != "")
             {
                 LoadTexture();
@@ -309,12 +317,14 @@ namespace Gibbo.Library
                     //Vector2 endPos = Vector2.Transform(new Vector2(SceneManager.GraphicsDevice.Viewport.Width, SceneManager.GraphicsDevice.Viewport.Height), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix));
                     //int sizeWidth = (int)(endPos.X - initialPosition.X);
                     //int sizeHeight = (int)(endPos.Y - initialPosition.Y);
-
-                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearWrap, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
-
+                    if (CustomDrawMatrix == null)
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearWrap, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                    else
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearWrap, null, null, null, (Matrix)CustomDrawMatrix);
                     //spriteBatch.Draw(texture, new Vector2(initialPosition.X, initialPosition.Y), new Rectangle((int)SceneManager.ActiveCamera.Position.X,
                     //    (int)SceneManager.ActiveCamera.Position.Y, sizeWidth, sizeHeight), Color, 0, Vector2.Zero, 1.0f,
                     //    SpriteEffects.None, 1);
+
 
                     float tBorder = Vector2.Transform(new Vector2(0, 0), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix)).Y;
                     float bBorder = Vector2.Transform(new Vector2(0, SceneManager.GraphicsDevice.Viewport.Height), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix)).Y;
@@ -340,9 +350,10 @@ namespace Gibbo.Library
                     //Vector2 endPos = Vector2.Transform(new Vector2(SceneManager.GraphicsDevice.Viewport.Width, SceneManager.GraphicsDevice.Viewport.Height), Matrix.Invert(SceneManager.ActiveCamera.TransformMatrix));
                     //int sizeWidth = (int)(endPos.X - initialPosition.X);
                     //int sizeHeight = (int)(endPos.Y - initialPosition.Y);
-
-                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearWrap, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
-
+                    if (CustomDrawMatrix == null)
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearWrap, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                    else
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearWrap, null, null, null, (Matrix)CustomDrawMatrix);
                     //spriteBatch.Draw(texture, new Vector2(initialPosition.X, initialPosition.Y), new Rectangle((int)Transform.Position.X,
                     //    (int)Transform.Position.Y, sizeWidth, sizeHeight), Color, 0, Vector2.Zero, 1.0f,
                     //    SpriteEffects.None, 1);
@@ -359,8 +370,10 @@ namespace Gibbo.Library
                          (int)SceneManager.GameProject.Settings.ScreenWidth,
                          (int)SceneManager.GameProject.Settings.ScreenHeight);
 
-                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
-
+                    if (CustomDrawMatrix == null)
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, null, null, SceneManager.ActiveCamera.TransformMatrix);
+                    else
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, null, null, (Matrix)CustomDrawMatrix);
                     if (sourceRectangle == Rectangle.Empty)
                         spriteBatch.Draw(texture, fill, null, Color, 0, _orgx, spriteEffect, 0);
                     else
@@ -368,8 +381,11 @@ namespace Gibbo.Library
                 }
                 else
                 {
-                    spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, SceneManager.ActiveCamera.TransformMatrix);
 
+                    if (CustomDrawMatrix == null)
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, SceneManager.ActiveCamera.TransformMatrix);
+                    else
+                        spriteBatch.Begin(SpriteSortMode.Deferred, this.blendState, SamplerState.LinearClamp, null, RasterizerState.CullNone, null, (Matrix)CustomDrawMatrix);
                     //Console.WriteLine("rr: " + Transform.Rotation);
 
                     if (sourceRectangle == Rectangle.Empty)
